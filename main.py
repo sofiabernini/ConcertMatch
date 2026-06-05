@@ -24,8 +24,12 @@ except Exception as e:
     print(f"Ocurrió un error inesperado al cargar la base de datos: {e}")
 
 #Actualiza el DataFrame dejando solo los eventos con entradas disponibles
-df = filtrar_df_bool(df, "quedan entradas")
-#Faltaría controlar el caso de que quede vacío el DataFrame porque todos los eventos estaban agotados.
+# o devuelve None en caso de que quede vacío el DataFrame porque todos los eventos estaban agotados.
+df = filtrar_df_bool(df, "quedan entradas") 
+if df.empty:
+    df = None
+else:
+    continue
 
 #Mensaje de Bienvenida:
 print("\n" + "="*50)
@@ -59,11 +63,20 @@ while True:
     else:
         print("Opción no válida. Escriba 'si' o 'no'.")
     
+    
+    
 # Esta línea de código es para cuanto haya que filtrar el df para que se quede solo con los evento que SÍ tienen asientos.
 df = filtrar_verdaderos(df, "Lugar para sentarse")
         
-        
-#Esto va al final de todo el programa, después de mostrar los resultados/graáficos:
+
+
+# Para mostrar los resultados finales:
+if df == None:
+    print("Lo sentimos, actualmente no se encontraron eventos que coincidan con tus preferencias.")
+else:
+    #mostrar resultados con gráficos e información completa del evento
+
+#Esto va al final de todo el programa, después de mostrar los resultados/gráficos:
 #Pregunta si desea volver a ejecutar el programa:
 while True:
     reintentar = input("¿Deseas realizar una nueva búsqueda? (si/no): ").strip().lower()

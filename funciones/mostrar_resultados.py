@@ -15,7 +15,7 @@ def mostrar_info_resultados(df_mejores):
         print("Lo sentimos, actualmente no se encontraron eventos que coincidan con tus preferencias.)
         return
 
-    print("\n" + "="*50)
+    print("="*50)
     print("⭐ TUS 5 MEJORES RECOMENDACIONES ⭐")
     print("="*50)
     

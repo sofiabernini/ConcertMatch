@@ -37,9 +37,6 @@ def obtener_criterios_filtro(df, categorias_ordenadas):
             criterios_filtro["género"] = pedir_generos(
                 df["Género musical"])
 
-        elif categoria == "artista":
-            criterios_filtro["artista"] = pedir_artistas(
-                df["Nombre del artista/banda"])
 
         elif categoria == "precio":
             criterios_filtro["precio"] = pedir_precio()

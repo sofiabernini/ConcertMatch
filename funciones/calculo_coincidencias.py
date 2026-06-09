@@ -6,3 +6,10 @@ Created on Tue Jun  9 20:27:55 2026
 @author: victoriamochnacs
 """
 
+def calcular_coincidencias():
+    pass
+
+
+def ponderacion_total ():
+    pass
+

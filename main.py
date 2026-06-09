@@ -12,6 +12,7 @@ Created on Mon Jun  1 15:18:34 2026
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
+from funciones.mostrar_resultados import mostrar_info_resultados, grafico_resultado
 
 # Leer el dataset que está dentro de la carpeta 'datos'
 # encoding='utf-8' --> hace que los nombres con acentos o eñes no generen un error de decodificación
@@ -71,10 +72,17 @@ df = filtrar_verdaderos(df, "Lugar para sentarse")
 
 
 # Para mostrar los resultados finales:
-if df == None:
-    print("Lo sentimos, actualmente no se encontraron eventos que coincidan con tus preferencias.")
-else:
-    #mostrar resultados con gráficos e información completa del evento
+#(Editar nombres de variables una vez esté hecho lo anterior)
+# 1. Obtener los 5 mejores
+mejores = obtener_mejores(df_evaluado)
+
+# 2. Mostrar el gráfico
+grafico_resultado(mejores)
+    
+# 3. Imprimir el texto en la consola
+mostrar_info_resultados(mejores)
+    
+    
 
 #Esto va al final de todo el programa, después de mostrar los resultados/gráficos:
 #Pregunta si desea volver a ejecutar el programa:

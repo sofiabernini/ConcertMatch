@@ -16,13 +16,19 @@ from funciones.mostrar_resultados import mostrar_info_resultados, grafico_result
 
 # Leer el dataset que está dentro de la carpeta 'datos'
 # encoding='utf-8' --> hace que los nombres con acentos o eñes no generen un error de decodificación
+ruta_archivo = pd.read_csv('datos/concertmatch_dataset_prueba.csv', encoding='utf-8')
+df = None
+
 try:
-    df = pd.read_csv('datos/concertmatch_dataset_prueba.csv', encoding='utf-8')
+    df = cargar_dataset(ruta_archivo)
 except FileNotFoundError:
-    print("Error: El DataFrame no fue encontrado.")
+    print("Error: El archivo en {ruta_archivo} no fue encontrado.")
     
 except Exception as e:
     print(f"Ocurrió un error inesperado al cargar la base de datos: {e}")
+    
+    
+    
 
 #Actualiza el DataFrame dejando solo los eventos con entradas disponibles
 # o devuelve None en caso de que quede vacío el DataFrame porque todos los eventos estaban agotados.

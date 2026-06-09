@@ -33,7 +33,7 @@ else:
     continue
 
 #Mensaje de Bienvenida:
-print("\n" + "="*50)
+print("="*50)
 print("🎸 BIENVENIDO A CONCERTMATCH V2 🎸")
 print("="*50)
 print("A continuación te haremos una serie de preguntas para determinar tus preferencias y así recomendarte 5 eventos disponibles que coinciden con tus gustos.")

@@ -33,7 +33,7 @@ def obtener_criterios_filtro(df, categorias_ordenadas):
 
     for categoria in categorias_ordenadas:
 
-        if categoria == "género":
+        if categoria == "genero":
             criterios_filtro["género"] = pedir_generos(
                 df["Género musical"])
 
@@ -47,8 +47,8 @@ def obtener_criterios_filtro(df, categorias_ordenadas):
         elif categoria == "horario":
             criterios_filtro["horario"] = pedir_horarios()
 
-        elif categoria == "ubicación":
-            criterios_filtro["ubicación"] = pedir_ubicacion()
+        elif categoria == "ubicacion":
+            criterios_filtro["ubicacion"] = pedir_ubicacion()
 
     return criterios_filtro
 

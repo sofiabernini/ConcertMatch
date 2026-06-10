@@ -7,6 +7,7 @@ Created on Tue Jun  9 20:28:55 2026
 """
 
 # FUNCIÓN PARA MOSTRAR EL GRÁFICO CON LOS PORCENTAJES DE COINCIDENCIA
+import matplotlib.pyplot as plt
 
 def grafico_resultado(df_mejores):
     """

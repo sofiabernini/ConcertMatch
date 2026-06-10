@@ -24,3 +24,60 @@ def filtrar_df_bool(df, columna):
     return df_actualizado
 
 
+## "La función aplicar_filtros() recorre las categorías según el orden elegido por el usuario y delega el filtrado a filtrar_por_condicion(), que selecciona automáticamente el criterio (que funcion de filtrado usar) adecuado según el tipo de dato."
+
+from datetime import datetime
+
+
+def filtrar_por_condicion(df, categoria, condicion):
+    """
+    Descripción: Filtra el DataFrame según la categoría y la condición
+    recibidas.
+
+    Parámetros:
+        df (DataFrame) - dataset a filtrar.
+        categoria (str) - categoría por la cual se desea filtrar.
+        condicion - valor utilizado para realizar el filtro.
+
+    Retorno:
+        DataFrame - dataset filtrado.
+
+    Manejo de errores:
+        - Se asume que las preferencias ya fueron validadas en las
+          funciones que las solicitaron al usuario.
+    """
+
+    ## Categorías que reciben una lista de valores
+    if categoria in [
+        "Género musical",
+        "horario",
+        "ubicación"
+    ]:
+
+        return df[df[categoria].isin(condicion)]
+
+    ## Precio máximo aceptado
+    elif categoria == "precio final":
+
+        return df[df[categoria] <= condicion]
+
+    ## Rango de fechas
+    elif categoria == "fecha":
+
+        fecha_1 = condicion["fecha_1"]
+        fecha_2 = condicion["fecha_2"]
+
+        return df[
+            (df[categoria] >= fecha_1)
+            &
+            (df[categoria] <= fecha_2)
+        ]
+
+    ## Valores booleanos
+    elif categoria in [
+        "Acceso para movilidad reducida",
+        "Cuenta con asientos"
+    ]:
+
+        return df[df[categoria] == condicion]
+

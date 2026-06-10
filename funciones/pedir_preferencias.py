@@ -8,6 +8,7 @@ Created on Tue Jun  9 20:23:30 2026
 
 import pandas as pd
 from geopy.geocoders import Nominatim
+from geopy.distance import geodesic
 
 def ordenar_preferencias (lista_categorias): #FUNCIÓN DE EMI
     pass
@@ -210,9 +211,20 @@ def pedir_fecha():
                 "Fecha inválida. Utilice el formato DD/MM/AA y verifique que la fecha exista."
             )
             
+def pedir_distancia_max(df):
+    while True: 
+         try:
+             distancia_max=float(input("Ingrese la distancia maxima en km que estaría dispuesto a viajar: "))
+         except ValueError: 
+             print("El ingreso debe ser un float. Vuelva a ingresar una distancia máxima")
+         else:
+             if distancia_max<=0: 
+                 print("La distancia debe ser mayor que cero. Vuelva a ingresar una distancia máxima")
+             else:
+                 break
+    return distancia_max
             
-            
-def pedir_ubicacion_distancia_max(df): 
+def pedir_ubicacion_partida(df, ): 
     #FALTA DOCSTRING, YA SE
    while True: 
         direccion_usuario=input("Ingrese su ubicación de partida: ")
@@ -220,22 +232,28 @@ def pedir_ubicacion_distancia_max(df):
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
         else:
             break
-   while True: 
-        try:
-            distancia_max=float(input("Ingrese la distancia maxima en km que estaría dispuesto a viajar: "))
-        except ValueError: 
-            print("El ingreso debe ser un float. Vuelva a ingresar una distancia máxima")
-        else:
-            if distancia_max<=0: 
-                print("La distancia debe ser mayor que cero. Vuelva a ingresar una distancia máxima")
-            else:
-                break
    lista_distancias= calcular_distancias(df["direccion"], distancia_max, direccion_usuario) #se llama a funcion que devuelve lista de distancias
    df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
+   
+   return df
     
 def calcular_distancias(columna_direcciones, distancia_max, direccion_usuario):
     geolocalizador= Nominatim(user_agent= "calculador_distancias")
-    ubicacion_usuario=geolocalizador.geocode()
-
+   
+    ubicacion_usuario=geolocalizador.geocode(direccion_usuario)
+    
+    latitud_usuario=ubicacion_usuario.latitude
+    longitud_usuario=ubicacion_usuario.longitude
+    
+    lista_distancias=[ ]
+    for direccion in columna_direcciones:
+        ubicacion_evento=geolocalizador.geocode(direccion)
+       
+        latitud_evento=ubicacion_evento.latitude
+        longitud_evento=ubicacion_evento.longitude
+       
+        distancia= geodesic((latitud_usuario, longitud_usuario), (latitud_evento, longitud_evento)).kilometers
+        lista_distancias.append(distancia)
+    return lista_distancias
                 
-        
+#las funciones pedir_ubicacion_partida, calcular_distancias y pedir_distancia_max no estan completas. Tenemos que ver cómo se comunican entre sí y con las funciones de filtrado.

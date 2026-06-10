@@ -12,51 +12,43 @@ def ordenar_preferencias (lista_categorias): #FUNCIÓN DE EMI
     pass
 
 
-def obtener_criterios_filtro(df, categorias_ordenadas):
+def pedir_preferencias(df, categorias_ordenadas):
     """
     Descripción: Solicita al usuario sus preferencias siguiendo el
     orden de categorías indicado. Las preferencias seleccionadas se
-    almacenan en un diccionario para ser utilizadas posteriormente
+    guardan en un diccionario para ser utilizadas posteriormente
     durante el filtrado del dataset.
 
-    Parámetros:
-        df (DataFrame) - dataset de conciertos.
-        categorias_ordenadas (list) - lista con las categorías
-        ordenadas por el usuario según su prioridad.
+    Parameters:
+        df (DataFrame): dataframe de conciertos.
+        categorias_ordenadas (list): lista con las categorías ordenadas por el usuario según su prioridad.
 
-    Retorno:
+    Return:
         dict - diccionario cuyas claves son las categorías de filtrado
         y cuyos valores son las preferencias seleccionadas por el usuario.
-
-    Manejo de errores:
-        - Los errores de ingreso de datos son gestionados por las
-          funciones específicas de cada categoría
-          (pedir_generos, pedir_artistas, etc.).
-        - Si una categoría no corresponde a ninguna de las esperadas,
-          se ignora y el programa continúa.
     """
 
-    criterios_filtro = {}
+    dict_preferencias = {}
 
     for categoria in categorias_ordenadas:
 
         if categoria == "genero":
-            criterios_filtro["género"] = pedir_generos(
+            dict_preferencias["genero"] = pedir_generos(
                 df["Género musical"])
 
         elif categoria == "precio":
-            criterios_filtro["precio"] = pedir_precio()
+            dict_preferencias["precio"] = pedir_precio()
 
         elif categoria == "fecha":
-            criterios_filtro["fecha"] = pedir_fechas()
+            dict_preferencias["fecha"] = pedir_fechas()
 
         elif categoria == "horario":
-            criterios_filtro["horario"] = pedir_horarios()
+            dict_preferencias["horario"] = pedir_horarios()
 
         elif categoria == "ubicacion":
-            criterios_filtro["ubicacion"] = pedir_ubicacion()
+            dict_preferencias["ubicacion"] = pedir_ubicacion()
 
-    return criterios_filtro
+    return dict_preferencias
 
 def pedir_generos(columna_generos):
     """

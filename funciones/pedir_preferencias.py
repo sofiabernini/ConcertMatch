@@ -7,6 +7,7 @@ Created on Tue Jun  9 20:23:30 2026
 """
 
 import pandas as pd
+from geopy.geocoders import Nominatim
 
 def ordenar_preferencias (lista_categorias): #FUNCIÓN DE EMI
     pass
@@ -46,7 +47,7 @@ def pedir_preferencias(df, categorias_ordenadas):
             dict_preferencias["horario"] = pedir_horarios()
 
         elif categoria == "ubicacion":
-            dict_preferencias["ubicacion"] = pedir_ubicacion()
+            dict_preferencias["ubicacion"] = pedir_ubicacion(df)
 
     return dict_preferencias
 
@@ -211,14 +212,15 @@ def pedir_fecha():
             
             
             
-def pedir_ubicacion_distancia_max(): 
+def pedir_ubicacion_distancia_max(df): 
+    #FALTA DOCSTRING, YA SE
    while True: 
         direccion_usuario=input("Ingrese su ubicación de partida: ")
         if direccion_usuario.strip()==" ":
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
         else:
             break
-    while True: 
+   while True: 
         try:
             distancia_max=float(input("Ingrese la distancia maxima en km que estaría dispuesto a viajar: "))
         except ValueError: 
@@ -228,8 +230,12 @@ def pedir_ubicacion_distancia_max():
                 print("La distancia debe ser mayor que cero. Vuelva a ingresar una distancia máxima")
             else:
                 break
-    lista_distancias= calcular_distancias(df["direccion"], distancia_max, direccion_usuario) #se llama a funcion que devuelve lista de distancias
-    df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
+   lista_distancias= calcular_distancias(df["direccion"], distancia_max, direccion_usuario) #se llama a funcion que devuelve lista de distancias
+   df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
+    
+def calcular_distancias(columna_direcciones, distancia_max, direccion_usuario):
+    geolocalizador= Nominatim(user_agent= "calculador_distancias")
+    ubicacion_usuario=geolocalizador.geocode()
 
                 
         

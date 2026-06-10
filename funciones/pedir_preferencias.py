@@ -212,15 +212,24 @@ def pedir_fecha():
             
             
 def pedir_ubicacion_distancia_max(): 
-    direccion_usuario=input("Ingrese su ubicación: ")
-    if direccion_usuario.strip()==" ":
-        raise ValueError ("El ingreso de la ubicación no puede estar vacío. Error en función pedir_ubicacion_distancia_max")
+   while True: 
+        direccion_usuario=input("Ingrese su ubicación de partida: ")
+        if direccion_usuario.strip()==" ":
+           print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
+        else:
+            break
     while True: 
         try:
             distancia_max=float(input("Ingrese la distancia maxima en km que estaría dispuesto a viajar: "))
         except ValueError: 
-            print("El ingreso debe ser un float. Error en función pedir_ubicacion_distancia_max")
-        else: 
+            print("El ingreso debe ser un float. Vuelva a ingresar una distancia máxima")
+        else:
             if distancia_max<=0: 
-                print("La distancia debe ser mayor que cero. Error en función pedir_ubicacion_distancia_max")
+                print("La distancia debe ser mayor que cero. Vuelva a ingresar una distancia máxima")
+            else:
+                break
+    lista_distancias= calcular_distancias(df["direccion"], distancia_max, direccion_usuario) #se llama a funcion que devuelve lista de distancias
+    df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
+
+                
         

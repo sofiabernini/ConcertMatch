@@ -5,102 +5,115 @@ Created on Mon Jun  1 15:18:34 2026
 @author: sofia
 """
 
-#PROGRAMA PRINCIPAL:
-    
-#Primero transformamos el DataSet en un DataFrame de Python
-
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
+from funciones.cargar_dataset import carga_dataset, validar_dataframe
 from funciones.resultados import obtener_mejores, mostrar_info_resultados
 from funciones.graficos import grafico_resultado
 
-# Leer el dataset que está dentro de la carpeta 'datos'
-# encoding='utf-8' --> hace que los nombres con acentos o eñes no generen un error de decodificación
-ruta_archivo = pd.read_csv('datos/concertmatch_dataset_prueba.csv', encoding='utf-8')
-df = None
 
-try:
-    df = cargar_dataset(ruta_archivo)
-except FileNotFoundError:
-    print("Error: El archivo en {ruta_archivo} no fue encontrado.")
-    
-except Exception as e:
-    print(f"Ocurrió un error inesperado al cargar la base de datos: {e}")
-    
-    
-    
-
-#Actualiza el DataFrame dejando solo los eventos con entradas disponibles
-# o devuelve None en caso de que quede vacío el DataFrame porque todos los eventos estaban agotados.
-df = filtrar_df_bool(df, "quedan entradas") 
-if df.empty:
-    df = None
-else:
-    continue
-
-#Mensaje de Bienvenida:
-print("="*50)
-print("🎸 BIENVENIDO A CONCERTMATCH V2 🎸")
-print("="*50)
-print("A continuación te haremos una serie de preguntas para determinar tus preferencias y así recomendarte 5 eventos disponibles que coinciden con tus gustos.")
-
-#Pregunta si necesita acceso para personas con movilidad reducida:
-while True:
-    movilidad = input("¿Necesitas acceso para personas con movilidad reducida? (si/no): ").strip().lower()
-    if movilidad == "si":
-        df_requiere_movilidad = filtrar_df_bool(df, "Acceso movilidad reducida")
-        if not df_requiere_movildad.empty:
-            df = df_requiere_movilidad
-            break
+def hacer_pregunta_si_no(mensaje):
+    """
+    Se encarga de hacer una pregunta de si/no al usuario.
+    Maneja los errores internamente y devuelve True (sí) o False (no).
+    """
+    while True:
+        respuesta = input(mensaje).strip().lower()
+        if respuesta == "si":
+            return True
+        elif respuesta == "no":
+            return False
         else:
-            print("Lo sentimos, actualmente no hay eventos disponibles con acceso para movilidad reducida.")
-            while True:
-                continuar = input("¿Deseas continuar buscando eventos sin este filtro? (si/no): ").strip().lower()
-                if continuar == "si":
-                    break 
-                elif continuar == "no":
+            print("Opción no válida. Por favor, escribe 'si' o 'no'.")
+
+
+
+# FUNCIÓN PRINCIPAL
+
+def ejecutar_programa():
+    # 1. Carga inicial del dataset (Se hace UNA sola vez al principio)
+    ruta_archivo = 'datos/concertmatch_dataset_prueba.csv'
+    
+    try: 
+        df_original = carga_dataset(ruta_archivo) 
+        print("Dataset cargado con éxito.")
+        
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        return # Termina el programa porque sin datos no se puede seguir
+        
+    except (ValueError, PermissionError, RuntimeError) as e:
+        print(f"Error al procesar los datos: {e}")
+        return # Termina el programa
+
+    # 2. Bucle principal de búsqueda (Permite hacer múltiples búsquedas sin recargar el archivo)
+    while True:
+        # Usamos una copia del DataFrame para no arruinar el original en cada búsqueda
+        df = df_original.copy()
+        
+        # 3. Mensaje de Bienvenida
+        print("="*50)
+        print("🎸 BIENVENIDO A CONCERTMATCH V2 🎸")
+        print("="*50)
+        print("A continuación te haremos una serie de preguntas para determinar tus preferencias y así recomendarte eventos disponibles que coincidan con tus gustos.")
+
+        # 4. Primer Filtro/Pregunta: Entradas Disponibles
+        df = filtrar_df_bool(df, True, "quedan entradas") 
+        
+        if df.empty:
+            print("Lo sentimos, actualmente todos los eventos están agotados.")
+            break # No hay nada que ofrecer, salimos del programa.
+
+        # 5. Segundo Filtro/Pregunta: Movilidad reducida
+        necesita_movilidad = hacer_pregunta_si_no("¿Necesitas acceso para personas con movilidad reducida? (si/no): ")
+        
+        if necesita_movilidad:
+            df_temporal = filtrar_df_bool(df, True, "Acceso movilidad reducida")
+            
+            if not df_temporal.empty:
+                df = df_temporal # Actualizamos el DataFrame porque hay resultados
+            else:
+                print("Lo sentimos, actualmente no hay eventos disponibles con acceso para movilidad reducida.")
+                continuar = hacer_pregunta_si_no("¿Deseas continuar buscando eventos sin este filtro? (si/no): ")
+                
+                if not continuar:
                     print("¡Gracias por usar ConcertMatch!")
-                    break
-                else:
-                    print("Opción no válida. Escriba 'si' o 'no'.")
-    
-    elif movilidad == "no":
-        break
+                    break # Rompe el bucle principal y termina el programa
+
+        # 6. Tercer Filtro/Pregunta: Lugar para sentarse
+        quiere_asientos = hacer_pregunta_si_no("¿Deseas que el lugar cuente con asientos? (si/no): ")
         
-    else:
-        print("Opción no válida. Escriba 'si' o 'no'.")
-    
-    
-    
-# Esta línea de código es para cuanto haya que filtrar el df para que se quede solo con los evento que SÍ tienen asientos.
-df = filtrar_df_bool(df, "Lugar para sentarse")
+        if quiere_asientos:
+            df_temporal = filtrar_df_bool(df, True, "Lugar para sentarse")
+            if not df_temporal.empty:
+                df = df_temporal
+            else:
+                print("No hay eventos con asientos que cumplan tus filtros anteriores. Continuaremos sin este filtro.")
+
+        # Acá falta el resto de los filtros y el cálculo de coincidencias
+        # df_evaluado = calcular_porcentajes(df, preferencias...)
+
+        # 7. Mostrar resultados finales
+        if not df.empty:
+            # (Cambiar 'df' por 'df_evaluado' una vez que se agregaron los porcentajes de coincidencia)
+            # Reordena filas del dataframe de mayor a menor porcentaje de coincidencia y devuelve los 5 mejores
+            mejores = obtener_mejores(df) 
+            
+            # Son 2 formas de mostrar los resultados (falta una más)
+            grafico_resultado(mejores)
+            mostrar_info_resultados(mejores)
+        else:
+            print("No quedaron eventos disponibles con esos filtros.")
+
+        # 8. Preguntar si desea volver a ejecutar
+        print("\n" + "-" * 50)
+        reintentar = hacer_pregunta_si_no("¿Deseas realizar una nueva búsqueda? (si/no): ")
         
+        if not reintentar:
+            print("¡Gracias por usar ConcertMatch! Esperamos que disfrutes del evento.🎶")
+            break # Rompe el bucle principal y el programa termina de ejecutarse
 
 
-# Para mostrar los resultados finales:
-#(Editar nombres de variables una vez esté hecho lo anterior)
-# 1. Obtener los 5 mejores
-mejores = obtener_mejores(df_evaluado)
-
-# 2. Mostrar el gráfico
-grafico_resultado(mejores)
-    
-# 3. Imprimir el texto en la consola
-mostrar_info_resultados(mejores)
-    
-    
-
-#Esto va al final de todo el programa, después de mostrar los resultados/gráficos:
-#Pregunta si desea volver a ejecutar el programa:
-while True:
-    reintentar = input("¿Deseas realizar una nueva búsqueda? (si/no): ").strip().lower()
-    if reintentar == "si":
-        #¿Llamar a la función "ejecutar_programa"?
-        
-    elif reintentar == "no":
-        print("¡Gracias por usar ConcertMatch! Esperamos que disfrutes del evento. 🎶")
-        break
-    
-    else:
-        print("Opción no válida. Escriba 'si' o 'no'.")
+#PROGRAMA PRINCIPAL
+inicio_fin = ejecutar_programa()

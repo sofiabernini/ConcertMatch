@@ -7,6 +7,11 @@ Created on Tue Jun  9 20:23:30 2026
 """
 
 import pandas as pd
+
+def ordenar_preferencias (lista_categorias): #FUNCIÓN DE EMI
+    pass
+
+
 def obtener_criterios_filtro(df, categorias_ordenadas):
     """
     Descripción: Solicita al usuario sus preferencias siguiendo el
@@ -38,7 +43,6 @@ def obtener_criterios_filtro(df, categorias_ordenadas):
         if categoria == "genero":
             criterios_filtro["género"] = pedir_generos(
                 df["Género musical"])
-
 
         elif categoria == "precio":
             criterios_filtro["precio"] = pedir_precio()
@@ -119,7 +123,22 @@ def pedir_generos(columna_generos):
 
     return generos_seleccionados
 
-##para pedir fecha o rango de fechas
+def pedir_rango_precios ():
+    print("💰 Definición de rango de precio buscado: Ajuste sus preferencias para encontrar un concierto acorde a su presupuesto")
+    while True:
+        try:
+            precio_min = float(input("Ingrese el mínimo de precio que esté dispuesto a pagar por el concierto"))
+            precio_max = float(input("Ingrese el máximo de precio que esté dispuesto a pagar por el concierto"))
+            if precio_min > precio_max:
+                raise ValueError ("El valor del precio máximo es menor al precio mínimo. Ingresar nuevamente")
+        except ValueError as e:
+            print (f"Error: Ingresar correctamente los valores dispuesto a pagar. Debe ser un número y el valor máximo debe ser mayor al mínimo")
+        else: 
+            precios = {"min": precio_min, "max": precio_max}
+            break
+    return precios
+
+##Para pedir fecha o rango de fechas
 from datetime import datetime
 
 def pedir_fecha():

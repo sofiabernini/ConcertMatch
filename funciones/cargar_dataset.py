@@ -9,7 +9,7 @@ Created on Tue Jun  9 19:13:18 2026
 import pandas as pd
 import os
 
-def cargar_dataset(ruta_archivo):
+def carga_dataset(ruta_archivo):
     """
     Toma una ruta de archivo CSV, lo abre y lo convierte a un DataFrame de pandas.
 

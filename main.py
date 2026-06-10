@@ -73,7 +73,7 @@ while True:
     
     
 # Esta línea de código es para cuanto haya que filtrar el df para que se quede solo con los evento que SÍ tienen asientos.
-df = filtrar_verdaderos(df, "Lugar para sentarse")
+df = filtrar_df_bool(df, "Lugar para sentarse")
         
 
 

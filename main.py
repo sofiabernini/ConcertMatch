@@ -12,7 +12,8 @@ Created on Mon Jun  1 15:18:34 2026
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
-from funciones.mostrar_resultados import mostrar_info_resultados, grafico_resultado
+from funciones.resultados import obtener_mejores, mostrar_info_resultados
+from funciones.graficos import grafico_resultado
 
 # Leer el dataset que está dentro de la carpeta 'datos'
 # encoding='utf-8' --> hace que los nombres con acentos o eñes no generen un error de decodificación

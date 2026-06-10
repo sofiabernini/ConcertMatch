@@ -56,11 +56,11 @@ def pedir_generos(columna_generos):
     seleccionar uno o más géneros mediante su ID y devuelve los géneros
     elegidos.
 
-    Parámetros:
-        columna_generos (Series) - columna que contiene los géneros musicales.
+    Parameters:
+        columna_generos (Series): columna que contiene los géneros musicales.
 
-    Retorno:
-        list - lista con los géneros seleccionados por el usuario.
+    Return:
+        lista_generos: lista con los géneros seleccionados por el usuario.
 
     Manejo de errores:
         - Si el usuario ingresa un valor que no puede convertirse a entero,
@@ -74,7 +74,7 @@ def pedir_generos(columna_generos):
     """
 
     generos_sin_repetir = columna_generos.drop_duplicates().reset_index(drop=True)
-
+    
     tabla_generos = pd.DataFrame({
         "ID": range(1, len(generos_sin_repetir) + 1),
         "Genero": generos_sin_repetir})

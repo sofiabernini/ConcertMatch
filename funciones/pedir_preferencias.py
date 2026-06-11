@@ -89,19 +89,23 @@ def pedir_generos(columna_generos): #de donde viene "columna_generos"
     print(tabla_generos)
     #Se muestra la tabla/DataFrame de los géneros sin repetir con al columna de id, entonces cada id se corresponde a cada género.
 
-    id_generos_seleccionados = []
+    generos_seleccionados = []
     #Es la lista en donde se van a guardar los géneros que elige el usuario.
     while True:
-        opcion = input(
-            "\nIngrese el ID de un género que se encuentre en la tabla y le interese "
+        opcion = input("Ingrese el ID de un género que se encuentre en la tabla y le interese "
             "(o escriba 'fin'): ")
+        #Dentro de un ciclo while se le pide al usuario que ingrese un numero o fin. Por lo tanto, se verá que si el usuario ingresa 
+        #un dato erróneo (str que no sea fin, bool, numero negativo, etc) se llega al final del ciclo y automáticamente vuelve a comenzar
+        #volviendo a pedirle que ingrese un género   (numero) o "fin"
 
         if opcion.lower() == "fin":
-
-            if len(id_generos_seleccionados) == 0:
-                print("Debe seleccionar al menos un género.")
+#si el ingreso del usuario en minúscula es igual a fin, entonces:
+            if len(generos_seleccionados) == 0: #se fija si la lista de generos_seleccionados tiene elementos o no: 
+                print("Debe seleccionar al menos un género.")    #si no tiene, se reinicia el ciclo while. 
+              
             else:
                 break
+    #Si sí tiene, entonces se corta el ciclo while (con el break)
         else:
             try:
                 opcion = int(opcion)

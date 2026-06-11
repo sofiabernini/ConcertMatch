@@ -301,3 +301,48 @@ def calcular_distancias(columna_direcciones, distancia_max, direccion_usuario):
     return lista_distancias
                 
 #las funciones pedir_ubicacion_partida, calcular_distancias y pedir_distancia_max no estan completas. Tenemos que ver cómo se comunican entre sí y con las funciones de filtrado.
+
+## hay q ponerle bien el nombre de las funciones a las q llama.
+def pedir_nueva_preferencia(categoria, df_filtrado):
+    """
+    Descripción:
+        Solicita nuevamente una preferencia para la categoría indicada.
+
+    Parámetros:
+        categoria (str) - categoría para la cual se desea pedir una nueva condición.
+        df_filtrado (DataFrame) - dataset actual. Se utiliza en aquellas funciones
+        que necesitan información del dataset para mostrar opciones disponibles.
+
+    Retorno:
+        condición válida para la categoría solicitada.
+
+    Manejo de errores:
+        No realiza validaciones propias. Las validaciones son realizadas
+        por las funciones llamadas internamente.
+    """
+
+    if categoria == "genero":
+
+        return pedir_generos(
+            df_filtrado["Género musical"]
+        )
+
+    elif categoria == "precio":
+
+        return pedir_rango_precios()
+
+    elif categoria == "fecha":
+
+        return pedir_fechas()
+
+    elif categoria == "horario":
+
+        return pedir_franja_horaria()
+
+    elif categoria == "distancia":
+
+        return pedir_distancia_max()
+
+    elif categoria == "asientos":
+
+        return pedir_asientos()

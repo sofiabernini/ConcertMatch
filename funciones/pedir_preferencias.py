@@ -45,7 +45,7 @@ def pedir_preferencias(df, categorias_ordenadas):
             dict_preferencias["fecha"] = pedir_fechas()
 
         elif categoria == "horario":
-            dict_preferencias["horario"] = pedir_horarios()
+            dict_preferencias["horario"] = pedir_franja_horaria()
 
         elif categoria == "ubicacion":
             dict_preferencias["ubicacion"] = pedir_ubicacion(df)
@@ -134,7 +134,8 @@ def pedir_rango_precios ():
         except ValueError as e:
             print (f"Error: {e} o alguno de los valores no es un número. Ingresar de nuevo correctamente.")
         else: 
-            precios = {"min": precio_min, "max": precio_max}
+            precios = {"min": precio_min, 
+                       "max": precio_max}
             break
     return precios
 
@@ -154,10 +155,8 @@ def pedir_fechas():
         dict - diccionario con las fechas seleccionadas.
 
         Formato:
-        {
-            "fecha_1": "DD/MM/AA",
-            "fecha_2": "DD/MM/AA"
-        }
+        {"fecha_1": "DD/MM/AA",
+         "fecha_2": "DD/MM/AA"}
 
     Manejo de errores:
         - Si el formato ingresado no es DD/MM/AA se informa el error.
@@ -173,50 +172,64 @@ def pedir_fechas():
     fecha_actual = datetime.now().date()
 
     while True:
-
+        print ("Ahora, elija la fecha o rango de fechas para realizar la búsqueda de conciertos. Si quiere buscar un concierto en una fecha en específico, ingrese la misma fecha inicial y final")
         try:
 
-            fecha_1_str = input(
-                "Ingrese la fecha inicial (DD/MM/AA): "
-            )
+            dia_fecha_1 = input("Ingrese el día de la fecha inicial: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01)")
+            mes_fecha_1 = input("Ingrese el mes de la fecha inicial. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04)")
+            año_fecha_1 = input ("Ingrese el año de la fecha inicial.")
+            
+            fecha_1 = f"{dia_fecha_1}/{mes_fecha_1}/{año_fecha_1}"
 
-            fecha_1 = datetime.strptime(
-                fecha_1_str,
-                "%d/%m/%y"
-            ).date()
+            fecha_1 = datetime.strptime(fecha_1, "%d/%m/%y").date()
 
             if fecha_1 < fecha_actual:
-                print(
-                    "La fecha inicial no puede ser anterior a hoy."
-                )
+                print("La fecha inicial no puede ser anterior a hoy.")
                 continue
 
-            fecha_2_str = input(
-                "Ingrese la fecha final (DD/MM/AA): "
-            )
+            dia_fecha_2 = input("Ingrese el día de la fecha final: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01)")
+            mes_fecha_2 = input("Ingrese el mes de la fecha final. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04)")
+            año_fecha_2 = input ("Ingrese el año de la fecha final.")
+            
+            fecha_2 = f"{dia_fecha_2}/{mes_fecha_2}/{año_fecha_2}"
 
-            fecha_2 = datetime.strptime(
-                fecha_2_str,
-                "%d/%m/%y"
-            ).date()
+            fecha_2 = datetime.strptime(fecha_1, "%d/%m/%y").date()
 
             if fecha_2 < fecha_1:
-                print(
-                    "La fecha final no puede ser anterior a la fecha inicial."
-                )
-                continue
+                print("La fecha final no puede ser anterior a la fecha inicial.")
+                continue #este continue no se si tiene que estar, o si vuelve automaticamente
 
-            return {
-                "fecha_1": fecha_1_str,
-                "fecha_2": fecha_2_str
-            }
+            return {"fecha_1": fecha_1,
+                "fecha_2": fecha_2}
+        
+            break 
 
         except ValueError:
 
-            print(
-                "Fecha inválida. Utilice el formato DD/MM/AA y verifique que la fecha exista."
-            )
-            
+            print("Fecha inválida. Utilice el formato DD/MM/AA y verifique que la fecha exista.")
+   
+
+def pedir_franja_horaria ():
+    '''
+    Esta función se encarga de pedirle una franja horaria al usuario.
+
+    Returns
+    -------
+    El formato de retorno sería: {"hora_min": hora_min
+                                  "hora_max": hora_max}
+
+    '''
+    
+    print ("En esta sección, ingrese una franja horaria para la que desee buscar un concierto. Aclaración: Esta búsqueda no contempla toda la duración del concierto. Es decir, va a utilizarse para buscar conciertos que comiencen dentro de la franja horaria ingresada, pero no considera si el evento termina después del horario indicado como su máximo" )
+    
+    while True:
+        hora_1 = input ("Ingrese la hora mínima")
+        minutos_1 = input ("Ingrese los minutos de la hora mínima")
+        
+        hora_min = print (f"La hora mínima elegida es: {hora_1}:{minutos_1}")
+
+
+
 def pedir_distancia_max(df):
     while True: 
          try:

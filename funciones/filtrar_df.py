@@ -113,7 +113,7 @@ def filtrar_por_condicion(df, categoria, condicion):
         ]
 
     ## Necesita asientos.
-    elif categoria == "asientos":
+    elif categoria == "cuenta con asientos":
 
         return df[
             df["Cuenta con asientos"] == condicion

@@ -226,7 +226,24 @@ def pedir_franja_horaria ():
         hora_1 = input ("Ingrese la hora mínima")
         minutos_1 = input ("Ingrese los minutos de la hora mínima")
         
-        hora_min = print (f"La hora mínima elegida es: {hora_1}:{minutos_1}")
+        hora_min = f"{hora_1}:{minutos_1}"
+        
+        hora_2 = input ("Ingrese la hora máxima")
+        minutos_2 = input ("Ingrese los minutos máximos")
+        
+        hora_max = f"{hora_2}:{minutos_2}"
+        
+        try:
+            hora_min = pd.to_datetime (hora_min, format = '%H:%M').strftime('%H:%M')
+            hora_max = pd.to_datetime (hora_max, format = '%H:%M').strftime('%H:%M')
+        
+            if hora_max < hora_min:
+                raise ValueError ("La hora mínima no puede ser después de la hora máxima")
+                continue
+            
+            
+        except ValueError as e:
+            print
 
 
 

@@ -80,14 +80,17 @@ def pedir_generos(columna_generos): #de donde viene "columna_generos"
     #.drop _duplicates() es un método que elimina los géneros repetidos de la columna
     #.reset_index(drop=True) reorganiza los índices de la columna sin repetidos
     tabla_generos = pd.DataFrame({
-        "ID": range(1, len(generos_sin_repetir) + 1),
-        "Genero": generos_sin_repetir})
+        "id": range(1, len(generos_sin_repetir) + 1),
+        "genero": generos_sin_repetir})
+    #crea un nuevo DataFrame con una columna ID (que sería el id del género), y con otra columna de los generos sin repetir.
+    
 
-    print("\nGÉNEROS DISPONIBLES")
+    print("Esto son los géneros disponibles.")
     print(tabla_generos)
+    #Se muestra la tabla/DataFrame de los géneros sin repetir con al columna de id, entonces cada id se corresponde a cada género.
 
     id_generos_seleccionados = []
-
+    #Es la lista en donde se van a guardar los géneros que elige el usuario.
     while True:
         opcion = input(
             "\nIngrese el ID de un género que se encuentre en la tabla y le interese "

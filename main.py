@@ -9,6 +9,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 from funciones.cargar_dataset import carga_dataset, validar_dataframe
+from funciones.filtrar_df import filtrar_df_bool
 from funciones.resultados import obtener_mejores, mostrar_info_resultados
 from funciones.graficos import grafico_resultado
 

@@ -271,7 +271,7 @@ def pedir_distancia_max(df):
 def pedir_ubicacion_partida(df, dist_max ): 
     #FALTA DOCSTRING, YA SE
    while True: 
-        direccion_usuario=input("Ingrese su ubicación de partida: ")
+        direccion_usuario=input("Ingrese su dirección de partida: ")
         if direccion_usuario.strip()==" ":
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
         else:

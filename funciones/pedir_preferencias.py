@@ -77,7 +77,8 @@ def pedir_generos(columna_generos): #de donde viene "columna_generos"
     """
 
     generos_sin_repetir = columna_generos.drop_duplicates().reset_index(drop=True)
-    
+    #.drop _duplicates() es un método que elimina los géneros repetidos de la columna
+    #.reset_index(drop=True) reorganiza los índices de la columna sin repetidos
     tabla_generos = pd.DataFrame({
         "ID": range(1, len(generos_sin_repetir) + 1),
         "Genero": generos_sin_repetir})

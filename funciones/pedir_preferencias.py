@@ -343,6 +343,6 @@ def pedir_nueva_preferencia(categoria, df_filtrado):
 
         return pedir_distancia_max()
 
-    elif categoria == "asientos":
+    elif categoria == "cuenta con asientos":
 
         return pedir_asientos()

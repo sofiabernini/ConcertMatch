@@ -18,6 +18,17 @@ def hacer_pregunta_si_no(mensaje):
     """
     Se encarga de hacer una pregunta de si/no al usuario.
     Maneja los errores internamente y devuelve True (sí) o False (no).
+
+    Parameters
+    ----------
+    mensaje : str
+        Pregunta que se reponde con sí o no.
+
+    Returns
+    -------
+    bool
+        Devuelve True si el usuario respondió que sí o False si el usuario respondió que no.
+
     """
     while True:
         respuesta = input(mensaje).strip().lower()
@@ -33,6 +44,15 @@ def hacer_pregunta_si_no(mensaje):
 # FUNCIÓN PRINCIPAL
 
 def ejecutar_programa():
+    """
+    Ejecuta el programa. Termina mostrando los resultados e imprime un mensaje que agradece por utilizar el programa.
+
+    Returns
+    -------
+    None
+        
+
+    """
     # 1. Carga inicial del dataset (Se hace UNA sola vez al principio)
     ruta_archivo = 'datos/concertmatch_dataset_prueba.csv'
     
@@ -108,7 +128,7 @@ def ejecutar_programa():
             print("No quedaron eventos disponibles con esos filtros.")
 
         # 8. Preguntar si desea volver a ejecutar
-        print("\n" + "-" * 50)
+        print("-" * 50)
         reintentar = hacer_pregunta_si_no("¿Deseas realizar una nueva búsqueda? (si/no): ")
         
         if not reintentar:

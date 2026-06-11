@@ -49,7 +49,7 @@ def pedir_preferencias(df, categorias_ordenadas):
 
         elif categoria == "ubicacion":
             dict_preferencias["ubicacion"] = pedir_ubicacion(df)
-
+#falta agregar el llamado a la funcion de asientos disponibles
     return dict_preferencias
 
 #PEDIR GÉNEROS

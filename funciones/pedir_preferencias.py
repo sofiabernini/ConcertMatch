@@ -36,7 +36,7 @@ def pedir_preferencias(df, categorias_ordenadas):
 
         if categoria == "genero":
             dict_preferencias["genero"] = pedir_generos(
-                df["Género musical"])
+                df["Género"])
 
         elif categoria == "precio":
             dict_preferencias["precio"] = pedir_rango_precios()
@@ -47,9 +47,9 @@ def pedir_preferencias(df, categorias_ordenadas):
         elif categoria == "horario":
             dict_preferencias["horario"] = pedir_franja_horaria()
 
-        elif categoria == "ubicacion":
-            dict_preferencias["ubicacion"] = pedir_ubicacion(df)
-
+        elif categoria == "direccion":
+            dict_preferencias["direccion"] = pedir_distancia_max(df)
+#falta agregar el llamado a la funcion de asientos disponibles
     return dict_preferencias
 
 #PEDIR GÉNEROS
@@ -77,27 +77,35 @@ def pedir_generos(columna_generos): #de donde viene "columna_generos"
     """
 
     generos_sin_repetir = columna_generos.drop_duplicates().reset_index(drop=True)
-    
+    #.drop _duplicates() es un método que elimina los géneros repetidos de la columna
+    #.reset_index(drop=True) reorganiza los índices de la columna sin repetidos
     tabla_generos = pd.DataFrame({
-        "ID": range(1, len(generos_sin_repetir) + 1),
-        "Genero": generos_sin_repetir})
+        "id": range(1, len(generos_sin_repetir) + 1),
+        "genero": generos_sin_repetir})
+    #crea un nuevo DataFrame con una columna ID (que sería el id del género), y con otra columna de los generos sin repetir.
+    
 
-    print("\nGÉNEROS DISPONIBLES")
+    print("Esto son los géneros disponibles.")
     print(tabla_generos)
+    #Se muestra la tabla/DataFrame de los géneros sin repetir con al columna de id, entonces cada id se corresponde a cada género.
 
-    id_generos_seleccionados = []
-
+    generos_seleccionados = []
+    #Es la lista en donde se van a guardar los géneros que elige el usuario.
     while True:
-        opcion = input(
-            "\nIngrese el ID de un género que se encuentre en la tabla y le interese "
+        opcion = input("Ingrese el ID de un género que se encuentre en la tabla y le interese "
             "(o escriba 'fin'): ")
+        #Dentro de un ciclo while se le pide al usuario que ingrese un numero o fin. Por lo tanto, se verá que si el usuario ingresa 
+        #un dato erróneo (str que no sea fin, bool, numero negativo, etc) se llega al final del ciclo y automáticamente vuelve a comenzar
+        #volviendo a pedirle que ingrese un género   (numero) o "fin"
 
         if opcion.lower() == "fin":
-
-            if len(id_generos_seleccionados) == 0:
-                print("Debe seleccionar al menos un género.")
+#si el ingreso del usuario en minúscula es igual a fin, entonces:
+            if len(generos_seleccionados) == 0: #se fija si la lista de generos_seleccionados tiene elementos o no: 
+                print("Debe seleccionar al menos un género.")    #si no tiene, se reinicia el ciclo while. 
+              
             else:
                 break
+    #Si sí tiene, entonces se corta el ciclo while (con el break)
         else:
             try:
                 opcion = int(opcion)
@@ -263,7 +271,7 @@ def pedir_distancia_max(df):
 def pedir_ubicacion_partida(df, dist_max ): 
     #FALTA DOCSTRING, YA SE
    while True: 
-        direccion_usuario=input("Ingrese su ubicación de partida: ")
+        direccion_usuario=input("Ingrese su dirección de partida: ")
         if direccion_usuario.strip()==" ":
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
         else:

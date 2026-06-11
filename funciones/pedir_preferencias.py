@@ -39,7 +39,7 @@ def pedir_preferencias(df, categorias_ordenadas):
                 df["Género musical"])
 
         elif categoria == "precio":
-            dict_preferencias["precio"] = pedir_precio()
+            dict_preferencias["precio"] = pedir_rango_precios()
 
         elif categoria == "fecha":
             dict_preferencias["fecha"] = pedir_fechas()
@@ -52,7 +52,8 @@ def pedir_preferencias(df, categorias_ordenadas):
 
     return dict_preferencias
 
-def pedir_generos(columna_generos):
+#PEDIR GÉNEROS
+def pedir_generos(columna_generos): #de donde viene "columna_generos"
     """
     Descripción: Muestra los géneros disponibles, permite al usuario
     seleccionar uno o más géneros mediante su ID y devuelve los géneros
@@ -84,7 +85,7 @@ def pedir_generos(columna_generos):
     print("\nGÉNEROS DISPONIBLES")
     print(tabla_generos)
 
-    generos_seleccionados = []
+    id_generos_seleccionados = []
 
     while True:
         opcion = input(
@@ -93,7 +94,7 @@ def pedir_generos(columna_generos):
 
         if opcion.lower() == "fin":
 
-            if len(generos_seleccionados) == 0:
+            if len(id_generos_seleccionados) == 0:
                 print("Debe seleccionar al menos un género.")
             else:
                 break
@@ -106,14 +107,19 @@ def pedir_generos(columna_generos):
                     genero = tabla_generos.loc[
                         tabla_generos["ID"] == opcion,
                         "Genero"].iloc[0]
-                    if genero in generos_seleccionados:
+                    if genero in id_generos_seleccionados:
                         print("Ese género ya fue seleccionado.")
                     else:
-                        generos_seleccionados.append(genero)
+                        id_generos_seleccionados.append(genero)
                         print(f"Se agregó: {genero}")
 
             except ValueError:
                 print("Debe ingresar un número válido o 'fin'.")
+    
+    generos_seleccionados = []
+    for id in id_generos_seleccionados:
+        genero = tabla_generos.loc[id,"Género"]
+        generos_seleccionados.append(genero)
 
     return generos_seleccionados
 
@@ -126,7 +132,7 @@ def pedir_rango_precios ():
             if precio_min > precio_max:
                 raise ValueError ("El valor del precio máximo es menor al precio mínimo. Ingresar nuevamente")
         except ValueError as e:
-            print (f"Error: Ingresar correctamente los valores dispuesto a pagar. Debe ser un número y el valor máximo debe ser mayor al mínimo")
+            print (f"Error: {e} o alguno de los valores no es un número. Ingresar de nuevo correctamente.")
         else: 
             precios = {"min": precio_min, "max": precio_max}
             break
@@ -135,7 +141,7 @@ def pedir_rango_precios ():
 ##Para pedir fecha o rango de fechas
 from datetime import datetime
 
-def pedir_fecha():
+def pedir_fechas():
     """
     Descripción: Solicita al usuario una fecha específica o un rango de
     fechas. Si desea consultar un único día, debe ingresar la misma fecha
@@ -224,7 +230,7 @@ def pedir_distancia_max(df):
                  break
     return distancia_max
             
-def pedir_ubicacion_partida(df, ): 
+def pedir_ubicacion_partida(df, dist_max ): 
     #FALTA DOCSTRING, YA SE
    while True: 
         direccion_usuario=input("Ingrese su ubicación de partida: ")
@@ -232,7 +238,7 @@ def pedir_ubicacion_partida(df, ):
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
         else:
             break
-   lista_distancias= calcular_distancias(df["direccion"], distancia_max, direccion_usuario) #se llama a funcion que devuelve lista de distancias
+   lista_distancias= calcular_distancias(df["direccion"], dist_max, direccion_usuario) #se llama a funcion que devuelve lista de distancias
    df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
    
    return df

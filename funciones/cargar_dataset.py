@@ -8,6 +8,7 @@ Created on Tue Jun  9 19:13:18 2026
 
 import pandas as pd
 import os
+from funciones.validar_df import validar_df #solo importo la de validar_df porque contiene a validar_columnas() y limpieza_df()
 
 def carga_dataset(ruta_archivo):
     """
@@ -68,8 +69,12 @@ def carga_dataset(ruta_archivo):
     if df.empty:
         raise ValueError(f"El archivo '{ruta_archivo}' se leyó correctamente, pero el dataset no contiene eventos (está vacío).")
     
+    try: 
+        df = validar_df(df)
+    except ValueError as e:
+        raise ValueError (e)
+    
     return df
 
 
-def validar_dataframe (df):
-    pass
+    

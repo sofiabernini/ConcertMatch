@@ -36,19 +36,19 @@ def pedir_preferencias(df, categorias_ordenadas):
 
         if categoria == "genero":
             dict_preferencias["genero"] = pedir_generos(
-                df["Género musical"])
+                df["Género"])
 
         elif categoria == "precio":
-            dict_preferencias["precio"] = pedir_rango_precios()
+            dict_preferencias["Precio"] = pedir_rango_precios()
 
         elif categoria == "fecha":
-            dict_preferencias["fecha"] = pedir_fechas()
+            dict_preferencias["Fecha"] = pedir_fechas()
 
         elif categoria == "horario":
-            dict_preferencias["horario"] = pedir_franja_horaria()
+            dict_preferencias["Horario"] = pedir_franja_horaria()
 
-        elif categoria == "ubicacion":
-            dict_preferencias["ubicacion"] = pedir_ubicacion(df)
+        elif categoria == "direccion":
+            dict_preferencias["Dirección"] = pedir_distancia_max(df)
 #falta agregar el llamado a la funcion de asientos disponibles
     return dict_preferencias
 

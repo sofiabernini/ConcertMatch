@@ -5,7 +5,6 @@ Created on Wed Jun 10 15:36:26 2026
 
 @author: victoriamochnacs
 """
-from datetime import datetime
 import pandas as pd
 from geopy.geocoders import Nominatim
 
@@ -13,8 +12,14 @@ def validar_dataframe (df):
     #validar columnas obligatorias
     #validar tipos de datos
     #validar valores lógicos
-    columnas = validar_columnas (df)
-    df_limpio = limpieza_df (df)
+    try:
+        columnas = validar_columnas (df)
+    except ValueError as e:
+        raise ValueError (e)
+    
+    if columnas:
+        df = limpieza_df (df)
+        return df 
     
 def validar_columnas (df):
     '''

@@ -7,14 +7,14 @@ Created on Wed Jun 10 15:36:26 2026
 """
 from datetime import datetime
 import pandas as pd
-import geopy 
+from geopy.geocoders import Nominatim
 
 def validar_dataframe (df):
     #validar columnas obligatorias
     #validar tipos de datos
     #validar valores lógicos
     columnas = validar_columnas (df)
-    datos = validar_datos(df)
+    df_limpio = limpieza_df (df)
     
 def validar_columnas (df):
     '''
@@ -72,7 +72,6 @@ def limpieza_df(df):
         "Fecha",
         "Horario",
         "Ubicación"
-        "Estadio/Predio"
         "Acceso movilidad reducida"
         "Lugar para sentarse"
         "Quedan entradas"
@@ -135,18 +134,27 @@ def limpieza_df(df):
 
     if df["Link"].isnull().any():
         df["Link"]= df["Link"].fillna("Este evento no tiene un link a la compra de su entrada. Quizás la venta de entradas no se realiza por plataformas de venta de entradas o es un evento gratuito. Recomendamos buscar más información en páginas oficiales del evento, así como en redes sociales")
-    
-    
-    
+      
     
 #Validación de Ubicación
+    geolocator = Nominatim (user_agent = "concertmatch")
     
-    
+    for i in df.index:
+        
+        direccion = df.loc[i, "Ubicación"]
+        
+        try:
+            resultado = geolocator.geocode(direccion)
+        except:
+            resultado = None
 
+    if resultado is None:
+        df.loc[i, "Ubicación"] = pd.NA
 
 #eliminar datos tipo Nan
-    df = df.dropna(columnas_criticas)
+    df_limpio = df.dropna(columnas_criticas)
 
+    return df_limpio
 
 
 

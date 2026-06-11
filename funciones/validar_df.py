@@ -5,6 +5,9 @@ Created on Wed Jun 10 15:36:26 2026
 
 @author: victoriamochnacs
 """
+from datetime import datetime
+import pandas as pd
+import geopy 
 
 def validar_dataframe (df):
     #validar columnas obligatorias
@@ -50,13 +53,106 @@ def validar_columnas (df):
             faltantes.append(columna)
     
     if faltantes: 
-        raise ValueError (f"Faltan las columnas: {faltantes}")
+        raise ValueError (f"Faltan columnas esenciales: {faltantes}. Función: validar_columnas en validar_df.py")
         
     return True
 
 #Validar tipos de datos
-def validar_datos (df):
-    if        
+def limpieza_df(df):
+#validar que el df no esté vacío
+
+    if df.empty:
+        raise ValueError ("Error: El Dataframe está vacío. Función: validar_datos en validar_df.py")
+        
+        
+    columnas_criticas = [
+        "Artista/Banda",
+        "Género musical",
+        "Precio final",
+        "Fecha",
+        "Horario",
+        "Ubicación"
+        "Estadio/Predio"
+        "Acceso movilidad reducida"
+        "Lugar para sentarse"
+        "Quedan entradas"
+        "Lanzamiento venta"
+    ]
+    
+#validar cada tipo de dato
+
+#artista y género no hace falta validarlos, solo que no sean vacíos
+
+#precio final:         
+    df["Precio final"] = pd.to_numeric(
+       df["Precio final"],
+       errors = "coerce")
+
+    df.loc[df["Precio final"]< 0,
+           "Precio final"] = pd.NA
+     
+        
+#Validación de fechas
+#Columna "fecha":
+    df["Fecha"] = pd.to_datetime(
+        df["Fecha"], 
+        errors = "coerce"
+        )
+    
+#Columna "Lanzamiento venta"
+    df["Lanzamiento venta"] = pd.to_datetime(
+        df["Lanzamiento venta"],
+        errors = "coerce"
+        )
+
+#Validación de horarios
+    df["Horario"] = pd.to_datetime(
+        df["Horario"], 
+        format="%H:%M",
+        errors="coerce")
+
+#Validación booleanos (Acceso movilidad reducida, Lugar para sentarse, Quedan entradas)
+
+    valores_validos = {True, False}
+    
+    df.loc[
+        ~df["Quedan entradas"].isin(valores_validos),
+        "Quedan entradas"] = pd.NA
+    
+    df.loc[
+        ~df["Acceso movilidad reducida"].isin(valores_validos),
+        "Acceso movilidad reducida"] = pd.NA
+    
+    df.loc[
+        ~df["Lugar para sentarse"].isin(valores_validos),
+        "Lugar para sentarse"] = pd.NA
+    
+#Link ticketera. En este caso, no validé. 
+#Sino que, simplemente, los valores NaN van a mostrarse 
+#como un mensaje "curado" para el usuario. El link no es una 
+#información tan crucial. Capaz no hay un link de venta de entradas como tal
+#(como en el caso de un festival de la ciudad)
+
+    if df["Link"].isnull().any():
+        df["Link"]= df["Link"].fillna("Este evento no tiene un link a la compra de su entrada. Quizás la venta de entradas no se realiza por plataformas de venta de entradas o es un evento gratuito. Recomendamos buscar más información en páginas oficiales del evento, así como en redes sociales")
+    
+    
+    
+    
+#Validación de Ubicación
+    
+    
+
+
+#eliminar datos tipo Nan
+    df = df.dropna(columnas_criticas)
+
+
+
+
+
+
+
 
 
 

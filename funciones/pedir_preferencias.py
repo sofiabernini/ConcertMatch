@@ -265,7 +265,7 @@ def pedir_distancia_max(df):
                  break
     return distancia_max
             
-def pedir_ubicacion_partida(df, dist_max ): 
+def pedir_ubicacion_partida(df): 
     #FALTA DOCSTRING, YA SE
    while True: 
         direccion_usuario=input("Ingrese su dirección de partida: ")

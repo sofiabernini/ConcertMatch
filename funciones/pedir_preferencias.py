@@ -42,7 +42,7 @@ def ordenar_preferencias(lista_numeros):
         categorias_ordenadas.append(valor)
     
     return categorias_ordenadas # devulevo algo de este estilo ["direccion", "horario"," fecha", "cuenta con asientos","genero", "precio"], 
-    pass
+
 
 
 def pedir_preferencias(df, categorias_ordenadas):

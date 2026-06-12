@@ -8,7 +8,7 @@ Created on Wed Jun 10 15:36:26 2026
 import pandas as pd
 from geopy.geocoders import Nominatim
 
-def validar_dataframe (df):
+def validar_df (df):
     #validar columnas obligatorias
     #validar tipos de datos
     #validar valores lógicos
@@ -138,7 +138,7 @@ def limpieza_df(df):
 #(como en el caso de un festival de la ciudad)
 
     if df["Link"].isnull().any():
-        df["Link"]= df["Link"].fillna("Este evento no tiene un link a la compra de su entrada. Quizás la venta de entradas no se realiza por plataformas de venta de entradas o es un evento gratuito. Recomendamos buscar más información en páginas oficiales del evento, así como en redes sociales")
+        df["Link"]= df["Link"].fillna("Este evento no tiene un link a la compra de entradas. Recomendamos buscar más información en páginas oficiales del evento, así como en redes sociales")
       
     
 #Validación de Ubicación
@@ -156,7 +156,7 @@ def limpieza_df(df):
     if resultado is None:
         df.loc[i, "Ubicación"] = pd.NA
 
-#eliminar datos tipo Nan
+#eliminar datos tipo Nan con dropna()
     df_limpio = df.dropna(columnas_criticas)
 
     return df_limpio

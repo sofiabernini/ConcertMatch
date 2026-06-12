@@ -269,23 +269,24 @@ def pedir_ubicacion_partida(df, dist_max ):
     #FALTA DOCSTRING, YA SE
    while True: 
         direccion_usuario=input("Ingrese su dirección de partida: ")
-        if direccion_usuario.strip()==" ":
+        if direccion_usuario.strip()=="":
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
-        else:
-            break
-   lista_distancias= calcular_distancias(df["direccion"], dist_max, direccion_usuario) #se llama a funcion que devuelve lista de distancias
+        else: 
+            geolocalizador= Nominatim(user_agent= "concertmatch")
+            ubicacion_usuario=geolocalizador.geocode(direccion_usuario)
+            if ubicacion_usuario ==None: 
+                print("La dirección no existe")
+            else: 
+                latitud_usuario=ubicacion_usuario.latitude
+                longitud_usuario=ubicacion_usuario.longitude
+                break
+   lista_distancias= calcular_distancias(df["direccion"], dist_max, latitud_usuario, longitud_usuario) #se llama a funcion que devuelve lista de distancias
    df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
    
    return df
     
-def calcular_distancias(columna_direcciones, distancia_max, direccion_usuario):
-    geolocalizador= Nominatim(user_agent= "calculador_distancias")
-   
-    ubicacion_usuario=geolocalizador.geocode(direccion_usuario)
-    
-    latitud_usuario=ubicacion_usuario.latitude
-    longitud_usuario=ubicacion_usuario.longitude
-    
+def calcular_distancias(columna_direcciones, latitud_usuario, longitud_usuario):
+    geolocalizador= Nominatim(user_agent= "concertmatch")
     lista_distancias=[ ]
     for direccion in columna_direcciones:
         ubicacion_evento=geolocalizador.geocode(direccion)

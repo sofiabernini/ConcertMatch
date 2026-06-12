@@ -12,14 +12,10 @@ def validar_df (df):
     #validar columnas obligatorias
     #validar tipos de datos
     #validar valores lógicos
-    try:
-        columnas = validar_columnas (df)
-    except ValueError as e:
-        raise ValueError (e)
     
-    if columnas:
-        df = limpieza_df (df)
-        return df 
+    validar_columnas(df)
+    df_limpio = limpieza_df
+    return df_limpio 
     
 def validar_columnas (df):
     '''
@@ -42,12 +38,12 @@ def validar_columnas (df):
         "Precio final",
         "Fecha",
         "Horario",
-        "Ubicación"
-        "Estadio/Predio"
-        "Acceso movilidad reducida"
-        "Lugar para sentarse"
-        "Link ticketera"
-        "Quedan entradas"
+        "Ubicación",
+        "Estadio/Predio",
+        "Acceso movilidad reducida",
+        "Lugar para sentarse",
+        "Link ticketera",
+        "Quedan entradas",
         "Lanzamiento venta"
     ]
     
@@ -113,7 +109,7 @@ def limpieza_df(df):
     df["Horario"] = pd.to_datetime(
         df["Horario"], 
         format="%H:%M",
-        errors="coerce")
+        errors="coerce").dt.time
 
 #Validación booleanos (Acceso movilidad reducida, Lugar para sentarse, Quedan entradas)
 
@@ -150,14 +146,14 @@ def limpieza_df(df):
         
         try:
             resultado = geolocator.geocode(direccion)
-        except:
+        except Exception:
             resultado = None
 
-    if resultado is None:
-        df.loc[i, "Ubicación"] = pd.NA
+        if resultado is None:
+            df.loc[i, "Ubicación"] = pd.NA
 
 #eliminar datos tipo Nan con dropna()
-    df_limpio = df.dropna(columnas_criticas)
+    df_limpio = df.dropna(subset = columnas_criticas)
 
     return df_limpio
 

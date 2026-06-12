@@ -8,7 +8,7 @@ Created on Tue Jun  9 19:13:18 2026
 
 import pandas as pd
 import os
-from funciones.validar_df import validar_df #solo importo la de validar_df porque contiene a validar_columnas() y limpieza_df()
+from src.validar_df import validar_df #solo importo la de validar_df porque contiene a validar_columnas() y limpieza_df()
 
 def carga_dataset(ruta_archivo):
     """

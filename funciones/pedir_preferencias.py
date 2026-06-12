@@ -115,19 +115,14 @@ def pedir_generos(columna_generos): #de donde viene "columna_generos"
                     genero = tabla_generos.loc[
                         tabla_generos["ID"] == opcion,
                         "Genero"].iloc[0]
-                    if genero in id_generos_seleccionados:
+                    if genero in generos_seleccionados:
                         print("Ese género ya fue seleccionado.")
                     else:
-                        id_generos_seleccionados.append(genero)
+                        generos_seleccionados.append(genero)
                         print(f"Se agregó: {genero}")
 
             except ValueError:
                 print("Debe ingresar un número válido o 'fin'.")
-    
-    generos_seleccionados = []
-    for id in id_generos_seleccionados:
-        genero = tabla_generos.loc[id,"Género"]
-        generos_seleccionados.append(genero)
 
     return generos_seleccionados
 

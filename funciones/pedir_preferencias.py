@@ -10,7 +10,38 @@ import pandas as pd
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 
-def ordenar_preferencias (lista_categorias): #FUNCIÓN DE EMI
+
+def ordenar_preferencias(lista_numeros):
+    """
+    Recibe una lista de numeros ingresada por el usuario ya validada. Se encarga de asociar los numeros con la preferncia correspondiente. Devuelve una lista de preferencias en el mismo orden que indicó el usuario.
+
+    Parameters
+    ----------
+    lista_numeros : list
+        lista de numeros validada ingresada por el usuario
+
+    Returns
+    -------
+    categorias_ordenadas : list
+        lista de preferencias segun el orden de prioridad elegido por el usuario
+
+    """
+    
+    preferencias = {
+        "1": "Género",
+        "2": "Precio",
+        "3": "Fecha",
+        "4": "Horario",
+        "5": "Dirección",
+        "6": "Cuenta con asientos"
+    }
+    
+    categorias_ordenadas = []
+    for numero in lista_numeros:
+        valor = preferencias[numero]
+        categorias_ordenadas.append(valor)
+    
+    return categorias_ordenadas # devulevo algo de este estilo ["direccion", "horario"," fecha", "cuenta con asientos","genero", "precio"], 
     pass
 
 

@@ -42,7 +42,7 @@ def ordenar_preferencias(lista_numeros):
         categorias_ordenadas.append(valor)
     
     return categorias_ordenadas # devulevo algo de este estilo ["direccion", "horario"," fecha", "cuenta con asientos","genero", "precio"], 
-
+    pass
 
 
 def pedir_preferencias(df, categorias_ordenadas):
@@ -78,11 +78,10 @@ def pedir_preferencias(df, categorias_ordenadas):
         elif categoria == "horario":
             dict_preferencias["horario"] = pedir_franja_horaria()
 
-        elif categoria == "Ubicación":
-            dict_preferencias["distancia_max"] = pedir_distancia_max()
-            
+        elif categoria == "direccion":
+            dict_preferencias["direccion"] = pedir_distancia_max(df)
 #falta agregar el llamado a la funcion de asientos disponibles
-    return dict_preferencias, df
+    return dict_preferencias
 
 #PEDIR GÉNEROS
 def pedir_generos(columna_generos): #de donde viene "columna_generos"

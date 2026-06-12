@@ -108,8 +108,35 @@ def ponderacion_total (df_filtrado, preferencias): #hay que conectarlo desde mai
     
     # acá df ya tiene las columnas coincidencia_genero, coincidencia_precio, etc.
     # y podés seguir trabajando con ellas    
+
+    categorias_en_orden = list(preferencias.keys())
+    # por ejemplo: ["genero", "precio", "fecha", "horario", "ubicacion", "asientos"]
     
+    
+    if len(categorias_en_orden) == 0:
+        raise ValueError ("No se puede hacer el cálculo de ponderación final")
+        
+    pesos = [0.35, 0.25, 0.15, 0.10, 0.10, 0.05]
 
+    porcentajes = [] #se crea la lista para crear después una columna con el porcentaje de coincidencias
 
+    #df.interrows() itera sobre todas las filas del df filtrado. suma las coincidencias de cada fila
+    for i, fila in df.iterrows():
+        total = (fila["coincidencia_" + categorias_en_orden[0]] * pesos[0] +
+                 fila["coincidencia_" + categorias_en_orden[1]] * pesos[1] +
+                 fila["coincidencia_" + categorias_en_orden[2]] * pesos[2] +
+                 fila["coincidencia_" + categorias_en_orden[3]] * pesos[3] +
+                 fila["coincidencia_" + categorias_en_orden[4]] * pesos[4] +
+                 fila["coincidencia_" + categorias_en_orden[5]] * pesos[5])
+        
+        #transforma a porcentaje
+        porcentajes.append(round(total * 100, 2))
+    
+    #crea una columna con el nombre "porcentaje_coincidencia" y con los datos de la lista "porcentajes"
+    df["porcentaje_coincidencia"] = porcentajes
+
+    #retorna el df con la columna incorporada
+    return df   
+    
 
 

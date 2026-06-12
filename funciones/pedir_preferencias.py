@@ -42,7 +42,7 @@ def pedir_preferencias(df, categorias_ordenadas):
             dict_preferencias["precio"] = pedir_rango_precios()
 
         elif categoria == "fecha":
-            dict_preferencias["fecha"] = pedir_fechas()
+            dict_preferencias["fecha/s"] = pedir_fechas()
 
         elif categoria == "horario":
             dict_preferencias["horario"] = pedir_franja_horaria()
@@ -246,9 +246,11 @@ def pedir_franja_horaria ():
             
             
         except ValueError as e:
-            print
-
-
+            print ("Ingrese el valor nuevamente hasta que sea válido")
+        
+        else:
+            break
+            return {"hora_min": hora_min, "hora_max": hora_max}
 
 def pedir_distancia_max(df):
     while True: 

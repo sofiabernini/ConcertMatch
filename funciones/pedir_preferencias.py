@@ -274,13 +274,13 @@ def pedir_ubicacion_partida(df, dist_max ):
         else: 
             geolocalizador= Nominatim(user_agent= "concertmatch")
             ubicacion_usuario=geolocalizador.geocode(direccion_usuario)
-            if ubicacion_usuario ==None: 
+            if ubicacion_usuario is None: 
                 print("La dirección no existe")
             else: 
                 latitud_usuario=ubicacion_usuario.latitude
                 longitud_usuario=ubicacion_usuario.longitude
                 break
-   lista_distancias= calcular_distancias(df["direccion"], dist_max, latitud_usuario, longitud_usuario) #se llama a funcion que devuelve lista de distancias
+   lista_distancias= calcular_distancias(df["direccion"], latitud_usuario, longitud_usuario) #se llama a funcion que devuelve lista de distancias
    df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
    
    return df

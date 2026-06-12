@@ -10,7 +10,6 @@ Created on Tue Jun  9 20:27:55 2026
 #contiene la funcion
 #   -calcular_coincidencias
 #   -ponderacion_total
-from funciones.pedir_preferencias import pedir_preferencias #no sé si lo voy a usar todavía
  
 #el df todavía no sé de qué función lo saco así que lo dejo como "df" solo.  
 # lo mismo con las preferencias. Lo tengo que llamar desde la función de pedir_preferencias

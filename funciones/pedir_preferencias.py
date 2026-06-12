@@ -78,10 +78,11 @@ def pedir_preferencias(df, categorias_ordenadas):
         elif categoria == "horario":
             dict_preferencias["horario"] = pedir_franja_horaria()
 
-        elif categoria == "direccion":
-            dict_preferencias["direccion"] = pedir_distancia_max(df)
+        elif categoria == "Ubicación":
+            dict_preferencias["distancia_max"] = pedir_distancia_max()
+            
 #falta agregar el llamado a la funcion de asientos disponibles
-    return dict_preferencias
+    return dict_preferencias, df
 
 #PEDIR GÉNEROS
 def pedir_generos(columna_generos): #de donde viene "columna_generos"

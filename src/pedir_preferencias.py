@@ -67,14 +67,14 @@ def pedir_preferencias(df, categorias_ordenadas):
     Descripción: Solicita al usuario sus preferencias siguiendo el
     orden de categorías indicado. Las preferencias seleccionadas se
     guardan en un diccionario para ser utilizadas posteriormente
-    durante el filtrado del dataset.
+    durante el filtrado del dataframe.
 
     Parameters:
-        df (DataFrame): dataframe de conciertos.
+        df (DataFrame): dataframe de conciertos/eventos.
         categorias_ordenadas (list): lista con las categorías ordenadas por el usuario según su prioridad.
 
     Return:
-        dict - diccionario cuyas claves son las categorías de filtrado
+        dict: diccionario cuyas claves son las categorías de filtrado
         y cuyos valores son las preferencias seleccionadas por el usuario.
     """
 
@@ -82,21 +82,23 @@ def pedir_preferencias(df, categorias_ordenadas):
 
     for categoria in categorias_ordenadas:
 
-        if categoria == "genero":
+        if categoria == "Género Musical":
             dict_preferencias["genero"] = pedir_generos(
-                df["Género"])
+                df["Género Musical"])
 
-        elif categoria == "precio":
+        elif categoria == "Precio final":
             dict_preferencias["precio"] = pedir_rango_precios()
 
-        elif categoria == "fecha":
+        elif categoria == "Fecha":
             dict_preferencias["fecha/s"] = pedir_fechas()
 
-        elif categoria == "horario":
+        elif categoria == "Horario":
             dict_preferencias["horario"] = pedir_franja_horaria()
 
-        elif categoria == "direccion":
+        elif categoria == "Ubicación":
             dict_preferencias["direccion"] = pedir_distancia_max(df)
+            df=pedir_ubicacion_partida(df)
+        elif categoria== "Lugar para sentarse"
 #falta agregar el llamado a la funcion de asientos disponibles
     return dict_preferencias
 
@@ -128,7 +130,7 @@ def pedir_generos(columna_generos): #de donde viene "columna_generos"
     #.drop _duplicates() es un método que elimina los géneros repetidos de la columna
     #.reset_index(drop=True) reorganiza los índices de la columna sin repetidos
     tabla_generos = pd.DataFrame({
-        "id": range(1, len(generos_sin_repetir) + 1),
+        "ID": range(1, len(generos_sin_repetir) + 1),
         "genero": generos_sin_repetir})
     #crea un nuevo DataFrame con una columna ID (que sería el id del género), y con otra columna de los generos sin repetir.
     
@@ -154,25 +156,30 @@ def pedir_generos(columna_generos): #de donde viene "columna_generos"
             else:
                 break
     #Si sí tiene, entonces se corta el ciclo while (con el break)
-        else:
+        else: #si la opción no es fin:
             try:
                 opcion = int(opcion)
                 if opcion < 1 or opcion > len(tabla_generos):
                     print("El ID ingresado no existe.")
+                #si es un número menor a 1 o mayor a la cantidad de géneros disponibles, entonces le dice que la opción no existe. Vuelve a comenzar el ciclo while. 
                 else:
                     genero = tabla_generos.loc[
                         tabla_generos["ID"] == opcion,
                         "Genero"].iloc[0]
+                #si el número sí existe como id, entonces busca el género correspondiente en la tabla.
                     if genero in generos_seleccionados:
                         print("Ese género ya fue seleccionado.")
+                        #si ese género ya esta en la lista, le avisa al usuario y NO lo agrega. Vuelve a comenzar el ciclo while
                     else:
                         generos_seleccionados.append(genero)
                         print(f"Se agregó: {genero}")
+                        #Si el género NO está en la lista, entonces lo agrega y vuelve a comenzar el ciclo while.
 
             except ValueError:
                 print("Debe ingresar un número válido o 'fin'.")
+                #si lo que ingresó no es un dato que se puede convertir a int, entonces se capta el error y vuelve a comenzar el ciclo while. 
 
-    return generos_seleccionados
+    return generos_seleccionados #retorna la lista de géneros seleccionados
 
 def pedir_rango_precios ():
     print("💰 Definición de rango de precio buscado: Ajuste sus preferencias para encontrar un concierto acorde a su presupuesto")

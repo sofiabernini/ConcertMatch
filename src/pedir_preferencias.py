@@ -11,15 +11,10 @@ from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 
 
-def ordenar_preferencias(lista_numeros):
+def ordenar_preferencias():
     """
-    Recibe una lista de numeros ingresada por el usuario ya validada. Se encarga de asociar los numeros con la preferncia correspondiente. Devuelve una lista de preferencias en el mismo orden que indicó el usuario.
-
-    Parameters
-    ----------
-    lista_numeros : list
-        lista de numeros validada ingresada por el usuario
-
+    Solicita al usuario que ordene sus preferencias de mayor a menor. Cada categoria corresponde a un numero diferente, el usuario deberá ingresar numeros  entre el 1 al 6 separados por coma. El ingreso del usuario se agrega a una lista. Se validara el ingreso del usuario, que el usuario ingrese un numero, que el numero ingresado este entre 1 y 6, que ingrese si o si 6 numero y que no ingrese numeros repetidos. Una vez validado, se traducen los numeros a sus categorias correcpondientes y devuelve una lista con las categorias ordenadas.
+    
     Returns
     -------
     categorias_ordenadas : list
@@ -35,6 +30,28 @@ def ordenar_preferencias(lista_numeros):
         "5": "Dirección",
         "6": "Cuenta con asientos"
     }
+    while True:
+          solicitar_orden= input("Ordená tus preferencias de mayor a menor importancia: 1) Género  2) Precio  3)   Fecha  4) Horario  5) Dirección  6) Cuenta con asientos. Ingresá los números separados por coma: ") # aosicé un numero a cada preferencia para que el usuario ingrese algo de este estilo : 5,4,3,6,1,2. En este caso eso seria equivalente a direccion, horario, fecha, cuenta con asientos,genero, precio. 
+
+          lista_numeros=solicitar_orden.split(",") # con .split estos numeros pasan de verse asi 5,4,3,6,1,2 a estar separados en una lista, asi: ["5","4","3","6","1","2"]
+          error= False
+          for numero in lista_numeros:
+              if not numero.isdigit (): # valida  que los valores  ingresados sean numeros 
+                 print("Error: El  valor ingresado debe ser un numero ")
+                 error=True
+              elif numero not in ["1","2","3","4","5","6"]: # valida que que no hayan numeros distintos a 1 2 3 4 5 6 
+                 print("Error: El numero ingresado debe estar entre 1 y 6")
+                 error=True
+          if error: # si el error es verdadero, vuelve a pedir las preferencias
+             continue
+         
+          if len(lista_numeros)!= 6: # valido que el usuario haya ingresado si o si 6 numeros
+             print("Error: se deben ingresar 6 preferencias")
+             continue  # si no, vuelve a pedirle que ordene las preferencias
+          if len(set(lista_numeros)) != 6: # el set lo que hace es extraer la cantidad de numeros que no estan repetidos, si el usuario ingreso 5,5,6,3,2,1. la lista quedaria de 5 elementos, es decir distinto de 6. 
+             print("Error: No pueden haber numeros repetidos")
+             continue # si la lista queda de distinto tamaño por tener numero repetidos, vuelve a pedirle las preferencias
+          break 
     
     categorias_ordenadas = []
     for numero in lista_numeros:

@@ -12,7 +12,8 @@ from src.validar_df import validar_df #solo importo la de validar_df porque cont
 
 def carga_dataset(ruta_archivo):
     """
-    Toma una ruta de archivo CSV, lo abre y lo convierte a un DataFrame de pandas.
+    Descripción:
+    Recibe una ruta de archivo CSV, lo abre y lo convierte a un DataFrame de pandas.
 
     Realiza validaciones para asegurar que el archivo existe, se puede leer
     y contiene datos.
@@ -24,8 +25,7 @@ def carga_dataset(ruta_archivo):
 
     Retorna:
     --------
-    pd.DataFrame
-        El DataFrame con los datos cargados del archivo.
+    df_validado = El DataFrame con los datos ya validados.
 
     Excepciones (Raises):
     -------------------
@@ -38,6 +38,7 @@ def carga_dataset(ruta_archivo):
         Si el programa no tiene permisos del sistema operativo para abrir el archivo.
     RuntimeError:
         Si ocurre cualquier otro error inesperado durante la lectura.
+        
     """
     
     # 1. Verificar si la ruta o el archivo realmente existen
@@ -69,12 +70,10 @@ def carga_dataset(ruta_archivo):
     if df.empty:
         raise ValueError(f"El archivo '{ruta_archivo}' se leyó correctamente, pero el dataset no contiene eventos (está vacío).")
     
-    try: 
-        df = validar_df(df)
-    except ValueError as e:
-        raise ValueError (e)
     
-    return df
+    df_validado = validar_df(df)
+    
+    return df_validado
 
 
     

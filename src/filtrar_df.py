@@ -9,7 +9,7 @@ from src.pedir_preferencias.py import pedir_nueva_preferencia
 
 def filtrar_df_bool(df, columna):
     """
-    Analiza el DataFrame y elimina las filas que tengan el valor False 
+    Descripción: Analiza el DataFrame y elimina las filas que tengan el valor False 
     en la columna especificada por parámetro.
     
     Parámetros:
@@ -17,7 +17,7 @@ def filtrar_df_bool(df, columna):
     - columna (str): El nombre exacto de la columna a verificar.
     
     Retorna:
-    - DataFrame: El dataset actualizado solo con las filas que son True.
+    - df_actualizado: El DataFrame actualizado solo con las filas que son True para la condición booleana pedida.
     """
     # Conservamos solo las filas donde el valor de la columna sea True
     df_actualizado = df[df[columna] == True]

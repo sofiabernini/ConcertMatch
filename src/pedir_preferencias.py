@@ -11,6 +11,32 @@ from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 
 
+def hacer_pregunta_si_no(mensaje):
+    """
+    Se encarga de hacer una pregunta de si/no al usuario.
+    Maneja los errores internamente y devuelve True (sí) o False (no).
+
+    Parameters
+    ----------
+    mensaje : str
+        Pregunta que se reponde con sí o no.
+
+    Returns
+    -------
+    bool
+        Devuelve True si el usuario respondió que sí o False si el usuario respondió que no.
+
+    """
+    while True:
+        respuesta = input(mensaje).strip().lower()
+        if respuesta == "si":
+            return True
+        elif respuesta == "no":
+            return False
+        else:
+            print("Opción no válida. Por favor, escribe 'si' o 'no'.")
+            
+
 def ordenar_preferencias():
     """
     Solicita al usuario que ordene sus preferencias de mayor a menor. Cada categoria corresponde a un numero diferente, el usuario deberá ingresar numeros  entre el 1 al 6 separados por coma. El ingreso del usuario se agrega a una lista. Se validara el ingreso del usuario, que el usuario ingrese un numero, que el numero ingresado este entre 1 y 6, que ingrese si o si 6 numero y que no ingrese numeros repetidos. Una vez validado, se traducen los numeros a sus categorias correcpondientes y devuelve una lista con las categorias ordenadas.
@@ -98,8 +124,9 @@ def pedir_preferencias(df, categorias_ordenadas):
         elif categoria == "Ubicación":
             dict_preferencias["direccion"] = pedir_distancia_max(df)
             df=pedir_ubicacion_partida(df)
-        elif categoria== "Lugar para sentarse"
-#falta agregar el llamado a la funcion de asientos disponibles
+        elif categoria== "Lugar para sentarse":
+            dict_preferencias["lugar para sentarse"] = pedir_lugar_para_sentarse()
+            
     return dict_preferencias
 
 #PEDIR GÉNEROS
@@ -141,6 +168,8 @@ def pedir_generos(columna_generos): #de donde viene "columna_generos"
 
     generos_seleccionados = []
     #Es la lista en donde se van a guardar los géneros que elige el usuario.
+    print ("🎙️ Elección de géneros musicales para la búsqueda. A continuación, se le presentará una lista con géneros asociados a un número (ID)." 
+           "Usted va a ingresar los IDs de los géneros que desee seleccionar")
     while True:
         opcion = input("Ingrese el ID de un género que se encuentre en la tabla y le interese "
             "(o escriba 'fin'): ")
@@ -228,14 +257,14 @@ def pedir_fechas():
     """
 
     fecha_actual = datetime.now().date()
-
+    print("📆 Definición de la fecha o rango de fechas de búsqueda, en formato DD/MM/AAAA. Se le va a pedir que complete día, mes y año que desee consultar." 
+          "Si quiere buscar un concierto en una fecha en específico, ingrese la misma fecha inicial y final")
     while True:
-        print ("Ahora, elija la fecha o rango de fechas para realizar la búsqueda de conciertos. Si quiere buscar un concierto en una fecha en específico, ingrese la misma fecha inicial y final")
         try:
 
-            dia_fecha_1 = input("Ingrese el día de la fecha inicial: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01)")
-            mes_fecha_1 = input("Ingrese el mes de la fecha inicial. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04)")
-            año_fecha_1 = input ("Ingrese el año de la fecha inicial.")
+            dia_fecha_1 = input("Ingrese el día (DD) de la fecha inicial: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01)")
+            mes_fecha_1 = input("Ingrese el mes (MM) de la fecha inicial. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04)")
+            año_fecha_1 = input ("Ingrese el año (AAAA) de la fecha inicial.")
             
             fecha_1 = f"{dia_fecha_1}/{mes_fecha_1}/{año_fecha_1}"
 
@@ -245,9 +274,9 @@ def pedir_fechas():
                 print("La fecha inicial no puede ser anterior a hoy.")
                 continue
 
-            dia_fecha_2 = input("Ingrese el día de la fecha final: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01)")
-            mes_fecha_2 = input("Ingrese el mes de la fecha final. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04)")
-            año_fecha_2 = input ("Ingrese el año de la fecha final.")
+            dia_fecha_2 = input("Ingrese el día (DD) de la fecha final: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01)")
+            mes_fecha_2 = input("Ingrese el mes (MM) de la fecha final. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04)")
+            año_fecha_2 = input ("Ingrese el año (AAAA) de la fecha final.")
             
             fecha_2 = f"{dia_fecha_2}/{mes_fecha_2}/{año_fecha_2}"
 
@@ -278,20 +307,23 @@ def pedir_franja_horaria ():
 
     '''
     
-    print ("En esta sección, ingrese una franja horaria para la que desee buscar un concierto. Aclaración: Esta búsqueda no contempla toda la duración del concierto. Es decir, va a utilizarse para buscar conciertos que comiencen dentro de la franja horaria ingresada, pero no considera si el evento termina después del horario indicado como su máximo" )
+    print ("🕐 Definición de franja horaria deseada (en formato 24hs). Primero, se le va a pedir la hora, y luego, los minutos." 
+           "Aclaración: Esta búsqueda no contempla toda la duración del concierto. Es decir, va a utilizarse para buscar conciertos que comiencen dentro de la franja horaria ingresada, pero no considera si el evento termina después del horario indicado como su máximo" )
     
     while True:
-        hora_1 = input ("Ingrese la hora mínima")
-        minutos_1 = input ("Ingrese los minutos de la hora mínima")
-        
-        hora_min = f"{hora_1}:{minutos_1}"
-        
-        hora_2 = input ("Ingrese la hora máxima")
-        minutos_2 = input ("Ingrese los minutos máximos")
-        
-        hora_max = f"{hora_2}:{minutos_2}"
         
         try:
+            hora_1 = input ("Ingrese la hora mínima.")
+            minutos_1 = input ("Ingrese los minutos de la hora mínima")
+            
+            hora_min = f"{hora_1}:{minutos_1}"
+            
+            hora_2 = input ("Ingrese la hora máxima")
+            minutos_2 = input ("Ingrese los minutos máximos")
+            
+            hora_max = f"{hora_2}:{minutos_2}"
+        
+        
             hora_min = pd.to_datetime (hora_min, format = '%H:%M').strftime('%H:%M')
             hora_max = pd.to_datetime (hora_max, format = '%H:%M').strftime('%H:%M')
         
@@ -308,6 +340,8 @@ def pedir_franja_horaria ():
             return {"hora_min": hora_min, "hora_max": hora_max}
 
 def pedir_distancia_max(df):
+    print ("🗺️ Definición de distancia máxima que esté dispuesto a recorrer.")
+    
     while True: 
          try:
              distancia_max=float(input("Ingrese la distancia maxima en km que estaría dispuesto a viajar: "))
@@ -322,6 +356,9 @@ def pedir_distancia_max(df):
             
 def pedir_ubicacion_partida(df): 
     #FALTA DOCSTRING, YA SE
+    
+   print ("📍 Obtención de la dirección de partida: Va a ingresar la dirección desde donde desee hacer la búsqueda"
+          "Este dato será utilizado para calcular las distancias con los eventos y determinar si están dentro del rango solicitado")
    while True: 
         direccion_usuario=input("Ingrese su dirección de partida: ")
         if direccion_usuario.strip()=="":
@@ -354,6 +391,20 @@ def calcular_distancias(columna_direcciones, latitud_usuario, longitud_usuario):
     return lista_distancias
                 
 #las funciones pedir_ubicacion_partida, calcular_distancias y pedir_distancia_max no estan completas. Tenemos que ver cómo se comunican entre sí y con las funciones de filtrado.
+
+def pedir_lugar_para_sentarse():
+    '''
+    Descripción: Solicita una preferencia con respuesta si/no para la categoría "Lugar para sentarse"
+
+    Returns
+    -------
+    quiere_asientos : bool (True = "Si", False = "No").
+
+    '''
+    print ("🪑 Disponibilidad de asientos")
+    
+    quiere_asientos = hacer_pregunta_si_no("¿Le resulta crucial en su elección que el evento tenga lugar para sentarse ? (si/no): ")
+    return quiere_asientos
 
 ## hay q ponerle bien el nombre de las funciones a las q llama.
 def pedir_nueva_preferencia(categoria, df_filtrado):
@@ -396,6 +447,6 @@ def pedir_nueva_preferencia(categoria, df_filtrado):
 
         return pedir_distancia_max()
 
-    elif categoria == "cuenta con asientos":
+    elif categoria == "lugar para sentarse":
 
-        return pedir_asientos()
+        return pedir_lugar_para_sentarse()

@@ -37,7 +37,7 @@ def filtrar_rango(df, columna, minimo, maximo):
         maximo - valor máximo permitido.
 
     Retorno:
-        DataFrame - dataset filtrado.
+        DataFrame filtrado.
 
     Manejo de errores:
         No realiza validaciones porque los datos ya fueron

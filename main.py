@@ -12,33 +12,7 @@ from src.cargar_dataset import carga_dataset, validar_dataframe
 from src.filtrar_df import filtrar_df_bool
 from src.resultados import obtener_mejores, mostrar_info_resultados
 from src.graficos import grafico_resultado
-from src.pedir_preferencias import ordenar_preferencias
-
-
-def hacer_pregunta_si_no(mensaje):
-    """
-    Se encarga de hacer una pregunta de si/no al usuario.
-    Maneja los errores internamente y devuelve True (sí) o False (no).
-
-    Parameters
-    ----------
-    mensaje : str
-        Pregunta que se reponde con sí o no.
-
-    Returns
-    -------
-    bool
-        Devuelve True si el usuario respondió que sí o False si el usuario respondió que no.
-
-    """
-    while True:
-        respuesta = input(mensaje).strip().lower()
-        if respuesta == "si":
-            return True
-        elif respuesta == "no":
-            return False
-        else:
-            print("Opción no válida. Por favor, escribe 'si' o 'no'.")
+from src.pedir_preferencias import ordenar_preferencias, hacer_pregunta_si_no
 
 
 

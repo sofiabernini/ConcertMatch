@@ -13,7 +13,7 @@ from geopy.distance import geodesic
 
 def hacer_pregunta_si_no(mensaje):
     """
-    Se encarga de hacer una pregunta de si/no al usuario.
+    Descripción: Se encarga de hacer una pregunta de si/no al usuario.
     Maneja los errores internamente y devuelve True (sí) o False (no).
 
     Parameters
@@ -39,7 +39,14 @@ def hacer_pregunta_si_no(mensaje):
 
 def ordenar_preferencias():
     """
-    Solicita al usuario que ordene sus preferencias de mayor a menor. Cada categoria corresponde a un numero diferente, el usuario deberá ingresar numeros  entre el 1 al 6 separados por coma. El ingreso del usuario se agrega a una lista. Se validara el ingreso del usuario, que el usuario ingrese un numero, que el numero ingresado este entre 1 y 6, que ingrese si o si 6 numero y que no ingrese numeros repetidos. Una vez validado, se traducen los numeros a sus categorias correcpondientes y devuelve una lista con las categorias ordenadas.
+    Descripción: Solicita al usuario que ordene sus preferencias de mayor a menor. 
+    Cada categoria corresponde a un numero diferente, el usuario deberá ingresar numeros entre el 1 al 6 separados por coma.
+    El ingreso del usuario se agrega a una lista. 
+    Validaciones: 
+        -Que el usuario ingrese un numero, 
+        -Que el numero ingresado este entre 1 y 6, 
+        -Que ingrese si o si 6 números y que no ingrese numeros repetidos. 
+    Una vez validado, se traducen los numeros a sus categorias correcpondientes y devuelve una lista con las categorias ordenadas.
     
     Returns
     -------
@@ -47,9 +54,10 @@ def ordenar_preferencias():
         lista de preferencias segun el orden de prioridad elegido por el usuario
 
     """
+    print ("🗒️ En esta sección, deberá ordenar las categorías que se presenten según sus preferencias. El orden deberá ser de mayor a menor nivel de importancia, y ese orden se aplicará a su búsqueda y al nivel de coincidencias")
     
-    preferencias = {
-        "1": "Género Musical",
+    categorias = {
+        "1": "Género musical",
         "2": "Precio final",
         "3": "Fecha",
         "4": "Horario",
@@ -57,12 +65,16 @@ def ordenar_preferencias():
         "6": "Lugar para sentarse"
     }
     while True:
-          solicitar_orden= input("Ordená tus preferencias de mayor a menor importancia: 1) Género  2) Precio  3)   Fecha  4) Horario  5) Dirección  6) Cuenta con asientos. Ingresá los números separados por coma: ") # aosicé un numero a cada preferencia para que el usuario ingrese algo de este estilo : 5,4,3,6,1,2. En este caso eso seria equivalente a direccion, horario, fecha, cuenta con asientos,genero, precio. 
+          solicitar_orden= input(f"Ordená tus preferencias de mayor a menor importancia: 
+                                 f"{categorias} 
+                                 "Ingresá los números separados por coma: ")
+              
+          # asoicié un numero a cada preferencia para que el usuario ingrese algo de este estilo : 5,4,3,6,1,2. En este caso eso seria equivalente a direccion, horario, fecha, cuenta con asientos,genero, precio. 
 
           lista_numeros=solicitar_orden.split(",") # con .split estos numeros pasan de verse asi 5,4,3,6,1,2 a estar separados en una lista, asi: ["5","4","3","6","1","2"]
           error= False
           for numero in lista_numeros:
-              if not numero.isdigit (): # valida  que los valores  ingresados sean numeros 
+              if not numero.isdigit (): # valida que los valores ingresados sean numeros 
                  print("Error: El  valor ingresado debe ser un numero ")
                  error=True
               elif numero not in ["1","2","3","4","5","6"]: # valida que que no hayan numeros distintos a 1 2 3 4 5 6 
@@ -84,8 +96,7 @@ def ordenar_preferencias():
         valor = preferencias[numero]
         categorias_ordenadas.append(valor)
     
-    return categorias_ordenadas # devulevo algo de este estilo ["direccion", "horario"," fecha", "cuenta con asientos","genero", "precio"], 
-    pass
+    return categorias_ordenadas # devulevo algo de este estilo ["direccion", "horario"," fecha", "cuenta con asientos","genero", "precio"]
 
 
 def pedir_preferencias(df, categorias_ordenadas):
@@ -100,7 +111,7 @@ def pedir_preferencias(df, categorias_ordenadas):
         categorias_ordenadas (list): lista con las categorías ordenadas por el usuario según su prioridad.
 
     Return:
-        dict: diccionario cuyas claves son las categorías de filtrado
+        dict_preferencias: diccionario cuyas claves son las categorías de filtrado
         y cuyos valores son las preferencias seleccionadas por el usuario.
     """
 
@@ -110,7 +121,7 @@ def pedir_preferencias(df, categorias_ordenadas):
 
         if categoria == "Género Musical":
             dict_preferencias["genero"] = pedir_generos(
-                df["Género Musical"])
+                df["Género musical"])
 
         elif categoria == "Precio final":
             dict_preferencias["precio"] = pedir_rango_precios()
@@ -123,14 +134,15 @@ def pedir_preferencias(df, categorias_ordenadas):
 
         elif categoria == "Ubicación":
             dict_preferencias["direccion"] = pedir_distancia_max(df)
-            df=pedir_ubicacion_partida(df)
+            df = pedir_ubicacion_partida(df)
+            
         elif categoria== "Lugar para sentarse":
             dict_preferencias["lugar para sentarse"] = pedir_lugar_para_sentarse()
             
     return dict_preferencias
 
 #PEDIR GÉNEROS
-def pedir_generos(columna_generos): #de donde viene "columna_generos"
+def pedir_generos(columna_generos): 
     """
     Descripción: Muestra los géneros disponibles, permite al usuario
     seleccionar uno o más géneros mediante su ID y devuelve los géneros
@@ -172,7 +184,7 @@ def pedir_generos(columna_generos): #de donde viene "columna_generos"
            "Usted va a ingresar los IDs de los géneros que desee seleccionar")
     while True:
         opcion = input("Ingrese el ID de un género que se encuentre en la tabla y le interese "
-            "(o escriba 'fin'): ")
+            "(o escriba 'fin' para terminar el proceso de ingreso de datos): ")
         #Dentro de un ciclo while se le pide al usuario que ingrese un numero o fin. Por lo tanto, se verá que si el usuario ingresa 
         #un dato erróneo (str que no sea fin, bool, numero negativo, etc) se llega al final del ciclo y automáticamente vuelve a comenzar
         #volviendo a pedirle que ingrese un género   (numero) o "fin"
@@ -210,21 +222,31 @@ def pedir_generos(columna_generos): #de donde viene "columna_generos"
 
     return generos_seleccionados #retorna la lista de géneros seleccionados
 
-def pedir_rango_precios ():
-    print("💰 Definición de rango de precio buscado: Ajuste sus preferencias para encontrar un concierto acorde a su presupuesto")
+def pedir_rango_precios():
+    print("💰 Definición del rango de precios buscado.")
+    
     while True:
         try:
-            precio_min = float(input("Ingrese el mínimo de precio que esté dispuesto a pagar por el concierto"))
-            precio_max = float(input("Ingrese el máximo de precio que esté dispuesto a pagar por el concierto"))
-            if precio_min > precio_max:
-                raise ValueError ("El valor del precio máximo es menor al precio mínimo. Ingresar nuevamente")
-        except ValueError as e:
-            print (f"Error: {e} o alguno de los valores no es un número. Ingresar de nuevo correctamente.")
-        else: 
-            precios = {"min": precio_min, 
-                       "max": precio_max}
-            break
-    return precios
+            precio_min = float(input("Ingrese el precio mínimo: "))
+        except ValueError:
+            print("Error: ingrese un número válido.")
+            continue
+
+        while True:
+            try:
+                precio_max = float(input("Ingrese el precio máximo: "))
+            except ValueError:
+                print("Error: ingrese un número válido.")
+                continue
+
+            if precio_max < precio_min:
+                print("El precio máximo no puede ser menor al mínimo.")
+                continue
+
+            break  # precio_max válido
+        break      # precio_min válido y precio_max válido
+
+    return {"min": precio_min, "max": precio_max}
 
 ##Para pedir fecha o rango de fechas
 from datetime import datetime
@@ -304,6 +326,7 @@ def pedir_franja_horaria ():
     -------
     El formato de retorno sería: {"hora_min": hora_min
                                   "hora_max": hora_max}
+    Raises: No hay. Los errores se manejan internamente
 
     '''
     
@@ -340,6 +363,7 @@ def pedir_franja_horaria ():
             return {"hora_min": hora_min, "hora_max": hora_max}
 
 def pedir_distancia_max(df):
+   
     print ("🗺️ Definición de distancia máxima que esté dispuesto a recorrer.")
     
     while True: 
@@ -418,7 +442,7 @@ def pedir_nueva_preferencia(categoria, df_filtrado):
         que necesitan información del dataset para mostrar opciones disponibles.
 
     Retorno:
-        condición válida para la categoría solicitada.
+        Condición válida para la categoría solicitada.
 
     Manejo de errores:
         No realiza validaciones propias. Las validaciones son realizadas

@@ -23,12 +23,12 @@ def ordenar_preferencias():
     """
     
     preferencias = {
-        "1": "Género",
-        "2": "Precio",
+        "1": "Género Musical",
+        "2": "Precio final",
         "3": "Fecha",
         "4": "Horario",
-        "5": "Dirección",
-        "6": "Cuenta con asientos"
+        "5": "Ubicación",
+        "6": "Lugar para sentarse"
     }
     while True:
           solicitar_orden= input("Ordená tus preferencias de mayor a menor importancia: 1) Género  2) Precio  3)   Fecha  4) Horario  5) Dirección  6) Cuenta con asientos. Ingresá los números separados por coma: ") # aosicé un numero a cada preferencia para que el usuario ingrese algo de este estilo : 5,4,3,6,1,2. En este caso eso seria equivalente a direccion, horario, fecha, cuenta con asientos,genero, precio. 

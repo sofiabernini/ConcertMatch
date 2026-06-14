@@ -10,7 +10,7 @@ from geopy.geocoders import Nominatim
 
 def validar_df (df):
     '''
-    Es una función que llama a otras funciones, para validar 
+    Descipción: Es una función que llama a otras funciones, para validar 
     las columnas y los tipo de datos del dataframe.
 
     Parameters
@@ -33,12 +33,11 @@ def validar_df (df):
     
 def validar_columnas (df):
     '''
-    descripción: es una función que valida que el dataframe tenga las columnas necesarias para ejecutar el programa
+    Descripción: Esta función valida que el dataframe tenga las columnas necesarias para ejecutar el programa
 
     Parameters
     ----------
-    df : TYPE
-        DESCRIPTION.
+    df : Dataframe de pandas.
 
     Returns
     -------
@@ -79,16 +78,16 @@ def validar_columnas (df):
 #Validar tipos de datos: llama a todas las funciones anteriores
 def limpieza_df(df):
     '''
-    Es una función que coordina otras funciones de limpieza de los tipos de datos del dataframe. 
+    Descripción: Es una función que coordina otras funciones de limpieza de los tipos de datos del dataframe. 
     Elimina del df todas las filas con datos tipo NaN (si es que esos datos están en alguna de las columnas_críticas) 
 
     Parameters
     ----------
-    df : Dataframe.
+    df : DataFrame.
 
     Returns
     -------
-    df_limpio: es el dataframe luego de pasar por la limpieza de datos.
+    df_limpio: Dataframe (luego de pasar por la limpieza de datos).
     
     Raises
     -------
@@ -134,17 +133,17 @@ def limpieza_df(df):
 
 def limpiar_precios (df):
     '''
-    Esta función convierte los valores de la columna de "Precio final" del dataframe
+    Descripción: Esta función convierte los valores de la columna de "Precio final" del dataframe
     a Nan si no se pueden convertir a número o si es un valor menor a 0
     
 
     Parameters
     ----------
-    df : dataframe.
+    df : DataFrame.
 
     Returns
     -------
-    df : dataframe (con la conversión de los datos).
+    df : DataFrame (con la conversión de los datos).
 
     '''
     df["Precio final"] = pd.to_numeric (df["Precio final"], errors = "coerce")
@@ -153,16 +152,16 @@ def limpiar_precios (df):
 
 def limpiar_fechas (df):
     '''
-    Esta función convierte los valores de las columnas de "Fecha" y "Lanzamiento venta" a
+    Descripción: Esta función convierte los valores de las columnas de "Fecha" y "Lanzamiento venta" a
     formato fecha, y si no puede realizar la conversion, trasforma ese dato a Nan
 
     Parameters
     ----------
-    df : dataframe.
+    df : DataFrame.
 
     Returns
     -------
-    df : dataframe (con la conversión de datos).
+    df : DataFrame (con la conversión de datos).
 
     '''
     df["Fecha"] = pd.to_datetime (df["Fecha"], errors = "coerce")
@@ -171,16 +170,16 @@ def limpiar_fechas (df):
     
 def limpiar_horario (df):
     '''
-    Esta función convierte los valores de la columna de "Horario" al formato correspondiente. 
+    Descripción: Esta función convierte los valores de la columna de "Horario" al formato correspondiente. 
     Si no puede realizar la conversión, se transforma el dato a Nan
 
     Parameters
     ----------
-    df : dataframe.
+    df : DataFrame.
 
     Returns
     -------
-    df : dataframe (con la conversión de datos).
+    df : DataFrame (con la conversión de datos).
 
     Raises: No hay (solo convierte a Nan)
     '''
@@ -190,17 +189,17 @@ def limpiar_horario (df):
 
 def limpiar_booleanos (df):
     '''
-    Esta función revisa que las columnas de "Quedan Entradas", 
+    Descripción: Esta función revisa que las columnas de "Quedan entradas", 
     "Acceso movilidad reducida" y "Lugar para sentarse" cuenten con datos booleanos True o False. 
     Si alguno de los datos no cumple esta condicion se lo transforma a Nan
     
     Parameters
     ----------
-    df : dataframe.
+    df : DataFrame.
     
     Returns
     -------
-    df : dataframe (con la conversión de datos).
+    df : DataFrame (con la conversión de datos).
    
     Raises: No hay (solo convierte a Nan)
 
@@ -225,15 +224,16 @@ def limpiar_booleanos (df):
 
 def manejar_links_vacios(df):
     '''
-    Esta función genera un mensaje específico para las celdas en las columnas de "Link ticketera" que tengan 
+    Descripción: Esta función genera un mensaje específico para las celdas en las columnas de 
+    "Link ticketera" que tengan un valor Nan 
 
     Parameters
     ----------
-    df : dataframe.
+    df : DataFrame.
 
     Returns
     -------
-    df : dataframe (con la conversión de datos).
+    df : DataFrame (con la conversión de datos).
 
     '''
     
@@ -246,16 +246,16 @@ def manejar_links_vacios(df):
     
 def limpiar_ubicacion (df):
     '''
-    Esta función valida que las direcciones de la columna "Ubicación" existan, 
+    Descripción: Esta función valida que las direcciones de la columna "Ubicación" existan, 
     utilizando métodos de la librería "Geopy"
 
     Parameters
     ----------
-    df : dataframe.
+    df : DataFrame.
 
     Returns
     -------
-    df : dataframe (con la conversión de los datos).
+    df : DataFrame (con la conversión de los datos).
 
     '''
     

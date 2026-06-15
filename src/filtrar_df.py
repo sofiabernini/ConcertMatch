@@ -124,27 +124,27 @@ def aplicar_filtros(df_filtrado,
                     dic_preferencias,
                     categorias_ordenadas):
     """
-    Descripción:
-        Aplica los filtros seleccionados por el usuario siguiendo
-        el orden de importancia indicado en categorias_ordenadas.
+     Aplica los filtros seleccionados por el usuario siguiendo
+     el orden de importancia indicado en categorias_ordenadas.
 
-        Si una condición elimina todos los conciertos disponibles,
-        se solicita una nueva preferencia para esa categoría hasta
-        obtener al menos un resultado.
+    Si una condición elimina todos los conciertos disponibles,
+    se solicita una nueva preferencia para esa categoría hasta
+    obtener al menos un resultado o se continua si el usuario lo desea. 
 
-    Parámetros:
-        df_filtrado (DataFrame) - dataset sobre el cual se aplican
+    Parameters:
+        df_filtrado (DataFrame): dataset sobre el cual se aplican
         los filtros.
 
-        dic_preferencias (dict) - preferencias seleccionadas por
+        dic_preferencias (dict): preferencias seleccionadas por
         el usuario.
 
-        categorias_ordenadas (list) - categorías ordenadas según
+        categorias_ordenadas (list): categorías ordenadas según
         importancia.
 
     Retorno:
-        DataFrame - dataset resultante luego de aplicar todos los
+        DataFrame: dataset resultante luego de aplicar todos los
         filtros.
+        categorias_sin_coincidencia (dict): diccionario con las categorias que no tiene coincidencias
 
     Manejo de errores:
         - Si una condición elimina todos los conciertos
@@ -155,7 +155,7 @@ def aplicar_filtros(df_filtrado,
 
     ## Se recorren las categorías desde la más importante
     ## hasta la menos importante.
-
+    categorias_sin_coincidencia=[]
     for categoria in categorias_ordenadas:
 
         while True:
@@ -181,28 +181,29 @@ def aplicar_filtros(df_filtrado,
 
             ## Si el filtro elimina todos los conciertos,
             ## se pide una condición más amplia.
-            print(
-                f"\nLa condición elegida para '{categoria}' "
-                "elimina todos los conciertos disponibles."
-            )
-
-            print(
-                "Por favor ingrese una preferencia más amplia."
-            )
-
-            ## Esta función deberá llamar internamente
-            ## a la función correspondiente según la categoría.
-            nueva_condicion = pedir_nueva_preferencia(
+            print(f"La condición elegida para '{categoria}' elimina todos los conciertos disponibles.")
+            decision=input(f"Si desea modificar su preferencia elija 1. Si desea continuar sin coincidencias de {categoria} ingrese 2")
+            while decision not in ["1", "2"]:
+                print("Opción inválida. Debe elegir 1 o 2")
+                decision=input(f"Si desea modificar su preferencia elija 1. Si desea continuar sin coincidencias de {categoria} ingrese 2")
+            if decision == "1":
+                print("Por favor ingrese una preferencia más amplia.")
+                ## Esta función deberá llamar internamente
+                ## a la función correspondiente según la categoría.
+                nueva_condicion = pedir_nueva_preferencia(
                 categoria,
-                df_filtrado
-            )
-
+                df_filtrado)
+                dic_preferencias[categoria] = nueva_condicion
+            elif decision=="2": 
+                print(f"Eligió la opción de continuar, por lo tanto no habrá coincidencias con {categoria}")
+                categorias_sin_coincidencia.append(categoria)
+                break
             ## Se actualiza el diccionario para volver
             ## a intentar el filtrado.
-            dic_preferencias[categoria] = nueva_condicion
+    
 
     ## Cada filtro trabaja sobre el resultado del filtro anterior.
     ## Por eso, al finalizar, df_filtrado contiene únicamente los
     ## conciertos que cumplen todas las condiciones.
 
-    return df_filtrado
+    return df_filtrado, categorias_sin_coincidencia

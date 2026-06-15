@@ -73,6 +73,7 @@ def ejecutar_programa():
         preferencias_usuario = pedir_preferencias(df, categorias_ordenadas)
 
         # 6. Filtrado y Cálculo de Coincidencias
+        filtrado_preferencias= aplicar_filtro(df, dic_preferencias, categorias_ordenadas)
         # Llamamos a la función ponderacion_total que creaste recién. 
         # Recibe el df filtrado y el diccionario de preferencias, y nos devuelve el df con los % finales.
         df_evaluado = ponderacion_total(df, preferencias_usuario)

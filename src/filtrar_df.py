@@ -144,7 +144,7 @@ def aplicar_filtros(df_filtrado,
     Retorno:
         DataFrame: dataset resultante luego de aplicar todos los
         filtros.
-        categorias_sin_coincidencia (dict): diccionario con las categorias que no tiene coincidencias
+       
 
     Manejo de errores:
         - Si una condición elimina todos los conciertos
@@ -155,7 +155,6 @@ def aplicar_filtros(df_filtrado,
 
     ## Se recorren las categorías desde la más importante
     ## hasta la menos importante.
-    categorias_sin_coincidencia=[]
     for categoria in categorias_ordenadas:
 
         while True:
@@ -196,7 +195,6 @@ def aplicar_filtros(df_filtrado,
                 dic_preferencias[categoria] = nueva_condicion
             elif decision=="2": 
                 print(f"Eligió la opción de continuar, por lo tanto no habrá coincidencias con {categoria}")
-                categorias_sin_coincidencia.append(categoria)
                 break
             ## Se actualiza el diccionario para volver
             ## a intentar el filtrado.
@@ -206,4 +204,4 @@ def aplicar_filtros(df_filtrado,
     ## Por eso, al finalizar, df_filtrado contiene únicamente los
     ## conciertos que cumplen todas las condiciones.
 
-    return df_filtrado, categorias_sin_coincidencia
+    return df_filtrado

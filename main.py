@@ -4,6 +4,9 @@ Created on Mon Jun  1 15:18:34 2026
 
 @author: sofia
 """
+import os
+os.getcwd()
+
 
 import pandas as pd
 import matplotlib.pyplot as plt

@@ -4,3 +4,4 @@ __pycache__/
 
 # Archivos de macOS
 .DS_Store
+venv/

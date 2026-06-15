@@ -8,113 +8,93 @@ Created on Mon Jun  1 15:18:34 2026
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
-from src.cargar_dataset import carga_dataset, validar_dataframe
+from src.cargar_dataset import carga_dataset
 from src.filtrar_df import filtrar_df_bool
 from src.resultados import obtener_mejores, mostrar_info_resultados
 from src.graficos import grafico_resultado
-from src.pedir_preferencias import ordenar_preferencias, hacer_pregunta_si_no
-
-
+from src.pedir_preferencias import ordenar_preferencias, pedir_preferencias, hacer_pregunta_si_no
+from src.calculos import ponderacion_total
 
 # FUNCIÓN PRINCIPAL
-
 def ejecutar_programa():
     """
-    Ejecuta el programa. Termina mostrando los resultados e imprime un mensaje que agradece por utilizar el programa.
+    Ejecuta el programa. Termina mostrando los resultados e imprime un 
+    mensaje que agradece por utilizar el programa.
 
     Returns
     -------
     None
-        
-
     """
-    # 1. Carga inicial del dataset (Se hace UNA sola vez al principio)
+    # 1. Carga inicial del dataset
     ruta_archivo = 'datos/concertmatch_dataset_prueba.csv'
     
     try: 
         df_original = carga_dataset(ruta_archivo) 
         print("Dataset cargado con éxito.")
-        
     except FileNotFoundError as e:
         print(f"Error: {e}")
-        return # Termina el programa porque sin datos no se puede seguir
-        
+        return 
     except (ValueError, PermissionError, RuntimeError) as e:
         print(f"Error al procesar los datos: {e}")
-        return # Termina el programa
+        return 
 
-    # 2. Bucle principal de búsqueda (Permite hacer múltiples búsquedas sin recargar el archivo)
+    # 2. Bucle principal de búsqueda
     while True:
-        # Usamos una copia del DataFrame para no arruinar el original en cada búsqueda
         df = df_original.copy()
         
         # 3. Mensaje de Bienvenida
         print("="*50)
         print("🎸 BIENVENIDO A CONCERTMATCH V2 🎸")
         print("="*50)
-        print("A continuación te haremos una serie de preguntas para determinar tus preferencias y así recomendarte eventos disponibles que coincidan con tus gustos.")
+        print("A continuación te haremos una serie de preguntas para determinar tus preferencias.")
 
-        # 4. Primer Filtro/Pregunta: Entradas Disponibles
+        # 4. Filtros previos obligatorios (Entradas y Movilidad)
         df = filtrar_df_bool(df, True, "quedan entradas") 
-        
         if df.empty:
             print("Lo sentimos, actualmente todos los eventos están agotados.")
-            break # No hay nada que ofrecer, salimos del programa.
+            break #no hay nada que ofrecer, salimos del programa
 
-        # 5. Segundo Filtro/Pregunta: Movilidad reducida
         necesita_movilidad = hacer_pregunta_si_no("¿Necesitas acceso para personas con movilidad reducida? (si/no): ")
-        
         if necesita_movilidad:
             df_temporal = filtrar_df_bool(df, True, "Acceso movilidad reducida")
-            
             if not df_temporal.empty:
-                df = df_temporal # Actualizamos el DataFrame porque hay resultados
+                df = df_temporal #actualizamos el DataFrame porque sí hay resultados
             else:
-                print("Lo sentimos, actualmente no hay eventos disponibles con acceso para movilidad reducida.")
+                print("Lo sentimos, no hay eventos disponibles con acceso para movilidad reducida.")
                 continuar = hacer_pregunta_si_no("¿Deseas continuar buscando eventos sin este filtro? (si/no): ")
-                
                 if not continuar:
                     print("¡Gracias por usar ConcertMatch!")
-                    break # Rompe el bucle principal y termina el programa
+                    break 
 
-        # 6. Tercer Filtro/Pregunta: Lugar para sentarse
-        quiere_asientos = hacer_pregunta_si_no("¿Deseas que el lugar cuente con asientos? (si/no): ")
+        # 5. Ordenar y Pedir Preferencias
+        # Obtenemos la lista con el orden elegido por el usuario (ej: ["Género", "Lugar para sentarse", ...])
+        categorias_ordenadas = ordenar_preferencias()
         
-        if quiere_asientos:
-            df_temporal = filtrar_df_bool(df, True, "Lugar para sentarse")
-            if not df_temporal.empty:
-                df = df_temporal
-            else:
-                print("No hay eventos con asientos que cumplan tus filtros anteriores. Continuaremos sin este filtro.")
+        # Obtenemos un diccionario con las respuestas exactas del usuario para cada categoría
+        preferencias_usuario = pedir_preferencias(df, categorias_ordenadas)
 
-        # Acá falta el resto de los filtros y el cálculo de coincidencias
-        # df_evaluado = calcular_porcentajes(df, preferencias...)
-
+        # 6. Filtrado y Cálculo de Coincidencias
+        # Llamamos a la función ponderacion_total que creaste recién. 
+        # Recibe el df filtrado y el diccionario de preferencias, y nos devuelve el df con los % finales.
+        df_evaluado = ponderacion_total(df, preferencias_usuario)
+        
         # 7. Mostrar resultados finales
-        if not df.empty:
-            # (Cambiar 'df' por 'df_evaluado' una vez que se agregaron los porcentajes de coincidencia)
-            # Reordena filas del dataframe de mayor a menor porcentaje de coincidencia y devuelve los 5 mejores
-            mejores = obtener_mejores(df) 
+        if not df_evaluado.empty:
+            # Ahora usamos df_evaluado para obtener los mejores, ya que tiene la columna "porcentaje_coincidencia"
+            mejores = obtener_mejores(df_evaluado) 
             
-            # Son 2 formas de mostrar los resultados (falta una más)
             grafico_resultado(mejores)
             mostrar_info_resultados(mejores)
         else:
             print("No quedaron eventos disponibles con esos filtros.")
 
-        # 8. Preguntar si desea volver a ejecutar
+        # 8. Reintentar
         print("-" * 50)
         reintentar = hacer_pregunta_si_no("¿Deseas realizar una nueva búsqueda? (si/no): ")
         
         if not reintentar:
             print("¡Gracias por usar ConcertMatch! Esperamos que disfrutes del evento.🎶")
-            break # Rompe el bucle principal y el programa termina de ejecutarse
+            break 
 
-
-#PROGRAMA PRINCIPAL
-lista_categorias_ordenadas= ordenar_preferencias() 
-inicio_fin = ejecutar_programa()
-
-
-
-
+if __name__ == "__main__":
+    ejecutar_programa()

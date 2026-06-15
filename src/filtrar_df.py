@@ -5,7 +5,7 @@ Created on Tue Jun  9 20:20:33 2026
 
 @author: victoriamochnacs
 """
-from src.pedir_preferencias.py import pedir_nueva_preferencia
+from src.pedir_preferencias import pedir_nueva_preferencia
 
 def filtrar_df_bool(df, columna):
     """

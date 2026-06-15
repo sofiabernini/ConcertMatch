@@ -86,7 +86,7 @@ def calcular_coincidencias(df_filtrado, preferencias):
 
     df["coincidencia_distancia"] = df["distancias"].apply(calc_distancia)
 
-    # ── ASIENTOS ─────────────────────────────────────────────
+# ── ASIENTOS ─────────────────────────────────────────────
     necesita = preferencias["asientos"] #revisar esto 
 
     def calc_asientos(tiene):

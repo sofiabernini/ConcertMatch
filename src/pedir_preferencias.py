@@ -115,31 +115,31 @@ def pedir_preferencias(df, categorias_ordenadas):
         y cuyos valores son las preferencias seleccionadas por el usuario.
     """
 
-    dict_preferencias = {}
+    dic_preferencias = {}
 
     for categoria in categorias_ordenadas:
 
         if categoria == "Género Musical":
-            dict_preferencias["genero"] = pedir_generos(
+            dic_preferencias["genero"] = pedir_generos(
                 df["Género musical"])
 
         elif categoria == "Precio final":
-            dict_preferencias["precio"] = pedir_rango_precios()
+            dic_preferencias["precio"] = pedir_rango_precios()
 
         elif categoria == "Fecha":
-            dict_preferencias["fecha/s"] = pedir_fechas()
+            dic_preferencias["fecha/s"] = pedir_fechas()
 
         elif categoria == "Horario":
-            dict_preferencias["horario"] = pedir_franja_horaria()
+            dic_preferencias["horario"] = pedir_franja_horaria()
 
         elif categoria == "Ubicación":
-            dict_preferencias["direccion"] = pedir_distancia_max(df)
+            dic_preferencias["direccion"] = pedir_distancia_max(df)
             df = pedir_ubicacion_partida(df)
             
         elif categoria== "Lugar para sentarse":
-            dict_preferencias["lugar para sentarse"] = pedir_lugar_para_sentarse()
+            dic_preferencias["lugar para sentarse"] = pedir_lugar_para_sentarse()
             
-    return dict_preferencias
+    return dic_preferencias
 
 #PEDIR GÉNEROS
 def pedir_generos(columna_generos): 

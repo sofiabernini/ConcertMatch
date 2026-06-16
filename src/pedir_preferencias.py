@@ -396,22 +396,27 @@ def pedir_ubicacion_partida(df):
                 latitud_usuario=ubicacion_usuario.latitude
                 longitud_usuario=ubicacion_usuario.longitude
                 break
-   lista_distancias= calcular_distancias(df["direccion"], latitud_usuario, longitud_usuario) #se llama a funcion que devuelve lista de distancias
+   lista_distancias= calcular_distancias(df["Ubicación"], latitud_usuario, longitud_usuario) #se llama a funcion que devuelve lista de distancias
    df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
    
    return df
     
+
 def calcular_distancias(columna_direcciones, latitud_usuario, longitud_usuario):
-    geolocalizador= Nominatim(user_agent= "concertmatch")
-    lista_distancias=[ ]
+    geolocalizador = Nominatim(user_agent="concertmatch")
+    lista_distancias = []
+    
     for direccion in columna_direcciones:
-        ubicacion_evento=geolocalizador.geocode(direccion)
-       
-        latitud_evento=ubicacion_evento.latitude
-        longitud_evento=ubicacion_evento.longitude
-       
-        distancia= geodesic((latitud_usuario, longitud_usuario), (latitud_evento, longitud_evento)).kilometers
+        ubicacion_evento = geolocalizador.geocode(direccion)
+        if ubicacion_evento is None:
+            lista_distancias.append(None)
+            continue
+        
+        latitud_evento = ubicacion_evento.latitude
+        longitud_evento = ubicacion_evento.longitude
+        distancia = geodesic((latitud_usuario, longitud_usuario), (latitud_evento, longitud_evento)).kilometers
         lista_distancias.append(distancia)
+        time.sleep (1) #esto lo agrego porque la librería geopy tarda mucho en ejecutarse para todas las filasy puede colapsar
     return lista_distancias
                 
 #las funciones pedir_ubicacion_partida, calcular_distancias y pedir_distancia_max no estan completas. Tenemos que ver cómo se comunican entre sí y con las funciones de filtrado.

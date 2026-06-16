@@ -36,6 +36,7 @@ def ejecutar_programa():
     except (ValueError, PermissionError, RuntimeError) as e:
         print(f"Error al procesar los datos: {e}")
         return 
+print(df.columns.tolist())
 
     # 2. Bucle principal de búsqueda
     while True:
@@ -73,7 +74,7 @@ def ejecutar_programa():
         preferencias_usuario = pedir_preferencias(df, categorias_ordenadas)
 
         # 6. Filtrado y Cálculo de Coincidencias
-        filtrado_preferencias= aplicar_filtros(df, dic_preferencias, categorias_ordenadas)
+        filtrado_preferencias= aplicar_filtros(df, preferencias_usuario, categorias_ordenadas)
         # Llamamos a la función ponderacion_total que creaste recién. 
         # Recibe el df filtrado y el diccionario de preferencias, y nos devuelve el df con los % finales.
         df_evaluado = ponderacion_total(df, preferencias_usuario)

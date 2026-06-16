@@ -120,7 +120,7 @@ def limpieza_df(df):
     df = limpiar_horario (df)
     df = limpiar_booleanos (df)
     df = manejar_links_vacios(df)
-    #df = limpiar_ubicacion(df)
+    df = limpiar_ubicacion(df)
     
 #eliminar datos tipo Nan con dropna()
 
@@ -187,7 +187,9 @@ def limpiar_horario (df):
     df["Horario"] = pd.to_datetime (df["Horario"], format= "%H:%M", errors = "coerce").dt.time
     return df
 
-def limpiar_booleanos (df):
+    
+
+def limpiar_booleanos(df):
     '''
     Descripción: Esta función revisa que las columnas de "Quedan entradas", 
     "Acceso movilidad reducida" y "Lugar para sentarse" cuenten con datos booleanos True o False. 
@@ -204,23 +206,13 @@ def limpiar_booleanos (df):
     Raises: No hay (solo convierte a Nan)
 
     '''
-    
     valores_validos = [True, False]
     
-    df.loc[
-        ~df["Quedan entradas"].isin(valores_validos),
-        "Quedan entradas"] = pd.NA
-    
-    df.loc[
-        ~df["Acceso movilidad reducida"].isin(valores_validos),
-        "Acceso movilidad reducida"] = pd.NA
-    
-    df.loc[
-        ~df["Lugar para sentarse"].isin(valores_validos),
-        "Lugar para sentarse"] = pd.NA
+    for columna in ["Quedan entradas", "Acceso movilidad reducida", "Lugar para sentarse"]:
+        df[columna] = df[columna].map({"True": True, "False": False, True: True, False: False})
+        #se usa este map y los valores que no coincidan se transforman a Nan automáticamente
     
     return df
-
 
 def manejar_links_vacios(df):
     '''
@@ -267,6 +259,7 @@ def limpiar_ubicacion (df):
         
         try:
             resultado = geolocator.geocode(direccion)
+            time.sleep(1)
         except Exception:
             resultado = None
 

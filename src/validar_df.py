@@ -106,10 +106,10 @@ def limpieza_df(df):
         "Precio final",
         "Fecha",
         "Horario",
-        "Ubicación"
-        "Acceso movilidad reducida"
-        "Lugar para sentarse"
-        "Quedan entradas"
+        "Ubicación",
+        "Acceso movilidad reducida",
+        "Lugar para sentarse",
+        "Quedan entradas",
         "Lanzamiento venta"
     ]
 
@@ -120,7 +120,7 @@ def limpieza_df(df):
     df = limpiar_horario (df)
     df = limpiar_booleanos (df)
     df = manejar_links_vacios(df)
-    df = limpiar_ubicacion(df)
+    #df = limpiar_ubicacion(df)
     
 #eliminar datos tipo Nan con dropna()
 

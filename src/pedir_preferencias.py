@@ -93,7 +93,7 @@ def ordenar_preferencias():
     
     categorias_ordenadas = []
     for numero in lista_numeros:
-        valor = preferencias[numero]
+        valor = categorias[numero]
         categorias_ordenadas.append(valor)
     
     return categorias_ordenadas # devulevo algo de este estilo ["direccion", "horario"," fecha", "cuenta con asientos","genero", "precio"]

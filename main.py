@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 from src.cargar_dataset import carga_dataset
-from src.filtrar_df import filtrar_df_bool
+from src.filtrar_df import filtrar_df_bool, aplicar_filtros
 from src.resultados import obtener_mejores, mostrar_info_resultados
 from src.graficos import grafico_resultado
 from src.pedir_preferencias import ordenar_preferencias, pedir_preferencias, hacer_pregunta_si_no
@@ -25,7 +25,7 @@ def ejecutar_programa():
     None
     """
     # 1. Carga inicial del dataset
-    ruta_archivo = 'datos/concertmatch_dataset_prueba.csv'
+    ruta_archivo = 'data/concertmatch_dataset_prueba.csv'
     
     try: 
         df_original = carga_dataset(ruta_archivo) 
@@ -48,14 +48,14 @@ def ejecutar_programa():
         print("A continuación te haremos una serie de preguntas para determinar tus preferencias.")
 
         # 4. Filtros previos obligatorios (Entradas y Movilidad)
-        df = filtrar_df_bool(df, True, "quedan entradas") 
+        df = filtrar_df_bool(df,"Quedan entradas") 
         if df.empty:
             print("Lo sentimos, actualmente todos los eventos están agotados.")
             break #no hay nada que ofrecer, salimos del programa
 
         necesita_movilidad = hacer_pregunta_si_no("¿Necesitas acceso para personas con movilidad reducida? (si/no): ")
         if necesita_movilidad:
-            df_temporal = filtrar_df_bool(df, True, "Acceso movilidad reducida")
+            df_temporal = filtrar_df_bool(df,"Acceso movilidad reducida")
             if not df_temporal.empty:
                 df = df_temporal #actualizamos el DataFrame porque sí hay resultados
             else:
@@ -73,7 +73,7 @@ def ejecutar_programa():
         preferencias_usuario = pedir_preferencias(df, categorias_ordenadas)
 
         # 6. Filtrado y Cálculo de Coincidencias
-        filtrado_preferencias= aplicar_filtro(df, dic_preferencias, categorias_ordenadas)
+        filtrado_preferencias= aplicar_filtros(df, dic_preferencias, categorias_ordenadas)
         # Llamamos a la función ponderacion_total que creaste recién. 
         # Recibe el df filtrado y el diccionario de preferencias, y nos devuelve el df con los % finales.
         df_evaluado = ponderacion_total(df, preferencias_usuario)

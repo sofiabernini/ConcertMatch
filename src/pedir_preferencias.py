@@ -402,21 +402,15 @@ def pedir_ubicacion_partida(df):
    return df
     
 
-def calcular_distancias(columna_direcciones, latitud_usuario, longitud_usuario):
-    geolocalizador = Nominatim(user_agent="concertmatch")
+def calcular_distancias(df, latitud_usuario, longitud_usuario):
     lista_distancias = []
     
-    for direccion in columna_direcciones:
-        ubicacion_evento = geolocalizador.geocode(direccion)
-        if ubicacion_evento is None:
-            lista_distancias.append(None)
-            continue
-        
-        latitud_evento = ubicacion_evento.latitude
-        longitud_evento = ubicacion_evento.longitude
+    for i in df.index:
+        latitud_evento = df.loc[i, "latitud"]
+        longitud_evento = df.loc[i, "longitud"]
         distancia = geodesic((latitud_usuario, longitud_usuario), (latitud_evento, longitud_evento)).kilometers
         lista_distancias.append(distancia)
-        time.sleep (1) #esto lo agrego porque la librería geopy tarda mucho en ejecutarse para todas las filasy puede colapsar
+    
     return lista_distancias
                 
 #las funciones pedir_ubicacion_partida, calcular_distancias y pedir_distancia_max no estan completas. Tenemos que ver cómo se comunican entre sí y con las funciones de filtrado.

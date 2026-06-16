@@ -29,7 +29,7 @@ def mostrar_info_resultados(df_mejores):
     Muestra en consola la información detallada de los resultados seleccionados.
     """
     if df_mejores.empty:
-        return "Lo sentimos, actualmente no se encontraron eventos que coincidan con tus preferencias.
+        return "Lo sentimos, actualmente no se encontraron eventos que coincidan con tus preferencias."
 
 
     print("="*50)

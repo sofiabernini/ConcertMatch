@@ -36,7 +36,6 @@ def ejecutar_programa():
     except (ValueError, PermissionError, RuntimeError) as e:
         print(f"Error al procesar los datos: {e}")
         return 
-print(df.columns.tolist())
 
     # 2. Bucle principal de búsqueda
     while True:
@@ -48,7 +47,8 @@ print(df.columns.tolist())
         print("="*50)
         print("A continuación te haremos una serie de preguntas para determinar tus preferencias.")
 
-        # 4. Filtros previos obligatorios (Entradas y Movilidad)
+
+# 4. Filtros previos obligatorios (Entradas y Movilidad)
         df = filtrar_df_bool(df,"Quedan entradas") 
         if df.empty:
             print("Lo sentimos, actualmente todos los eventos están agotados.")

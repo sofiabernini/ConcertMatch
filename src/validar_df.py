@@ -7,6 +7,7 @@ Created on Wed Jun 10 15:36:26 2026
 """
 import pandas as pd
 from geopy.geocoders import Nominatim
+import time
 
 def validar_df (df):
     '''
@@ -120,7 +121,9 @@ def limpieza_df(df):
     df = limpiar_horario (df)
     df = limpiar_booleanos (df)
     df = manejar_links_vacios(df)
-    df = limpiar_ubicacion(df)
+    
+    df_limpio = df.dropna(subset=columnas_criticas)
+    print("después de dropna:", len(df_limpio))
     
 #eliminar datos tipo Nan con dropna()
 
@@ -236,39 +239,31 @@ def manejar_links_vacios(df):
     
     return df
     
-def limpiar_ubicacion (df):
-    '''
-    Descripción: Esta función valida que las direcciones de la columna "Ubicación" existan, 
-    utilizando métodos de la librería "Geopy"
-
-    Parameters
-    ----------
-    df : DataFrame.
-
-    Returns
-    -------
-    df : DataFrame (con la conversión de los datos).
-
-    '''
+def limpiar_ubicacion(df):
+    geolocator = Nominatim(user_agent="concertmatch")
     
-    geolocator = Nominatim (user_agent = "concertmatch")
+    latitudes = []
+    longitudes = []
     
     for i in df.index:
-        
         direccion = df.loc[i, "Ubicación"]
-        
         try:
             resultado = geolocator.geocode(direccion)
             time.sleep(1)
         except Exception:
             resultado = None
-
+        
         if resultado is None:
-            df.loc[i, "Ubicación"] = pd.NA
-            
+            latitudes.append(pd.NA)
+            longitudes.append(pd.NA)
+        else:
+            latitudes.append(resultado.latitude)
+            longitudes.append(resultado.longitude)
+    
+    df["latitud"] = latitudes
+    df["longitud"] = longitudes
+    
     return df
-    
-    
 
 
 

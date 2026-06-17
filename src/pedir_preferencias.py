@@ -57,13 +57,13 @@ def ordenar_preferencias():
     print ("🗒️ En esta sección, deberá ordenar las categorías que se presenten según sus preferencias. El orden deberá ser de mayor a menor nivel de importancia, y ese orden se aplicará a su búsqueda y al nivel de coincidencias")
     
     categorias = {
-        "1": "Género musical",
-        "2": "Precio final",
-        "3": "Fecha",
-        "4": "Horario",
-        "5": "Ubicación",
-        "6": "Lugar para sentarse"
-    }
+    "1": "genero",
+    "2": "precio",
+    "3": "fecha",
+    "4": "horario",
+    "5": "distancia",
+    "6": "lugar para sentarse"}
+    
     while True:
           solicitar_orden= input(f"Ordená tus preferencias de mayor a menor importancia:" 
                                  f"{categorias}" 
@@ -118,27 +118,19 @@ def pedir_preferencias(df, categorias_ordenadas):
     dic_preferencias = {}
 
     for categoria in categorias_ordenadas:
-
-        if categoria == "Género musical":
-            dic_preferencias["genero"] = pedir_generos(
-                df["Género musical"])
-
-        elif categoria == "Precio final":
-            dic_preferencias["precio final"] = pedir_rango_precios()
-
-        elif categoria == "Fecha":
+        if categoria == "genero":
+            dic_preferencias["genero"] = pedir_generos(df["Género musical"])
+        elif categoria == "precio":
+            dic_preferencias["precio"] = pedir_rango_precios()
+        elif categoria == "fecha":
             dic_preferencias["fecha"] = pedir_fechas()
-
-        elif categoria == "Horario":
+        elif categoria == "horario":
             dic_preferencias["horario"] = pedir_franja_horaria()
-
-        elif categoria == "Ubicación":
-            dic_preferencias["direccion"] = pedir_distancia_max(df)
+        elif categoria == "distancia":
+            dic_preferencias["distancia"] = pedir_distancia_max(df)
             df = pedir_ubicacion_partida(df)
-            
-        elif categoria== "Lugar para sentarse":
+        elif categoria == "lugar para sentarse":
             dic_preferencias["lugar para sentarse"] = pedir_lugar_para_sentarse()
-            
     return dic_preferencias
 
 #PEDIR GÉNEROS

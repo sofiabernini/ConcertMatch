@@ -118,7 +118,6 @@ def limpieza_df(df):
 
 
 #llamado a funciones que convierten los datos inválidos a Nan  
-    print (len(df))
     df = limpiar_precios(df)
     df = limpiar_fechas (df)
     df = limpiar_horario (df)

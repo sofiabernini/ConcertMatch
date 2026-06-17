@@ -170,7 +170,7 @@ def pedir_generos(columna_generos):
     #.reset_index(drop=True) reorganiza los índices de la columna sin repetidos
     tabla_generos = pd.DataFrame({
         "ID": range(1, len(generos_sin_repetir) + 1),
-        "genero": generos_sin_repetir})
+        "Género musical": generos_sin_repetir})
     #crea un nuevo DataFrame con una columna ID (que sería el id del género), y con otra columna de los generos sin repetir.
     
 
@@ -206,7 +206,7 @@ def pedir_generos(columna_generos):
                 else:
                     genero = tabla_generos.loc[
                         tabla_generos["ID"] == opcion,
-                        "Genero"].iloc[0]
+                        "Género musical"].iloc[0]
                 #si el número sí existe como id, entonces busca el género correspondiente en la tabla.
                     if genero in generos_seleccionados:
                         print("Ese género ya fue seleccionado.")

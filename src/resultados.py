@@ -37,7 +37,7 @@ def mostrar_info_resultados(df_mejores):
     print("="*50)
     
     for index, row in df_mejores.iterrows():
-        print(f"🎵 Artista/Banda: {row['Artista/banda']} | Coincidencia: {row['porcentaje_coincidencia']}%")
+        print(f"🎵 Artista/Banda: {row['Artista/Banda']} | Coincidencia: {row['porcentaje_coincidencia']}%")
         print(f"   - Género: {row['Género musical']}")
         print(f"   - Precio: ${row['Precio final']}")
         print(f"   - Fecha y Hora: {row['Fecha']} | {row['Horario']}")

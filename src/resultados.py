@@ -12,6 +12,7 @@ def obtener_mejores(df, columna_porcentaje='porcentaje_coincidencia', top_n=5):
     Ordena el DataFrame según el porcentaje de coincidencia de mayor a menor
     y devuelve los 'top_n' mejores resultados. (en este caso, el top 5)
     """
+    ## esra parte de empty no hace falta porque aplicar filtros de encarga de q nunca quede vacio.
     if df.empty:
         return df
         

@@ -127,11 +127,11 @@ def pedir_preferencias(df, categorias_ordenadas):
         elif categoria == "horario":
             dic_preferencias["horario"] = pedir_franja_horaria()
         elif categoria == "distancia":
-            dic_preferencias["distancia"] = pedir_distancia_max(df)
             df = pedir_ubicacion_partida(df)
+            dic_preferencias["distancia"] = pedir_distancia_max(df)
         elif categoria == "lugar para sentarse":
             dic_preferencias["lugar para sentarse"] = pedir_lugar_para_sentarse()
-    return dic_preferencias
+    return dic_preferencias, df
 
 #PEDIR GÉNEROS
 def pedir_generos(columna_generos): 
@@ -350,7 +350,7 @@ def pedir_franja_horaria ():
         else:
             return {"hora_min": hora_min, "hora_max": hora_max}
 
-def pedir_distancia_max(df):
+def pedir_distancia_max():
    
     print ("🗺️ Definición de distancia máxima que esté dispuesto a recorrer.")
     
@@ -372,17 +372,17 @@ def pedir_ubicacion_partida(df):
    print ("📍 Obtención de la dirección de partida: Va a ingresar la dirección desde donde desee hacer la búsqueda"
           "Este dato será utilizado para calcular las distancias con los eventos y determinar si están dentro del rango solicitado")
    while True: 
-        direccion_usuario=input("Ingrese su dirección de partida: ")
+        direccion_usuario= input("Ingrese su dirección de partida: ")
         if direccion_usuario.strip()=="":
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
         else: 
-            geolocalizador= Nominatim(user_agent= "concertmatch")
-            ubicacion_usuario=geolocalizador.geocode(direccion_usuario)
+            geolocalizador= Nominatim(user_agent= "concertmatch") ##Crea el objeto que se conecta con OpenStreetMap para buscar direcciones.
+            ubicacion_usuario= geolocalizador.geocode(direccion_usuario) ##Devuelve latitud y longitud. si la direccion no existe devuelve None.
             if ubicacion_usuario is None: 
-                print("La dirección no existe")
+                print("La dirección no existe") ## y vuelve al while
             else: 
-                latitud_usuario=ubicacion_usuario.latitude
-                longitud_usuario=ubicacion_usuario.longitude
+                latitud_usuario= ubicacion_usuario.latitude
+                longitud_usuario= ubicacion_usuario.longitude
                 break
    lista_distancias= calcular_distancias(df, latitud_usuario, longitud_usuario) #se llama a funcion que devuelve lista de distancias
    df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias

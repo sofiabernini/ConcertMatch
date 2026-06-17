@@ -95,7 +95,7 @@ def calcular_coincidencias(df_filtrado, preferencias):
         else:
             return 1.0
 
-    df["coincidencia_asientos"] = df["Lugar para sentarse"].apply(calc_asientos)
+    df["coincidencia_lugar para sentarse"] = df["Lugar para sentarse"].apply(calc_asientos)
 
     return df    
             

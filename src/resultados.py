@@ -37,19 +37,19 @@ def mostrar_info_resultados(df_mejores):
     print("="*50)
     
     for index, row in df_mejores.iterrows():
-        print(f"🎵 Artista/Banda: {row['artista_banda']} | Coincidencia: {row['porcentaje_coincidencia']}%")
-        print(f"   - Género: {row['genero']}")
-        print(f"   - Precio: ${row['precio']}")
-        print(f"   - Fecha y Hora: {row['fecha']} | {row['hora']}")
-        print(f"   - Lugar: {row['lugar']} ({row['direccion']})")
+        print(f"🎵 Artista/Banda: {row['Artista/banda']} | Coincidencia: {row['porcentaje_coincidencia']}%")
+        print(f"   - Género: {row['Género musical']}")
+        print(f"   - Precio: ${row['Precio final']}")
+        print(f"   - Fecha y Hora: {row['Fecha']} | {row['Horario']}")
+        print(f"   - Lugar: {row['Estadio/Predio']} ({row['Ubicación']})")
         
         # Convertimos los booleanos en "Sí" o "No" para que sea más legible para el usuario 
-        print(f"   - Movilidad Reducida: {'Sí' if row['acceso_movilidad_reducida'] else 'No'}")
-        print(f"   - Asientos: {'Sí' if row['cuenta_con_asientos'] else 'No'}")
-        print(f"   - Quedan entradas: {'Sí' if row['quedan_entradas'] else 'No'}")
+        print(f"   - Movilidad Reducida: {'Sí' if row['Acceso movilidad reducida'] else 'No'}")
+        print(f"   - Asientos: {'Sí' if row['Lugar para sentarse'] else 'No'}")
+        print(f"   - Quedan entradas: {'Sí' if row['Quedan entradas'] else 'No'}")
         
-        print(f"   - Lanzamiento entradas: {row['lanzamiento_entradas']}")
-        print(f"   - Link Entradas: {row['ticketera_link']}")
+        print(f"   - Lanzamiento entradas: {row['Lanzamiento venta']}")
+        print(f"   - Link Entradas: {row['Link ticketera']}")
 
 
 

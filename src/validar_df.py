@@ -124,19 +124,10 @@ def limpieza_df(df):
     df = limpiar_horario (df)
     df = limpiar_booleanos (df)
     df = limpiar_ubicacion(df)
-    print ("Después de limpiar ubicaciones ", len(df) )
     df = manejar_links_vacios(df)
-    
-    df_limpio = df.dropna(subset=columnas_criticas)
-    
+        
 #eliminar datos tipo Nan con dropna()
-    print(df[df["latitud"].isna()]["Ubicación"].tolist())
-    
     df_limpio = df.dropna(subset = columnas_criticas)
-    print("después de dropna:", len(df_limpio))
-    print(df[columnas_criticas].isna().sum())
-    
-
     
     return df_limpio
 

@@ -119,7 +119,7 @@ def pedir_preferencias(df, categorias_ordenadas):
 
     for categoria in categorias_ordenadas:
 
-        if categoria == "Género Musical":
+        if categoria == "Género musical":
             dic_preferencias["genero"] = pedir_generos(
                 df["Género musical"])
 

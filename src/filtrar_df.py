@@ -120,6 +120,7 @@ def filtrar_por_condicion(df, categoria, condicion):
             df["Lugar para sentarse"] == condicion
         ]
     
+    
 def aplicar_filtros(df_filtrado,
                     dic_preferencias,
                     categorias_ordenadas):

@@ -16,7 +16,7 @@ Created on Tue Jun  9 20:27:55 2026
     
 def calcular_coincidencias(df_filtrado, preferencias):
 
-    df = df_filtrado.copy() #esto no sé de qué es
+    df = df_filtrado.copy() #Hace una copia del DataFrame para no modificar el original.
 
 # GÉNERO 
     generos_usuario = preferencias["genero"]

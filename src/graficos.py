@@ -8,6 +8,7 @@ Created on Tue Jun  9 20:28:55 2026
 
 # FUNCIÓN PARA MOSTRAR EL GRÁFICO CON LOS PORCENTAJES DE COINCIDENCIA
 import matplotlib.pyplot as plt
+import folium
 
 def grafico_resultado(df_mejores):
     """
@@ -39,3 +40,64 @@ def grafico_resultado(df_mejores):
     
     plt.tight_layout() # Ajusta los márgenes para que no se corte ningún texto
     plt.show()
+def grafico_mapa(df_mejores): 
+     """
+    Genera un mapa interactivo con los conciertos recomendados al usuario.
+    Cada concierto aparece como un marcador y, al hacer clic sobre él,
+    se muestra información relevante del evento.
+
+    Parameters:
+    df_resultados (DataFrame) - DataFrame que contiene los conciertos
+    filtrados o recomendados.
+    
+    Returns:
+    None.
+    Genera un archivo HTML llamado "mapa_conciertos.html".
+
+    Raises:
+    ValueError:
+        Si el DataFrame está vacío.
+    """
+
+    # Validar que existan resultados para mostrar
+    if df_resultados.empty:
+        raise ValueError( "No hay conciertos para representar en el mapa.")
+
+    # Obtener las coordenadas del primer concierto
+    # para centrar inicialmente el mapa
+    latitud_centro = df_resultados.iloc[0]["latitud"]
+    longitud_centro = df_resultados.iloc[0]["longitud"]
+
+    # Crear el mapa base (crea objeto mapa)
+    mapa = folium.Map(
+        location=[latitud_centro, longitud_centro],
+        zoom_start=11 )
+
+    # Recorrer cada concierto del DataFrame, se pone el guión bajo para "ignorar" el índice
+    for _, fila in df_resultados.iterrows():
+
+        # Crear el texto que aparecerá al hacer clic
+        texto_popup = (
+            f"Artista: {fila['Artista/Banda']}<br>"
+            f"Fecha: {fila['Fecha']}<br>"
+            f"Precio: ${fila['Precio final']}<br>"
+            f"Coincidencia: {fila['porcentaje_coincidencia']}%" )
+
+        # Crear marcador para el concierto actual
+        marcador = folium.Marker(
+            location=[
+                fila["latitud"],
+                fila["longitud"]
+            ],
+            popup=texto_popup
+        )
+
+        # Agregar el marcador al mapa
+        marcador.add_to(mapa)
+
+    # Guardar el mapa en un archivo HTML
+    mapa.save("mapa_conciertos.html")
+
+    print(
+        "Mapa generado correctamente: mapa_conciertos.html"
+    )

@@ -42,6 +42,7 @@ def mostrar_info_resultados(df_mejores):
         print(f"   - Precio: ${row['Precio final']}")
         print(f"   - Fecha y Hora: {row['Fecha']} | {row['Horario']}")
         print(f"   - Lugar: {row['Estadio/Predio']} ({row['Ubicación']})")
+        print(f"   - Distancia: a {row['distancias']km"})
         
         # Convertimos los booleanos en "Sí" o "No" para que sea más legible para el usuario 
         print(f"   - Movilidad Reducida: {'Sí' if row['Acceso movilidad reducida'] else 'No'}")

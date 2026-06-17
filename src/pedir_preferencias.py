@@ -280,9 +280,9 @@ def pedir_fechas():
             mes_fecha_1 = input("Ingrese el mes (MM) de la fecha inicial. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04)")
             año_fecha_1 = input ("Ingrese el año (AAAA) de la fecha inicial.")
             
-            fecha_1 = f"{dia_fecha_1}/{mes_fecha_1}/{año_fecha_1}"
+            fecha_1 = f"{dia_fecha_1}-{mes_fecha_1}-{año_fecha_1}"
 
-            fecha_1 = datetime.strptime(fecha_1, "%d/%m/%Y").date()
+            fecha_1 = datetime.strptime(fecha_1, "%d-%m-%Y").date()
 
             if fecha_1 < fecha_actual:
                 print("La fecha inicial no puede ser anterior a hoy.")
@@ -292,9 +292,9 @@ def pedir_fechas():
             mes_fecha_2 = input("Ingrese el mes (MM) de la fecha final. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04)")
             año_fecha_2 = input ("Ingrese el año (AAAA) de la fecha final.")
             
-            fecha_2 = f"{dia_fecha_2}/{mes_fecha_2}/{año_fecha_2}"
+            fecha_2 = f"{dia_fecha_2}-{mes_fecha_2}-{año_fecha_2}"
 
-            fecha_2 = datetime.strptime(fecha_2, "%d/%m/%Y").date()
+            fecha_2 = datetime.strptime(fecha_2, "%d-%m-%Y").date()
 
             if fecha_2 < fecha_1:
                 print("La fecha final no puede ser anterior a la fecha inicial.")

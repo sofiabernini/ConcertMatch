@@ -94,8 +94,7 @@ def ejecutar_programa():
             
             grafico_resultado(mejores)
             mostrar_info_resultados(mejores)
-        else:
-            print("No quedaron eventos disponibles con esos filtros.")
+      
 
         # 8. Reintentar
         print("-" * 50)

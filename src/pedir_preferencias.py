@@ -128,7 +128,7 @@ def pedir_preferencias(df, categorias_ordenadas):
             dic_preferencias["horario"] = pedir_franja_horaria()
         elif categoria == "distancia":
             df = pedir_ubicacion_partida(df)
-            dic_preferencias["distancia"] = pedir_distancia_max(df)
+            dic_preferencias["distancia"] = pedir_distancia_max()
         elif categoria == "lugar para sentarse":
             dic_preferencias["lugar para sentarse"] = pedir_lugar_para_sentarse()
     return dic_preferencias, df

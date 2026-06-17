@@ -17,6 +17,7 @@ from src.resultados import obtener_mejores, mostrar_info_resultados
 from src.graficos import grafico_resultado
 from src.pedir_preferencias import ordenar_preferencias, pedir_preferencias, hacer_pregunta_si_no
 from src.calculo_coincidencias import ponderacion_total
+import folium 
 
 # FUNCIÓN PRINCIPAL
 def ejecutar_programa():

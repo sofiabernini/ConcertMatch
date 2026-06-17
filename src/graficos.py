@@ -19,7 +19,7 @@ def grafico_resultado(df_mejores):
     plt.figure(figsize=(10, 6))
     
     # Creamos el gráfico de barras horizontales
-    bars = plt.barh(df_mejores['artista_banda'], df_mejores['porcentaje_coincidencia'], color='mediumpurple')
+    bars = plt.barh(df_mejores['Artista/Banda'], df_mejores['porcentaje_coincidencia'], color='mediumpurple') 
     
     plt.xlabel('Porcentaje de Coincidencia (%)', fontweight='bold')
     plt.ylabel('Artista / Banda', fontweight='bold')

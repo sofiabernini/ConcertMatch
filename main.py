@@ -89,13 +89,12 @@ def ejecutar_programa():
         df_evaluado = ponderacion_total(filtrado_preferencias, preferencias_usuario)
         
         # 7. Mostrar resultados finales
-        if not df_evaluado.empty: #no hace falta el empty pq igual siempre va a haber al menos algun concierto que coincida porque aplicar filtros ya se encarga de q no quede vacio
-            # Ahora usamos df_evaluado para obtener los mejores, ya que tiene la columna "porcentaje_coincidencia"
-            mejores = obtener_mejores(df_evaluado) 
+        # Ahora usamos df_evaluado para obtener los mejores, ya que tiene la columna "porcentaje_coincidencia"
+        mejores = obtener_mejores(df_evaluado) 
             
-            grafico_resultado(mejores)
-            #grafico_mapa(mejores)
-            mostrar_info_resultados(mejores)
+        grafico_resultado(mejores)
+        #grafico_mapa(mejores)
+        mostrar_info_resultados(mejores)
       
 
         # 8. Reintentar

@@ -302,7 +302,7 @@ def pedir_fechas():
             
             fecha_2 = f"{dia_fecha_2}/{mes_fecha_2}/{año_fecha_2}"
 
-            fecha_2 = datetime.strptime(fecha_1, "%d/%m/%y").date()
+            fecha_2 = datetime.strptime(fecha_2, "%d/%m/%Y").date()
 
             if fecha_2 < fecha_1:
                 print("La fecha final no puede ser anterior a la fecha inicial.")

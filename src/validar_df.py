@@ -165,8 +165,8 @@ def limpiar_fechas (df):
     df : DataFrame (con la conversión de datos).
 
     '''
-    df["Fecha"] = pd.to_datetime (df["Fecha"], errors = "coerce")
-    df["Lanzamiento venta"] = pd.to_datetime (df["Lanzamiento venta"], errors = "coerce")
+    df["Fecha"] = pd.to_datetime (df["Fecha"], errors = "coerce").dt.time
+    df["Lanzamiento venta"] = pd.to_datetime (df["Lanzamiento venta"], errors = "coerce").dt.time
     return df
     
 def limpiar_horario (df):

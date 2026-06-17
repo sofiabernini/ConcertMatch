@@ -94,6 +94,7 @@ def ejecutar_programa():
             mejores = obtener_mejores(df_evaluado) 
             
             grafico_resultado(mejores)
+            grafico_mapa(mejores)
             mostrar_info_resultados(mejores)
       
 

@@ -81,7 +81,7 @@ def filtrar_por_condicion(df, categoria, condicion):
 
         return filtrar_rango(
             df,
-            "precio final",
+            "Precio final",
             condicion["min"],
             condicion["max"]
         )
@@ -91,7 +91,7 @@ def filtrar_por_condicion(df, categoria, condicion):
 
         return filtrar_rango(
             df,
-            "fecha",
+            "Fecha",
             condicion["fecha_1"],
             condicion["fecha_2"]
         )
@@ -101,7 +101,7 @@ def filtrar_por_condicion(df, categoria, condicion):
 
         return filtrar_rango(
             df,
-            "horario",
+            "Horario",
             condicion["hora_1"],
             condicion["hora_2"]
         )

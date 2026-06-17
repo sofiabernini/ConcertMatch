@@ -44,8 +44,8 @@ def calcular_coincidencias(df_filtrado, preferencias):
     df["coincidencia_precio"] = df_filtrado["Precio final"].apply(calc_precio)
 
 # FECHA 
-    f_min = preferencias["fecha"]["min"]
-    f_max = preferencias["fecha"]["max"]
+    f_min = preferencias["fecha"]["fecha_1"]
+    f_max = preferencias["fecha"]["fecha_2"]
 
     def calc_fecha(f):
         #CASO DE FECHA EXACTA
@@ -64,8 +64,8 @@ def calcular_coincidencias(df_filtrado, preferencias):
     df["coincidencia_fecha"] = df["Fecha"].apply(calc_fecha)
 
 # HORARIO 
-    h_min = preferencias["horario"]["min"]
-    h_max = preferencias["horario"]["max"]
+    h_min = preferencias["horario"]["hora_min"]
+    h_max = preferencias["horario"]["hora_max"]
 
     def calc_horario(h):
         if h_min <= h <= h_max:
@@ -76,7 +76,7 @@ def calcular_coincidencias(df_filtrado, preferencias):
     df["coincidencia_horario"] = df["Horario"].apply(calc_horario)
 
 # DISTANCIA 
-    d_max = preferencias["ubicación"] #revisar esto
+    d_max = preferencias["distancia"] #revisar esto
 
     def calc_distancia(d):
         if d > d_max:
@@ -87,7 +87,7 @@ def calcular_coincidencias(df_filtrado, preferencias):
     df["coincidencia_distancia"] = df["distancias"].apply(calc_distancia)
 
 # ── ASIENTOS ─────────────────────────────────────────────
-    necesita = preferencias["asientos"] #revisar esto 
+    necesita = preferencias["lugar para sentarse"] #revisar esto 
 
     def calc_asientos(tiene):
         if necesita and not tiene:

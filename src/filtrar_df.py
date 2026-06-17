@@ -110,7 +110,7 @@ def filtrar_por_condicion(df, categoria, condicion):
     elif categoria == "distancia":
 
         return df[
-            df["distancia"] <= condicion
+            df["distancias"] <= condicion
         ]
 
     ## Necesita asientos.

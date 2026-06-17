@@ -303,8 +303,6 @@ def pedir_fechas():
             return {"fecha_1": fecha_1,
                 "fecha_2": fecha_2}
         
-            break 
-
         except ValueError:
 
             print("Fecha inválida. Utilice el formato DD/MM/AA y verifique que la fecha exista.")
@@ -344,7 +342,6 @@ def pedir_franja_horaria ():
         
             if hora_max < hora_min:
                 raise ValueError ("La hora mínima no puede ser después de la hora máxima")
-                continue
             
             
         except ValueError as e:

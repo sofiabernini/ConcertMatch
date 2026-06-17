@@ -4,6 +4,10 @@ Created on Mon Jun  1 15:18:34 2026
 
 @author: sofia
 """
+
+print ("Comenzando proceso de carga del programa. Podría tardarse unos segundos/minutos")
+print ("Espere a que aparezca el cartel de inicio del programa")
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime

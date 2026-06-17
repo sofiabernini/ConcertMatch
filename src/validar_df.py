@@ -118,6 +118,7 @@ def limpieza_df(df):
 
 
 #llamado a funciones que convierten los datos inválidos a Nan  
+    print (len(df))
     df = limpiar_precios(df)
     df = limpiar_fechas (df)
     df = limpiar_horario (df)
@@ -127,11 +128,14 @@ def limpieza_df(df):
     df = manejar_links_vacios(df)
     
     df_limpio = df.dropna(subset=columnas_criticas)
-    print("después de dropna:", len(df_limpio))
     
 #eliminar datos tipo Nan con dropna()
-
+    print(df[df["latitud"].isna()]["Ubicación"].tolist())
+    
     df_limpio = df.dropna(subset = columnas_criticas)
+    print("después de dropna:", len(df_limpio))
+    print(df[columnas_criticas].isna().sum())
+    
 
     
     return df_limpio

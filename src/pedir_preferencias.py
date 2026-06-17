@@ -124,10 +124,10 @@ def pedir_preferencias(df, categorias_ordenadas):
                 df["Género musical"])
 
         elif categoria == "Precio final":
-            dic_preferencias["precio"] = pedir_rango_precios()
+            dic_preferencias["precio final"] = pedir_rango_precios()
 
         elif categoria == "Fecha":
-            dic_preferencias["fecha/s"] = pedir_fechas()
+            dic_preferencias["fecha"] = pedir_fechas()
 
         elif categoria == "Horario":
             dic_preferencias["horario"] = pedir_franja_horaria()

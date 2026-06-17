@@ -1,56 +1,56 @@
 Artista/Banda,Género musical,Precio final,Fecha,Horario,Ubicación,Estadio/Predio,Acceso movilidad reducida,Lugar para sentarse,Link ticketera,Quedan entradas,Lanzamiento venta
-Duki,Trap/Rap,60000,2026-07-15,21:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,True,2026-05-15
-Emilia,Pop,55000,2026-07-20,20:30,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,False,2026-05-20
-Wos,Trap/Rap,45000,2026-08-05,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,True,2026-06-01
-Fito Paez,Rock Nacional,70000,2026-08-12,20:00,"Av. Pres. Figueroa Alcorta 7597, CABA",Estadio River Plate,True,True,www.allaccess.com.ar,True,2026-04-12
-Miranda!,Pop,40000,2026-08-15,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,False,2026-06-15
-Divididos,Rock Nacional,45000,2026-08-22,21:30,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,True,True,www.passline.com,True,2026-06-22
-Conociendo Rusia,Indie,25000,2026-08-25,20:00,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,True,False,www.allaccess.com.ar,True,2026-07-01
-Bizarrap,Electrónica,80000,2026-09-10,23:30,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,True,2026-07-10
-Lali,Pop,65000,2026-09-15,21:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,False,2026-07-15
-Milo J,Trap/Rap,35000,2026-09-20,20:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,True,2026-08-01
-El Mato a un Policia Motorizado,Indie,22000,2026-09-25,21:00,"Cnel. Niceto Vega 5510, CABA",Niceto Club,False,False,www.passline.com,True,2026-08-10
-Ke Personajes,Cumbia,30000,2026-10-02,22:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,True,2026-08-15
-Hernan Cattaneo,Electrónica,75000,2026-10-10,23:00,"Av. Pres. Figueroa Alcorta 7597, CABA",Estadio River Plate,True,True,www.allaccess.com.ar,False,2026-05-10
-Orquesta Sinfónica Nacional,Clásica,0,2026-10-15,19:00,"Agustín R. Caffarena 1, CABA",Usina del Arte,True,True,Entrada Gratuita,True,2026-09-15
-Festival de Jazz BA,Jazz,0,2026-10-20,20:00,"Junín 1930, CABA",Centro Cultural Recoleta,True,False,Entrada Gratuita,True,2026-09-20
-La Renga,Rock Nacional,50000,2026-10-25,21:00,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,True,True,www.entradauno.com,False,2026-08-25
-Babasonicos,Rock Nacional,45000,2026-11-05,21:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,True,2026-09-05
-Usted Señalemelo,Indie,28000,2026-11-10,20:30,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,True,False,www.allaccess.com.ar,True,2026-09-10
-Dillom,Trap/Rap,32000,2026-11-15,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,False,2026-09-15
-Los Totora,Cumbia,20000,2026-11-20,23:00,"Cnel. Niceto Vega 5510, CABA",Niceto Club,False,False,www.passline.com,True,2026-10-01
-Bandas Locales Emergentes,Indie,0,2026-11-22,18:00,"Junín 1930, CABA",Centro Cultural Recoleta,True,False,Entrada Gratuita,True,2026-10-22
-YSY A,Trap/Rap,40000,2026-11-28,21:00,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,True,True,www.entradauno.com,True,2026-09-28
-Tiago PZK,Pop,45000,2026-12-05,20:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,True,2026-10-05
-Maria Becerra,Pop,70000,2026-12-12,21:00,"Av. Pres. Figueroa Alcorta 7597, CABA",Estadio River Plate,True,True,www.allaccess.com.ar,False,2026-08-12
-Ciro y los Persas,Rock Nacional,55000,2026-12-18,21:30,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,True,True,www.entradauno.com,True,2026-10-18
-Peces Raros,Electrónica,25000,2026-12-20,23:30,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,True,False,www.allaccess.com.ar,True,2026-11-01
-Tini,Pop,75000,2026-12-28,21:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,True,2026-10-28
-Catupecu Machu,Rock Nacional,35000,2027-01-10,20:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,True,2026-11-10
-Ensamble de Cuerdas BA,Clásica,0,2027-01-15,19:30,"Agustín R. Caffarena 1, CABA",Usina del Arte,True,True,Entrada Gratuita,True,2026-12-15
-Zoe Gotusso,Indie,24000,2027-01-22,21:00,"Cnel. Niceto Vega 5510, CABA",Niceto Club,False,False,www.passline.com,True,2026-12-01
-Airbag,Rock Nacional,50000,2027-02-05,21:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,False,2026-12-05
-Rata Blanca,Rock Nacional,38000,2027-02-12,20:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,True,2026-12-12
-Nicki Nicole,Trap/Rap,60000,2027-02-20,21:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,True,2026-12-20
-Gordo,Electrónica,40000,2027-02-27,23:30,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,True,True,www.entradauno.com,True,2027-01-05
-La Konga,Cumbia,45000,2027-03-05,22:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,False,2027-01-05
-Damas Gratis,Cumbia,35000,2027-03-12,23:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,True,2027-01-12
-Tango BA Joven,Tango,0,2027-03-15,20:00,"Agustín R. Caffarena 1, CABA",Usina del Arte,True,True,Entrada Gratuita,True,2027-02-15
-Marilina Bertoldi,Rock Nacional,30000,2027-03-22,21:00,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,True,False,www.allaccess.com.ar,True,2027-02-01
-Bandalos Chinos,Indie,28000,2027-03-28,21:00,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,True,False,www.allaccess.com.ar,False,2027-02-10
-Trueno,Trap/Rap,45000,2027-04-05,20:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,True,2027-02-05
-Chano,Pop,50000,2027-04-12,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,True,2027-02-12
-Festival de Rock Emergente,Rock Nacional,0,2027-04-18,17:00,"Junín 1930, CABA",Centro Cultural Recoleta,True,False,Entrada Gratuita,True,2027-03-18
-Las Ligas Menores,Indie,20000,2027-04-25,21:00,"Cnel. Niceto Vega 5510, CABA",Niceto Club,False,False,www.passline.com,True,2027-03-25
-No Te Va Gustar,Rock Nacional,60000,2027-05-02,21:30,"Av. Pres. Figueroa Alcorta 7597, CABA",Estadio River Plate,True,True,www.allaccess.com.ar,False,2027-01-02
-Los Auténticos Decadentes,Pop,40000,2027-05-10,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,True,2027-03-10
-CA7RIEL y Paco Amoroso,Trap/Rap,35000,2027-05-15,20:30,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,True,False,www.allaccess.com.ar,True,2027-04-01
-Abel Pintos,Folclore/Pop,65000,2027-05-22,21:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,False,2027-03-22
-Soledad,Folclore,45000,2027-05-28,20:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,True,2027-03-28
-Coro Polifónico,Clásica,0,2027-06-05,18:30,"Agustín R. Caffarena 1, CABA",Usina del Arte,True,True,Entrada Gratuita,True,2027-05-05
-Guasones,Rock Nacional,38000,2027-06-12,21:00,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,True,True,www.entradauno.com,True,2027-04-12
-BLACKPINK,K-Pop,120000,2026-08-10,21:00,"Av. Pres. Figueroa Alcorta 7597, CABA",Estadio River Plate,True,True,www.allaccess.com.ar,False,2026-05-10
-Stray Kids,K-Pop,70000,2026-09-18,20:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.allaccess.com.ar,True,2026-07-01
-TWICE,K-Pop,85000,2027-01-20,21:00,"Humboldt 450, CABA",Movistar Arena,True,True,www.ticketek.com.ar,True,2026-10-20
-ATEEZ,K-Pop,65000,2027-03-15,20:30,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.ticketek.com.ar,True,2027-01-15
-ITZY,K-Pop,60000,2027-05-10,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,True,True,www.passline.com,True,2027-03-10
+Duki,Trap/Rap,60000,2026-07-15,21:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,TRUE,2026-05-15
+Emilia,Pop,55000,2026-07-20,20:30,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,FALSE,2026-05-20
+Wos,Trap/Rap,45000,2026-08-05,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,TRUE,2026-06-01
+Fito Paez,Rock Nacional,70000,2026-08-12,20:00,"Av. Presidente Figueroa Alcorta 7597, CABA",Estadio River Plate,TRUE,TRUE,www.allaccess.com.ar,TRUE,2026-04-12
+Miranda!,Pop,40000,2026-08-15,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,FALSE,2026-06-15
+Divididos,Rock Nacional,45000,2026-08-22,21:30,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,TRUE,TRUE,www.passline.com,TRUE,2026-06-22
+Conociendo Rusia,Indie,25000,2026-08-25,20:00,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,TRUE,FALSE,www.allaccess.com.ar,TRUE,2026-07-01
+Bizarrap,Electrónica,80000,2026-09-10,23:30,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,TRUE,2026-07-10
+Lali,Pop,65000,2026-09-15,21:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,FALSE,2026-07-15
+Milo J,Trap/Rap,35000,2026-09-20,20:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,TRUE,2026-08-01
+El Mato a un Policia Motorizado,Indie,22000,2026-09-25,21:00,"Coronel Niceto Vega 5510, CABA",Niceto Club,FALSE,FALSE,www.passline.com,TRUE,2026-08-10
+Ke Personajes,Cumbia,30000,2026-10-02,22:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,TRUE,2026-08-15
+Hernan Cattaneo,Electrónica,75000,2026-10-10,23:00,"Av. Presidente Figueroa Alcorta 7597, CABA",Estadio River Plate,TRUE,TRUE,www.allaccess.com.ar,FALSE,2026-05-10
+Orquesta Sinfónica Nacional,Clásica,0,2026-10-15,19:00,"Agustín R. Caffarena 1, CABA",Usina del Arte,TRUE,TRUE,Entrada Gratuita,TRUE,2026-09-15
+Festival de Jazz BA,Jazz,0,2026-10-20,20:00,"Junín 1930, CABA",Centro Cultural Recoleta,TRUE,FALSE,Entrada Gratuita,TRUE,2026-09-20
+La Renga,Rock Nacional,50000,2026-10-25,21:00,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,TRUE,TRUE,www.entradauno.com,FALSE,2026-08-25
+Babasonicos,Rock Nacional,45000,2026-11-05,21:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,TRUE,2026-09-05
+Usted Señalemelo,Indie,28000,2026-11-10,20:30,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,TRUE,FALSE,www.allaccess.com.ar,TRUE,2026-09-10
+Dillom,Trap/Rap,32000,2026-11-15,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,FALSE,2026-09-15
+Los Totora,Cumbia,20000,2026-11-20,23:00,"Coronel Niceto Vega 5510, CABA",Niceto Club,FALSE,FALSE,www.passline.com,TRUE,2026-10-01
+Bandas Locales Emergentes,Indie,0,2026-11-22,18:00,"Junín 1930, CABA",Centro Cultural Recoleta,TRUE,FALSE,Entrada Gratuita,TRUE,2026-10-22
+YSY A,Trap/Rap,40000,2026-11-28,21:00,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,TRUE,TRUE,www.entradauno.com,TRUE,2026-09-28
+Tiago PZK,Pop,45000,2026-12-05,20:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,TRUE,2026-10-05
+Maria Becerra,Pop,70000,2026-12-12,21:00,"Av. Presidente Figueroa Alcorta 7597, CABA",Estadio River Plate,TRUE,TRUE,www.allaccess.com.ar,FALSE,2026-08-12
+Ciro y los Persas,Rock Nacional,55000,2026-12-18,21:30,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,TRUE,TRUE,www.entradauno.com,TRUE,2026-10-18
+Peces Raros,Electrónica,25000,2026-12-20,23:30,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,TRUE,FALSE,www.allaccess.com.ar,TRUE,2026-11-01
+Tini,Pop,75000,2026-12-28,21:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,TRUE,2026-10-28
+Catupecu Machu,Rock Nacional,35000,2027-01-10,20:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,TRUE,2026-11-10
+Ensamble de Cuerdas BA,Clásica,0,2027-01-15,19:30,"Agustín R. Caffarena 1, CABA",Usina del Arte,TRUE,TRUE,Entrada Gratuita,TRUE,2026-12-15
+Zoe Gotusso,Indie,24000,2027-01-22,21:00,"Coronel Niceto Vega 5510, CABA",Niceto Club,FALSE,FALSE,www.passline.com,TRUE,2026-12-01
+Airbag,Rock Nacional,50000,2027-02-05,21:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,FALSE,2026-12-05
+Rata Blanca,Rock Nacional,38000,2027-02-12,20:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,TRUE,2026-12-12
+Nicki Nicole,Trap/Rap,60000,2027-02-20,21:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,TRUE,2026-12-20
+Gordo,Electrónica,40000,2027-02-27,23:30,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,TRUE,TRUE,www.entradauno.com,TRUE,2027-01-05
+La Konga,Cumbia,45000,2027-03-05,22:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,FALSE,2027-01-05
+Damas Gratis,Cumbia,35000,2027-03-12,23:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,TRUE,2027-01-12
+Tango BA Joven,Tango,0,2027-03-15,20:00,"Agustín R. Caffarena 1, CABA",Usina del Arte,TRUE,TRUE,Entrada Gratuita,TRUE,2027-02-15
+Marilina Bertoldi,Rock Nacional,30000,2027-03-22,21:00,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,TRUE,FALSE,www.allaccess.com.ar,TRUE,2027-02-01
+Bandalos Chinos,Indie,28000,2027-03-28,21:00,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,TRUE,FALSE,www.allaccess.com.ar,FALSE,2027-02-10
+Trueno,Trap/Rap,45000,2027-04-05,20:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,TRUE,2027-02-05
+Chano,Pop,50000,2027-04-12,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,TRUE,2027-02-12
+Festival de Rock Emergente,Rock Nacional,0,2027-04-18,17:00,"Junín 1930, CABA",Centro Cultural Recoleta,TRUE,FALSE,Entrada Gratuita,TRUE,2027-03-18
+Las Ligas Menores,Indie,20000,2027-04-25,21:00,"Coronel Niceto Vega 5510, CABA",Niceto Club,FALSE,FALSE,www.passline.com,TRUE,2027-03-25
+No Te Va Gustar,Rock Nacional,60000,2027-05-02,21:30,"Av. Presidente Figueroa Alcorta 7597, CABA",Estadio River Plate,TRUE,TRUE,www.allaccess.com.ar,FALSE,2027-01-02
+Los Auténticos Decadentes,Pop,40000,2027-05-10,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,TRUE,2027-03-10
+CA7RIEL y Paco Amoroso,Trap/Rap,35000,2027-05-15,20:30,"Av. Federico Lacroze 3455, CABA",Teatro Vorterix,TRUE,FALSE,www.allaccess.com.ar,TRUE,2027-04-01
+Abel Pintos,Folclore/Pop,65000,2027-05-22,21:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,FALSE,2027-03-22
+Soledad,Folclore,45000,2027-05-28,20:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,TRUE,2027-03-28
+Coro Polifónico,Clásica,0,2027-06-05,18:30,"Agustín R. Caffarena 1, CABA",Usina del Arte,TRUE,TRUE,Entrada Gratuita,TRUE,2027-05-05
+Guasones,Rock Nacional,38000,2027-06-12,21:00,"Av. del Libertador 7395, CABA",Estadio Obras Sanitarias,TRUE,TRUE,www.entradauno.com,TRUE,2027-04-12
+BLACKPINK,K-Pop,120000,2026-08-10,21:00,"Av. Presidente Figueroa Alcorta 7597, CABA",Estadio River Plate,TRUE,TRUE,www.allaccess.com.ar,FALSE,2026-05-10
+Stray Kids,K-Pop,70000,2026-09-18,20:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.allaccess.com.ar,TRUE,2026-07-01
+TWICE,K-Pop,85000,2027-01-20,21:00,"Humboldt 450, CABA",Movistar Arena,TRUE,TRUE,www.ticketek.com.ar,TRUE,2026-10-20
+ATEEZ,K-Pop,65000,2027-03-15,20:30,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.ticketek.com.ar,TRUE,2027-01-15
+ITZY,K-Pop,60000,2027-05-10,21:00,"Av. Eduardo Madero 420, CABA",Estadio Luna Park,TRUE,TRUE,www.passline.com,TRUE,2027-03-10

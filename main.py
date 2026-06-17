@@ -83,9 +83,9 @@ def ejecutar_programa():
         print(type(df["Fecha"].iloc[0]))
         
         filtrado_preferencias= aplicar_filtros(df, preferencias_usuario, categorias_ordenadas)
-        # Llamamos a la función ponderacion_total que creaste recién. 
+        # Llamamos a la función ponderacion_total.
         # Recibe el df filtrado y el diccionario de preferencias, y nos devuelve el df con los % finales.
-        df_evaluado = ponderacion_total(df, preferencias_usuario)
+        df_evaluado = ponderacion_total(filtrado_preferencias, preferencias_usuario)
         
         # 7. Mostrar resultados finales
         if not df_evaluado.empty:

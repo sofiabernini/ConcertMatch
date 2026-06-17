@@ -37,7 +37,7 @@ def calcular_coincidencias(df_filtrado, preferencias):
         if p < pmin:
             return 1.0
         elif pmin <= p <= pmax:
-            return 1.0 - (p / pmax) #hicimos el cálculo de esta manera porque, asumimos que cuanto más barato, más utilidad
+            return 1.0
         else:
             return 0.0
     #se crea una columna "coincidencia_precio" en el df

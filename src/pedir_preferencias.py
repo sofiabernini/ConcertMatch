@@ -456,7 +456,7 @@ def pedir_nueva_preferencia(categoria, df_filtrado):
 
     elif categoria == "distancia":
 
-        return pedir_distancia_max(df_filtrado)
+        return pedir_distancia_max()
 
     elif categoria == "lugar para sentarse":
 

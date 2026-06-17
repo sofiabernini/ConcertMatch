@@ -75,8 +75,8 @@ def ejecutar_programa():
         # Obtenemos la lista con el orden elegido por el usuario (ej: ["Género", "Lugar para sentarse", ...])
         categorias_ordenadas = ordenar_preferencias()
         
-        # Obtenemos un diccionario con las respuestas exactas del usuario para cada categoría
-        preferencias_usuario = pedir_preferencias(df, categorias_ordenadas)
+        # Obtenemos un diccionario con las respuestas exactas del usuario para cada categoría y se agrega la columna distancias al df
+        preferencias_usuario, df = pedir_preferencias(df, categorias_ordenadas)
 
         # 6. Filtrado y Cálculo de Coincidencias
         print(preferencias_usuario)
@@ -89,7 +89,7 @@ def ejecutar_programa():
         df_evaluado = ponderacion_total(filtrado_preferencias, preferencias_usuario)
         
         # 7. Mostrar resultados finales
-        if not df_evaluado.empty:
+        if not df_evaluado.empty: #no hace falta el empty pq igual siempre va a haber al menos algun concierto que coincida porque aplicar filtros ya se encarga de q no quede vacio
             # Ahora usamos df_evaluado para obtener los mejores, ya que tiene la columna "porcentaje_coincidencia"
             mejores = obtener_mejores(df_evaluado) 
             

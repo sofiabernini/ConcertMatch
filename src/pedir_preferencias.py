@@ -396,7 +396,7 @@ def pedir_ubicacion_partida(df):
                 latitud_usuario=ubicacion_usuario.latitude
                 longitud_usuario=ubicacion_usuario.longitude
                 break
-   lista_distancias= calcular_distancias(df["Ubicación"], latitud_usuario, longitud_usuario) #se llama a funcion que devuelve lista de distancias
+   lista_distancias= calcular_distancias(df, latitud_usuario, longitud_usuario) #se llama a funcion que devuelve lista de distancias
    df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
    
    return df

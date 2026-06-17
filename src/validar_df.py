@@ -111,7 +111,9 @@ def limpieza_df(df):
         "Acceso movilidad reducida",
         "Lugar para sentarse",
         "Quedan entradas",
-        "Lanzamiento venta"
+        "Lanzamiento venta",
+        "latitud",
+        "longitud"
     ]
 
 
@@ -120,6 +122,8 @@ def limpieza_df(df):
     df = limpiar_fechas (df)
     df = limpiar_horario (df)
     df = limpiar_booleanos (df)
+    df = limpiar_ubicacion(df)
+    print ("Después de limpiar ubicaciones ", len(df) )
     df = manejar_links_vacios(df)
     
     df_limpio = df.dropna(subset=columnas_criticas)

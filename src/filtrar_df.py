@@ -102,8 +102,8 @@ def filtrar_por_condicion(df, categoria, condicion):
         return filtrar_rango(
             df,
             "Horario",
-            condicion["hora_1"],
-            condicion["hora_2"]
+            condicion["hora_min"],
+            condicion["hora_max"]
         )
 
     ## Distancia máxima.

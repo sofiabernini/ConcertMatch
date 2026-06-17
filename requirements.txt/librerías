@@ -1,5 +1,6 @@
-matplotlib
-pandas
-datetime
-os
-geopy
+pandas: Se utiliza para la carga, limpieza, manipulación y filtrado eficiente del dataset de conciertos.
+matplotlib.pyplot: Sirven para la visualización de los datos (gráfico de barras).
+datetime: Se utiliza para el procesamiento, parseo y validación de los strings de fechas ingresadas por el usuario frente al calendario de los eventos. Es lo que nos permite saber si la fecha que escribió la persona tiene un formato válido (DD-MM-AAAA).
+os: se utiliza en la función cargar_dataset. Sirve para validar si la ruta del archivo CSV ya existía en la computadora antes de intentar abrirlo, evitando así que el programa colapse de forma inesperada.
+geopy: transforma direcciones en coordenadas y calcula distancias.
+folium: permite crear y mostrar el gráfico de mapa. 

@@ -4,51 +4,109 @@ Created on Tue Jun  9 16:34:42 2026
 
 @author: sofia
 """
-
-# FUNCIÓN PARA OBTENER LOS 5 MEJORES RESULTADOS
-
-def obtener_mejores(df, columna_porcentaje='porcentaje_coincidencia', top_n=5):
+def obtener_columna_importante(categorias_ordenadas):
     """
-    Ordena el DataFrame según el porcentaje de coincidencia de mayor a menor
-    y devuelve los 'top_n' mejores resultados. (en este caso, el top 5)
+    Descripción:
+        Determina cuál es la categoría más importante entre
+        precio y distancia según el orden elegido por el usuario.
+
+    Parámetros:
+        categorias_ordenadas (list): categorías ordenadas por el
+        usuario según su prioridad.
+
+    Retorno:
+        str:
+            "Precio final" si precio tiene mayor prioridad.
+            "distancias" si distancia tiene mayor prioridad.
+
+    Manejo de errores:
+        No realiza validaciones ya que las categorías fueron
+        verificadas previamente.
     """
-    
-    # Ordenamos de mayor a menor coincidencia
-    df_ordenado = df.sort_values(by=columna_porcentaje, ascending=False)
-    
-    # Devolvemos solo las primeras 'top_n' filas (por defecto 5)
-    return df_ordenado.head(top_n)
 
+    ## Se recorren las categorías respetando el orden elegido.
+    for categoria in categorias_ordenadas:
 
-# FUNCIÓN PARA MOSTRAR LA INFORMACIÓN EN CONSOLA
+        if categoria == "precio":
 
-def mostrar_info_resultados(df_mejores):
+            return "Precio final"
+
+        elif categoria == "distancia":
+
+            return "distancias"
+
+def ordenar_resultados(df_filtrado, columna_importante):
     """
-    Muestra en consola la información detallada de los resultados seleccionados.
+    Descripción:
+        Ordena los conciertos de menor a mayor según la
+        columna indicada.
+
+    Parámetros:
+        df_filtrado (DataFrame): conciertos luego del filtrado.
+
+        columna_importante (str): columna utilizada para ordenar.
+
+    Retorno:
+        DataFrame: conciertos ordenados.
+
+    Manejo de errores:
+        No realiza validaciones ya que los parámetros fueron
+        obtenidos previamente.
     """
-    if df_mejores.empty:
-        return "Lo sentimos, actualmente no se encontraron eventos que coincidan con tus preferencias."
 
+    ## Ordena de menor a mayor.
+    df_ordenado = df_filtrado.sort_values(
+        by=columna_importante,
+        ascending=True
+    )
 
-    print("="*50)
-    print("⭐ TUS 5 MEJORES RECOMENDACIONES ⭐")
-    print("="*50)
-    
-    for index, row in df_mejores.iterrows():
-        print(f"🎵 Artista/Banda: {row['Artista/Banda']} | Coincidencia: {row['porcentaje_coincidencia']}%")
-        print(f"   - Género: {row['Género musical']}")
-        print(f"   - Precio: ${row['Precio final']}")
-        print(f"   - Fecha y Hora: {row['Fecha']} | {row['Horario']}")
-        print(f"   - Lugar: {row['Estadio/Predio']} ({row['Ubicación']})")
-        print(f"   - Distancia: a {row['distancias']}km")
-        
-        # Convertimos los booleanos en "Sí" o "No" para que sea más legible para el usuario 
-        print(f"   - Movilidad Reducida: {'Sí' if row['Acceso movilidad reducida'] else 'No'}")
-        print(f"   - Asientos: {'Sí' if row['Lugar para sentarse'] else 'No'}")
-        print(f"   - Quedan entradas: {'Sí' if row['Quedan entradas'] else 'No'}")
-        
-        print(f"   - Lanzamiento entradas: {row['Lanzamiento venta']}")
-        print(f"   - Link Entradas: {row['Link ticketera']}")
+    return df_ordenado
 
+def mostrar_info_resultados(df_ordenado):
+    """
+    Descripción:
+        Muestra por pantalla los cinco primeros conciertos del
+        DataFrame ordenado. Si hay menos de cinco conciertos,
+        muestra todos los disponibles.
 
+    Parámetros:
+        df_ordenado (DataFrame): conciertos ordenados según la
+        categoría más importante.
 
+    Retorno:
+        None
+
+    Manejo de errores:
+        No realiza validaciones ya que el DataFrame nunca llega
+        vacío a esta función.
+    """
+
+    print("=" * 50)
+    print("⭐ CONCIERTOS RECOMENDADOS ⭐")
+    print("=" * 50)
+
+    ## Se recorren únicamente los primeros cinco conciertos.
+    for _, fila in df_ordenado.head(5).iterrows():
+
+        print(f"🎵 Artista/Banda: {fila['Artista/Banda']}")
+        print(f"   - Género: {fila['Género musical']}")
+        print(f"   - Precio: ${fila['Precio final']}")
+        print(f"   - Fecha: {fila['Fecha']}")
+        print(f"   - Horario: {fila['Horario']}")
+        print(f"   - Lugar: {fila['Estadio/Predio']}")
+        print(f"   - Dirección: {fila['Ubicación']}")
+        print(f"   - Distancia: {round(fila['distancias'], 2)} km")
+
+        print(
+            f"   - Acceso para movilidad reducida: "
+            f"{'Sí' if fila['Acceso movilidad reducida'] else 'No'}"
+        )
+
+        print(
+            f"   - Cuenta con asientos: "
+            f"{'Sí' if fila['Lugar para sentarse'] else 'No'}"
+        )
+
+        print(f"   - Link de la ticketera: {fila['Link ticketera']}")
+
+        print("-" * 50)

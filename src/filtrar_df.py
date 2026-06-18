@@ -173,7 +173,7 @@ def aplicar_filtros(df_filtrado,
             ## Si todavía quedan conciertos,
             ## se acepta el filtro.
             
-            if len(resultado_filtro) >0:
+            if len(resultado_filtro) >=5:
 
                 df_filtrado = resultado_filtro
 
@@ -183,7 +183,7 @@ def aplicar_filtros(df_filtrado,
 
                 ## Si el filtro elimina todos los conciertos,
                 ## se pide una condición más amplia.
-                print(f"La condición elegida para '{categoria}' no deja ningún evento disponible.")
+                print(f"La condición elegida para '{categoria}' deja pocos o ningún evento disponible.")
                 decision=input(f"Si desea modificar su preferencia para tener opciones elija '1'. Si desea continuar sin coincidencias de {categoria} ingrese '2'")
                 while decision not in ["1", "2"]:
                     print("Opción inválida. Debe elegir 1 o 2")
@@ -195,7 +195,7 @@ def aplicar_filtros(df_filtrado,
                     nueva_condicion = pedir_nueva_preferencia( categoria, df_filtrado)
                     dic_preferencias[categoria] = nueva_condicion
                 elif decision=="2": 
-                    print(f"Eligió la opción de continuar, por lo tanto no habrá coincidencias con {categoria}")
+                    print(f"Eligió la opción de continuar, por lo tanto no habrá coincidencias (o habrá pocas coincidencias) con {categoria}")
                     break
                 ## Se actualiza el diccionario para volver
                 ## a intentar el filtrado.

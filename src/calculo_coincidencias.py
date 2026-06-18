@@ -25,8 +25,6 @@ def calcular_coincidencias(df_filtrado, preferencias):
     for genero in generos_usuario:
         genero = genero.lower().strip()
         generos_usuario_min.append(genero)
-        
-    
 
     def calc_genero(genero_concierto):
         if genero_concierto.lower().strip() in generos_usuario_min:

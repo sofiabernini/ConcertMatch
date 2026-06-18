@@ -20,9 +20,15 @@ def calcular_coincidencias(df_filtrado, preferencias):
 
 # GÉNERO 
     generos_usuario = preferencias["genero"]
+    generos_usuario_min = []
+    for genero in generos_usuario:
+        genero = genero.lower().strip()
+        generos_usuario_min.append(genero)
+        
+    
 
     def calc_genero(genero_concierto):
-        if genero_concierto.lower().strip() in generos_usuario:
+        if genero_concierto.lower().strip() in generos_usuario_min:
             return 1.0
         else:
             return 0.0
@@ -133,7 +139,8 @@ def ponderacion_total (df_filtrado, preferencias): #hay que conectarlo desde mai
     
     #crea una columna con el nombre "porcentaje_coincidencia" y con los datos de la lista "porcentajes"
     df["porcentaje_coincidencia"] = porcentajes
-
+    
+    
     #retorna el df con la columna incorporada
     return df   
   

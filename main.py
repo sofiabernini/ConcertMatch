@@ -79,15 +79,18 @@ def ejecutar_programa():
         preferencias_usuario, df = pedir_preferencias(df, categorias_ordenadas)
 
         # 6. Filtrado y Cálculo de Coincidencias
-        print(preferencias_usuario)
-        print(df["Fecha"].dtype)
-        print(type(df["Fecha"].iloc[0]))
         
         filtrado_preferencias= aplicar_filtros(df, preferencias_usuario, categorias_ordenadas)
         # Llamamos a la función ponderacion_total.
         # Recibe el df filtrado y el diccionario de preferencias, y nos devuelve el df con los % finales.
         df_evaluado = ponderacion_total(filtrado_preferencias, preferencias_usuario)
         
+        pd.set_option('display.max_columns', None)
+ 
+        print(df_evaluado[["Artista/Banda", "coincidencia_genero", "coincidencia_precio", 
+                        "coincidencia_fecha", "coincidencia_horario", 
+                        "coincidencia_distancia", "coincidencia_lugar para sentarse"]].head(10))
+
         # 7. Mostrar resultados finales
         # Ahora usamos df_evaluado para obtener los mejores, ya que tiene la columna "porcentaje_coincidencia"
         mejores = obtener_mejores(df_evaluado) 

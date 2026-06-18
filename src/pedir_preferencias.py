@@ -282,7 +282,7 @@ def pedir_fechas():
             
             fecha_1 = f"{dia_fecha_1}-{mes_fecha_1}-{año_fecha_1}"
 
-            fecha_1 = datetime.strptime(fecha_1, "%d-%m-%Y").date()
+            fecha_1 = datetime.strptime(fecha_1, "%d-%m-%Y").date() # convertir string a objeto
 
             if fecha_1 < fecha_actual:
                 print("La fecha inicial no puede ser anterior a hoy.")

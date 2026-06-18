@@ -110,20 +110,3 @@ def mostrar_info_resultados(df_ordenado):
         print(f"   - Link de la ticketera: {fila['Link ticketera']}")
 
         print("-" * 50)
-        
-columna_importante = obtener_columna_importante(
-    categorias_ordenadas
-)
-
-df_ordenado = ordenar_resultados(
-    df_filtrado,
-    columna_importante
-)
-
-generar_histograma(
-    df_original,
-    df_ordenado,
-    columna_importante
-)
-
-mostrar_info_resultados(df_ordenado)

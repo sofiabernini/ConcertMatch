@@ -42,7 +42,7 @@ def grafico_resultado(df_mejores):
     plt.show()
     
 def grafico_mapa (df_mejores):
-    """
+   """
    Genera un mapa interactivo con los conciertos recomendados al usuario.
    Cada concierto aparece como un marcador y, al hacer clic sobre él,
    se muestra información relevante del evento.
@@ -76,10 +76,11 @@ def grafico_mapa (df_mejores):
        
        #Crear el texto que aparecerá al hacer clic
        texto_popup = (
-           f"Artista: {fila['Artista/Banda'])<br>"
-           f"Fecha: {fila['Fecha']<br>"
-           f"Precio: ${fila['Precio final'])<br>"
-           f"Coincidencia: {fila['porcentaje_coincidencia']%")
+           f"Artista: {fila['Artista/Banda']}<br>",
+           f"Fecha: {fila['Fecha']}<br>",
+           f"Precio: ${fila['Precio final']}<br>",
+           f"Coincidencia: {fila['porcentaje_coincidencia']}%" 
+           )
        
        #Crear marcador para el concierto actual
        marcador = folium.Marker (

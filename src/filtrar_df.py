@@ -173,7 +173,7 @@ def aplicar_filtros(df_filtrado,
             ## Si todavía quedan conciertos,
             ## se acepta el filtro.
             
-            if len(resultado_filtro) >=5:
+            if len(resultado_filtro) >0:
 
                 df_filtrado = resultado_filtro
 
@@ -183,8 +183,8 @@ def aplicar_filtros(df_filtrado,
 
                 ## Si el filtro elimina todos los conciertos,
                 ## se pide una condición más amplia.
-                print(f"La condición elegida para '{categoria}' deja pocos o ningún evento disponible.")
-                decision=input(f"Si desea modificar su preferencia elija para tener opciones elija '1'. Si desea continuar sin coincidencias de {categoria} ingrese '2'")
+                print(f"La condición elegida para '{categoria}' no deja ningún evento disponible.")
+                decision=input(f"Si desea modificar su preferencia para tener opciones elija '1'. Si desea continuar sin coincidencias de {categoria} ingrese '2'")
                 while decision not in ["1", "2"]:
                     print("Opción inválida. Debe elegir 1 o 2")
                     decision=input(f"Si desea modificar su preferencia elija 1. Si desea continuar sin coincidencias de {categoria} ingrese 2")

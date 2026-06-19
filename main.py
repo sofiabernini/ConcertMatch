@@ -5,133 +5,14 @@ Created on Mon Jun  1 15:18:34 2026
 @author: sofia
 """
 
-print ("Comenzando proceso de carga del programa. Podría tardarse unos segundos/minutos")
-print ("Espere a que aparezca el cartel de inicio del programa")
-
-import pandas as pd
 from src.cargar_dataset import carga_dataset
 from src.filtrar_df import filtrar_df_bool, aplicar_filtros
-from src.resultados import ( obtener_columna_importante, ordenar_resultados, mostrar_info_resultados)
-from src.graficos import (grafico_mapa, crear_histograma_comparativo)
-from src.pedir_preferencias import ordenar_preferencias, pedir_preferencias, hacer_pregunta_si_no
-from src.calculo_coincidencias import ponderacion_total
-import folium 
-
-# FUNCIÓN PRINCIPAL
-def ejecutar_programa():
-    """
-    Ejecuta el programa. Termina mostrando los resultados e imprime un 
-    mensaje que agradece por utilizar el programa.
-
-    Returns
-    -------
-    None
-    """
-    # 1. Carga inicial del dataset
-    ruta_archivo = 'data/concertmatch_dataset_prueba.csv'
-    
-    try: 
-        df_original = carga_dataset(ruta_archivo) 
-        print("Dataset cargado con éxito.")
-    except FileNotFoundError as e:
-        print(f"Error: {e}")
-        return 
-    except (ValueError, PermissionError, RuntimeError) as e:
-        print(f"Error al procesar los datos: {e}")
-        return 
-
-    # 2. Bucle principal de búsqueda
-    while True:
-        df = df_original.copy()
-        
-        # 3. Mensaje de Bienvenida
-        print("="*50)
-        print("🎸 BIENVENIDO A CONCERTMATCH V2 🎸")
-        print("="*50)
-        print("A continuación te haremos una serie de preguntas para determinar tus preferencias.")
-
-
-# 4. Filtros previos obligatorios (Entradas y Movilidad)
-        df = filtrar_df_bool(df,"Quedan entradas") 
-        if df.empty:
-            print("Lo sentimos, actualmente todos los eventos están agotados.")
-            break #no hay nada que ofrecer, salimos del programa
-
-        necesita_movilidad = hacer_pregunta_si_no("¿Necesitas acceso para personas con movilidad reducida? (si/no): ")
-        if necesita_movilidad:
-            df_temporal = filtrar_df_bool(df,"Acceso movilidad reducida")
-            if not df_temporal.empty:
-                df = df_temporal #actualizamos el DataFrame porque sí hay resultados
-            else:
-                print("Lo sentimos, no hay eventos disponibles con acceso para movilidad reducida.")
-                continuar = hacer_pregunta_si_no("¿Deseas continuar buscando eventos sin este filtro? (si/no): ")
-                if not continuar:
-                    print("¡Gracias por usar ConcertMatch!")
-                    break 
-
-        # 5. Ordenar y Pedir Preferencias
-        # Obtenemos la lista con el orden elegido por el usuario (ej: ["Género", "Lugar para sentarse", ...])
-        categorias_ordenadas = ordenar_preferencias()
-        
-        # Obtenemos un diccionario con las respuestas exactas del usuario para cada categoría y se agrega la columna distancias al df
-        preferencias_usuario, df = pedir_preferencias(df, categorias_ordenadas)
-
-        # 6. Filtrado y Cálculo de Coincidencias
-        
-        filtrado_preferencias= aplicar_filtros(df, preferencias_usuario, categorias_ordenadas)
-        # Llamamos a la función ponderacion_total.
-        # Recibe el df filtrado y el diccionario de preferencias, y nos devuelve el df con los % finales.
-        df_evaluado = ponderacion_total(filtrado_preferencias, preferencias_usuario)
-        
-        pd.set_option('display.max_columns', None)
- 
-        print(df_evaluado[["Artista/Banda", "coincidencia_genero", "coincidencia_precio", 
-                        "coincidencia_fecha", "coincidencia_horario", 
-                        "coincidencia_distancia", "coincidencia_lugar para sentarse"]].head(10))
-
-        # 7. Mostrar resultados finales
-        # Ahora usamos df_evaluado para obtener los mejores, ya que tiene la columna "porcentaje_coincidencia"
-        mejores = obtener_mejores(df_evaluado) 
-            
-        grafico_resultado(mejores)
-        #grafico_mapa(mejores)
-        mostrar_info_resultados(mejores)
-      
-
-        # 8. Reintentar
-        print("-" * 50)
-        reintentar = hacer_pregunta_si_no("¿Deseas realizar una nueva búsqueda? (si/no): ")
-        
-        if not reintentar:
-            print("¡Gracias por usar ConcertMatch! Esperamos que disfrutes del evento.🎶")
-            break 
-
-if __name__ == "__main__":
-    ejecutar_programa()
- 
- ############ NUEVOOO ya cambiado para que llame a todo lo que se modifico sin la ponderacion y grafique el histograma   
- 
-    
-print("Comenzando proceso de carga del programa. Podría tardarse unos segundos/minutos")
-print("Espere a que aparezca el cartel de inicio del programa")
-
-from src.cargar_dataset import carga_dataset
-from src.filtrar_df import filtrar_df_bool, aplicar_filtros
-from src.resultados import (
-    obtener_columna_importante,
-    ordenar_resultados,
-    mostrar_info_resultados
-)
+from src.resultados import (obtener_columna_importante,ordenar_resultados,mostrar_info_resultados)
 from src.graficos import crear_histograma_comparativo, grafico_mapa
-from src.pedir_preferencias import (
-    ordenar_preferencias,
-    pedir_preferencias,
-    hacer_pregunta_si_no
-)
-
-import folium
+from src.pedir_preferencias import (ordenar_preferencias,pedir_preferencias,hacer_pregunta_si_no)
 
 
+#FUNCIÓN PRINCIPAL:
 def ejecutar_programa():
     """
     Descripción:
@@ -142,35 +23,29 @@ def ejecutar_programa():
         según la categoría más importante entre precio y distancia,
         genera un histograma y muestra los conciertos recomendados.
 
-    Retorno:
+    Returns:
         None
 
     Manejo de errores:
-        - Si ocurre un error al cargar el dataset, el programa finaliza.
+        - Si ocurre un error al cargar el dataset, el programa lo informa y luego finaliza.
     """
 
-    ## Carga inicial del dataset.
+    # Carga inicial del dataset.
     ruta_archivo = "data/concertmatch_dataset_prueba.csv"
 
     try:
-
         df_original = carga_dataset(ruta_archivo)
-
         print("Dataset cargado con éxito.")
 
     except FileNotFoundError as e:
-
         print(f"Error: {e}")
         return
 
     except (ValueError, PermissionError, RuntimeError) as e:
-
         print(f"Error al procesar los datos: {e}")
         return
 
-
-    ## Permite realizar varias búsquedas sin volver
-    ## a cargar el archivo.
+    # Permite realizar varias búsquedas sin volver a cargar el archivo o ejecutar todo el programa denuevo
     while True:
 
         df = df_original.copy()
@@ -179,124 +54,65 @@ def ejecutar_programa():
         print("🎸 BIENVENIDO A CONCERTMATCH 🎸")
         print("=" * 50)
 
-        print(
-            "A continuación te haremos una serie de preguntas "
-            "para determinar tus preferencias."
-        )
+        print("A continuación te haremos una serie de preguntas para determinar tus preferencias.")
 
-
-        ## Se eliminan los conciertos sin entradas disponibles.
-        df = filtrar_df_bool(
-            df,
-            "Quedan entradas"
-        )
+        # Se eliminan los conciertos sin entradas disponibles.
+        df = filtrar_df_bool(df,"Quedan entradas") 
 
         if df.empty:
+            print("Lo sentimos, actualmente todos los conciertos se encuentran agotados.")
+            break # No hay nada que ofrecer, salimos del programa
 
-            print("Actualmente todos los conciertos se encuentran agotados.")
-            break
-
-
-        ## Filtro obligatorio para movilidad reducida.
-        necesita_movilidad = hacer_pregunta_si_no(
-            "¿Necesitás acceso para personas con movilidad reducida? (si/no): "
-        )
-
+        # Filtro obligatorio para movilidad reducida.
+        necesita_movilidad = hacer_pregunta_si_no("¿Necesitas acceso para personas con movilidad reducida? (si/no): ")
+       
         if necesita_movilidad:
-
-            df_temporal = filtrar_df_bool(
-                df,
-                "Acceso movilidad reducida"
-            )
-
+            df_temporal = filtrar_df_bool(df,"Acceso movilidad reducida")
             if not df_temporal.empty:
-
-                df = df_temporal
-
+                df = df_temporal # Actualizamos el DataFrame porque sí hay resultados que coinciden con la preferencia
             else:
-
-                print(
-                    "No existen conciertos con acceso para movilidad reducida."
-                )
-
-                continuar = hacer_pregunta_si_no(
-                    "¿Deseás continuar sin este requisito? (si/no): "
-                )
-
+                print("Lo sentimos, no hay eventos disponibles con acceso para movilidad reducida.")
+                continuar = hacer_pregunta_si_no("¿Deseas continuar buscando eventos sin este filtro? (si/no): ")
                 if not continuar:
+                    print("¡Gracias por usar ConcertMatch!")
+                    break 
 
-                    print("¡Gracias por utilizar ConcertMatch!")
-                    break
-
-
-        ## Se obtiene el orden de importancia elegido.
+        # Se obtiene el orden de importancia elegido.
         categorias_ordenadas = ordenar_preferencias()
 
+        # Se solicitan las preferencias del usuario.
+        # Además devuelve el DataFrame con la columna "distancias" ya calculada.
+        preferencias_usuario, df = pedir_preferencias(df,categorias_ordenadas)
 
-        ## Se solicitan las preferencias del usuario.
-        ## Además devuelve el DataFrame con la columna
-        ## "distancias" ya calculada.
-        preferencias_usuario, df = pedir_preferencias(
-            df,
-            categorias_ordenadas
-        )
+        # Se aplican los filtros.
+        df_filtrado = aplicar_filtros(df,preferencias_usuario,categorias_ordenadas)
 
+        # Se determina si la prioridad principal es precio o distancia.
+        columna_importante = obtener_columna_importante(categorias_ordenadas)
 
-        ## Se aplican los filtros.
-        df_filtrado = aplicar_filtros(
-            df,
-            preferencias_usuario,
-            categorias_ordenadas
-        )
+        # Se ordenan los conciertos.
+        df_ordenado = ordenar_resultados(df_filtrado,columna_importante)
 
+        # Se genera el histograma.
+        crear_histograma_comparativo(df_original,df_ordenado,columna_importante)
 
-        ## Se determina si la prioridad principal es
-        ## precio o distancia.
-        columna_importante = obtener_columna_importante(
-            categorias_ordenadas
-        )
-
-
-        ## Se ordenan los conciertos.
-        df_ordenado = ordenar_resultados(
-            df_filtrado,
-            columna_importante
-        )
-
-
-        ## Se genera el histograma.
-        crear_histograma_comparativo(
-            df_original,
-            df_ordenado,
-            columna_importante
-        )
-
-        ## Se genera el mapa con la información de los conciertos
+        # Se genera el mapa con la información de los conciertos
         grafico_mapa(df_ordenado)
         
-        ## Se muestran los primeros cinco conciertos.
-        mostrar_info_resultados(
-            df_ordenado
-        )
-
+        # Se muestran los primeros cinco conciertos que más coinciden con las preferencias del usuario.
+        mostrar_info_resultados(df_ordenado)
 
         print("-" * 50)
 
-        reintentar = hacer_pregunta_si_no(
-            "¿Deseás realizar otra búsqueda? (si/no): "
-        )
+        reintentar = hacer_pregunta_si_no("¿Deseás realizar otra búsqueda? (si/no): ")
 
         if not reintentar:
-
-            print(
-                "¡Gracias por usar ConcertMatch! "
-                "Esperamos que disfrutes del evento. 🎶"
-            )
-
+            print("¡Gracias por usar ConcertMatch! Esperamos que disfrutes del evento. 🎶")
             break
 
+#PROGRAMA PRINCIPAL:
+print("Comenzando proceso de carga del programa. Podría tardarse unos segundos/minutos")
+print("Espere a que aparezca el cartel de inicio del programa")
 
 if __name__ == "__main__":
-
-    ejecutar_programa()   
-
+    ejecutar_programa()

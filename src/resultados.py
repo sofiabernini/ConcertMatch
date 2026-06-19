@@ -94,15 +94,9 @@ def mostrar_info_resultados(df_ordenado):
         print(f"   - Dirección: {fila['Ubicación']}")
         print(f"   - Distancia: {round(fila['distancias'], 2)} km")
 
-        print(
-            f"   - Acceso para movilidad reducida: "
-            f"{'Sí' if fila['Acceso movilidad reducida'] else 'No'}"
-        )
+        print(f"   - Acceso para movilidad reducida: " f"{'Sí' if fila['Acceso movilidad reducida'] else 'No'}")
 
-        print(
-            f"   - Cuenta con asientos: "
-            f"{'Sí' if fila['Lugar para sentarse'] else 'No'}"
-        )
+        print(f"   - Cuenta con asientos: "  f"{'Sí' if fila['Lugar para sentarse'] else 'No'}")
 
         print(f"   - Link de la ticketera: {fila['Link ticketera']}")
 

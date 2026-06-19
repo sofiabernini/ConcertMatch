@@ -206,11 +206,9 @@ def limpiar_booleanos(df):
    
     Raises: No hay (solo convierte a Nan)
 
-    '''
-    valores_validos = [True, False]
-    
+    '''    
     for columna in ["Quedan entradas", "Acceso movilidad reducida", "Lugar para sentarse"]:
-        df[columna] = df[columna].map({"True": True, "False": False, True: True, False: False})
+        df[columna] = df[columna].map({"True": True, "true": True, "False": False, "false": False, True: True, False: False})
         #se usa este map y los valores que no coincidan se transforman a Nan automáticamente
     
     return df

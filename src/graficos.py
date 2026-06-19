@@ -12,7 +12,7 @@ import folium
 import os 
 import webbrowser
     
-def grafico_mapa (df_mejores):
+def grafico_mapa (df):
    """
    Genera un mapa interactivo con los conciertos recomendados al usuario.
    Cada concierto aparece como un marcador y, al hacer clic sobre él,
@@ -32,25 +32,24 @@ def grafico_mapa (df_mejores):
    """
    
    #Validar que existan resultados para mostrar
-   if df_mejores.empty:
+   if df.empty:
        raise ValueError ("No hay conciertos para representar")
         
    #Obtener las coordenadas del primer concierto para centrar incialmente el mapa
-   latitud_centro = df_mejores.iloc[0]["latitud"]
-   longitud_centro = df_mejores.iloc[0]["longitud"]
+   latitud_centro = df.iloc[0]["latitud"]
+   longitud_centro = df.iloc[0]["longitud"]
    
    #Crear el mapa base (crea objeto):
    mapa = folium.Map (location = [latitud_centro, longitud_centro], 
                       zoom_start=11 )
    
-   for _, fila in df_mejores.iterrows():
+   for _, fila in df.iterrows():
        
        #Crear el texto que aparecerá al hacer clic
        texto_popup = (
            f"<b>{fila['Artista/Banda']}</b><br>"
            f"Fecha: {fila['Fecha']}<br>"
            f"Precio: ${fila['Precio final']}<br>"
-           f"Coincidencia: {fila['porcentaje_coincidencia']}%"
            )
        
        #Crear marcador para el concierto actual

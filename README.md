@@ -20,11 +20,11 @@ Finalmente, el usuario verá sus resultados en tres formatos distintos. El prime
 
 Las cinco integrantes del proyecto participamos activamente en el diseño del programa (armado de la propuesta y diagramas de flujo), el armado de las funciones y el manejo de errores. Sin embargo, podríamos asignar las siguientes tareas a las siguientes colaboradoras:
 
-Maria Emilia Barbeito: 
+Maria Emilia Barbeito: Programación de la funcion ordenar_preferencias, diagramas de flujo del archivo pedir_prefrencias.
 
 Sofía Belén Bernini: Armado del dataset simulado (concertmatch_dataset_prueba.csv)
 
-Angelina Marengo: 
+Angelina Marengo: Programación de las funciones dentro de pedir_preferencias, graficos.py, filtrar_df.py. Diagramas de flujo del archivo pedir_preferencias.
 
 Victoria Mochnacs: Diagrama inicial del programa general. Programación de las funciones dentro de validar_df.py, pedir_preferencias.py.
 

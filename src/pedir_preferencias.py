@@ -75,19 +75,19 @@ def ordenar_preferencias():
           error= False
           for numero in lista_numeros:
               if not numero.isdigit (): # valida que los valores ingresados sean numeros 
-                 print("Error: El  valor ingresado debe ser un numero ")
+                 print("El  valor ingresado debe ser un numero ")
                  error=True
               elif numero not in ["1","2","3","4","5","6"]: # valida que que no hayan numeros distintos a 1 2 3 4 5 6 
-                 print("Error: El numero ingresado debe estar entre 1 y 6")
+                 print("El numero ingresado debe estar entre 1 y 6")
                  error=True
           if error: # si el error es verdadero, vuelve a pedir las preferencias
              continue
          
           if len(lista_numeros)!= 6: # valido que el usuario haya ingresado si o si 6 numeros
-             print("Error: se deben ingresar 6 preferencias")
+             print("Se deben ingresar 6 preferencias")
              continue  # si no, vuelve a pedirle que ordene las preferencias
           if len(set(lista_numeros)) != 6: # el set lo que hace es extraer la cantidad de numeros que no estan repetidos, si el usuario ingreso 5,5,6,3,2,1. la lista quedaria de 5 elementos, es decir distinto de 6. 
-             print("Error: No pueden haber numeros repetidos")
+             print("No pueden haber numeros repetidos")
              continue # si la lista queda de distinto tamaño por tener numero repetidos, vuelve a pedirle las preferencias
           break 
     

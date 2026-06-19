@@ -176,7 +176,8 @@ def aplicar_filtros(df_filtrado,
             if len(resultado_filtro) >=5:
 
                 df_filtrado = resultado_filtro
-
+                print(f"Así quedan las opciones filtradas en términos de {categoria}")
+                print(df_filtrado)
                 ## Se pasa a la siguiente categoría.
                 break
             else:

@@ -115,7 +115,7 @@ def filtrar_por_condicion(df, categoria, condicion):
 
     ## Necesita asientos.
     elif categoria == "lugar para sentarse":
-        if condicion:
+        if condicion == True:
             return filtrar_df_bool(df, "Lugar para sentarse")
         else:
             return df

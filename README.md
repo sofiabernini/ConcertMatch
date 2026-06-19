@@ -1,21 +1,37 @@
 # ConcertMatch
 
 **Título del proyecto**
-ConcertMatch
+🎸 ConcertMatch: Recomendador Inteligente de Conciertos 
 
 **Autoras:**
-Maria Emilia Barbeito, Sofía Belén Bernini, Angelina Marengo, Victoria Mochnacs y Matilde Urrestarazu Romero
+María Emilia Barbeito, Sofía Belén Bernini, Angelina Marengo, Victoria Mochnacs y Matilde Urrestarazu Romero
 
 
-**Descripción del proyecto:**
+**Objetivo y descripción general del funcionamiento del sistema:**
 
-En el panorama actual del entretenimiento, la oferta de música en vivo es masiva y se encuentra fragmentada entre múltiples productoras, estadios y plataformas de venta de entradas. Para los fanáticos de la música, resulta abrumador y tedioso rastrear cada sitio web para encontrar eventos que no solo coincidan con sus gustos musicales, sino que también se ajusten a su presupuesto, horarios disponibles, distancia y otras facilidades.
+En el panorama actual del entretenimiento, la oferta de música en vivo es masiva y se encuentra fragmentada entre múltiples productoras, estadios y plataformas de venta de entradas. Para los fanáticos de la música, puede resultar abrumador y tedioso rastrear cada sitio web para encontrar eventos que no solo coincidan con sus gustos musicales, sino que también se ajusten a su presupuesto, horarios disponibles, distancia y otras facilidades.
 
-ConcertMatch busca resolver este problema mediante la centralización de la información en un sistema interactivo que funciona como un "recomendador" de conciertos personalizado. El programa procesaría un Dataset que contenga la información de los eventos musicales disponibles en cartelera, para luego ofrecer recomendaciones precisas según las preferencias del usuario. Estas preferencias serán obtenidas tras una serie de preguntas que se le realizarán al comienzo de su interacción con el programa.
+ConcertMatch busca resolver este problema mediante la centralización de la información en un sistema interactivo que funciona como un "recomendador" de conciertos personalizado. El programa procesa un Dataset que contiene la información de los eventos musicales disponibles en cartelera, para luego ofrecer recomendaciones precisas según las preferencias del usuario (género musical, presupuesto, disponibilidad horaria y de fechas, distancia máxima a recorrer y necesidades de accesibilidad/asientos). Estas preferencias serán obtenidas tras una serie de preguntas que se le realizarán al comienzo de su interacción con el programa.
 
-Los filtros que el programa va a aplicar van a ser según las preferencias de género, rango de precios, fecha específica o rango de fechas, franja horaria, distancia máxima dispuesto a recorrer, la disponibilidad de asientos y accesos facilitados para personas con movilidad reducida. 
+Finalmente, el usuario verá sus resultados en tres formatos distintos. El primero será por medio de la consola, donde se imprimirá un listado ordenado y detallado con los mejores conciertos recomendados que se ajustan a los filtros que se fueron aplicando. El segundo formato consistirá en un histograma comparativo, el cual le permitirá analizar visualmente cómo se distribuyen sus opciones recomendadas frente al total de la oferta (enfocándose en su variable de mayor prioridad, ya sea el precio o la distancia). Por último, el programa generará y abrirá automáticamente un mapa interactivo en su navegador web, donde podrá explorar la ubicación geográfica exacta de cada evento sugerido haciendo clic en los marcadores.
 
-**Adjudicaciones de partes del programa**
+
+**Adjudicación de tareas:** 
+(Las tareas que figuran más de una vez es porque las realizaron más de una persona)
+
+Maria Emilia Barbeito: 
+
+Sofía Belén Bernini: 
+
+Angelina Marengo: 
+
+Victoria Mochnacs: 
+
+Matilde Urrestarazu Romero:
+
+
+
+#Después vemos juntas esto:
 En términos generales, las cinco integrantes del proyecto participamos activamente del diseño del programa general, así como en el diseño de las funciones específicas. Por su parte, Victoria Mochnacs realizó un diagrama de flujo inicial que permitió tener una visualización base del funcionamiento del programa. A su vez, todas nos vimos involucradas en realizar intervenciones a ese diseño si se consideraban pertinentes. Por último, todas estuvimos presentes para corregir los errores que se presentaban en el debugging.
 
 En cuanto a las funciones específicas, quienes estuvieron encargadas de realizar las funciones de "filtrar_df.py" fueron, principalmente, María Emilia Barbeito, Angelina Marengo y Matilde Urrestarazu Romero. 
@@ -24,16 +40,22 @@ Por otro lado, las funciones de carga del dataset y su validación y limpieza ("
 
 Los gráficos de graficos.py y los mensajes de "resultados.py" fueron realizados por Sofía Bernini. No obstante, los gráficos y funciones de "pedir_preferencias.py" que involucraban el funcionamiento de geopy o el cálculo de distancia se le adjudica principalmente a Angelina Marengo
 
-**Descripción de la fuente de datos (en caso de haber utilizado una)**
-En nuestro caso particular, utilizamos un mock data de conciertos con datos reales (Artistas, ubicaciones, estadios/predios, links a páginas reales) pero generados con IA para testear el código. Es decir, no utilizamos un Web Scraping de páginas de ticketeras directamente, porque complejizaban de más el desarrollo del proyecto. Además, consideramos que el acceso a esos datos privados podrían estar restringidos y serían dificilmente accesibles mediante Web Scraping.
-
-Sin embargo, hay algunas consideraciones a tener en cuenta sobre los datos que son válidos para el programa, debido a las funciones y librerías que utilizamos. 
-
-Los datos de la columna de Ubicación del Dataset deben tener el nombre completo de la calle (no abreviaciones) y alguna especificación de la ciudad o distrito. Esto debido a que Geopy, la librería que utilizamos para esta validación y para demás funciones, necesita especificidad para hacer correctamente el cálculo de coordenadas de las direcciones. Si no se cargan estos datos correctamente, probablemente se pierdan conciertos en la limpieza de datos, ya que se eliminan las filas que no contengan una ubicación validada por Geopy. O bien, podría perderse alguna de las opciones porque el cálculo de las distancia estaría hecho sobre la dirección de otro distrito o región (Puede haber calles repetidas en distintos distritos).
 
 
+#Redactar mejor
+**Fuente de Datos:**
+
+El proyecto utiliza un DataSet simulado (concertmatch_dataset_prueba.csv) generado con asistencia de Inteligencia Artificial (Gemini). Contiene eventos musicales con información detallada sobre artistas, géneros, precios, fechas, horarios, ubicaciones (direcciones), estadios/predios, disponibilidad de entradas y condiciones del lugar. Además, se incluye información que se mostrará al final o que se filtrará durante la ejecución del programa, como el link que lleva a la ticketera, la fecha en la que se comienzan a vender las entradas para el evento, o la condición de si quedan entradas disponibles. 
+
+Este fue realizado con Inteligencia Artificial (IA) ya que no fue posible acceder a los DataSets reales de las ticketeras. De todas formas, el programa está pensado para que se pueda ejecutar si se ingresara un DataSet real. Sin embargo, hay algunas consideraciones a tener en cuenta sobre los datos que son válidos para el programa, debido a las funciones y librerías que utilizamos. Por ejemplo, los datos de la columna de Ubicación del Dataset deben tener el nombre completo de la calle (no abreviaciones) y alguna especificación de la ciudad o distrito. Esto se debe a que Geopy, la librería que utilizamos para esta validación y para otras funciones, necesita especificidad para hacer correctamente el cálculo de coordenadas de las direcciones. Si no se cargan estos datos correctamente, probablemente se pierdan conciertos en la limpieza de datos, ya que se eliminan las filas que no contengan una ubicación validada por Geopy. O bien, podría perderse alguna de las opciones porque el cálculo de las distancia estaría hecho sobre la dirección de otro distrito o región (puede haber calles repetidas en distintos distritos).
+
+Aclaración: El DataSet no llega a los 1000 registros (como se indica en la consigna) porque la IA no fue capaz de realizarlo. Sin embargo, esto ya fue conversado y aprobado por la profesora.
+
+
+#ver si esto al final va a ser así según si podemos mejorar lo de Geopy
 **Instrucciones para ejecutar el programa**
-Para poder ejecutar el programa, se deben tener descargadas las librerías mencionadas en el siguiente apartado. Se pueden descargar recorriendo el archivo requirements.txt
+
+Para poder ejecutar el programa, se deben tener descargadas las librerías mencionadas en el siguiente apartado. También se pueden ver en el archivo requirements.txt
 
 Resulta importante tener en cuenta que el inicio del programa puede tardar algunos segundos/minutos (dependiendo de la cantidad de filas del programa) debido a la validación de ubicaciones que realiza Geopy. Quien ejecute el programa podrá observar un mensaje inicial que dice:
 
@@ -48,14 +70,16 @@ Luego de la validación el Dataset, aparece el siguiente mensaje de bienvenida, 
 **Librerías utilizadas:**
 
 * **pandas:** Se utiliza para la carga, limpieza, manipulación y filtrado eficiente del dataset de conciertos.
-* **matplotlib.pyplot:** Sirven para la visualización de los datos (gráficos).
+* **matplotlib.pyplot:** Sirven para la generación del histograma comparativo.
 * **datetime:** Se utiliza para el procesamiento, parseo y validación de los strings de fechas ingresadas por el usuario frente al calendario de los eventos. Es lo que nos permite saber si la fecha que escribió la persona tiene un formato válido (DD-MM-AAAA).
-* **os:** se utiliza en la función cargar\_dataset. Sirve para validar si la ruta del archivo CSV ya existía en la computadora antes de intentar abrirlo, evitando así que el programa colapse de forma inesperada.
-* **geopy:** Transforma direcciones en coordenadas y calcula distancias.
-**webbrowser:** Permite abrir un archivo .html en la ventana del navegador
+* **os:** se utiliza en la función cargar_dataset. Sirve para validar si la ruta del archivo CSV ya existía en la computadora antes de intentar abrirlo, evitando así que el programa colapse de forma inesperada.
+* **geopy:** Realiza la geolocalización para convertir la dirección ingresada por el usuario en coordenadas (latitud/longitud) y el cálculo de distancias reales con geodesic.
+* **webbrowser:** Permite abrir un archivo .html en la ventana del navegador
+* **folium**: Permite la creación del mapa interactivo HTML con marcadores agrupados (MarkerCluster).
+
 
 *Aclaraciones sobre Geopy*
-Es importante remarcar que, para calcular la distancia entre la ubicación de partida del usuario y la distancia del evento, utilizamos la función 'geodesic()'. Esta función calcula la distancia geodésica, es decir, la distancia en línea recta entre dos coordenadas (considerando la curvatura de la Tierra), y no la distancia real de viaje por calles, rutas o caminos. 
+Es importante remarcar que para calcular la distancia entre la ubicación de partida del usuario y la distancia del evento, como mencionamos, utilizamos la función 'geodesic()'. Esta función calcula la distancia geodésica, es decir, la distancia en línea recta entre dos coordenadas (considerando la curvatura de la Tierra), y no la distancia real de viaje por calles, rutas o caminos. 
 
 Esto significa que la distancia mostrada por el programa puede ser menor a la distancia que efectivamente se recorrería a pie o en auto entre ambos puntos. Si bien podría considerarse una limitación para el proyecto, lo elegimos porque de otra forma habría que utilizar APIs (como OpenRouteService o Google Distance Matrix), que tienen un límite de consultas diarias o mensuales.
 
@@ -66,21 +90,56 @@ Esto significa que la distancia mostrada por el programa puede ser menor a la di
 
 Carpetas (Directorios):
 
-* **data:** Almacena el dataset (como archivo CSV).
+* **data:** Almacena el dataset en concertmatch_dataset_prueba.csv
 * **docs:** Contiene la documentación y el diseño (diagramas de flujo) del proyecto.
-* **requirements.txt:** En esta carpeta se listan las librerías a instalar (como pandas o matplotlib).
-* **src:** Contiene todas las funciones que se van a llamar desde el programa principal.
+* **requirements.txt:** En esta carpeta se listan las librerías que se deben instalar para poder ejecutar el programa (pandas, matplotlib.pyplot, datetime, os, geopy, folium, webbrowser
+* **src:** Contiene todas las funciones que se van a llamar desde el programa principal (dentro de los archivos: cargar_dataset.py, filtrar_df.py, graficos.py, pedir_preferencias.py, resultados.py, validar_df.py)
 
 Archivos en la raíz:
 
 * **.gitignore:** Indica a Github qué archivos o carpetas debe ignorar y no subir al repositorio.
 * **README.md:** Es el documento principal de presentación del proyecto.
 * **main.py:** Es el punto donde comienza el programa; el archivo principal que ejecuta el código central.
+* **mapa_conciertos.html:** #COMPLETAR
 
+
+
+**Funciones principales:**
+carga_dataset(): Carga el archivo CSV manejando errores específicos (archivos inexistentes, corruptos o sin permisos) y ejecuta la validación.
+
+limpieza_df(): Coordina una serie de subfunciones que estandarizan precios, castean fechas/horarios y eliminan valores inconsistentes (NaN).
+
+pedir_preferencias(): Hace las preguntas al usuario (género, rango de precios, franja horaria, etc.) y calcula la distancia geolocalizada desde el punto de partida usando la API de Nominatim.
+
+aplicar_filtros(): Aplica iterativamente los filtros seleccionados respetando el orden de prioridad definido por el usuario. Tiene la robustez de frenar y avisar si un filtro elimina todas las opciones.
+
+grafico_mapa() y crear_histograma_comparativo(): Toman el DataFrame resultante para generar un HTML interactivo y un gráfico de barras (histograma), respectivamente.
+
+
+
+**Resultados, Outputs y Gráficos:**
+
+Para la visualización de los resultados, el programa ofrece tres formatos distintos:
+1) Ranking por Consola: Imprime de manera prolija la información detallada de los mejores conciertos encontrados.
+2) Histograma Comparativo: Muestra cómo se distribuyen los conciertos recomendados respecto al total de la oferta según la variable más importante para el usuario (precio o distancia).
+3) Mapa Interactivo: Un archivo .html que se abre automáticamente en el navegador, mostrando la ubicación exacta de los eventos recomendados, con popups informativos y clústeres para estadios con múltiples fechas.
+
+
+
+**Diagramas de diseño:**
+
+Los diagramas de flujo, donde se permite una mejor visualización del orden de ejecución del programa y de las funciones, pueden ser vistos en los archivos dentro de la carpeta "docs".
 
 
 
 **Uso de Inteligencia Artificial:** (incluir prompts)
+
+La Inteligencia Artificial fue utilizada como herramienta de apoyo durante el desarrollo, puntualmente para:
+
+- Generación de Datos: Creación de la estructura y el contenido simulado del dataset de conciertos.
+
+- Mejoras en el diseño: Por ejemplo, se pidieron diversos emojis tales como: 🎸
+
 
 -- Instalación de las librerías externas a Python:--
 IA utilizada: *Claude*
@@ -156,4 +215,9 @@ Respuesta:
         ruta_completa = os.path.abspath("mapa_conciertos.html")
         webbrowser.open(f"file://{ruta_completa}")
 
+
+
+**Aclaraciones finales para la correcta ejecución del programa:**
+
+- La geolocalización requiere conexión a internet para conectarse a OpenStreetMap mediante geopy.
 

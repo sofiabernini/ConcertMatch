@@ -51,7 +51,7 @@ Luego de la validación el Dataset, aparece el siguiente mensaje de bienvenida, 
 * **matplotlib.pyplot:** Sirven para la visualización de los datos (gráficos).
 * **datetime:** Se utiliza para el procesamiento, parseo y validación de los strings de fechas ingresadas por el usuario frente al calendario de los eventos. Es lo que nos permite saber si la fecha que escribió la persona tiene un formato válido (DD-MM-AAAA).
 * **os:** se utiliza en la función cargar\_dataset. Sirve para validar si la ruta del archivo CSV ya existía en la computadora antes de intentar abrirlo, evitando así que el programa colapse de forma inesperada.
-* **geopy:** Transforma direcciones en coordenadas y calcula distancias.
+* **geopy:** Transforma direcciones en coordenadas y calcula distancias geodésicas.
 **webbrowser:** Permite abrir un archivo .html en la ventana del navegador
 
 *Aclaraciones sobre Geopy*

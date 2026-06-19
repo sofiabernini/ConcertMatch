@@ -98,42 +98,41 @@ def crear_histograma_comparativo(df_original, df_filtrado, columna_importante):
     """
     Descripción:
     Genera un histograma comparativo entre el dataset original y el
-    dataset filtrado según la categoría más importante para el usuario.
+    dataset filtrado utilizando la variable más importante para el usuario.
 
-    Si la categoría importante es "precio", compara los precios de
-    todos los conciertos con los precios de los conciertos filtrados.
-
-    Si la categoría importante es "distancia", compara las distancias
-    de todos los conciertos con las distancias de los conciertos
-    filtrados.
+    El gráfico permite visualizar cómo se distribuyen los conciertos
+    recomendados respecto del total de conciertos disponibles en el
+    dataset.
 
     Parámetros:
-    df_original (DataFrame) - dataset completo cargado inicialmente.
+    df_original (DataFrame) - dataset completo cargado al inicio
+    del programa.
+
     df_filtrado (DataFrame) - dataset resultante luego de aplicar
-                              todos los filtros.
-    columna_importante (str) - "precio" o "distancia".
+    todos los filtros seleccionados por el usuario.
+
+    columna_importante (str) - nombre de la columna que se utilizará
+    para realizar la comparación. Puede ser:
+    - "Precio final"
+    - "distancias"
 
     Retorno:
-    None.
+    None. La función muestra un histograma comparativo en pantalla.
     """
 
     # Determina qué columna del DataFrame se utilizará
-    if columna_importante == "precio":
+    if columna_importante == "Precio final":
+        titulo = "Distribución de precios" #determina el título del gráfico
 
-        columna = "Precio final"
-        titulo = "Distribución de precios"
-
-    elif columna_importante == "distancia":
-
-        columna = "distancias"
-        titulo = "Distribución de distancias"
+    elif columna_importante == "distancias":
+        titulo = "Distribución de distancias"#determina el título del gráfico
 
     # Crear la figura donde se dibujará el gráfico
     plt.figure(figsize=(10, 6))
 
     # Histograma del dataset original
     plt.hist(
-        df_original[columna],
+        df_original[columna_importante],
         bins=10,
         alpha=0.5,
         label="Todos los conciertos"
@@ -141,14 +140,14 @@ def crear_histograma_comparativo(df_original, df_filtrado, columna_importante):
 
     # Histograma del dataset filtrado
     plt.hist(
-        df_filtrado[columna],
+        df_filtrado[columna_importante],
         bins=10,
         alpha=0.7,
         label="Conciertos recomendados"
     )
 
     # Etiqueta del eje X
-    plt.xlabel(columna)
+    plt.xlabel(columna_importante)
 
     # Etiqueta del eje Y
     plt.ylabel("Cantidad de conciertos")

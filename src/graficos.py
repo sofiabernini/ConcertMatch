@@ -93,6 +93,84 @@ def grafico_mapa (df_mejores):
       
    mapa.save("mapa_conciertos.html")
    print("Mapa generado correctamente: mapa_conciertos.html")
+
+def crear_histograma():
+    def crear_histograma_comparativo(df_original, df_filtrado, columna_importante):
+    """
+    Descripción:
+    Genera un histograma comparativo entre el dataset original y el
+    dataset filtrado según la categoría más importante para el usuario.
+
+    Si la categoría importante es "precio", compara los precios de
+    todos los conciertos con los precios de los conciertos filtrados.
+
+    Si la categoría importante es "distancia", compara las distancias
+    de todos los conciertos con las distancias de los conciertos
+    filtrados.
+
+    Parámetros:
+    df_original (DataFrame) - dataset completo cargado inicialmente.
+    df_filtrado (DataFrame) - dataset resultante luego de aplicar
+                              todos los filtros.
+    columna_importante (str) - "precio" o "distancia".
+
+    Retorno:
+    None.
+    """
+
+    # Determina qué columna del DataFrame se utilizará
+    if columna_importante == "precio":
+
+        columna = "Precio final"
+        titulo = "Distribución de precios"
+
+    elif columna_importante == "distancia":
+
+        columna = "distancias"
+        titulo = "Distribución de distancias"
+
+    # Si recibe una categoría inválida genera un error
+    else:
+
+        raise ValueError(
+            "La columna importante debe ser 'precio' o 'distancia'.")
+
+    # Crear la figura donde se dibujará el gráfico
+    plt.figure(figsize=(10, 6))
+
+    # Histograma del dataset original
+    plt.hist(
+        df_original[columna],
+        bins=10,
+        alpha=0.5,
+        label="Todos los conciertos"
+    )
+
+    # Histograma del dataset filtrado
+    plt.hist(
+        df_filtrado[columna],
+        bins=10,
+        alpha=0.7,
+        label="Conciertos recomendados"
+    )
+
+    # Etiqueta del eje X
+    plt.xlabel(columna)
+
+    # Etiqueta del eje Y
+    plt.ylabel("Cantidad de conciertos")
+
+    # Título del gráfico
+    plt.title(titulo)
+
+    # Mostrar leyenda
+    plt.legend()
+
+    # Ajustar márgenes automáticamente
+    plt.tight_layout()
+
+    # Mostrar el gráfico
+    plt.show()
    
    
    

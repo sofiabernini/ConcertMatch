@@ -68,10 +68,7 @@ def ejecutar_programa():
         print("🎸 BIENVENIDO A CONCERTMATCH 🎸")
         print("=" * 50)
 
-        print(
-            "A continuación te haremos una serie de preguntas "
-            "para determinar tus preferencias."
-        )
+        print("A continuación te haremos una serie de preguntas para determinar tus preferencias.")
 
 
         ## Filtros previos necesarios (Entradas y movilidad)
@@ -95,7 +92,6 @@ def ejecutar_programa():
                 df = df_temporal
 
             else:
-
                 print("No existen conciertos con acceso para movilidad reducida.")
                 
                 #Se le da la posibilidad al usuario de continuar sin el requerimiento del Acceso a movilidad reducida
@@ -151,24 +147,16 @@ def ejecutar_programa():
         
         ## Se genera el mapa con la información de los conciertos
         grafico_mapa(df_ordenado)
-        
-        
+    
 
 
 ## ========== Volver a ingresar conciertos ¿Si o no? ===========
         print("-" * 50)
 
-        reintentar = hacer_pregunta_si_no(
-            "¿Deseás realizar otra búsqueda? (si/no): "
-        )
+        reintentar = hacer_pregunta_si_no("¿Deseás realizar otra búsqueda? (si/no): ")
 
         if not reintentar:
-
-            print(
-                "¡Gracias por usar ConcertMatch! "
-                "Esperamos que disfrutes del evento. 🎶"
-            )
-
+            print("¡Gracias por usar ConcertMatch! Esperamos que disfrutes del evento. 🎶")
             break
 
 

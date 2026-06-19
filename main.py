@@ -102,7 +102,7 @@ def ejecutar_programa():
                     print("¡Gracias por utilizar ConcertMatch!")
                     break
 
-## ========= Orden y definición de preferencias del usuario =========
+## ========= Orden y definición de preferencias del usuario ==============
 
 
         ## Se obtiene el orden de preferencias definido.

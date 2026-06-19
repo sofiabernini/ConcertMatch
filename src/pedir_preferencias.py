@@ -326,13 +326,13 @@ def pedir_franja_horaria ():
     while True:
         
         try:
-            hora_1 = input ("Ingrese la hora mínima.")
-            minutos_1 = input ("Ingrese los minutos de la hora mínima")
+            hora_1 = input ("Ingrese la hora mínim: ")
+            minutos_1 = input ("Ingrese los minutos de la hora mínima: ")
             
             hora_min = f"{hora_1}:{minutos_1}"
             
-            hora_2 = input ("Ingrese la hora máxima")
-            minutos_2 = input ("Ingrese los minutos máximos")
+            hora_2 = input ("Ingrese la hora máxima: ")
+            minutos_2 = input ("Ingrese los minutos máximos: ")
             
             hora_max = f"{hora_2}:{minutos_2}"
         
@@ -358,7 +358,7 @@ def pedir_distancia_max():
          try:
              distancia_max=float(input("Ingrese la distancia maxima en km que estaría dispuesto a viajar: "))
          except ValueError: 
-             print("El ingreso debe ser un float. Vuelva a ingresar una distancia máxima")
+             print("El ingreso debe ser un número. Vuelva a ingresar una distancia máxima")
          else:
              if distancia_max<=0: 
                  print("La distancia debe ser mayor que cero. Vuelva a ingresar una distancia máxima")
@@ -372,7 +372,7 @@ def pedir_ubicacion_partida(df):
    print ("📍 Obtención de la dirección de partida: Va a ingresar la dirección desde donde desee hacer la búsqueda"
           "Este dato será utilizado para calcular las distancias con los eventos y determinar si están dentro del rango solicitado")
    while True: 
-        direccion_usuario= input("Ingrese su dirección de partida: ")
+        direccion_usuario= input("Ingrese su dirección de partida (Ejemplo de formato esperado: Cabildo 2100, CABA): ")
         if direccion_usuario.strip()=="":
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
         else: 

@@ -50,7 +50,6 @@ def grafico_mapa (df_mejores):
            f"<b>{fila['Artista/Banda']}</b><br>"
            f"Fecha: {fila['Fecha']}<br>"
            f"Precio: ${fila['Precio final']}<br>"
-           f"Coincidencia: {fila['porcentaje_coincidencia']}%"
            )
        
        #Crear marcador para el concierto actual

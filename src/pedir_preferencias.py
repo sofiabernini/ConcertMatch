@@ -396,7 +396,7 @@ def pedir_ubicacion_partida(df):
    print ("📍 Obtención de la dirección de partida: Va a ingresar la dirección desde donde desee hacer la búsqueda"
           "Este dato será utilizado para calcular las distancias con los eventos y determinar si están dentro del rango solicitado")
    while True: 
-        direccion_usuario= input("Ingrese su dirección de partida: ")
+        direccion_usuario= input("Ingrese su dirección completa de partida. Ejemplo de ingreso: Av. Cabildo 2450, Belgrano, Ciudad Autónoma de Buenos Aires, Argentina: ")
         if direccion_usuario.strip()=="":
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
         else: 

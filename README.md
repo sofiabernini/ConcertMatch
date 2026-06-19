@@ -39,7 +39,7 @@ Resulta importante tener en cuenta que el inicio del programa puede tardar algun
 
 "Comenzando proceso de carga del programa. Podría tardarse unos segundos/minutos. Espere a que aparezca el cartel de inicio del programa"
 
-Luego de la validaciónd el Dataset, aparece el siguiente mensaje de bienvenida, que indica el comienzo del programa:
+Luego de la validación el Dataset, aparece el siguiente mensaje de bienvenida, que indica el comienzo del programa:
 =============================================
 "🎸 BIENVENIDO A CONCERTMATCH 🎸")
 =============================================
@@ -51,7 +51,13 @@ Luego de la validaciónd el Dataset, aparece el siguiente mensaje de bienvenida,
 * **matplotlib.pyplot:** Sirven para la visualización de los datos (gráficos).
 * **datetime:** Se utiliza para el procesamiento, parseo y validación de los strings de fechas ingresadas por el usuario frente al calendario de los eventos. Es lo que nos permite saber si la fecha que escribió la persona tiene un formato válido (DD-MM-AAAA).
 * **os:** se utiliza en la función cargar\_dataset. Sirve para validar si la ruta del archivo CSV ya existía en la computadora antes de intentar abrirlo, evitando así que el programa colapse de forma inesperada.
-* **geopy:** transforma direcciones en coordenadas y calcula distancias.
+* **geopy:** Transforma direcciones en coordenadas y calcula distancias.
+
+*Aclaraciones sobre Geopy*
+Es importante remarcar que, para calcular la distancia entre la ubicación de partida del usuario y la distancia del evento, utilizamos la función 'geodesic()'. Esta función calcula la distancia geodésica, es decir, la distancia en línea recta entre dos coordenadas (considerando la curvatura de la Tierra), y no la distancia real de viaje por calles, rutas o caminos. 
+
+Esto significa que la distancia mostrada por el programa puede ser menor a la distancia que efectivamente se recorrería a pie o en auto entre ambos puntos. Si bien podría considerarse una limitación para el proyecto, lo elegimos porque de otra forma habría que utilizar APIs (como OpenRouteService o Google Distance Matrix), que tienen un límite de consultas diarias o mensuales.
+
 
 
 
@@ -75,5 +81,57 @@ Archivos en la raíz:
 
 **Uso de Inteligencia Artificial:** (incluir prompts)
 
-Instalación de las librerías externas a Python:
-El prompt fue: "Cómo puedo instalar Geopy y Folium en 
+-- Instalación de las librerías externas a Python:--
+IA utilizada: *Claude*
+Quienes utilizamos el prompt: Victoria y Emilia (usuarias de Mac)
+
+El prompt fue: "Cómo instalo geopy desde la terminal de mi mac? paso a paso (desde cómo ir a la carpeta)"
+
+Lo primero que me respondió fue:
+    "Antes de darte los pasos, ¿ya tenés un entorno virtual creado para el proyecto, o estás instalando todo de forma global?" 
+
+Al no saber qué era un entorno virtual, le pedí que me explicara:
+
+    "Un entorno virtual es una carpeta que contiene una instalación de Python aislada para tu proyecto. Sirve para que las librerías que instalás (como geopy) no se mezclen con otras instalaciones de Python que tengas en tu computadora.
+    
+    Te recomiendo crearlo antes de instalar nada. Los pasos serían:
+
+    1. Abrís la terminal (la buscás en Spotlight con Cmd + Space y escribís "Terminal")
+    2. Navegás a la carpeta de tu proyecto:
+    cd ruta/de/tu/proyecto
+    3. Creás el entorno virtual:
+    python3 -m venv venv
+    4. Activás el entorno virtual:
+    source venv/bin/activate
+    5. Instalás geopy:
+    pip install geopy"
+
+Después de realizar esta secuencia de pasos, todavía no me dejaba utilizar Geopy, entonces le consulté, y me dijo:
+
+    "El problema es que instalaste geopy en el entorno virtual pero tu programa está corriendo fuera de él. Cada vez que abrís una terminal nueva o un IDE nuevo, el entorno virtual se desactiva.
+
+    En Spyder tenés que cambiar el intérprete de Python. Los pasos son:
+    1. Arriba en el menú vas a Tools → Preferences
+    2. En el panel izquierdo clickeás Python interpreter
+    3. En "Use the following interpreter" pegás esta ruta:
+    /Users/victoriamochnacs/Documents/GitHub/ConcertMatch/venv/bin/python
+    4. Apretás Apply y OK
+    5. Spyder te va a pedir que reinincies el kernel, aceptás.
+    Después de eso debería funcionar el import geopy."
+
+Me surgió un problema con lo que me decía del kernel, así que volví a consultar y contestó esto:
+
+    "Tenés que instalar spyder kernels"
+    pip install "spyder-kernels==3.0.*""
+
+Luego, no entendía por qué Spyder no reconocía pandas o matplotlib como librerías ya instaladas. Lo que me sugirió fue instalarlas en el entorno virtual. Por último, en GitHub Desktop me aparecían alrededor de 9000 commits para hacer, y consulté a qué se debía:
+
+    "No hagas el commit todavía! El problema es que la carpeta venv está dentro de tu repositorio y Git la está trackeando. Son 9536 archivos porque un entorno virtual contiene muchísimos archivos internos de Python que no deberían subirse a GitHub.
+    La solución es agregar venv al .gitignore antes de commitear:
+    1. Abrí el archivo .gitignore que está en la raíz de tu proyecto (si no existe, crealo)
+    2. Agregá estas líneas:
+    cd "/Users/victoriamochnacs/Documents/GitHub/ConcertMatch"
+    echo "venv/" >> .gitignore"
+
+Finalmente, pude instalar las librerías sin ningún problema
+

@@ -22,7 +22,7 @@ Las cinco integrantes del proyecto participamos activamente en el diseño del pr
 
 Maria Emilia Barbeito: Programación de la funcion ordenar_preferencias, diagramas de flujo del archivo pedir_prefrencias.
 
-Sofía Belén Bernini: Armado del dataset simulado (concertmatch_dataset_prueba.csv)
+Sofía Belén Bernini: Armado del dataset simulado (concertmatch_dataset_prueba.csv), creación y organización de la estructura del repositorio, redacción del README. Además, la programación de las funciones carga_dataset, filtrar_df_bool, hacer_pregunta_si_no, pedir_lugar_para_sentarse, mostrar_info_resultados, y gran parte de ejecutar_programa.
 
 Angelina Marengo: Programación de las funciones dentro de pedir_preferencias, graficos.py, filtrar_df.py. Diagramas de flujo del archivo pedir_preferencias.
 

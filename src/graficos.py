@@ -9,6 +9,8 @@ Created on Tue Jun  9 20:28:55 2026
 # FUNCIÓN PARA MOSTRAR EL GRÁFICO CON LOS PORCENTAJES DE COINCIDENCIA
 import matplotlib.pyplot as plt
 import folium
+import os 
+import webbrowser
     
 def grafico_mapa (df_mejores):
    """
@@ -62,11 +64,10 @@ def grafico_mapa (df_mejores):
       
    mapa.save("mapa_conciertos.html")
    print("Mapa generado correctamente: mapa_conciertos.html")
+
+   ruta_completa = os.path.abspath("mapa_conciertos.html")
+   webbrowser.open(f"file://{ruta_completa}")
    
-   import os
-   ruta_completa = os.path.join(os.getcwd(), "mapa_conciertos.html")
-   mapa.save(ruta_completa)
-   print(f"Mapa generado correctamente en: {ruta_completa}")
 
 def crear_histograma_comparativo(df_original, df_filtrado, columna_importante):
     """

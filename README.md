@@ -17,11 +17,12 @@ Finalmente, el usuario verá sus resultados en tres formatos distintos. El prime
 
 
 **Adjudicación de tareas:** 
-(Las tareas que figuran más de una vez es porque las realizaron más de una persona)
+
+Las cinco integrantes del proyecto participamos activamente en el diseño del programa (armado de la propuesta y diagramas de flujo), el armado de las funciones y el manejo de errores. Sin embargo, podríamos asignar las siguientes tareas a las siguientes colaboradoras:
 
 Maria Emilia Barbeito: 
 
-Sofía Belén Bernini: 
+Sofía Belén Bernini: Armado del dataset simulado (concertmatch_dataset_prueba.csv)
 
 Angelina Marengo: 
 
@@ -29,16 +30,6 @@ Victoria Mochnacs:
 
 Matilde Urrestarazu Romero:
 
-
-
-#Después vemos juntas esto:
-En términos generales, las cinco integrantes del proyecto participamos activamente del diseño del programa general, así como en el diseño de las funciones específicas. Por su parte, Victoria Mochnacs realizó un diagrama de flujo inicial que permitió tener una visualización base del funcionamiento del programa. A su vez, todas nos vimos involucradas en realizar intervenciones a ese diseño si se consideraban pertinentes. Por último, todas estuvimos presentes para corregir los errores que se presentaban en el debugging.
-
-En cuanto a las funciones específicas, quienes estuvieron encargadas de realizar las funciones de "filtrar_df.py" fueron, principalmente, María Emilia Barbeito, Angelina Marengo y Matilde Urrestarazu Romero. 
-
-Por otro lado, las funciones de carga del dataset y su validación y limpieza ("cargar_dataset.py" y "validar_df.py") fueron realizadas principalmente por Sofía Bernini y Victoria Mochnacs. Respecto a las funciones del archivo "pedir_preferencias.py" y al main fue necesaria la participación de todas las partes, ya que contenían funciones y/o bloques de código extensos, por lo que resulta dificil adjudicar esas tareas a una integrante en particular.
-
-Los gráficos de graficos.py y los mensajes de "resultados.py" fueron realizados por Sofía Bernini. No obstante, los gráficos y funciones de "pedir_preferencias.py" que involucraban el funcionamiento de geopy o el cálculo de distancia se le adjudica principalmente a Angelina Marengo
 
 
 

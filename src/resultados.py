@@ -55,10 +55,7 @@ def ordenar_resultados(df_filtrado, columna_importante):
     """
 
     ## Ordena de menor a mayor.
-    df_ordenado = df_filtrado.sort_values(
-        by=columna_importante,
-        ascending=True
-    )
+    df_ordenado = df_filtrado.sort_values(by=columna_importante, ascending=True)
 
     return df_ordenado
 

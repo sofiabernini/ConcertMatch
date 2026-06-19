@@ -96,7 +96,6 @@ def ejecutar_programa():
 
 ## ========= Orden y definición de preferencias del usuario ==============
 
-
         ## Se obtiene el orden de preferencias definido.
         categorias_ordenadas = ordenar_preferencias()
 

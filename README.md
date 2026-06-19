@@ -22,9 +22,9 @@ Las cinco integrantes del proyecto participamos activamente en el diseño del pr
 
 Maria Emilia Barbeito: Programación de la funcion ordenar_preferencias, diagramas de flujo del archivo pedir_prefrencias.
 
-Sofía Belén Bernini: Armado del dataset simulado (concertmatch_dataset_prueba.csv)
+Sofía Belén Bernini: Armado del dataset simulado (concertmatch_dataset_prueba.csv), creación y organización de la estructura del repositorio, redacción del README. Además, la programación de las funciones carga_dataset, filtrar_df_bool, hacer_pregunta_si_no, pedir_lugar_para_sentarse, mostrar_info_resultados, y gran parte de ejecutar_programa.
 
-Angelina Marengo: Programación de las funciones dentro de pedir_preferencias, graficos.py, filtrar_df.py. Diagramas de flujo del archivo pedir_preferencias.
+Angelina Marengo: Programación de las funciones dentro del archivo pedir_preferencias, graficos.py, filtrar_df.py. Diagramas de flujo del archivo pedir_preferencias.
 
 Victoria Mochnacs: Diagrama inicial del programa general. Programación de las funciones dentro de validar_df.py, pedir_preferencias.py.
 
@@ -132,83 +132,11 @@ La Inteligencia Artificial fue utilizada como herramienta de apoyo durante el de
 - Mejoras en el diseño: Por ejemplo, se pidieron diversos emojis tales como: 🎸
 
 
--- Instalación de las librerías externas a Python:--
-IA utilizada: *Claude*
-Quienes utilizamos el prompt: Victoria y Emilia (usuarias de Mac)
 
-El prompt fue: "Cómo instalo geopy desde la terminal de mi mac? paso a paso (desde cómo ir a la carpeta)"
-
-Lo primero que respondió fue:
-    "Antes de darte los pasos, ¿ya tenés un entorno virtual creado para el proyecto, o estás instalando todo de forma global?" 
-
-Al no saber qué era un entorno virtual, le pedimos que nos explicara:
-
-    "Un entorno virtual es una carpeta que contiene una instalación de Python aislada para tu proyecto. Sirve para que las librerías que instalás (como geopy) no se mezclen con otras instalaciones de Python que tengas en tu computadora.
-    
-    Te recomiendo crearlo antes de instalar nada. Los pasos serían:
-
-    1. Abrís la terminal (la buscás en Spotlight con Cmd + Space y escribís "Terminal")
-    2. Navegás a la carpeta de tu proyecto:
-    cd ruta/de/tu/proyecto
-    3. Creás el entorno virtual:
-    python3 -m venv venv
-    4. Activás el entorno virtual:
-    source venv/bin/activate
-    5. Instalás geopy:
-    pip install geopy"
-
-Después de realizar esta secuencia de pasos, todavía no nos dejaba utilizar Geopy, entonces le consultamos, y nos dijo:
-
-    "El problema es que instalaste geopy en el entorno virtual pero tu programa está corriendo fuera de él. Cada vez que abrís una terminal nueva o un IDE nuevo, el entorno virtual se desactiva.
-
-    En Spyder tenés que cambiar el intérprete de Python. Los pasos son:
-    1. Arriba en el menú vas a Tools → Preferences
-    2. En el panel izquierdo clickeás Python interpreter
-    3. En "Use the following interpreter" pegás esta ruta:
-    /Users/victoriamochnacs/Documents/GitHub/ConcertMatch/venv/bin/python
-    4. Apretás Apply y OK
-    5. Spyder te va a pedir que reinincies el kernel, aceptás.
-    Después de eso debería funcionar el import geopy."
-
-Surgió un problema con lo que decía del kernel, así que volvimos a consultar y contestó lo siguiente:
-
-    "Tenés que instalar spyder kernels"
-    pip install "spyder-kernels==3.0.*""
-
-Luego, no entendíamos por qué Spyder no reconocía pandas o matplotlib como librerías ya instaladas. Lo que nos sugirió fue instalarlas en el entorno virtual. Por último, en GitHub Desktop aparecían alrededor de 9000 commits para hacer, y consultamos a qué se debía:
-
-    "No hagas el commit todavía! El problema es que la carpeta venv está dentro de tu repositorio y Git la está trackeando. Son 9536 archivos porque un entorno virtual contiene muchísimos archivos internos de Python que no deberían subirse a GitHub.
-    La solución es agregar venv al .gitignore antes de commitear:
-    1. Abrí el archivo .gitignore que está en la raíz de tu proyecto (si no existe, crealo)
-    2. Agregá estas líneas:
-    cd "/Users/victoriamochnacs/Documents/GitHub/ConcertMatch"
-    echo "venv/" >> .gitignore"
-
-Finalmente, se pudieron instalar las librerías sin ningún problema
-
--- Gráfico de mapa interactivo --
-Simplemente queríamos agregar que, al crear el gráfico del mapa, se abriera una pestaña web automáticamente.
-
-Prompt: "¿Hay forma de que el html de mapa se muestre en Spyder? ¿o solo se muestra aparte (en un archivo creado automáticamente? ¿cómo puedo hacer para que se visualice de una forma más cómoda para el usuario?
-
-Respuesta: 
-    "Se pueden agregar estas líneas de código para que el archivo .html se abra directamente en el navegador"
-    
-    import webbrowser
-    import os
-
-    def grafico_mapa(df_mejores):
-        # ... todo tu código existente ...
-        
-        mapa.save("mapa_conciertos.html")
-        print("Mapa generado correctamente: mapa_conciertos.html")
-        
-        ruta_completa = os.path.abspath("mapa_conciertos.html")
-        webbrowser.open(f"file://{ruta_completa}")
 
 
 
 **Aclaraciones finales para la correcta ejecución del programa:**
 
-- La geolocalización requiere conexión a internet para conectarse a OpenStreetMap mediante geopy.
+- La geolocalización requiere conexión a internet para conectarse a OpenStreetMap mediante Geopy.
 

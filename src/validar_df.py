@@ -46,7 +46,7 @@ def validar_columnas (df):
     
     Raises
     -------
-    ValueError: si faltan columnas esenciales para el correcto funcionamiento del programa.
+    ValueError: Si faltan columnas esenciales para el correcto funcionamiento del programa.
     '''
     
 #VALIDAR COLUMNAS

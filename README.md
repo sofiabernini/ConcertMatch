@@ -52,6 +52,7 @@ Luego de la validación el Dataset, aparece el siguiente mensaje de bienvenida, 
 * **datetime:** Se utiliza para el procesamiento, parseo y validación de los strings de fechas ingresadas por el usuario frente al calendario de los eventos. Es lo que nos permite saber si la fecha que escribió la persona tiene un formato válido (DD-MM-AAAA).
 * **os:** se utiliza en la función cargar\_dataset. Sirve para validar si la ruta del archivo CSV ya existía en la computadora antes de intentar abrirlo, evitando así que el programa colapse de forma inesperada.
 * **geopy:** Transforma direcciones en coordenadas y calcula distancias.
+**webbrowser:** Permite abrir un archivo .html en la ventana del navegador
 
 *Aclaraciones sobre Geopy*
 Es importante remarcar que, para calcular la distancia entre la ubicación de partida del usuario y la distancia del evento, utilizamos la función 'geodesic()'. Esta función calcula la distancia geodésica, es decir, la distancia en línea recta entre dos coordenadas (considerando la curvatura de la Tierra), y no la distancia real de viaje por calles, rutas o caminos. 
@@ -87,10 +88,10 @@ Quienes utilizamos el prompt: Victoria y Emilia (usuarias de Mac)
 
 El prompt fue: "Cómo instalo geopy desde la terminal de mi mac? paso a paso (desde cómo ir a la carpeta)"
 
-Lo primero que me respondió fue:
+Lo primero que respondió fue:
     "Antes de darte los pasos, ¿ya tenés un entorno virtual creado para el proyecto, o estás instalando todo de forma global?" 
 
-Al no saber qué era un entorno virtual, le pedí que me explicara:
+Al no saber qué era un entorno virtual, le pedimos que nos explicara:
 
     "Un entorno virtual es una carpeta que contiene una instalación de Python aislada para tu proyecto. Sirve para que las librerías que instalás (como geopy) no se mezclen con otras instalaciones de Python que tengas en tu computadora.
     
@@ -106,7 +107,7 @@ Al no saber qué era un entorno virtual, le pedí que me explicara:
     5. Instalás geopy:
     pip install geopy"
 
-Después de realizar esta secuencia de pasos, todavía no me dejaba utilizar Geopy, entonces le consulté, y me dijo:
+Después de realizar esta secuencia de pasos, todavía no nos dejaba utilizar Geopy, entonces le consultamos, y nos dijo:
 
     "El problema es que instalaste geopy en el entorno virtual pero tu programa está corriendo fuera de él. Cada vez que abrís una terminal nueva o un IDE nuevo, el entorno virtual se desactiva.
 
@@ -119,12 +120,12 @@ Después de realizar esta secuencia de pasos, todavía no me dejaba utilizar Geo
     5. Spyder te va a pedir que reinincies el kernel, aceptás.
     Después de eso debería funcionar el import geopy."
 
-Me surgió un problema con lo que me decía del kernel, así que volví a consultar y contestó esto:
+Surgió un problema con lo que decía del kernel, así que volvimos a consultar y contestó lo siguiente:
 
     "Tenés que instalar spyder kernels"
     pip install "spyder-kernels==3.0.*""
 
-Luego, no entendía por qué Spyder no reconocía pandas o matplotlib como librerías ya instaladas. Lo que me sugirió fue instalarlas en el entorno virtual. Por último, en GitHub Desktop me aparecían alrededor de 9000 commits para hacer, y consulté a qué se debía:
+Luego, no entendíamos por qué Spyder no reconocía pandas o matplotlib como librerías ya instaladas. Lo que nos sugirió fue instalarlas en el entorno virtual. Por último, en GitHub Desktop aparecían alrededor de 9000 commits para hacer, y consultamos a qué se debía:
 
     "No hagas el commit todavía! El problema es que la carpeta venv está dentro de tu repositorio y Git la está trackeando. Son 9536 archivos porque un entorno virtual contiene muchísimos archivos internos de Python que no deberían subirse a GitHub.
     La solución es agregar venv al .gitignore antes de commitear:
@@ -133,5 +134,26 @@ Luego, no entendía por qué Spyder no reconocía pandas o matplotlib como libre
     cd "/Users/victoriamochnacs/Documents/GitHub/ConcertMatch"
     echo "venv/" >> .gitignore"
 
-Finalmente, pude instalar las librerías sin ningún problema
+Finalmente, se pudieron instalar las librerías sin ningún problema
+
+-- Gráfico de mapa interactivo --
+Simplemente queríamos agregar que, al crear el gráfico del mapa, se abriera una pestaña web automáticamente.
+
+Prompt: "¿Hay forma de que el html de mapa se muestre en Spyder? ¿o solo se muestra aparte (en un archivo creado automáticamente? ¿cómo puedo hacer para que se visualice de una forma más cómoda para el usuario?
+
+Respuesta: 
+    "Se pueden agregar estas líneas de código para que el archivo .html se abra directamente en el navegador"
+    
+    import webbrowser
+    import os
+
+    def grafico_mapa(df_mejores):
+        # ... todo tu código existente ...
+        
+        mapa.save("mapa_conciertos.html")
+        print("Mapa generado correctamente: mapa_conciertos.html")
+        
+        ruta_completa = os.path.abspath("mapa_conciertos.html")
+        webbrowser.open(f"file://{ruta_completa}")
+
 

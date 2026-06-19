@@ -92,7 +92,7 @@ def ejecutar_programa():
                 df = df_temporal
 
             else:
-                print("No existen conciertos con acceso para movilidad reducida.")
+                print("No existen conciertos con acceso para personas con movilidad reducida.")
                 
                 #Se le da la posibilidad al usuario de continuar sin el requerimiento del Acceso a movilidad reducida
                 # si es que no hay conciertos que cumplan esa condición)
@@ -126,15 +126,12 @@ def ejecutar_programa():
         ## Se aplican los filtros según el diccionario de preferencias.
         df_filtrado = aplicar_filtros(df, preferencias_usuario, categorias_ordenadas)
 
-
         ## Se determina si la prioridad principal es
         ## precio o distancia
         columna_importante = obtener_columna_importante(categorias_ordenadas)
 
-
         ## Se ordenan los conciertos.
         df_ordenado = ordenar_resultados(df_filtrado, columna_importante)
-
 
 
 ## ========= Gráficos y resumenes de información ================

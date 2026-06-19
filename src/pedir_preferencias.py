@@ -67,9 +67,9 @@ def ordenar_preferencias():
     while True:
           solicitar_orden= input(f"Ordená tus preferencias de mayor a menor importancia:" 
                                  f"{categorias}" 
-                                 "Ingresá los números separados por coma: ")
+                                 "Ingresá los números separados por coma: ").strip()
               
-          # asoicié un numero a cada preferencia para que el usuario ingrese algo de este estilo : 5,4,3,6,1,2. En este caso eso seria equivalente a direccion, horario, fecha, cuenta con asientos,genero, precio. 
+          # Se asocia un numero a cada preferencia para que el usuario ingrese algo de este estilo : 5,4,3,6,1,2 (En este caso eso seria equivalente a direccion, horario, fecha, cuenta con asientos, genero, precio)
 
           lista_numeros=solicitar_orden.split(",") # con .split estos numeros pasan de verse asi 5,4,3,6,1,2 a estar separados en una lista, asi: ["5","4","3","6","1","2"]
           error= False
@@ -96,7 +96,7 @@ def ordenar_preferencias():
         valor = categorias[numero]
         categorias_ordenadas.append(valor)
     
-    return categorias_ordenadas # devulevo algo de este estilo ["direccion", "horario"," fecha", "cuenta con asientos","genero", "precio"]
+    return categorias_ordenadas # devuleve una lista ["direccion", "horario"," fecha", "cuenta con asientos","genero", "precio"] (según el orden que haya ingresado el usuario)
 
 
 def pedir_preferencias(df, categorias_ordenadas):

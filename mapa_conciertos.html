@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_e09337941cc116def5e6ab142e6c1666 {
+                #map_b827e348968f8c218a5d4ade421df0de {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -50,20 +50,23 @@
             </script>
 
         
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_e09337941cc116def5e6ab142e6c1666" ></div>
+            <div class="folium-map" id="map_b827e348968f8c218a5d4ade421df0de" ></div>
         
 </body>
 <script>
     
     
-            var map_e09337941cc116def5e6ab142e6c1666 = L.map(
-                "map_e09337941cc116def5e6ab142e6c1666",
+            var map_b827e348968f8c218a5d4ade421df0de = L.map(
+                "map_b827e348968f8c218a5d4ade421df0de",
                 {
-                    center: [-34.5888842, -58.4361941],
+                    center: [-34.5801513, -58.4508612],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 11,
@@ -78,7 +81,7 @@
 
         
     
-            var tile_layer_7a21ccf6223c073adb7295b9e8cb0ce8 = L.tileLayer(
+            var tile_layer_6fcf0d452f06ae7283a764852325a7f4 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -95,466 +98,400 @@
             );
         
     
-            tile_layer_7a21ccf6223c073adb7295b9e8cb0ce8.addTo(map_e09337941cc116def5e6ab142e6c1666);
+            tile_layer_6fcf0d452f06ae7283a764852325a7f4.addTo(map_b827e348968f8c218a5d4ade421df0de);
         
     
-            var marker_3f53265e823a91607a03ca7c68a1c647 = L.marker(
-                [-34.5888842, -58.4361941],
+            var marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0 = L.markerClusterGroup(
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            );
         
     
-        var popup_d2998bd221bb612549a325bce029c60a = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_d71b70f72125d2d3071243b23af9fc24 = $(`<div id="html_d71b70f72125d2d3071243b23af9fc24" style="width: 100.0%; height: 100.0%;">('Artista: Las Ligas Menores<br>', 'Fecha: 2027-04-25<br>', 'Precio: $20000.0<br>')</div>`)[0];
-                popup_d2998bd221bb612549a325bce029c60a.setContent(html_d71b70f72125d2d3071243b23af9fc24);
-            
-        
-
-        marker_3f53265e823a91607a03ca7c68a1c647.bindPopup(popup_d2998bd221bb612549a325bce029c60a)
-        ;
-
-        
-    
-    
-            var marker_f79297c6800b3020102bde35519a9d56 = L.marker(
-                [-34.5888842, -58.4361941],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_9b6ce55f762642185653b4c8bee3081e = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_ead9288db43b3e85bc824761e65cf132 = $(`<div id="html_ead9288db43b3e85bc824761e65cf132" style="width: 100.0%; height: 100.0%;">('Artista: El Mato a un Policia Motorizado<br>', 'Fecha: 2026-09-25<br>', 'Precio: $22000.0<br>')</div>`)[0];
-                popup_9b6ce55f762642185653b4c8bee3081e.setContent(html_ead9288db43b3e85bc824761e65cf132);
-            
-        
-
-        marker_f79297c6800b3020102bde35519a9d56.bindPopup(popup_9b6ce55f762642185653b4c8bee3081e)
-        ;
-
-        
-    
-    
-            var marker_410e9af9c9020c1d3c321ba82294f342 = L.marker(
-                [-34.5888842, -58.4361941],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_21eab17f5db6e527ba8d37cf4a70dde5 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_065a39e3cdf44f21ffb6aa2fd2abd003 = $(`<div id="html_065a39e3cdf44f21ffb6aa2fd2abd003" style="width: 100.0%; height: 100.0%;">('Artista: Zoe Gotusso<br>', 'Fecha: 2027-01-22<br>', 'Precio: $24000.0<br>')</div>`)[0];
-                popup_21eab17f5db6e527ba8d37cf4a70dde5.setContent(html_065a39e3cdf44f21ffb6aa2fd2abd003);
-            
-        
-
-        marker_410e9af9c9020c1d3c321ba82294f342.bindPopup(popup_21eab17f5db6e527ba8d37cf4a70dde5)
-        ;
-
-        
-    
-    
-            var marker_b61e162e1187cab2acfbf8a59064bda7 = L.marker(
+            var marker_ec663cf9eafc37dd2abe285ea723c83b = L.marker(
                 [-34.5801513, -58.4508612],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_4e92eb0b327509b97f566bda21bae1bd = L.popup({
-  "maxWidth": "100%",
+        var popup_e716c9e8ceb0a9c1cf4193d521a46624 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_7c95bcbd174c0e4c951f1fe6a99cbef7 = $(`<div id="html_7c95bcbd174c0e4c951f1fe6a99cbef7" style="width: 100.0%; height: 100.0%;">('Artista: Peces Raros<br>', 'Fecha: 2026-12-20<br>', 'Precio: $25000.0<br>')</div>`)[0];
-                popup_4e92eb0b327509b97f566bda21bae1bd.setContent(html_7c95bcbd174c0e4c951f1fe6a99cbef7);
+                var html_4298d41932924211c7e71974894ad77e = $(`<div id="html_4298d41932924211c7e71974894ad77e" style="width: 100.0%; height: 100.0%;"><b>Artista: Conociendo Rusia</b><br>Fecha: 2026-08-25<br>Precio: $25000.0<br>Lugar: Teatro Vorterix</div>`)[0];
+                popup_e716c9e8ceb0a9c1cf4193d521a46624.setContent(html_4298d41932924211c7e71974894ad77e);
             
         
 
-        marker_b61e162e1187cab2acfbf8a59064bda7.bindPopup(popup_4e92eb0b327509b97f566bda21bae1bd)
+        marker_ec663cf9eafc37dd2abe285ea723c83b.bindPopup(popup_e716c9e8ceb0a9c1cf4193d521a46624)
         ;
 
         
     
     
-            var marker_78fe72bbfccd800fdcedeff119eef3b4 = L.marker(
+            var marker_a42a80897cc4e5cba76adc1617771903 = L.marker(
                 [-34.5801513, -58.4508612],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_721447de3e347b457485462f7978b7ad = L.popup({
-  "maxWidth": "100%",
+        var popup_dca58867aabf98db833b7362b82d8c40 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_de0b88dbf7e964d881d1cd00b92f47b9 = $(`<div id="html_de0b88dbf7e964d881d1cd00b92f47b9" style="width: 100.0%; height: 100.0%;">('Artista: Conociendo Rusia<br>', 'Fecha: 2026-08-25<br>', 'Precio: $25000.0<br>')</div>`)[0];
-                popup_721447de3e347b457485462f7978b7ad.setContent(html_de0b88dbf7e964d881d1cd00b92f47b9);
+                var html_555c2d4ea8e3a85bc4f7a5386a934b8f = $(`<div id="html_555c2d4ea8e3a85bc4f7a5386a934b8f" style="width: 100.0%; height: 100.0%;"><b>Artista: Peces Raros</b><br>Fecha: 2026-12-20<br>Precio: $25000.0<br>Lugar: Teatro Vorterix</div>`)[0];
+                popup_dca58867aabf98db833b7362b82d8c40.setContent(html_555c2d4ea8e3a85bc4f7a5386a934b8f);
             
         
 
-        marker_78fe72bbfccd800fdcedeff119eef3b4.bindPopup(popup_721447de3e347b457485462f7978b7ad)
+        marker_a42a80897cc4e5cba76adc1617771903.bindPopup(popup_dca58867aabf98db833b7362b82d8c40)
         ;
 
         
     
     
-            var marker_8ec717af55a9d18b17e01d3cad32713c = L.marker(
+            var marker_582e4d7b752c82c467299af70223faa2 = L.marker(
                 [-34.5801513, -58.4508612],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_23ea5994f20e39639cf11f1df62fa936 = L.popup({
-  "maxWidth": "100%",
+        var popup_b8e8b3e593c642cbb4c2913a66d6335c = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_6371c236f3a931dfa01f9ec32a0ed077 = $(`<div id="html_6371c236f3a931dfa01f9ec32a0ed077" style="width: 100.0%; height: 100.0%;">('Artista: Usted Señalemelo<br>', 'Fecha: 2026-11-10<br>', 'Precio: $28000.0<br>')</div>`)[0];
-                popup_23ea5994f20e39639cf11f1df62fa936.setContent(html_6371c236f3a931dfa01f9ec32a0ed077);
+                var html_8c22b9431804ec6ff6b072b9821d28c6 = $(`<div id="html_8c22b9431804ec6ff6b072b9821d28c6" style="width: 100.0%; height: 100.0%;"><b>Artista: Usted Señalemelo</b><br>Fecha: 2026-11-10<br>Precio: $28000.0<br>Lugar: Teatro Vorterix</div>`)[0];
+                popup_b8e8b3e593c642cbb4c2913a66d6335c.setContent(html_8c22b9431804ec6ff6b072b9821d28c6);
             
         
 
-        marker_8ec717af55a9d18b17e01d3cad32713c.bindPopup(popup_23ea5994f20e39639cf11f1df62fa936)
+        marker_582e4d7b752c82c467299af70223faa2.bindPopup(popup_b8e8b3e593c642cbb4c2913a66d6335c)
         ;
 
         
     
     
-            var marker_25ba29c78e38281e78e56b285b1752dd = L.marker(
+            var marker_313b31ae7dc192354a8a79a20032a07c = L.marker(
                 [-34.5801513, -58.4508612],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_ff53ee282ce286280de55a6201c28a82 = L.popup({
-  "maxWidth": "100%",
+        var popup_36c5176ef44293e1cc1166d181700159 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_ea2bad3f616f7a18822f22821ceb86e5 = $(`<div id="html_ea2bad3f616f7a18822f22821ceb86e5" style="width: 100.0%; height: 100.0%;">('Artista: Marilina Bertoldi<br>', 'Fecha: 2027-03-22<br>', 'Precio: $30000.0<br>')</div>`)[0];
-                popup_ff53ee282ce286280de55a6201c28a82.setContent(html_ea2bad3f616f7a18822f22821ceb86e5);
+                var html_a20eb1f22922056a1ab06a87ce58d6ac = $(`<div id="html_a20eb1f22922056a1ab06a87ce58d6ac" style="width: 100.0%; height: 100.0%;"><b>Artista: Marilina Bertoldi</b><br>Fecha: 2027-03-22<br>Precio: $30000.0<br>Lugar: Teatro Vorterix</div>`)[0];
+                popup_36c5176ef44293e1cc1166d181700159.setContent(html_a20eb1f22922056a1ab06a87ce58d6ac);
             
         
 
-        marker_25ba29c78e38281e78e56b285b1752dd.bindPopup(popup_ff53ee282ce286280de55a6201c28a82)
+        marker_313b31ae7dc192354a8a79a20032a07c.bindPopup(popup_36c5176ef44293e1cc1166d181700159)
         ;
 
         
     
     
-            var marker_e78bbd1ca45e6bade4ec6d0cbb3e0a1d = L.marker(
+            var marker_6897e19e49b6ec8acc2375c6723043b3 = L.marker(
                 [-34.5801513, -58.4508612],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_6c2fe7c41b7598f61007d90038bf1bbf = L.popup({
-  "maxWidth": "100%",
+        var popup_16ea096a62336d0d05b8b0258b3fbb51 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_67f25d2be87f1e06d4a2d1afb1bfd104 = $(`<div id="html_67f25d2be87f1e06d4a2d1afb1bfd104" style="width: 100.0%; height: 100.0%;">('Artista: CA7RIEL y Paco Amoroso<br>', 'Fecha: 2027-05-15<br>', 'Precio: $35000.0<br>')</div>`)[0];
-                popup_6c2fe7c41b7598f61007d90038bf1bbf.setContent(html_67f25d2be87f1e06d4a2d1afb1bfd104);
+                var html_435ee9c95b4f691e81e084579539dddc = $(`<div id="html_435ee9c95b4f691e81e084579539dddc" style="width: 100.0%; height: 100.0%;"><b>Artista: CA7RIEL y Paco Amoroso</b><br>Fecha: 2027-05-15<br>Precio: $35000.0<br>Lugar: Teatro Vorterix</div>`)[0];
+                popup_16ea096a62336d0d05b8b0258b3fbb51.setContent(html_435ee9c95b4f691e81e084579539dddc);
             
         
 
-        marker_e78bbd1ca45e6bade4ec6d0cbb3e0a1d.bindPopup(popup_6c2fe7c41b7598f61007d90038bf1bbf)
+        marker_6897e19e49b6ec8acc2375c6723043b3.bindPopup(popup_16ea096a62336d0d05b8b0258b3fbb51)
         ;
 
         
     
     
-            var marker_92013a26bb10d574d09a0cdf5f7597cd = L.marker(
+            var marker_5a56707df5e2267b91c3c76bd309c507 = L.marker(
                 [-34.5451139, -58.4589802],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_57c1d543436a9ce101a9287467b913cb = L.popup({
-  "maxWidth": "100%",
+        var popup_6b9c564c6bba60678030f8bdb6285bc6 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_6ef1949c55b0599e47db6b527f8b8e79 = $(`<div id="html_6ef1949c55b0599e47db6b527f8b8e79" style="width: 100.0%; height: 100.0%;">('Artista: Guasones<br>', 'Fecha: 2027-06-12<br>', 'Precio: $38000.0<br>')</div>`)[0];
-                popup_57c1d543436a9ce101a9287467b913cb.setContent(html_6ef1949c55b0599e47db6b527f8b8e79);
+                var html_9797b6430a52ba1bd7e33dff5d87f248 = $(`<div id="html_9797b6430a52ba1bd7e33dff5d87f248" style="width: 100.0%; height: 100.0%;"><b>Artista: Guasones</b><br>Fecha: 2027-06-12<br>Precio: $38000.0<br>Lugar: Estadio Obras Sanitarias</div>`)[0];
+                popup_6b9c564c6bba60678030f8bdb6285bc6.setContent(html_9797b6430a52ba1bd7e33dff5d87f248);
             
         
 
-        marker_92013a26bb10d574d09a0cdf5f7597cd.bindPopup(popup_57c1d543436a9ce101a9287467b913cb)
+        marker_5a56707df5e2267b91c3c76bd309c507.bindPopup(popup_6b9c564c6bba60678030f8bdb6285bc6)
         ;
 
         
     
     
-            var marker_0abfd3a360f5fb2ce79830d42648e26c = L.marker(
+            var marker_bd327a90129037fe4d1a890d4dddd717 = L.marker(
                 [-34.5451139, -58.4589802],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_5f186dc501b60662070f783e818ac090 = L.popup({
-  "maxWidth": "100%",
+        var popup_3d49663c67cce5d38435e740ec4f8063 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_0afb35533f96135a43a8ab0c63ca8051 = $(`<div id="html_0afb35533f96135a43a8ab0c63ca8051" style="width: 100.0%; height: 100.0%;">('Artista: YSY A<br>', 'Fecha: 2026-11-28<br>', 'Precio: $40000.0<br>')</div>`)[0];
-                popup_5f186dc501b60662070f783e818ac090.setContent(html_0afb35533f96135a43a8ab0c63ca8051);
+                var html_5ad9fb53fc3d88de61e7409d9e39b428 = $(`<div id="html_5ad9fb53fc3d88de61e7409d9e39b428" style="width: 100.0%; height: 100.0%;"><b>Artista: YSY A</b><br>Fecha: 2026-11-28<br>Precio: $40000.0<br>Lugar: Estadio Obras Sanitarias</div>`)[0];
+                popup_3d49663c67cce5d38435e740ec4f8063.setContent(html_5ad9fb53fc3d88de61e7409d9e39b428);
             
         
 
-        marker_0abfd3a360f5fb2ce79830d42648e26c.bindPopup(popup_5f186dc501b60662070f783e818ac090)
+        marker_bd327a90129037fe4d1a890d4dddd717.bindPopup(popup_3d49663c67cce5d38435e740ec4f8063)
         ;
 
         
     
     
-            var marker_2ba3cfa06dfd703ecc631da149750c43 = L.marker(
+            var marker_cf6ea28e0e14ef84ec86f1c17207f33d = L.marker(
                 [-34.5451139, -58.4589802],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_bd65c19e7199b62df847e81033920ab9 = L.popup({
-  "maxWidth": "100%",
+        var popup_e44268bbb57c876f9b82d5319f0698bd = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_bb8f673bf3618452293bd1fb18b12673 = $(`<div id="html_bb8f673bf3618452293bd1fb18b12673" style="width: 100.0%; height: 100.0%;">('Artista: Gordo<br>', 'Fecha: 2027-02-27<br>', 'Precio: $40000.0<br>')</div>`)[0];
-                popup_bd65c19e7199b62df847e81033920ab9.setContent(html_bb8f673bf3618452293bd1fb18b12673);
+                var html_b10b5a06b375ddfa61308f37a54744b2 = $(`<div id="html_b10b5a06b375ddfa61308f37a54744b2" style="width: 100.0%; height: 100.0%;"><b>Artista: Gordo</b><br>Fecha: 2027-02-27<br>Precio: $40000.0<br>Lugar: Estadio Obras Sanitarias</div>`)[0];
+                popup_e44268bbb57c876f9b82d5319f0698bd.setContent(html_b10b5a06b375ddfa61308f37a54744b2);
             
         
 
-        marker_2ba3cfa06dfd703ecc631da149750c43.bindPopup(popup_bd65c19e7199b62df847e81033920ab9)
+        marker_cf6ea28e0e14ef84ec86f1c17207f33d.bindPopup(popup_e44268bbb57c876f9b82d5319f0698bd)
         ;
 
         
     
     
-            var marker_1cfa0ae4d6515353d4b42a9d1ecf08f4 = L.marker(
+            var marker_18910c317d1a544c48f669b1bd095a24 = L.marker(
                 [-34.5451139, -58.4589802],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_72cd504aef760b3b3c6bae490b9df9a5 = L.popup({
-  "maxWidth": "100%",
+        var popup_b2af1f92aface8d14d5b7b4657c6319a = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_445e7383b3880e0eda21c4d528e87dfa = $(`<div id="html_445e7383b3880e0eda21c4d528e87dfa" style="width: 100.0%; height: 100.0%;">('Artista: Divididos<br>', 'Fecha: 2026-08-22<br>', 'Precio: $45000.0<br>')</div>`)[0];
-                popup_72cd504aef760b3b3c6bae490b9df9a5.setContent(html_445e7383b3880e0eda21c4d528e87dfa);
+                var html_fc01da343d751531ed8f71e98fba30cc = $(`<div id="html_fc01da343d751531ed8f71e98fba30cc" style="width: 100.0%; height: 100.0%;"><b>Artista: Divididos</b><br>Fecha: 2026-08-22<br>Precio: $45000.0<br>Lugar: Estadio Obras Sanitarias</div>`)[0];
+                popup_b2af1f92aface8d14d5b7b4657c6319a.setContent(html_fc01da343d751531ed8f71e98fba30cc);
             
         
 
-        marker_1cfa0ae4d6515353d4b42a9d1ecf08f4.bindPopup(popup_72cd504aef760b3b3c6bae490b9df9a5)
+        marker_18910c317d1a544c48f669b1bd095a24.bindPopup(popup_b2af1f92aface8d14d5b7b4657c6319a)
         ;
 
         
     
     
-            var marker_c3d85031d86448451525408f20e9a0cf = L.marker(
+            var marker_d6a3d91e5d73f8f437c7948f02c428a9 = L.marker(
                 [-34.5942604, -58.4481368],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_b9ce738942759d5018bf4ec4cd3f5314 = L.popup({
-  "maxWidth": "100%",
+        var popup_67f8a7d1eb10938519b725bd1feeb7ce = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_88454179b6b909c29ea68c27b8d509ad = $(`<div id="html_88454179b6b909c29ea68c27b8d509ad" style="width: 100.0%; height: 100.0%;">('Artista: Babasonicos<br>', 'Fecha: 2026-11-05<br>', 'Precio: $45000.0<br>')</div>`)[0];
-                popup_b9ce738942759d5018bf4ec4cd3f5314.setContent(html_88454179b6b909c29ea68c27b8d509ad);
+                var html_7d7c350100e5b372fb0b08a39cafac92 = $(`<div id="html_7d7c350100e5b372fb0b08a39cafac92" style="width: 100.0%; height: 100.0%;"><b>Artista: Trueno</b><br>Fecha: 2027-04-05<br>Precio: $45000.0<br>Lugar: Movistar Arena</div>`)[0];
+                popup_67f8a7d1eb10938519b725bd1feeb7ce.setContent(html_7d7c350100e5b372fb0b08a39cafac92);
             
         
 
-        marker_c3d85031d86448451525408f20e9a0cf.bindPopup(popup_b9ce738942759d5018bf4ec4cd3f5314)
+        marker_d6a3d91e5d73f8f437c7948f02c428a9.bindPopup(popup_67f8a7d1eb10938519b725bd1feeb7ce)
         ;
 
         
     
     
-            var marker_d29e11b94784fe08be0130bcd0f226ce = L.marker(
+            var marker_5a46355ca5df12831e64327fec2c29b2 = L.marker(
                 [-34.5942604, -58.4481368],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_63ef71bd7228a85205301ff22fe70775 = L.popup({
-  "maxWidth": "100%",
+        var popup_1b6e46e05eae94064c3d3aa999dac45e = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_25f5a43984d83d204460e651b81673b6 = $(`<div id="html_25f5a43984d83d204460e651b81673b6" style="width: 100.0%; height: 100.0%;">('Artista: Trueno<br>', 'Fecha: 2027-04-05<br>', 'Precio: $45000.0<br>')</div>`)[0];
-                popup_63ef71bd7228a85205301ff22fe70775.setContent(html_25f5a43984d83d204460e651b81673b6);
+                var html_34f719461b411ad3bfa87698cae72e80 = $(`<div id="html_34f719461b411ad3bfa87698cae72e80" style="width: 100.0%; height: 100.0%;"><b>Artista: Babasonicos</b><br>Fecha: 2026-11-05<br>Precio: $45000.0<br>Lugar: Movistar Arena</div>`)[0];
+                popup_1b6e46e05eae94064c3d3aa999dac45e.setContent(html_34f719461b411ad3bfa87698cae72e80);
             
         
 
-        marker_d29e11b94784fe08be0130bcd0f226ce.bindPopup(popup_63ef71bd7228a85205301ff22fe70775)
+        marker_5a46355ca5df12831e64327fec2c29b2.bindPopup(popup_1b6e46e05eae94064c3d3aa999dac45e)
         ;
 
         
     
     
-            var marker_9536b78bc8eeb880080541727a3cc1ae = L.marker(
+            var marker_43344f7d2c631e60a8b980afe8742851 = L.marker(
                 [-34.5451139, -58.4589802],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_933aa0bb4aeeb36a4551d7068d9660a3 = L.popup({
-  "maxWidth": "100%",
+        var popup_bb288b2adc813d6f38d7fa05db4be4b3 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_3c78abd2fb03f9aa310a73b11f6900c7 = $(`<div id="html_3c78abd2fb03f9aa310a73b11f6900c7" style="width: 100.0%; height: 100.0%;">('Artista: Ciro y los Persas<br>', 'Fecha: 2026-12-18<br>', 'Precio: $55000.0<br>')</div>`)[0];
-                popup_933aa0bb4aeeb36a4551d7068d9660a3.setContent(html_3c78abd2fb03f9aa310a73b11f6900c7);
+                var html_4822d637e1e8847e00b20fba85e59e05 = $(`<div id="html_4822d637e1e8847e00b20fba85e59e05" style="width: 100.0%; height: 100.0%;"><b>Artista: Ciro y los Persas</b><br>Fecha: 2026-12-18<br>Precio: $55000.0<br>Lugar: Estadio Obras Sanitarias</div>`)[0];
+                popup_bb288b2adc813d6f38d7fa05db4be4b3.setContent(html_4822d637e1e8847e00b20fba85e59e05);
             
         
 
-        marker_9536b78bc8eeb880080541727a3cc1ae.bindPopup(popup_933aa0bb4aeeb36a4551d7068d9660a3)
+        marker_43344f7d2c631e60a8b980afe8742851.bindPopup(popup_bb288b2adc813d6f38d7fa05db4be4b3)
         ;
 
         
     
     
-            var marker_c0e8cc475b4514a5ca4e653a22f1a8e8 = L.marker(
+            var marker_96d7edf6f53641732dfdc9d96a123e67 = L.marker(
                 [-34.5942604, -58.4481368],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_1c04d0b6b9af55f3902acc4a564e025d = L.popup({
-  "maxWidth": "100%",
+        var popup_d1a6a3cfa15ac9069f3756983c38183d = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_94a4df8ebcfa7668c585a8869a0b9281 = $(`<div id="html_94a4df8ebcfa7668c585a8869a0b9281" style="width: 100.0%; height: 100.0%;">('Artista: Duki<br>', 'Fecha: 2026-07-15<br>', 'Precio: $60000.0<br>')</div>`)[0];
-                popup_1c04d0b6b9af55f3902acc4a564e025d.setContent(html_94a4df8ebcfa7668c585a8869a0b9281);
+                var html_6204e858d33bfbcbdc7ae8a0dd8d41ee = $(`<div id="html_6204e858d33bfbcbdc7ae8a0dd8d41ee" style="width: 100.0%; height: 100.0%;"><b>Artista: Duki</b><br>Fecha: 2026-07-15<br>Precio: $60000.0<br>Lugar: Movistar Arena</div>`)[0];
+                popup_d1a6a3cfa15ac9069f3756983c38183d.setContent(html_6204e858d33bfbcbdc7ae8a0dd8d41ee);
             
         
 
-        marker_c0e8cc475b4514a5ca4e653a22f1a8e8.bindPopup(popup_1c04d0b6b9af55f3902acc4a564e025d)
+        marker_96d7edf6f53641732dfdc9d96a123e67.bindPopup(popup_d1a6a3cfa15ac9069f3756983c38183d)
         ;
 
         
     
     
-            var marker_eb908d0d72a1359506929cb970dbf023 = L.marker(
+            var marker_ec3cc7a200b0cbac2362dd91d239bbd9 = L.marker(
                 [-34.5942604, -58.4481368],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_593f241095bfd893c80b671b0bd3e1e6 = L.popup({
-  "maxWidth": "100%",
+        var popup_d13e6f4cd0e9459d9768d7fa03167f6f = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_19ef37f9e2f9a17aed9187613d579d79 = $(`<div id="html_19ef37f9e2f9a17aed9187613d579d79" style="width: 100.0%; height: 100.0%;">('Artista: Nicki Nicole<br>', 'Fecha: 2027-02-20<br>', 'Precio: $60000.0<br>')</div>`)[0];
-                popup_593f241095bfd893c80b671b0bd3e1e6.setContent(html_19ef37f9e2f9a17aed9187613d579d79);
+                var html_c681fe0065fe0027de184b10cb823261 = $(`<div id="html_c681fe0065fe0027de184b10cb823261" style="width: 100.0%; height: 100.0%;"><b>Artista: Nicki Nicole</b><br>Fecha: 2027-02-20<br>Precio: $60000.0<br>Lugar: Movistar Arena</div>`)[0];
+                popup_d13e6f4cd0e9459d9768d7fa03167f6f.setContent(html_c681fe0065fe0027de184b10cb823261);
             
         
 
-        marker_eb908d0d72a1359506929cb970dbf023.bindPopup(popup_593f241095bfd893c80b671b0bd3e1e6)
+        marker_ec3cc7a200b0cbac2362dd91d239bbd9.bindPopup(popup_d13e6f4cd0e9459d9768d7fa03167f6f)
         ;
 
         
     
     
-            var marker_93af73cea041d513b65aaacd5ece5be2 = L.marker(
+            var marker_a40d7959f21e9869d3af1167614e3227 = L.marker(
                 [-34.5449775, -58.4483258],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_f173bae63aca58fbc337cad2541f1c1c = L.popup({
-  "maxWidth": "100%",
+        var popup_66d20dbac32741ac62fcced6fe45fa20 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_7bf77e89bbf97c46affaccf5124137ad = $(`<div id="html_7bf77e89bbf97c46affaccf5124137ad" style="width: 100.0%; height: 100.0%;">('Artista: Fito Paez<br>', 'Fecha: 2026-08-12<br>', 'Precio: $70000.0<br>')</div>`)[0];
-                popup_f173bae63aca58fbc337cad2541f1c1c.setContent(html_7bf77e89bbf97c46affaccf5124137ad);
+                var html_a66d89fdfff33a400d7a3bc70fb521c8 = $(`<div id="html_a66d89fdfff33a400d7a3bc70fb521c8" style="width: 100.0%; height: 100.0%;"><b>Artista: Fito Paez</b><br>Fecha: 2026-08-12<br>Precio: $70000.0<br>Lugar: Estadio River Plate</div>`)[0];
+                popup_66d20dbac32741ac62fcced6fe45fa20.setContent(html_a66d89fdfff33a400d7a3bc70fb521c8);
             
         
 
-        marker_93af73cea041d513b65aaacd5ece5be2.bindPopup(popup_f173bae63aca58fbc337cad2541f1c1c)
+        marker_a40d7959f21e9869d3af1167614e3227.bindPopup(popup_66d20dbac32741ac62fcced6fe45fa20)
         ;
 
         
     
     
-            var marker_493da62c6f4b3ec9f0102ef6bb01d418 = L.marker(
+            var marker_5602c68d392d949ce50e1d1f87eb17a4 = L.marker(
                 [-34.5942604, -58.4481368],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0);
         
     
-        var popup_bdc1985fc96c586aee7a572a70891f4a = L.popup({
-  "maxWidth": "100%",
+        var popup_5cf8a389563c6ecc901a77192461f1a5 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_968700b2bba226b29e551216dc897405 = $(`<div id="html_968700b2bba226b29e551216dc897405" style="width: 100.0%; height: 100.0%;">('Artista: Bizarrap<br>', 'Fecha: 2026-09-10<br>', 'Precio: $80000.0<br>')</div>`)[0];
-                popup_bdc1985fc96c586aee7a572a70891f4a.setContent(html_968700b2bba226b29e551216dc897405);
+                var html_62ebb5bfae27b48f8ed17b7c19a10ac3 = $(`<div id="html_62ebb5bfae27b48f8ed17b7c19a10ac3" style="width: 100.0%; height: 100.0%;"><b>Artista: Bizarrap</b><br>Fecha: 2026-09-10<br>Precio: $80000.0<br>Lugar: Movistar Arena</div>`)[0];
+                popup_5cf8a389563c6ecc901a77192461f1a5.setContent(html_62ebb5bfae27b48f8ed17b7c19a10ac3);
             
         
 
-        marker_493da62c6f4b3ec9f0102ef6bb01d418.bindPopup(popup_bdc1985fc96c586aee7a572a70891f4a)
+        marker_5602c68d392d949ce50e1d1f87eb17a4.bindPopup(popup_5cf8a389563c6ecc901a77192461f1a5)
         ;
 
         
     
     
-            tile_layer_7a21ccf6223c073adb7295b9e8cb0ce8.addTo(map_e09337941cc116def5e6ab142e6c1666);
+            marker_cluster_42c8ccbcbc7ea708f77a3bdc6f369ed0.addTo(map_b827e348968f8c218a5d4ade421df0de);
         
 </script>
 </html>

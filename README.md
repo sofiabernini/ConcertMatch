@@ -26,9 +26,9 @@ Sofía Belén Bernini: Armado del dataset simulado (concertmatch_dataset_prueba.
 
 Angelina Marengo: 
 
-Victoria Mochnacs: 
+Victoria Mochnacs: Diagrama inicial del programa general. Programación de las funciones dentro de validar_df.py, pedir_preferencias.py.
 
-Matilde Urrestarazu Romero:
+Matilde Urrestarazu Romero: Programación de pedir_preferencias.py, filtrar_df.py y resultados.py
 
 
 
@@ -36,11 +36,11 @@ Matilde Urrestarazu Romero:
 #Redactar mejor
 **Fuente de Datos:**
 
-El proyecto utiliza un DataSet simulado (concertmatch_dataset_prueba.csv) generado con asistencia de Inteligencia Artificial (Gemini). Contiene eventos musicales con información detallada sobre artistas, géneros, precios, fechas, horarios, ubicaciones (direcciones), estadios/predios, disponibilidad de entradas y condiciones del lugar. Además, se incluye información que se mostrará al final o que se filtrará durante la ejecución del programa, como el link que lleva a la ticketera, la fecha en la que se comienzan a vender las entradas para el evento, o la condición de si quedan entradas disponibles. 
+El proyecto utiliza un dataset simulado (concertmatch_dataset_prueba.csv) generado con asistencia de Inteligencia Artificial (Gemini). Contiene eventos musicales con información detallada sobre artistas, géneros, precios, fechas, horarios, ubicaciones (direcciones), estadios/predios, disponibilidad de entradas y condiciones del lugar. Además, se incluye información que se mostrará al final o que se filtrará durante la ejecución del programa, como el link que lleva a la ticketera, la fecha en la que se comienzan a vender las entradas para el evento, o la condición de si quedan entradas disponibles. 
 
-Este fue realizado con Inteligencia Artificial (IA) ya que no fue posible acceder a los DataSets reales de las ticketeras. De todas formas, el programa está pensado para que se pueda ejecutar si se ingresara un DataSet real. Sin embargo, hay algunas consideraciones a tener en cuenta sobre los datos que son válidos para el programa, debido a las funciones y librerías que utilizamos. Por ejemplo, los datos de la columna de Ubicación del Dataset deben tener el nombre completo de la calle (no abreviaciones) y alguna especificación de la ciudad o distrito. Esto se debe a que Geopy, la librería que utilizamos para esta validación y para otras funciones, necesita especificidad para hacer correctamente el cálculo de coordenadas de las direcciones. Si no se cargan estos datos correctamente, probablemente se pierdan conciertos en la limpieza de datos, ya que se eliminan las filas que no contengan una ubicación validada por Geopy. O bien, podría perderse alguna de las opciones porque el cálculo de las distancia estaría hecho sobre la dirección de otro distrito o región (puede haber calles repetidas en distintos distritos).
+Este fue realizado con Inteligencia Artificial (IA) ya que no fue posible acceder a los dataset reales de las ticketeras. De todas formas, el programa está pensado para que se pueda ejecutar si se ingresara un dataset real. Sin embargo, hay algunas consideraciones a tener en cuenta sobre los datos que son válidos para el programa, debido a las funciones y librerías que utilizamos. Por ejemplo, los datos de la columna de Ubicación del dataset deben tener el nombre completo de la calle (no abreviaciones) y alguna especificación de la ciudad o distrito. Esto se debe a que Geopy, la librería que utilizamos para esta validación y para otras funciones, necesita especificidad para hacer correctamente el cálculo de coordenadas de las direcciones. Si no se cargan estos datos correctamente, probablemente se pierdan conciertos en la limpieza de datos, ya que se eliminan las filas que no contengan una ubicación validada por Geopy. O bien, podría perderse alguna de las opciones porque el cálculo de las distancia estaría hecho sobre la dirección de otro distrito o región (puede haber calles repetidas en distintos distritos).
 
-Aclaración: El DataSet no llega a los 1000 registros (como se indica en la consigna) porque la IA no fue capaz de realizarlo. Sin embargo, esto ya fue conversado y aprobado por la profesora.
+Aclaración: El dataset no llega a los 1000 registros (como se indica en la consigna) porque la IA no fue capaz de realizarlo. Sin embargo, esto ya fue conversado y aprobado por la profesora.
 
 
 #ver si esto al final va a ser así según si podemos mejorar lo de Geopy
@@ -91,16 +91,16 @@ Archivos en la raíz:
 * **.gitignore:** Indica a Github qué archivos o carpetas debe ignorar y no subir al repositorio.
 * **README.md:** Es el documento principal de presentación del proyecto.
 * **main.py:** Es el punto donde comienza el programa; el archivo principal que ejecuta el código central.
-* **mapa_conciertos.html:** #COMPLETAR
+* **mapa_conciertos.html:** Es el archivo generado automáticamente por la función que genera el mapa (en graficos.py)
 
 
 
 **Funciones principales:**
 carga_dataset(): Carga el archivo CSV manejando errores específicos (archivos inexistentes, corruptos o sin permisos) y ejecuta la validación.
 
-limpieza_df(): Coordina una serie de subfunciones que estandarizan precios, castean fechas/horarios y eliminan valores inconsistentes (NaN).
+validar_df: Llama a las funciones "validar_columnas" y "limpiar_df". Estas validan la cantidad de columnas del DataFrame,evalúan el rango de precios, castean fechas/horarios, corrigen str a valores booleanos, geolocalizan las direcciones de la columna ["Ubicación"] y eliminan valores inconsistentes (Nan).
 
-pedir_preferencias(): Hace las preguntas al usuario (género, rango de precios, franja horaria, etc.) y calcula la distancia geolocalizada desde el punto de partida usando la API de Nominatim.
+pedir_preferencias(): Hace las preguntas al usuario (género, rango de precios, franja horaria, fecha o rango de fechas, disponibilidad de asientos, distancia máxima y ubicación) y calcula la distancia geolocalizada desde el punto de partida usando la librería Geopy (que utiliza la API OpenStreetMap).
 
 aplicar_filtros(): Aplica iterativamente los filtros seleccionados respetando el orden de prioridad definido por el usuario. Tiene la robustez de frenar y avisar si un filtro elimina todas las opciones.
 

@@ -1,0 +1,8 @@
+Para la correcta ejecución del programa será necesario tener instaladas las siguientes librerías:
+pandas
+matplotlib.pyplot
+datetime
+os
+geopy
+folium
+webbrowser

@@ -9,12 +9,10 @@ print ("Comenzando proceso de carga del programa. Podría tardarse unos segundos
 print ("Espere a que aparezca el cartel de inicio del programa")
 
 import pandas as pd
-import matplotlib.pyplot as plt
-from datetime import datetime
 from src.cargar_dataset import carga_dataset
 from src.filtrar_df import filtrar_df_bool, aplicar_filtros
 from src.resultados import ( obtener_columna_importante, ordenar_resultados, mostrar_info_resultados)
-from src.graficos import (grafico_resultado, generar_histograma)
+from src.graficos import (grafico_mapa, crear_histograma_comparativo)
 from src.pedir_preferencias import ordenar_preferencias, pedir_preferencias, hacer_pregunta_si_no
 from src.calculo_coincidencias import ponderacion_total
 import folium 

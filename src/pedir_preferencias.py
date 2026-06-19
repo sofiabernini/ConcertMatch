@@ -215,6 +215,12 @@ def pedir_generos(columna_generos):
     return generos_seleccionados #retorna la lista de géneros seleccionados
 
 def pedir_rango_precios():
+    """
+    Pide el rango de precios que está dispuesto a gastar el usuario.
+
+    Returns
+    dict: tiene como clave "min" o "max" y como valor de cada clave el rpecio mínimo y el precio máximo respectivamente.
+    """
     print("💰 Definición del rango de precios buscado. La búsqueda será realizada automáticamente en pesos")
     
     while True:
@@ -350,7 +356,13 @@ def pedir_franja_horaria ():
             return {"hora_min": hora_min, "hora_max": hora_max}
 
 def pedir_distancia_max():
+   """
+   Pide la distancia máxima que quiere recorrer al usuario
    
+   Returns
+   distancia_max: float
+   devuelve al distancia máxima que está dispuesto a recorrer el usuario 
+   """
     print ("🗺️ Definición de distancia máxima que esté dispuesto a recorrer.")
     
     while True: 
@@ -366,7 +378,20 @@ def pedir_distancia_max():
     return distancia_max
             
 def pedir_ubicacion_partida(df): 
-    #FALTA DOCSTRING, YA SE
+    """
+    Descripción
+    Solicita al usuario una dirección de partida y obtiene sus coordenadas geográficas (latitud y longitud) utilizando geolocalización. 
+    Luego llama a la función calcular_distancias y agrega la lista_distancias como una columna al df
+
+    Parameters
+    df: DataFrame
+    es el df de todos los eventos
+
+    Return
+    df: DataFrame
+    retorna el df al que se le agregó la columna de distancias
+    """
+    
     
    print ("📍 Obtención de la dirección de partida: Va a ingresar la dirección desde donde desee hacer la búsqueda"
           "Este dato será utilizado para calcular las distancias con los eventos y determinar si están dentro del rango solicitado")
@@ -390,6 +415,21 @@ def pedir_ubicacion_partida(df):
     
 
 def calcular_distancias(df, latitud_usuario, longitud_usuario):
+    """
+    Calcula la distancia entre la ubicación de partida del usuario y las distintas ubicaciones del df.
+    
+    Parameters
+    df: DataFrame
+        Es el df qeu contiene los eventos
+    latitud_usuario: float
+        Es la latitud de la ubicación del usuario
+    longitud_usuario: float
+        Es la longitud de la ubicación del usuario
+
+    Returns
+    lista_distancias: list
+        Es la lista con las distancias
+    """
     lista_distancias = []
     
     for i in df.index:

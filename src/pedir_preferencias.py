@@ -356,13 +356,13 @@ def pedir_franja_horaria ():
             return {"hora_min": hora_min, "hora_max": hora_max}
 
 def pedir_distancia_max():
-   """
-   Pide la distancia máxima que quiere recorrer al usuario
+    """
+    Pide la distancia máxima que quiere recorrer al usuario
    
-   Returns
-   distancia_max: float
-   devuelve al distancia máxima que está dispuesto a recorrer el usuario 
-   """
+    Returns
+    distancia_max: float
+    devuelve al distancia máxima que está dispuesto a recorrer el usuario 
+    """
     print ("🗺️ Definición de distancia máxima que esté dispuesto a recorrer.")
     
     while True: 

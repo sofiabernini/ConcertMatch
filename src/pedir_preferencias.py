@@ -391,11 +391,9 @@ def pedir_ubicacion_partida(df):
     df: DataFrame
     retorna el df al que se le agregó la columna de distancias
     """
-    
-    
-   print ("📍 Obtención de la dirección de partida: Va a ingresar la dirección desde donde desee hacer la búsqueda"
+    print ("📍 Obtención de la dirección de partida: Va a ingresar la dirección desde donde desee hacer la búsqueda"
           "Este dato será utilizado para calcular las distancias con los eventos y determinar si están dentro del rango solicitado")
-   while True: 
+    while True: 
         direccion_usuario= input("Ingrese su dirección completa de partida. Ejemplo de ingreso: Av. Cabildo 2450, Belgrano, Ciudad Autónoma de Buenos Aires, Argentina: ")
         if direccion_usuario.strip()=="":
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
@@ -408,10 +406,10 @@ def pedir_ubicacion_partida(df):
                 latitud_usuario= ubicacion_usuario.latitude
                 longitud_usuario= ubicacion_usuario.longitude
                 break
-   lista_distancias= calcular_distancias(df, latitud_usuario, longitud_usuario) #se llama a funcion que devuelve lista de distancias
-   df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
+    lista_distancias= calcular_distancias(df, latitud_usuario, longitud_usuario) #se llama a funcion que devuelve lista de distancias
+    df["distancias"]=lista_distancias #agrega una columna de "distancias" cuyos valores es la lista que devolvió la función calcular_distancias
    
-   return df
+    return df
     
 
 def calcular_distancias(df, latitud_usuario, longitud_usuario):

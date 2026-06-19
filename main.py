@@ -7,15 +7,9 @@ print("Espere a que aparezca el cartel de bienvenida del programa")
 ## ========= Import de módulos y funciones ===============
 from src.cargar_dataset import carga_dataset
 from src.filtrar_df import filtrar_df_bool, aplicar_filtros
-from src.resultados import (
-    obtener_columna_importante,
-    ordenar_resultados,
-    mostrar_info_resultados)
+from src.resultados import (obtener_columna_importante,ordenar_resultados,mostrar_info_resultados)
 from src.graficos import crear_histograma_comparativo, grafico_mapa
-from src.pedir_preferencias import (
-    ordenar_preferencias,
-    pedir_preferencias,
-    hacer_pregunta_si_no)
+from src.pedir_preferencias import (ordenar_preferencias,pedir_preferencias,hacer_pregunta_si_no)
 
 
 def ejecutar_programa():
@@ -28,7 +22,7 @@ def ejecutar_programa():
         según la categoría más importante entre precio y distancia,
         genera un histograma y muestra los conciertos recomendados.
 
-    Retorno:
+    Returns:
         None
 
     Manejo de errores:
@@ -58,8 +52,7 @@ def ejecutar_programa():
 
 ##======== Bucle principal de búsqueda =======================
 
-    #Permite realizar varias búsquedas sin volver
-    ## a cargar el archivo.
+    #Permite realizar varias búsquedas sin volver a cargar el archivo.
     while True:
 
         df = df_original.copy()
@@ -82,8 +75,7 @@ def ejecutar_programa():
 
 
         ## 2. Se pregunta por Acceso a movilidad reducida.
-        necesita_movilidad = hacer_pregunta_si_no(
-            "¿Necesitás acceso para personas con movilidad reducida? (si/no): ")
+        necesita_movilidad = hacer_pregunta_si_no("¿Necesitás acceso para personas con movilidad reducida? (si/no): ")
 
         if necesita_movilidad:
             df_temporal = filtrar_df_bool(df,"Acceso movilidad reducida")

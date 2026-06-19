@@ -2,7 +2,7 @@
 
 print ("================ 🎵 CONCERTMATCH 🎵 ==================")
 print("Comenzando proceso de carga del programa. Podría tardarse unos segundos/minutos, dependiendo de la cantidad de conciertos cargados")
-print("Espere a que aparezca el cartel de vienvenida del programa")
+print("Espere a que aparezca el cartel de bienvenida del programa")
 
 ## ========= Import de módulos y funciones ===============
 from src.cargar_dataset import carga_dataset
@@ -56,7 +56,7 @@ def ejecutar_programa():
         return
 
 
-##======== Bucle principal de búsqueda =======================0
+##======== Bucle principal de búsqueda =======================
 
     #Permite realizar varias búsquedas sin volver
     ## a cargar el archivo.

@@ -124,7 +124,7 @@ from src.resultados import (
     ordenar_resultados,
     mostrar_info_resultados
 )
-from src.graficos import generar_histograma
+from src.graficos import crear_histograma_comparativo, grafico_mapa
 from src.pedir_preferencias import (
     ordenar_preferencias,
     pedir_preferencias,
@@ -267,13 +267,15 @@ def ejecutar_programa():
 
 
         ## Se genera el histograma.
-        generar_histograma(
+        crear_histograma_comparativo(
             df_original,
             df_ordenado,
             columna_importante
         )
 
-
+        ## Se genera el mapa con la información de los conciertos
+        grafico_mapa(df_ordenado)
+        
         ## Se muestran los primeros cinco conciertos.
         mostrar_info_resultados(
             df_ordenado

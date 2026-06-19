@@ -176,7 +176,7 @@ def pedir_generos(columna_generos):
            "Usted va a ingresar los IDs de los géneros que desee seleccionar")
     while True:
         opcion = input("Ingrese el ID de un género que se encuentre en la tabla y le interese "
-            "(o escriba 'fin' para terminar el proceso de ingreso de datos): ")
+            "(o escriba 'fin' para terminar el proceso de ingreso de datos): ").strip()
         #Dentro de un ciclo while se le pide al usuario que ingrese un numero o fin. Por lo tanto, se verá que si el usuario ingresa 
         #un dato erróneo (str que no sea fin, bool, numero negativo, etc) se llega al final del ciclo y automáticamente vuelve a comenzar
         #volviendo a pedirle que ingrese un género   (numero) o "fin"
@@ -215,18 +215,18 @@ def pedir_generos(columna_generos):
     return generos_seleccionados #retorna la lista de géneros seleccionados
 
 def pedir_rango_precios():
-    print("💰 Definición del rango de precios buscado.")
+    print("💰 Definición del rango de precios buscado. La búsqueda será realizada automáticamente en pesos")
     
     while True:
         try:
-            precio_min = float(input("Ingrese el precio mínimo: "))
+            precio_min = float(input("Ingrese el precio mínimo (solo el número): "))
         except ValueError:
             print("Error: ingrese un número válido.")
             continue
 
         while True:
             try:
-                precio_max = float(input("Ingrese el precio máximo: "))
+                precio_max = float(input("Ingrese el precio máximo (solo el número): "))
             except ValueError:
                 print("Error: ingrese un número válido.")
                 continue
@@ -276,9 +276,9 @@ def pedir_fechas():
     while True:
         try:
 
-            dia_fecha_1 = input("Ingrese el día (DD) de la fecha inicial: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01)")
-            mes_fecha_1 = input("Ingrese el mes (MM) de la fecha inicial. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04)")
-            año_fecha_1 = input ("Ingrese el año (AAAA) de la fecha inicial.")
+            dia_fecha_1 = input("Ingrese el día (DD) de la fecha inicial: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01): ")
+            mes_fecha_1 = input("Ingrese el mes (MM) de la fecha inicial. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04): ")
+            año_fecha_1 = input ("Ingrese el año (AAAA) de la fecha inicial: ")
             
             fecha_1 = f"{dia_fecha_1}-{mes_fecha_1}-{año_fecha_1}"
 
@@ -288,9 +288,9 @@ def pedir_fechas():
                 print("La fecha inicial no puede ser anterior a hoy.")
                 continue
 
-            dia_fecha_2 = input("Ingrese el día (DD) de la fecha final: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01)")
-            mes_fecha_2 = input("Ingrese el mes (MM) de la fecha final. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04)")
-            año_fecha_2 = input ("Ingrese el año (AAAA) de la fecha final.")
+            dia_fecha_2 = input("Ingrese el día (DD) de la fecha final: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01): ")
+            mes_fecha_2 = input("Ingrese el mes (MM) de la fecha final. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04): ")
+            año_fecha_2 = input ("Ingrese el año (AAAA) de la fecha final.: ")
             
             fecha_2 = f"{dia_fecha_2}-{mes_fecha_2}-{año_fecha_2}"
 
@@ -326,13 +326,13 @@ def pedir_franja_horaria ():
     while True:
         
         try:
-            hora_1 = input ("Ingrese la hora mínima.")
-            minutos_1 = input ("Ingrese los minutos de la hora mínima")
+            hora_1 = input ("Ingrese la hora mínima (Solo la hora): ")
+            minutos_1 = input ("Ingrese los minutos de la hora mínima (Solo minutos): ")
             
             hora_min = f"{hora_1}:{minutos_1}"
             
-            hora_2 = input ("Ingrese la hora máxima")
-            minutos_2 = input ("Ingrese los minutos máximos")
+            hora_2 = input ("Ingrese la hora máxima (Solo la hora): ")
+            minutos_2 = input ("Ingrese los minutos máximos (Solo minutos): ")
             
             hora_max = f"{hora_2}:{minutos_2}"
         
@@ -343,8 +343,7 @@ def pedir_franja_horaria ():
             if hora_max < hora_min:
                 raise ValueError ("La hora mínima no puede ser después de la hora máxima")
             
-            
-        except ValueError as e:
+        except ValueError:
             print ("Ingrese el valor nuevamente hasta que sea válido")
         
         else:

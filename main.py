@@ -136,7 +136,6 @@ def ejecutar_programa():
         
         ## Se genera el mapa con la información de los conciertos
         grafico_mapa(df_ordenado)
-    
 
 
 ## ========== Volver a ingresar conciertos ¿Si o no? ===========

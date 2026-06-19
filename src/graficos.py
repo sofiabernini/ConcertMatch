@@ -94,8 +94,7 @@ def grafico_mapa (df_mejores):
    mapa.save("mapa_conciertos.html")
    print("Mapa generado correctamente: mapa_conciertos.html")
 
-def crear_histograma():
-    def crear_histograma_comparativo(df_original, df_filtrado, columna_importante):
+def crear_histograma_comparativo(df_original, df_filtrado, columna_importante):
     """
     Descripción:
     Genera un histograma comparativo entre el dataset original y el
@@ -128,12 +127,6 @@ def crear_histograma():
 
         columna = "distancias"
         titulo = "Distribución de distancias"
-
-    # Si recibe una categoría inválida genera un error
-    else:
-
-        raise ValueError(
-            "La columna importante debe ser 'precio' o 'distancia'.")
 
     # Crear la figura donde se dibujará el gráfico
     plt.figure(figsize=(10, 6))

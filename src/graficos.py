@@ -6,66 +6,71 @@ Created on Tue Jun  9 20:28:55 2026
 @author: victoriamochnacs
 """
 
-# FUNCIÓN PARA MOSTRAR EL GRÁFICO CON LOS PORCENTAJES DE COINCIDENCIA
 import matplotlib.pyplot as plt
-import folium
-import os 
+import os
 import webbrowser
+import folium
+from folium.plugins import MarkerCluster
+
+def grafico_mapa(df):
+    """
+    Genera un mapa interactivo con los conciertos recomendados al usuario.
+    Cada concierto aparece como un marcador y, al hacer clic sobre él,
+    se muestra información relevante del evento.
+
+    Parameters:
+    df_resultados (DataFrame) - DataFrame que contiene los conciertos
+    filtrados o recomendados.
     
-def grafico_mapa (df):
-   """
-   Genera un mapa interactivo con los conciertos recomendados al usuario.
-   Cada concierto aparece como un marcador y, al hacer clic sobre él,
-   se muestra información relevante del evento.
+    Returns:
+    None.
+    Genera un archivo HTML llamado "mapa_conciertos.html".
 
-   Parameters:
-   df_resultados (DataFrame) - DataFrame que contiene los conciertos
-   filtrados o recomendados.
-   
-   Returns:
-   None.
-   Genera un archivo HTML llamado "mapa_conciertos.html".
-
-   Raises:
-   ValueError:
-       Si el DataFrame está vacío.
-   """
-   
-   #Validar que existan resultados para mostrar
-   if df.empty:
-       raise ValueError ("No hay conciertos para representar")
+    Raises:
+    ValueError:
+        Si el DataFrame está vacío.
+    """
+    # Validar que existan resultados para mostrar
+    if df.empty:
+        raise ValueError("No hay conciertos para representar")
         
-   #Obtener las coordenadas del primer concierto para centrar incialmente el mapa
-   latitud_centro = df.iloc[0]["latitud"]
-   longitud_centro = df.iloc[0]["longitud"]
-   
-   #Crear el mapa base (crea objeto):
-   mapa = folium.Map (location = [latitud_centro, longitud_centro], 
-                      zoom_start=11 )
-   
-   for _, fila in df.iterrows():
-       
-       #Crear el texto que aparecerá al hacer clic
-       texto_popup = (
-           f"<b>{fila['Artista/Banda']}</b><br>"
-           f"Fecha: {fila['Fecha']}<br>"
-           f"Precio: ${fila['Precio final']}<br>"
-           )
-       
-       #Crear marcador para el concierto actual
-       marcador = folium.Marker (
-           location = [
-               fila["latitud"], fila["longitud"]],
-           popup=texto_popup)
-   
-       #Agregar marcador al mapa
-       marcador.add_to(mapa)
+    # Obtener las coordenadas del primer concierto para centrar inicialmente el mapa
+    latitud_centro = df.iloc[0]["latitud"]
+    longitud_centro = df.iloc[0]["longitud"]
+    
+    # Crear el mapa base
+    mapa = folium.Map(location=[latitud_centro, longitud_centro], zoom_start=11)
+    
+    # CREAR EL CLUSTER: Esto evita que los marcadores en un mismo estadio/predio se tapen
+    cluster = MarkerCluster().add_to(mapa)
+    
+    for _, fila in df.iterrows():
+        
+        # CORRECCIÓN DE POPUP: Concatenamos los strings con '+' y quitamos las comas 
+        # al final de cada renglón para que Python no lo interprete como una tupla.
+        texto_popup = (
+            f"<b>Artista: {fila['Artista/Banda']}</b><br>" +
+            f"Fecha: {fila['Fecha']}<br>" +
+            f"Precio: ${fila['Precio final']}<br>" +
+            f"Lugar: {fila['Estadio/Predio']}"
+        )
+        
+        # Crear marcador para el concierto actual
+        marcador = folium.Marker(
+            location=[fila["latitud"], fila["longitud"]],
+            popup=folium.Popup(texto_popup, max_width=300)
+        )
+    
+        # AGREGAR AL CLUSTER en lugar de directo al mapa
+        marcador.add_to(cluster)
       
-   mapa.save("mapa_conciertos.html")
-   print("Mapa generado correctamente: mapa_conciertos.html")
+    # Guardar y abrir
+    mapa.save("mapa_conciertos.html")
+    print("Mapa generado correctamente: mapa_conciertos.html")
 
-   ruta_completa = os.path.abspath("mapa_conciertos.html")
-   webbrowser.open(f"file://{ruta_completa}")
+    ruta_completa = os.path.abspath("mapa_conciertos.html")
+    webbrowser.open(f"file://{ruta_completa}")
+   
    
 
 def crear_histograma_comparativo(df_original, df_filtrado, columna_importante):

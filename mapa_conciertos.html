@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_e09337941cc116def5e6ab142e6c1666 {
+                #map_69df687b51e0925fe90ba061444b9afd {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -50,20 +50,23 @@
             </script>
 
         
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_e09337941cc116def5e6ab142e6c1666" ></div>
+            <div class="folium-map" id="map_69df687b51e0925fe90ba061444b9afd" ></div>
         
 </body>
 <script>
     
     
-            var map_e09337941cc116def5e6ab142e6c1666 = L.map(
-                "map_e09337941cc116def5e6ab142e6c1666",
+            var map_69df687b51e0925fe90ba061444b9afd = L.map(
+                "map_69df687b51e0925fe90ba061444b9afd",
                 {
-                    center: [-34.5888842, -58.4361941],
+                    center: [-34.5801513, -58.4508612],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 11,
@@ -78,7 +81,7 @@
 
         
     
-            var tile_layer_7a21ccf6223c073adb7295b9e8cb0ce8 = L.tileLayer(
+            var tile_layer_3b90a80584c43961d16f284f26aea976 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -95,466 +98,136 @@
             );
         
     
-            tile_layer_7a21ccf6223c073adb7295b9e8cb0ce8.addTo(map_e09337941cc116def5e6ab142e6c1666);
+            tile_layer_3b90a80584c43961d16f284f26aea976.addTo(map_69df687b51e0925fe90ba061444b9afd);
         
     
-            var marker_3f53265e823a91607a03ca7c68a1c647 = L.marker(
-                [-34.5888842, -58.4361941],
+            var marker_cluster_50709da6635277d6895db6b9af3d7197 = L.markerClusterGroup(
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            );
         
     
-        var popup_d2998bd221bb612549a325bce029c60a = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_d71b70f72125d2d3071243b23af9fc24 = $(`<div id="html_d71b70f72125d2d3071243b23af9fc24" style="width: 100.0%; height: 100.0%;">('Artista: Las Ligas Menores<br>', 'Fecha: 2027-04-25<br>', 'Precio: $20000.0<br>')</div>`)[0];
-                popup_d2998bd221bb612549a325bce029c60a.setContent(html_d71b70f72125d2d3071243b23af9fc24);
-            
-        
-
-        marker_3f53265e823a91607a03ca7c68a1c647.bindPopup(popup_d2998bd221bb612549a325bce029c60a)
-        ;
-
-        
-    
-    
-            var marker_f79297c6800b3020102bde35519a9d56 = L.marker(
-                [-34.5888842, -58.4361941],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_9b6ce55f762642185653b4c8bee3081e = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_ead9288db43b3e85bc824761e65cf132 = $(`<div id="html_ead9288db43b3e85bc824761e65cf132" style="width: 100.0%; height: 100.0%;">('Artista: El Mato a un Policia Motorizado<br>', 'Fecha: 2026-09-25<br>', 'Precio: $22000.0<br>')</div>`)[0];
-                popup_9b6ce55f762642185653b4c8bee3081e.setContent(html_ead9288db43b3e85bc824761e65cf132);
-            
-        
-
-        marker_f79297c6800b3020102bde35519a9d56.bindPopup(popup_9b6ce55f762642185653b4c8bee3081e)
-        ;
-
-        
-    
-    
-            var marker_410e9af9c9020c1d3c321ba82294f342 = L.marker(
-                [-34.5888842, -58.4361941],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_21eab17f5db6e527ba8d37cf4a70dde5 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_065a39e3cdf44f21ffb6aa2fd2abd003 = $(`<div id="html_065a39e3cdf44f21ffb6aa2fd2abd003" style="width: 100.0%; height: 100.0%;">('Artista: Zoe Gotusso<br>', 'Fecha: 2027-01-22<br>', 'Precio: $24000.0<br>')</div>`)[0];
-                popup_21eab17f5db6e527ba8d37cf4a70dde5.setContent(html_065a39e3cdf44f21ffb6aa2fd2abd003);
-            
-        
-
-        marker_410e9af9c9020c1d3c321ba82294f342.bindPopup(popup_21eab17f5db6e527ba8d37cf4a70dde5)
-        ;
-
-        
-    
-    
-            var marker_b61e162e1187cab2acfbf8a59064bda7 = L.marker(
+            var marker_f1acb56423f33c0335d06b1502784420 = L.marker(
                 [-34.5801513, -58.4508612],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_50709da6635277d6895db6b9af3d7197);
         
     
-        var popup_4e92eb0b327509b97f566bda21bae1bd = L.popup({
-  "maxWidth": "100%",
+        var popup_871e59ec89187b9630e63d8482c875bc = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_7c95bcbd174c0e4c951f1fe6a99cbef7 = $(`<div id="html_7c95bcbd174c0e4c951f1fe6a99cbef7" style="width: 100.0%; height: 100.0%;">('Artista: Peces Raros<br>', 'Fecha: 2026-12-20<br>', 'Precio: $25000.0<br>')</div>`)[0];
-                popup_4e92eb0b327509b97f566bda21bae1bd.setContent(html_7c95bcbd174c0e4c951f1fe6a99cbef7);
+                var html_4d7c826c44a5d4de9456645a592333eb = $(`<div id="html_4d7c826c44a5d4de9456645a592333eb" style="width: 100.0%; height: 100.0%;"><b>Artista: Usted Señalemelo</b><br>Fecha: 2026-11-10<br>Precio: $28000.0<br>Lugar: Teatro Vorterix</div>`)[0];
+                popup_871e59ec89187b9630e63d8482c875bc.setContent(html_4d7c826c44a5d4de9456645a592333eb);
             
         
 
-        marker_b61e162e1187cab2acfbf8a59064bda7.bindPopup(popup_4e92eb0b327509b97f566bda21bae1bd)
+        marker_f1acb56423f33c0335d06b1502784420.bindPopup(popup_871e59ec89187b9630e63d8482c875bc)
         ;
 
         
     
     
-            var marker_78fe72bbfccd800fdcedeff119eef3b4 = L.marker(
-                [-34.5801513, -58.4508612],
+            var marker_7415ecd4c7ed901f9f190c0f8f93421a = L.marker(
+                [-34.6024261, -58.3686914],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_50709da6635277d6895db6b9af3d7197);
         
     
-        var popup_721447de3e347b457485462f7978b7ad = L.popup({
-  "maxWidth": "100%",
+        var popup_d1d4f15651bffbb6000d6e48f183b2f8 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_de0b88dbf7e964d881d1cd00b92f47b9 = $(`<div id="html_de0b88dbf7e964d881d1cd00b92f47b9" style="width: 100.0%; height: 100.0%;">('Artista: Conociendo Rusia<br>', 'Fecha: 2026-08-25<br>', 'Precio: $25000.0<br>')</div>`)[0];
-                popup_721447de3e347b457485462f7978b7ad.setContent(html_de0b88dbf7e964d881d1cd00b92f47b9);
+                var html_76dfa1cdb87c678b3e9d823e79fc6533 = $(`<div id="html_76dfa1cdb87c678b3e9d823e79fc6533" style="width: 100.0%; height: 100.0%;"><b>Artista: Los Auténticos Decadentes</b><br>Fecha: 2027-05-10<br>Precio: $40000.0<br>Lugar: Estadio Luna Park</div>`)[0];
+                popup_d1d4f15651bffbb6000d6e48f183b2f8.setContent(html_76dfa1cdb87c678b3e9d823e79fc6533);
             
         
 
-        marker_78fe72bbfccd800fdcedeff119eef3b4.bindPopup(popup_721447de3e347b457485462f7978b7ad)
+        marker_7415ecd4c7ed901f9f190c0f8f93421a.bindPopup(popup_d1d4f15651bffbb6000d6e48f183b2f8)
         ;
 
         
     
     
-            var marker_8ec717af55a9d18b17e01d3cad32713c = L.marker(
-                [-34.5801513, -58.4508612],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_23ea5994f20e39639cf11f1df62fa936 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_6371c236f3a931dfa01f9ec32a0ed077 = $(`<div id="html_6371c236f3a931dfa01f9ec32a0ed077" style="width: 100.0%; height: 100.0%;">('Artista: Usted Señalemelo<br>', 'Fecha: 2026-11-10<br>', 'Precio: $28000.0<br>')</div>`)[0];
-                popup_23ea5994f20e39639cf11f1df62fa936.setContent(html_6371c236f3a931dfa01f9ec32a0ed077);
-            
-        
-
-        marker_8ec717af55a9d18b17e01d3cad32713c.bindPopup(popup_23ea5994f20e39639cf11f1df62fa936)
-        ;
-
-        
-    
-    
-            var marker_25ba29c78e38281e78e56b285b1752dd = L.marker(
-                [-34.5801513, -58.4508612],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_ff53ee282ce286280de55a6201c28a82 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_ea2bad3f616f7a18822f22821ceb86e5 = $(`<div id="html_ea2bad3f616f7a18822f22821ceb86e5" style="width: 100.0%; height: 100.0%;">('Artista: Marilina Bertoldi<br>', 'Fecha: 2027-03-22<br>', 'Precio: $30000.0<br>')</div>`)[0];
-                popup_ff53ee282ce286280de55a6201c28a82.setContent(html_ea2bad3f616f7a18822f22821ceb86e5);
-            
-        
-
-        marker_25ba29c78e38281e78e56b285b1752dd.bindPopup(popup_ff53ee282ce286280de55a6201c28a82)
-        ;
-
-        
-    
-    
-            var marker_e78bbd1ca45e6bade4ec6d0cbb3e0a1d = L.marker(
-                [-34.5801513, -58.4508612],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_6c2fe7c41b7598f61007d90038bf1bbf = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_67f25d2be87f1e06d4a2d1afb1bfd104 = $(`<div id="html_67f25d2be87f1e06d4a2d1afb1bfd104" style="width: 100.0%; height: 100.0%;">('Artista: CA7RIEL y Paco Amoroso<br>', 'Fecha: 2027-05-15<br>', 'Precio: $35000.0<br>')</div>`)[0];
-                popup_6c2fe7c41b7598f61007d90038bf1bbf.setContent(html_67f25d2be87f1e06d4a2d1afb1bfd104);
-            
-        
-
-        marker_e78bbd1ca45e6bade4ec6d0cbb3e0a1d.bindPopup(popup_6c2fe7c41b7598f61007d90038bf1bbf)
-        ;
-
-        
-    
-    
-            var marker_92013a26bb10d574d09a0cdf5f7597cd = L.marker(
-                [-34.5451139, -58.4589802],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_57c1d543436a9ce101a9287467b913cb = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_6ef1949c55b0599e47db6b527f8b8e79 = $(`<div id="html_6ef1949c55b0599e47db6b527f8b8e79" style="width: 100.0%; height: 100.0%;">('Artista: Guasones<br>', 'Fecha: 2027-06-12<br>', 'Precio: $38000.0<br>')</div>`)[0];
-                popup_57c1d543436a9ce101a9287467b913cb.setContent(html_6ef1949c55b0599e47db6b527f8b8e79);
-            
-        
-
-        marker_92013a26bb10d574d09a0cdf5f7597cd.bindPopup(popup_57c1d543436a9ce101a9287467b913cb)
-        ;
-
-        
-    
-    
-            var marker_0abfd3a360f5fb2ce79830d42648e26c = L.marker(
-                [-34.5451139, -58.4589802],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_5f186dc501b60662070f783e818ac090 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_0afb35533f96135a43a8ab0c63ca8051 = $(`<div id="html_0afb35533f96135a43a8ab0c63ca8051" style="width: 100.0%; height: 100.0%;">('Artista: YSY A<br>', 'Fecha: 2026-11-28<br>', 'Precio: $40000.0<br>')</div>`)[0];
-                popup_5f186dc501b60662070f783e818ac090.setContent(html_0afb35533f96135a43a8ab0c63ca8051);
-            
-        
-
-        marker_0abfd3a360f5fb2ce79830d42648e26c.bindPopup(popup_5f186dc501b60662070f783e818ac090)
-        ;
-
-        
-    
-    
-            var marker_2ba3cfa06dfd703ecc631da149750c43 = L.marker(
-                [-34.5451139, -58.4589802],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_bd65c19e7199b62df847e81033920ab9 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_bb8f673bf3618452293bd1fb18b12673 = $(`<div id="html_bb8f673bf3618452293bd1fb18b12673" style="width: 100.0%; height: 100.0%;">('Artista: Gordo<br>', 'Fecha: 2027-02-27<br>', 'Precio: $40000.0<br>')</div>`)[0];
-                popup_bd65c19e7199b62df847e81033920ab9.setContent(html_bb8f673bf3618452293bd1fb18b12673);
-            
-        
-
-        marker_2ba3cfa06dfd703ecc631da149750c43.bindPopup(popup_bd65c19e7199b62df847e81033920ab9)
-        ;
-
-        
-    
-    
-            var marker_1cfa0ae4d6515353d4b42a9d1ecf08f4 = L.marker(
-                [-34.5451139, -58.4589802],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_72cd504aef760b3b3c6bae490b9df9a5 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_445e7383b3880e0eda21c4d528e87dfa = $(`<div id="html_445e7383b3880e0eda21c4d528e87dfa" style="width: 100.0%; height: 100.0%;">('Artista: Divididos<br>', 'Fecha: 2026-08-22<br>', 'Precio: $45000.0<br>')</div>`)[0];
-                popup_72cd504aef760b3b3c6bae490b9df9a5.setContent(html_445e7383b3880e0eda21c4d528e87dfa);
-            
-        
-
-        marker_1cfa0ae4d6515353d4b42a9d1ecf08f4.bindPopup(popup_72cd504aef760b3b3c6bae490b9df9a5)
-        ;
-
-        
-    
-    
-            var marker_c3d85031d86448451525408f20e9a0cf = L.marker(
+            var marker_79e8ad78fc03f6459c293e95a20f4f2a = L.marker(
                 [-34.5942604, -58.4481368],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_50709da6635277d6895db6b9af3d7197);
         
     
-        var popup_b9ce738942759d5018bf4ec4cd3f5314 = L.popup({
-  "maxWidth": "100%",
+        var popup_133462800d7737653e119032345f3e23 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_88454179b6b909c29ea68c27b8d509ad = $(`<div id="html_88454179b6b909c29ea68c27b8d509ad" style="width: 100.0%; height: 100.0%;">('Artista: Babasonicos<br>', 'Fecha: 2026-11-05<br>', 'Precio: $45000.0<br>')</div>`)[0];
-                popup_b9ce738942759d5018bf4ec4cd3f5314.setContent(html_88454179b6b909c29ea68c27b8d509ad);
+                var html_5e0e646f5fe9fa766f91b852b7db4495 = $(`<div id="html_5e0e646f5fe9fa766f91b852b7db4495" style="width: 100.0%; height: 100.0%;"><b>Artista: Tiago PZK</b><br>Fecha: 2026-12-05<br>Precio: $45000.0<br>Lugar: Movistar Arena</div>`)[0];
+                popup_133462800d7737653e119032345f3e23.setContent(html_5e0e646f5fe9fa766f91b852b7db4495);
             
         
 
-        marker_c3d85031d86448451525408f20e9a0cf.bindPopup(popup_b9ce738942759d5018bf4ec4cd3f5314)
+        marker_79e8ad78fc03f6459c293e95a20f4f2a.bindPopup(popup_133462800d7737653e119032345f3e23)
         ;
 
         
     
     
-            var marker_d29e11b94784fe08be0130bcd0f226ce = L.marker(
+            var marker_5829f10781329fc842d801c1dfd2eba3 = L.marker(
+                [-34.6024261, -58.3686914],
+                {
+}
+            ).addTo(marker_cluster_50709da6635277d6895db6b9af3d7197);
+        
+    
+        var popup_98e778baa8febb1c4c085bf0b8f421e7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_81b8b5b5ad2b3b8af7ae1227100f19b1 = $(`<div id="html_81b8b5b5ad2b3b8af7ae1227100f19b1" style="width: 100.0%; height: 100.0%;"><b>Artista: Chano</b><br>Fecha: 2027-04-12<br>Precio: $50000.0<br>Lugar: Estadio Luna Park</div>`)[0];
+                popup_98e778baa8febb1c4c085bf0b8f421e7.setContent(html_81b8b5b5ad2b3b8af7ae1227100f19b1);
+            
+        
+
+        marker_5829f10781329fc842d801c1dfd2eba3.bindPopup(popup_98e778baa8febb1c4c085bf0b8f421e7)
+        ;
+
+        
+    
+    
+            var marker_fdcc5fcf40f9fba384d2d4897f634e86 = L.marker(
                 [-34.5942604, -58.4481368],
                 {
 }
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
+            ).addTo(marker_cluster_50709da6635277d6895db6b9af3d7197);
         
     
-        var popup_63ef71bd7228a85205301ff22fe70775 = L.popup({
-  "maxWidth": "100%",
+        var popup_e7152495b01ca0f837c34994b21a9e7c = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_25f5a43984d83d204460e651b81673b6 = $(`<div id="html_25f5a43984d83d204460e651b81673b6" style="width: 100.0%; height: 100.0%;">('Artista: Trueno<br>', 'Fecha: 2027-04-05<br>', 'Precio: $45000.0<br>')</div>`)[0];
-                popup_63ef71bd7228a85205301ff22fe70775.setContent(html_25f5a43984d83d204460e651b81673b6);
+                var html_011dc040136790d3e241a70beea55a79 = $(`<div id="html_011dc040136790d3e241a70beea55a79" style="width: 100.0%; height: 100.0%;"><b>Artista: Tini</b><br>Fecha: 2026-12-28<br>Precio: $75000.0<br>Lugar: Movistar Arena</div>`)[0];
+                popup_e7152495b01ca0f837c34994b21a9e7c.setContent(html_011dc040136790d3e241a70beea55a79);
             
         
 
-        marker_d29e11b94784fe08be0130bcd0f226ce.bindPopup(popup_63ef71bd7228a85205301ff22fe70775)
+        marker_fdcc5fcf40f9fba384d2d4897f634e86.bindPopup(popup_e7152495b01ca0f837c34994b21a9e7c)
         ;
 
         
     
     
-            var marker_9536b78bc8eeb880080541727a3cc1ae = L.marker(
-                [-34.5451139, -58.4589802],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_933aa0bb4aeeb36a4551d7068d9660a3 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_3c78abd2fb03f9aa310a73b11f6900c7 = $(`<div id="html_3c78abd2fb03f9aa310a73b11f6900c7" style="width: 100.0%; height: 100.0%;">('Artista: Ciro y los Persas<br>', 'Fecha: 2026-12-18<br>', 'Precio: $55000.0<br>')</div>`)[0];
-                popup_933aa0bb4aeeb36a4551d7068d9660a3.setContent(html_3c78abd2fb03f9aa310a73b11f6900c7);
-            
-        
-
-        marker_9536b78bc8eeb880080541727a3cc1ae.bindPopup(popup_933aa0bb4aeeb36a4551d7068d9660a3)
-        ;
-
-        
-    
-    
-            var marker_c0e8cc475b4514a5ca4e653a22f1a8e8 = L.marker(
-                [-34.5942604, -58.4481368],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_1c04d0b6b9af55f3902acc4a564e025d = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_94a4df8ebcfa7668c585a8869a0b9281 = $(`<div id="html_94a4df8ebcfa7668c585a8869a0b9281" style="width: 100.0%; height: 100.0%;">('Artista: Duki<br>', 'Fecha: 2026-07-15<br>', 'Precio: $60000.0<br>')</div>`)[0];
-                popup_1c04d0b6b9af55f3902acc4a564e025d.setContent(html_94a4df8ebcfa7668c585a8869a0b9281);
-            
-        
-
-        marker_c0e8cc475b4514a5ca4e653a22f1a8e8.bindPopup(popup_1c04d0b6b9af55f3902acc4a564e025d)
-        ;
-
-        
-    
-    
-            var marker_eb908d0d72a1359506929cb970dbf023 = L.marker(
-                [-34.5942604, -58.4481368],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_593f241095bfd893c80b671b0bd3e1e6 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_19ef37f9e2f9a17aed9187613d579d79 = $(`<div id="html_19ef37f9e2f9a17aed9187613d579d79" style="width: 100.0%; height: 100.0%;">('Artista: Nicki Nicole<br>', 'Fecha: 2027-02-20<br>', 'Precio: $60000.0<br>')</div>`)[0];
-                popup_593f241095bfd893c80b671b0bd3e1e6.setContent(html_19ef37f9e2f9a17aed9187613d579d79);
-            
-        
-
-        marker_eb908d0d72a1359506929cb970dbf023.bindPopup(popup_593f241095bfd893c80b671b0bd3e1e6)
-        ;
-
-        
-    
-    
-            var marker_93af73cea041d513b65aaacd5ece5be2 = L.marker(
-                [-34.5449775, -58.4483258],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_f173bae63aca58fbc337cad2541f1c1c = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_7bf77e89bbf97c46affaccf5124137ad = $(`<div id="html_7bf77e89bbf97c46affaccf5124137ad" style="width: 100.0%; height: 100.0%;">('Artista: Fito Paez<br>', 'Fecha: 2026-08-12<br>', 'Precio: $70000.0<br>')</div>`)[0];
-                popup_f173bae63aca58fbc337cad2541f1c1c.setContent(html_7bf77e89bbf97c46affaccf5124137ad);
-            
-        
-
-        marker_93af73cea041d513b65aaacd5ece5be2.bindPopup(popup_f173bae63aca58fbc337cad2541f1c1c)
-        ;
-
-        
-    
-    
-            var marker_493da62c6f4b3ec9f0102ef6bb01d418 = L.marker(
-                [-34.5942604, -58.4481368],
-                {
-}
-            ).addTo(map_e09337941cc116def5e6ab142e6c1666);
-        
-    
-        var popup_bdc1985fc96c586aee7a572a70891f4a = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_968700b2bba226b29e551216dc897405 = $(`<div id="html_968700b2bba226b29e551216dc897405" style="width: 100.0%; height: 100.0%;">('Artista: Bizarrap<br>', 'Fecha: 2026-09-10<br>', 'Precio: $80000.0<br>')</div>`)[0];
-                popup_bdc1985fc96c586aee7a572a70891f4a.setContent(html_968700b2bba226b29e551216dc897405);
-            
-        
-
-        marker_493da62c6f4b3ec9f0102ef6bb01d418.bindPopup(popup_bdc1985fc96c586aee7a572a70891f4a)
-        ;
-
-        
-    
-    
-            tile_layer_7a21ccf6223c073adb7295b9e8cb0ce8.addTo(map_e09337941cc116def5e6ab142e6c1666);
+            marker_cluster_50709da6635277d6895db6b9af3d7197.addTo(map_69df687b51e0925fe90ba061444b9afd);
         
 </script>
 </html>

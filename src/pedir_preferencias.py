@@ -346,9 +346,13 @@ def pedir_franja_horaria ():
             hora_min = pd.to_datetime (hora_min, format = '%H:%M').time()
             hora_max = pd.to_datetime (hora_max, format = '%H:%M').time()
         
-            
+            if hora_min > hora_max:
+                raise ValueError ("La hora mínima no puede ser mayor a la hora máxima")
         except ValueError:
             print ("Ingrese el valor nuevamente hasta que sea válido")
+            
+        except ValueError as e:
+            print (e)
         
         else:
             return {"hora_min": hora_min, "hora_max": hora_max}

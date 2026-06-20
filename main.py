@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 print ("================ 🎵 CONCERTMATCH 🎵 ==================")
+print ("Trabajo aplicado de: Barbeito, Bernini, Marengo, Mochnacs, Urrestarazu")
 print("Comenzando proceso de carga del programa. Podría tardarse unos segundos/minutos, dependiendo de la cantidad de conciertos cargados")
 print("Espere a que aparezca el cartel de bienvenida del programa")
 

@@ -66,7 +66,7 @@ def grafico_mapa(df):
     mapa.save(ruta_archivo)
     print(f"Mapa generado correctamente: {ruta_archivo}")
 
-    ruta_completa = os.path.abspath("mapa_conciertos.html")
+    ruta_completa = os.path.abspath(ruta_archivo)
     webbrowser.open(f"file://{ruta_completa}")
    
    

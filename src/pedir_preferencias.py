@@ -55,6 +55,12 @@ def ordenar_preferencias():
 
     """
     print ("🗒️ En esta sección, deberá ordenar las categorías que se presenten según sus preferencias. El orden deberá ser de mayor a menor nivel de importancia, y ese orden se aplicará a su búsqueda y al nivel de coincidencias")
+    texto_categorias = ("1) genero\n"
+                    "2) precio\n"
+                    "3) fecha\n"
+                    "4) horario\n"
+                    "5) distancia\n"
+                    "6) lugar para sentarse\n")
     
     categorias = {
     "1": "genero",
@@ -66,7 +72,7 @@ def ordenar_preferencias():
     
     while True:
           solicitar_orden= input(f"Ordená tus preferencias de mayor a menor importancia:" 
-                                 f"{categorias}" 
+                                 f"{texto_categorias}" 
                                  "Ingresá los números separados por coma: ").strip()
               
           # Se asocia un numero a cada preferencia para que el usuario ingrese algo de este estilo : 5,4,3,6,1,2 (En este caso eso seria equivalente a direccion, horario, fecha, cuenta con asientos, genero, precio)

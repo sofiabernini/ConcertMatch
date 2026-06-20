@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3c849770b38a8e799951d8b57c034c1b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3c849770b38a8e799951d8b57c034c1b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3c849770b38a8e799951d8b57c034c1b = L.map(
+                "map_3c849770b38a8e799951d8b57c034c1b",
+                {
+                    center: [-34.5919492, -58.4317627],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c4f93cdcf5042e940bf8ba3fbe01f511 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c4f93cdcf5042e940bf8ba3fbe01f511.addTo(map_3c849770b38a8e799951d8b57c034c1b);
+        
+    
+            var marker_cluster_04bc6ca8c0a0f5304f307e4820555c3c = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_ea560e857f04969aabde8291cf937054 = L.marker(
+                [-34.5919492, -58.4317627],
+                {
+}
+            ).addTo(marker_cluster_04bc6ca8c0a0f5304f307e4820555c3c);
+        
+    
+        var popup_a6aa8dbc3ebf494c4556087992cb2e1c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c351df7a3726c940ff40714d7928298c = $(`<div id="html_c351df7a3726c940ff40714d7928298c" style="width: 100.0%; height: 100.0%;"><b>Artista: Los Totora</b><br>Fecha: 2026-11-20<br>Precio: $20000.0<br>Lugar: Niceto Club</div>`)[0];
+                popup_a6aa8dbc3ebf494c4556087992cb2e1c.setContent(html_c351df7a3726c940ff40714d7928298c);
+            
+        
+
+        marker_ea560e857f04969aabde8291cf937054.bindPopup(popup_a6aa8dbc3ebf494c4556087992cb2e1c)
+        ;
+
+        
+    
+    
+            var marker_6fb2966c78fd44287e83e7ab91208391 = L.marker(
+                [-34.5919492, -58.4317627],
+                {
+}
+            ).addTo(marker_cluster_04bc6ca8c0a0f5304f307e4820555c3c);
+        
+    
+        var popup_78a9e620a79817d5ddab3c2764d18b9a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d330982f6084a6296a7a679f97fff383 = $(`<div id="html_d330982f6084a6296a7a679f97fff383" style="width: 100.0%; height: 100.0%;"><b>Artista: El Mato a un Policia Motorizado</b><br>Fecha: 2026-09-25<br>Precio: $22000.0<br>Lugar: Niceto Club</div>`)[0];
+                popup_78a9e620a79817d5ddab3c2764d18b9a.setContent(html_d330982f6084a6296a7a679f97fff383);
+            
+        
+
+        marker_6fb2966c78fd44287e83e7ab91208391.bindPopup(popup_78a9e620a79817d5ddab3c2764d18b9a)
+        ;
+
+        
+    
+    
+            var marker_3fd7284521172a9c2f4c653e4fb441d2 = L.marker(
+                [-34.5801513, -58.4508612],
+                {
+}
+            ).addTo(marker_cluster_04bc6ca8c0a0f5304f307e4820555c3c);
+        
+    
+        var popup_bb82325474042ef1fbe02df8ee1f1abf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_929d03d3448d9a0527f007200f02ab0d = $(`<div id="html_929d03d3448d9a0527f007200f02ab0d" style="width: 100.0%; height: 100.0%;"><b>Artista: Peces Raros</b><br>Fecha: 2026-12-20<br>Precio: $25000.0<br>Lugar: Teatro Vorterix</div>`)[0];
+                popup_bb82325474042ef1fbe02df8ee1f1abf.setContent(html_929d03d3448d9a0527f007200f02ab0d);
+            
+        
+
+        marker_3fd7284521172a9c2f4c653e4fb441d2.bindPopup(popup_bb82325474042ef1fbe02df8ee1f1abf)
+        ;
+
+        
+    
+    
+            var marker_d10281dbf78912ca5754019ea473badb = L.marker(
+                [-34.5801513, -58.4508612],
+                {
+}
+            ).addTo(marker_cluster_04bc6ca8c0a0f5304f307e4820555c3c);
+        
+    
+        var popup_dbf7abb8fd17e5fa81e6b893bdf3c332 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ece9da18d6ee3ff1aa30ea597b993167 = $(`<div id="html_ece9da18d6ee3ff1aa30ea597b993167" style="width: 100.0%; height: 100.0%;"><b>Artista: Conociendo Rusia</b><br>Fecha: 2026-08-25<br>Precio: $25000.0<br>Lugar: Teatro Vorterix</div>`)[0];
+                popup_dbf7abb8fd17e5fa81e6b893bdf3c332.setContent(html_ece9da18d6ee3ff1aa30ea597b993167);
+            
+        
+
+        marker_d10281dbf78912ca5754019ea473badb.bindPopup(popup_dbf7abb8fd17e5fa81e6b893bdf3c332)
+        ;
+
+        
+    
+    
+            var marker_f949309668c2c94ffef7a7ebccadff8b = L.marker(
+                [-34.5801513, -58.4508612],
+                {
+}
+            ).addTo(marker_cluster_04bc6ca8c0a0f5304f307e4820555c3c);
+        
+    
+        var popup_0a49ba2a1827095502d155d845c2fe82 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a6ca4882142b20cec5c52f200454a5d = $(`<div id="html_1a6ca4882142b20cec5c52f200454a5d" style="width: 100.0%; height: 100.0%;"><b>Artista: Usted Señalemelo</b><br>Fecha: 2026-11-10<br>Precio: $28000.0<br>Lugar: Teatro Vorterix</div>`)[0];
+                popup_0a49ba2a1827095502d155d845c2fe82.setContent(html_1a6ca4882142b20cec5c52f200454a5d);
+            
+        
+
+        marker_f949309668c2c94ffef7a7ebccadff8b.bindPopup(popup_0a49ba2a1827095502d155d845c2fe82)
+        ;
+
+        
+    
+    
+            var marker_60a7ae67e1ef3c6c16092bbfa16fae5f = L.marker(
+                [-34.5451139, -58.4589802],
+                {
+}
+            ).addTo(marker_cluster_04bc6ca8c0a0f5304f307e4820555c3c);
+        
+    
+        var popup_d4301c7170255b50aaa26cf98de3a6cf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_703fbece4914ded223d2274b0d128d17 = $(`<div id="html_703fbece4914ded223d2274b0d128d17" style="width: 100.0%; height: 100.0%;"><b>Artista: YSY A</b><br>Fecha: 2026-11-28<br>Precio: $40000.0<br>Lugar: Estadio Obras Sanitarias</div>`)[0];
+                popup_d4301c7170255b50aaa26cf98de3a6cf.setContent(html_703fbece4914ded223d2274b0d128d17);
+            
+        
+
+        marker_60a7ae67e1ef3c6c16092bbfa16fae5f.bindPopup(popup_d4301c7170255b50aaa26cf98de3a6cf)
+        ;
+
+        
+    
+    
+            var marker_bc65f7da7b6565d76d69bbbf5efb685e = L.marker(
+                [-34.5942604, -58.4481368],
+                {
+}
+            ).addTo(marker_cluster_04bc6ca8c0a0f5304f307e4820555c3c);
+        
+    
+        var popup_bf01e70f89061458f1b40999d87f4ada = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef7cf39be3e36fa0a3ba5b2afda28502 = $(`<div id="html_ef7cf39be3e36fa0a3ba5b2afda28502" style="width: 100.0%; height: 100.0%;"><b>Artista: Babasonicos</b><br>Fecha: 2026-11-05<br>Precio: $45000.0<br>Lugar: Movistar Arena</div>`)[0];
+                popup_bf01e70f89061458f1b40999d87f4ada.setContent(html_ef7cf39be3e36fa0a3ba5b2afda28502);
+            
+        
+
+        marker_bc65f7da7b6565d76d69bbbf5efb685e.bindPopup(popup_bf01e70f89061458f1b40999d87f4ada)
+        ;
+
+        
+    
+    
+            var marker_68ca06cc1cf133c55874456aac2504d3 = L.marker(
+                [-34.5451139, -58.4589802],
+                {
+}
+            ).addTo(marker_cluster_04bc6ca8c0a0f5304f307e4820555c3c);
+        
+    
+        var popup_d91482747b44f40b4abbe3a05627c2af = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e56afadbe0b011b66c65854c8ca54ce5 = $(`<div id="html_e56afadbe0b011b66c65854c8ca54ce5" style="width: 100.0%; height: 100.0%;"><b>Artista: Divididos</b><br>Fecha: 2026-08-22<br>Precio: $45000.0<br>Lugar: Estadio Obras Sanitarias</div>`)[0];
+                popup_d91482747b44f40b4abbe3a05627c2af.setContent(html_e56afadbe0b011b66c65854c8ca54ce5);
+            
+        
+
+        marker_68ca06cc1cf133c55874456aac2504d3.bindPopup(popup_d91482747b44f40b4abbe3a05627c2af)
+        ;
+
+        
+    
+    
+            marker_cluster_04bc6ca8c0a0f5304f307e4820555c3c.addTo(map_3c849770b38a8e799951d8b57c034c1b);
+        
+</script>
+</html>

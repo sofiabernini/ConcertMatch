@@ -100,9 +100,11 @@ def crear_histograma_comparativo(df_original, df_filtrado, columna_importante):
     # Determina qué columna del DataFrame se utilizará
     if columna_importante == "Precio final":
         titulo = "Distribución de precios" #determina el título del gráfico
+        nombre_archivo = "histograma_precios"
 
     elif columna_importante == "distancias":
         titulo = "Distribución de distancias"#determina el título del gráfico
+        nombre_archivo = "histograma_distancias"
 
     # Crear la figura donde se dibujará el gráfico
     plt.figure(figsize=(10, 6))
@@ -137,6 +139,15 @@ def crear_histograma_comparativo(df_original, df_filtrado, columna_importante):
 
     # Ajustar márgenes automáticamente
     plt.tight_layout()
+    
+    # Guardar el gráfico en la carpeta de gráficos
+    carpeta_destino = "graficos"
+    os.makedirs(carpeta_destino, exist_ok=True)
+
+    # --- Guardar la figura dentro de esa carpeta ---
+    ruta_archivo = os.path.join(carpeta_destino, nombre_archivo)
+    plt.savefig(ruta_archivo)
+    print(f"Histograma guardado correctamente: {ruta_archivo}")
 
     # Mostrar el gráfico
     plt.show()

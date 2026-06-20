@@ -333,8 +333,8 @@ def pedir_franja_horaria ():
     
     print ("🕐 Definición de franja horaria deseada (en formato 24hs: de 00:00 a 23:59). Primero, se le va a pedir la hora, y luego, los minutos." 
            
-           "Aclaraciones: Esta búsqueda no contempla toda la duración del concierto. Es decir, va a utilizarse para buscar conciertos que comiencen dentro de la franja horaria ingresada," 
-           "pero no considera si el evento termina después del horario indicado como su máximo" 
+           "Aclaraciones: Esta búsqueda no contempla toda la duración del concierto. Es decir, va a utilizarse para buscar conciertos que comiencen dentro de la franja horaria ingresada, " 
+           "pero no considera si el evento termina después del horario indicado como su máximo. " 
            "El rango de búsqueda debe estar dentro de un mismo día (desde las 00:00 hasta las 23:59)"    )
     
     while True:
@@ -403,7 +403,7 @@ def pedir_ubicacion_partida(df):
     df: DataFrame
     retorna el df al que se le agregó la columna de distancias
     """
-    print ("📍 Obtención de la dirección de partida: Va a ingresar la dirección desde donde desee hacer la búsqueda"
+    print ("📍 Obtención de la dirección de partida: Va a ingresar la dirección desde donde desee hacer la búsqueda. "
           "Este dato será utilizado para calcular las distancias con los eventos y determinar si están dentro del rango solicitado")
     while True: 
         direccion_usuario= input("Ingrese su dirección completa de partida. Ejemplo de ingreso: Av. Cabildo 2450, Belgrano, Ciudad Autónoma de Buenos Aires, Argentina: ")

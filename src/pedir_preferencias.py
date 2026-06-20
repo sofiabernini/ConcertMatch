@@ -326,8 +326,11 @@ def pedir_franja_horaria ():
 
     '''
     
-    print ("🕐 Definición de franja horaria deseada (en formato 24hs). Primero, se le va a pedir la hora, y luego, los minutos." 
-           "Aclaración: Esta búsqueda no contempla toda la duración del concierto. Es decir, va a utilizarse para buscar conciertos que comiencen dentro de la franja horaria ingresada, pero no considera si el evento termina después del horario indicado como su máximo" )
+    print ("🕐 Definición de franja horaria deseada (en formato 24hs: de 00:00 a 23:59). Primero, se le va a pedir la hora, y luego, los minutos." 
+           
+           "Aclaraciones: Esta búsqueda no contempla toda la duración del concierto. Es decir, va a utilizarse para buscar conciertos que comiencen dentro de la franja horaria ingresada," 
+           "pero no considera si el evento termina después del horario indicado como su máximo" 
+           "Pedimos que el rango de búsqueda sea dentro de un mismo día")
     
     while True:
         
@@ -342,12 +345,12 @@ def pedir_franja_horaria ():
             
             hora_max = f"{hora_2}:{minutos_2}"
         
-        
             hora_min = pd.to_datetime (hora_min, format = '%H:%M').time()
             hora_max = pd.to_datetime (hora_max, format = '%H:%M').time()
         
             if hora_min > hora_max:
                 raise ValueError ("La hora mínima no puede ser mayor a la hora máxima")
+                
         except ValueError:
             print ("Ingrese el valor nuevamente hasta que sea válido")
             

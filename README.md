@@ -1,12 +1,14 @@
 # ConcertMatch
 
-**Título del proyecto**
+**Título del proyecto:**
 
 🎸 ConcertMatch: Recomendador Inteligente de Conciertos 
+
 
 **Autoras:**
 
 María Emilia Barbeito, Sofía Belén Bernini, Angelina Marengo, Victoria Mochnacs y Matilde Urrestarazu Romero
+
 
 
 **Objetivo y descripción general del funcionamiento del sistema:**
@@ -16,6 +18,7 @@ En el panorama actual del entretenimiento, la oferta de música en vivo es masiv
 ConcertMatch busca resolver este problema mediante la centralización de la información en un sistema interactivo que funciona como un "recomendador" de conciertos personalizado. El programa procesa un Dataset que contiene la información de los eventos musicales disponibles en cartelera, para luego ofrecer recomendaciones precisas según las preferencias del usuario (género musical, presupuesto, disponibilidad horaria y de fechas, distancia máxima a recorrer y necesidades de accesibilidad/asientos). Estas preferencias serán obtenidas tras una serie de preguntas que se le realizarán al comienzo de su interacción con el programa.
 
 Finalmente, el usuario verá sus resultados en tres formatos distintos. El primero será por medio de la consola, donde se imprimirá un listado ordenado y detallado con los mejores conciertos recomendados que se ajustan a los filtros que se fueron aplicando. El segundo formato consistirá en un histograma comparativo, el cual le permitirá analizar visualmente cómo se distribuyen sus opciones recomendadas frente al total de la oferta (enfocándose en su variable de mayor prioridad, ya sea el precio o la distancia). Por último, el programa generará y abrirá automáticamente un mapa interactivo en su navegador web, donde podrá explorar la ubicación geográfica exacta de cada evento sugerido haciendo clic en los marcadores.
+
 
 
 
@@ -35,6 +38,7 @@ Matilde Urrestarazu Romero: Diagramas de flujo de las funciones de filtrar y de 
 
 
 
+
 **Fuente de Datos:**
 
 El proyecto utiliza un dataset simulado (concertmatch_dataset_prueba.csv) generado con asistencia de Inteligencia Artificial (Gemini). Contiene eventos musicales con información detallada sobre artistas, géneros, precios, fechas, horarios, ubicaciones (direcciones), estadios/predios, disponibilidad de entradas y condiciones del lugar. Además, se incluye información que se mostrará al final o que se filtrará durante la ejecución del programa, como el link que lleva a la ticketera, la fecha en la que se comienzan a vender las entradas para el evento, o la condición de si quedan entradas disponibles. 
@@ -42,6 +46,7 @@ El proyecto utiliza un dataset simulado (concertmatch_dataset_prueba.csv) genera
 Este fue realizado con Inteligencia Artificial (IA) ya que no fue posible acceder a los dataset reales de las ticketeras. De todas formas, el programa está pensado para que se pueda ejecutar si se ingresara un dataset real. Sin embargo, hay algunas consideraciones a tener en cuenta sobre los datos que son válidos para el programa, debido a las funciones y librerías que utilizamos. Por ejemplo, los datos de la columna de Ubicación del dataset deben tener el nombre completo de la calle (no abreviaciones) y alguna especificación de la ciudad o distrito (un ejemplo de formato válido sería escribir "Humboldt 450, CABA"). Esto se debe a que Geopy, la librería que utilizamos para esta validación y para otras funciones, necesita especificidad para hacer correctamente el cálculo de coordenadas de las direcciones. Si no se cargaran correctamente estos datos, probablemente se perderán conciertos a la hora de realizar la limpieza de datos, (ya que se eliminan las filas que no contienen una ubicación validada por Geopy;) o bien, podría perderse alguna de las opciones a mostrar debido a que el cálculo de las distancia estaría hecho sobre la dirección de otro distrito o región (puede haber calles repetidas en distintos distritos).
 
 Aclaración: El dataset no llega a los 1000 registros (como se indica en la consigna) porque la IA no fue capaz de realizarlo. Sin embargo, esto ya fue conversado y aprobado por los profesores.
+
 
 
 
@@ -53,12 +58,14 @@ Resulta importante tener en cuenta que el inicio del programa puede tardar algun
 
 "Comenzando proceso de carga del programa. Podría tardarse unos segundos/minutos. Espere a que aparezca el cartel de inicio del programa"
 
-Luego de la validación el Dataset, aparece el siguiente mensaje de bienvenida, que indica el comienzo del programa:
+Luego de la validación del dataset, aparece el siguiente mensaje de bienvenida, que indica el comienzo del programa:
+
 =============================================
 "🎸 BIENVENIDO A CONCERTMATCH 🎸")
 =============================================
 
 Otra aclaración importante a tener en cuenta con respecto a las condiciones necesarias para la correcta ejecución del programa es que la geolocalización requiere conexión a internet para conectarse a OpenStreetMap mediante Geopy.
+
 
 
 
@@ -81,24 +88,8 @@ Esto significa que la distancia mostrada por el programa puede ser menor a la di
 
 
 
+
 **Estructura del repositorio:**
-ConcertMatch/
-├── data/
-├── docs/
-    ├── Prompt Base
-│   ├── Diagramas de flujo (carpeta)
-├── graficos/
-├── src/
-│   ├── cargar_dataset.py
-│   ├── filtrar_df.py
-│   ├── graficos.py
-│   ├── pedir_preferencias.py
-│   ├── resultados.py
-│   └── validar_df.py
-├── .gitignore
-├── main.py
-├── README.md
-└── requirements.txt
 
 Carpetas (Directorios):
 
@@ -116,6 +107,7 @@ Archivos en la raíz:
 
 
 
+
 **Funciones principales:**
 carga_dataset(): Carga el archivo CSV manejando errores específicos (archivos inexistentes, corruptos o sin permisos) y ejecuta la validación.
 
@@ -129,6 +121,7 @@ grafico_mapa() y crear_histograma_comparativo(): Toman el DataFrame resultante p
 
 
 
+
 **Resultados, Outputs y Gráficos:**
 
 Para la visualización de los resultados, el programa ofrece tres formatos distintos:
@@ -138,9 +131,11 @@ Para la visualización de los resultados, el programa ofrece tres formatos disti
 
 
 
+
 **Diagramas de diseño:**
 
 Los diagramas de flujo, donde se permite una mejor visualización del orden de ejecución del programa y de las funciones, pueden ser vistos en los archivos dentro de la carpeta "docs".
+
 
 
 

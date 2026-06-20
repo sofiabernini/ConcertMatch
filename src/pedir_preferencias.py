@@ -19,7 +19,7 @@ def hacer_pregunta_si_no(mensaje):
     Parameters
     ----------
     mensaje : str
-        Pregunta que se reponde con sí o no.
+        Pregunta que se responde con sí o no.
 
     Returns
     -------
@@ -83,13 +83,13 @@ def ordenar_preferencias():
               if not numero.isdigit (): # valida que los valores ingresados sean numeros 
                  print("El  valor ingresado debe ser un numero ")
                  error=True
-              elif numero not in ["1","2","3","4","5","6"]: # valida que que no hayan numeros distintos a 1 2 3 4 5 6 
+              elif numero not in ["1","2","3","4","5","6"]: # valida que no hayan numeros distintos a 1 2 3 4 5 6 
                  print("El numero ingresado debe estar entre 1 y 6")
                  error=True
           if error: # si el error es verdadero, vuelve a pedir las preferencias
              continue
          
-          if len(lista_numeros)!= 6: # valido que el usuario haya ingresado si o si 6 numeros
+          if len(lista_numeros)!= 6: # valida que el usuario haya ingresado si o si 6 números
              print("Se deben ingresar 6 preferencias")
              continue  # si no, vuelve a pedirle que ordene las preferencias
           if len(set(lista_numeros)) != 6: # el set lo que hace es extraer la cantidad de numeros que no estan repetidos, si el usuario ingreso 5,5,6,3,2,1. la lista quedaria de 5 elementos, es decir distinto de 6. 
@@ -206,7 +206,8 @@ def pedir_generos(columna_generos):
                 #si el número sí existe como id, entonces busca el género correspondiente en la tabla.
                     if genero in generos_seleccionados:
                         print("Ese género ya fue seleccionado.")
-                        #si ese género ya esta en la lista, le avisa al usuario y NO lo agrega. Vuelve a comenzar el ciclo while
+                        #si ese género ya está en la lista, le avisa al usuario y NO lo agrega. 
+                        #vuelve a comenzar el ciclo while
                     else:
                         generos_seleccionados.append(genero)
                         print(f"Se agregó: {genero}")

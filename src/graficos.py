@@ -25,15 +25,7 @@ def grafico_mapa(df):
     Returns:
     None.
     Genera un archivo HTML llamado "mapa_conciertos.html".
-
-    Raises:
-    ValueError:
-        Si el DataFrame está vacío.
-    """
-    # Validar que existan resultados para mostrar
-    if df.empty:
-        raise ValueError("No hay conciertos para representar")
-        
+    """ 
     # Obtener las coordenadas del primer concierto para centrar inicialmente el mapa
     latitud_centro = df.iloc[0]["latitud"]
     longitud_centro = df.iloc[0]["longitud"]

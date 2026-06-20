@@ -54,7 +54,7 @@ def ordenar_preferencias():
         lista de preferencias segun el orden de prioridad elegido por el usuario
 
     """
-    print ("🗒️ En esta sección, deberá ordenar las categorías que se presenten según sus preferencias. El orden deberá ser de mayor a menor nivel de importancia, y ese orden se aplicará a su búsqueda")
+    print ("🗒️ En esta sección, deberá ordenar las categorías que se presenten según sus preferencias. El orden deberá ser de mayor a menor nivel de importancia.)
     texto_categorias = ("1) genero\n"
                         "2) precio\n"
                         "3) fecha\n"

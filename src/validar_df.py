@@ -12,7 +12,7 @@ import time
 def validar_df (df):
     '''
     Descipción: Es una función que llama a otras funciones, para validar 
-    las columnas y los tipo de datos del dataframe.
+    las columnas y los tipos de datos del DataFrame.
 
     Parameters
     ----------
@@ -154,7 +154,7 @@ def limpiar_precios (df):
 def limpiar_fechas (df):
     '''
     Descripción: Esta función convierte los valores de las columnas de "Fecha" y "Lanzamiento venta" a
-    formato fecha, y si no puede realizar la conversion, trasforma ese dato a Nan
+    formato fecha, y si no puede realizar la conversión, trasforma ese dato a Nan
 
     Parameters
     ----------
@@ -194,7 +194,7 @@ def limpiar_booleanos(df):
     '''
     Descripción: Esta función revisa que las columnas de "Quedan entradas", 
     "Acceso movilidad reducida" y "Lugar para sentarse" cuenten con datos booleanos True o False. 
-    Si alguno de los datos no cumple esta condicion se lo transforma a Nan
+    Si alguno de los datos no cumple esta condición se lo transforma a Nan
     
     Parameters
     ----------

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9a7373d4858f880e24140e477665013c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9a7373d4858f880e24140e477665013c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9a7373d4858f880e24140e477665013c = L.map(
+                "map_9a7373d4858f880e24140e477665013c",
+                {
+                    center: [-34.5862976, -58.3925127],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7a2bc4498c78743c45656808bc5979a3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7a2bc4498c78743c45656808bc5979a3.addTo(map_9a7373d4858f880e24140e477665013c);
+        
+    
+            var marker_cluster_1fcbf0c82567259734d170429ab5beb9 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_62a22da4022579dd8168ea30f4e44d0f = L.marker(
+                [-34.5862976, -58.3925127],
+                {
+}
+            ).addTo(marker_cluster_1fcbf0c82567259734d170429ab5beb9);
+        
+    
+        var popup_f5266e7155a05adb2979a9cf20a35309 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8481340c02cf28ebcfb24b7bc76ab766 = $(`<div id="html_8481340c02cf28ebcfb24b7bc76ab766" style="width: 100.0%; height: 100.0%;"><b>Artista: Festival de Jazz BA</b><br>Fecha: 2026-10-20<br>Precio: $0.0<br>Lugar: Centro Cultural Recoleta</div>`)[0];
+                popup_f5266e7155a05adb2979a9cf20a35309.setContent(html_8481340c02cf28ebcfb24b7bc76ab766);
+            
+        
+
+        marker_62a22da4022579dd8168ea30f4e44d0f.bindPopup(popup_f5266e7155a05adb2979a9cf20a35309)
+        ;
+
+        
+    
+    
+            var marker_be3096509b2d1cedeeacb3b9f6312e22 = L.marker(
+                [-34.5801513, -58.4508612],
+                {
+}
+            ).addTo(marker_cluster_1fcbf0c82567259734d170429ab5beb9);
+        
+    
+        var popup_6c11e479d9078d9aedea7e52823c1b72 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c83feeb6138801b1c1a38c86fa0b54bf = $(`<div id="html_c83feeb6138801b1c1a38c86fa0b54bf" style="width: 100.0%; height: 100.0%;"><b>Artista: Peces Raros</b><br>Fecha: 2026-12-20<br>Precio: $25000.0<br>Lugar: Teatro Vorterix</div>`)[0];
+                popup_6c11e479d9078d9aedea7e52823c1b72.setContent(html_c83feeb6138801b1c1a38c86fa0b54bf);
+            
+        
+
+        marker_be3096509b2d1cedeeacb3b9f6312e22.bindPopup(popup_6c11e479d9078d9aedea7e52823c1b72)
+        ;
+
+        
+    
+    
+            var marker_83e827d106901a87d2445c9f372b07e9 = L.marker(
+                [-34.5942604, -58.4481368],
+                {
+}
+            ).addTo(marker_cluster_1fcbf0c82567259734d170429ab5beb9);
+        
+    
+        var popup_51d1ee33eea8f5995fe52ca96f91a989 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_67c77ac1b9086b052ff73b512521406a = $(`<div id="html_67c77ac1b9086b052ff73b512521406a" style="width: 100.0%; height: 100.0%;"><b>Artista: Babasonicos</b><br>Fecha: 2026-11-05<br>Precio: $45000.0<br>Lugar: Movistar Arena</div>`)[0];
+                popup_51d1ee33eea8f5995fe52ca96f91a989.setContent(html_67c77ac1b9086b052ff73b512521406a);
+            
+        
+
+        marker_83e827d106901a87d2445c9f372b07e9.bindPopup(popup_51d1ee33eea8f5995fe52ca96f91a989)
+        ;
+
+        
+    
+    
+            var marker_013e68886d310276a9bee349bb0c34e6 = L.marker(
+                [-34.5451139, -58.4589802],
+                {
+}
+            ).addTo(marker_cluster_1fcbf0c82567259734d170429ab5beb9);
+        
+    
+        var popup_bd96c26d0e64306fd5eea4d6b32bd810 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_23a7f3dfdccf307558f8e932dbeed1e6 = $(`<div id="html_23a7f3dfdccf307558f8e932dbeed1e6" style="width: 100.0%; height: 100.0%;"><b>Artista: Divididos</b><br>Fecha: 2026-08-22<br>Precio: $45000.0<br>Lugar: Estadio Obras Sanitarias</div>`)[0];
+                popup_bd96c26d0e64306fd5eea4d6b32bd810.setContent(html_23a7f3dfdccf307558f8e932dbeed1e6);
+            
+        
+
+        marker_013e68886d310276a9bee349bb0c34e6.bindPopup(popup_bd96c26d0e64306fd5eea4d6b32bd810)
+        ;
+
+        
+    
+    
+            var marker_5a45079d954ceb38c9d00cb25bf346b2 = L.marker(
+                [-34.5451139, -58.4589802],
+                {
+}
+            ).addTo(marker_cluster_1fcbf0c82567259734d170429ab5beb9);
+        
+    
+        var popup_379a84e12d48c88a781fe333becc18c7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_71f19d4ad0095d90827dedd9c93993cf = $(`<div id="html_71f19d4ad0095d90827dedd9c93993cf" style="width: 100.0%; height: 100.0%;"><b>Artista: Ciro y los Persas</b><br>Fecha: 2026-12-18<br>Precio: $55000.0<br>Lugar: Estadio Obras Sanitarias</div>`)[0];
+                popup_379a84e12d48c88a781fe333becc18c7.setContent(html_71f19d4ad0095d90827dedd9c93993cf);
+            
+        
+
+        marker_5a45079d954ceb38c9d00cb25bf346b2.bindPopup(popup_379a84e12d48c88a781fe333becc18c7)
+        ;
+
+        
+    
+    
+            var marker_30fce21f61b7ebeb13415dd79781e3ec = L.marker(
+                [-34.5449775, -58.4483258],
+                {
+}
+            ).addTo(marker_cluster_1fcbf0c82567259734d170429ab5beb9);
+        
+    
+        var popup_28264d730451d0e2694c0dc107656368 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e34547db09898d3c88d97f54ca22376f = $(`<div id="html_e34547db09898d3c88d97f54ca22376f" style="width: 100.0%; height: 100.0%;"><b>Artista: Fito Paez</b><br>Fecha: 2026-08-12<br>Precio: $70000.0<br>Lugar: Estadio River Plate</div>`)[0];
+                popup_28264d730451d0e2694c0dc107656368.setContent(html_e34547db09898d3c88d97f54ca22376f);
+            
+        
+
+        marker_30fce21f61b7ebeb13415dd79781e3ec.bindPopup(popup_28264d730451d0e2694c0dc107656368)
+        ;
+
+        
+    
+    
+            var marker_30be8e542adff875de13f2251e014ee8 = L.marker(
+                [-34.5942604, -58.4481368],
+                {
+}
+            ).addTo(marker_cluster_1fcbf0c82567259734d170429ab5beb9);
+        
+    
+        var popup_c1e5f4e6dddffe14a5396d77b376c13c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_42f961557f629c2e9f6da887238fbd62 = $(`<div id="html_42f961557f629c2e9f6da887238fbd62" style="width: 100.0%; height: 100.0%;"><b>Artista: Bizarrap</b><br>Fecha: 2026-09-10<br>Precio: $80000.0<br>Lugar: Movistar Arena</div>`)[0];
+                popup_c1e5f4e6dddffe14a5396d77b376c13c.setContent(html_42f961557f629c2e9f6da887238fbd62);
+            
+        
+
+        marker_30be8e542adff875de13f2251e014ee8.bindPopup(popup_c1e5f4e6dddffe14a5396d77b376c13c)
+        ;
+
+        
+    
+    
+            marker_cluster_1fcbf0c82567259734d170429ab5beb9.addTo(map_9a7373d4858f880e24140e477665013c);
+        
+</script>
+</html>

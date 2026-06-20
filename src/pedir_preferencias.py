@@ -65,7 +65,7 @@ def ordenar_preferencias():
     "6": "lugar para sentarse"}
     
     while True:
-          solicitar_orden= input(f"Ordená tus preferencias de mayor a menor importancia:" 
+          solicitar_orden= input(f"Ordená tus preferencias de mayor a menor importancia:\n" 
                                  f"{categorias}" 
                                  "Ingresá los números separados por coma: ").strip()
               
@@ -346,6 +346,8 @@ def pedir_franja_horaria ():
             hora_min = pd.to_datetime (hora_min, format = '%H:%M').time()
             hora_max = pd.to_datetime (hora_max, format = '%H:%M').time()
         
+            if hora_max < hora_min:
+                raise ValueError ("La hora mínima no puede ser después de la hora máxima")
             
         except ValueError:
             print ("Ingrese el valor nuevamente hasta que sea válido")

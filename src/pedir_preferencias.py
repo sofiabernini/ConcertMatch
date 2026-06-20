@@ -232,14 +232,14 @@ def pedir_rango_precios():
     
     while True:
         try:
-            precio_min = float(input("Ingrese el precio mínimo (solo el número): "))
+            precio_min = float(input("Ingrese el precio mínimo (solo el número): ")).strip()
         except ValueError:
             print("Error: ingrese un número válido.")
             continue
 
         while True:
             try:
-                precio_max = float(input("Ingrese el precio máximo (solo el número): "))
+                precio_max = float(input("Ingrese el precio máximo (solo el número): ")).strip()
             except ValueError:
                 print("Error: ingrese un número válido.")
                 continue
@@ -289,9 +289,9 @@ def pedir_fechas():
     while True:
         try:
 
-            dia_fecha_1 = input("Ingrese el día (DD) de la fecha inicial: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01): ")
-            mes_fecha_1 = input("Ingrese el mes (MM) de la fecha inicial. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04): ")
-            año_fecha_1 = input ("Ingrese el año (AAAA) de la fecha inicial: ")
+            dia_fecha_1 = input("Ingrese el día (DD) de la fecha inicial: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01): ").strip()
+            mes_fecha_1 = input("Ingrese el mes (MM) de la fecha inicial. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04): ").strip()
+            año_fecha_1 = input ("Ingrese el año (AAAA) de la fecha inicial: ").strip()
             
             fecha_1 = f"{dia_fecha_1}-{mes_fecha_1}-{año_fecha_1}"
 
@@ -301,9 +301,9 @@ def pedir_fechas():
                 print("La fecha inicial no puede ser anterior a hoy.")
                 continue
 
-            dia_fecha_2 = input("Ingrese el día (DD) de la fecha final: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01): ")
-            mes_fecha_2 = input("Ingrese el mes (MM) de la fecha final. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04): ")
-            año_fecha_2 = input ("Ingrese el año (AAAA) de la fecha final.: ")
+            dia_fecha_2 = input("Ingrese el día (DD) de la fecha final: Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 01): ").strip()
+            mes_fecha_2 = input("Ingrese el mes (MM) de la fecha final. Si es un número menor a 10, incluir el 0 del principio (Por ejemplo, 04): ").strip()
+            año_fecha_2 = input ("Ingrese el año (AAAA) de la fecha final.: ").strip()
             
             fecha_2 = f"{dia_fecha_2}-{mes_fecha_2}-{año_fecha_2}"
 
@@ -342,13 +342,13 @@ def pedir_franja_horaria ():
     while True:
         
         try:
-            hora_1 = input ("Ingrese la hora mínima (Solo la hora): ")
-            minutos_1 = input ("Ingrese los minutos de la hora mínima (Solo minutos): ")
+            hora_1 = input ("Ingrese la hora mínima (Solo la hora): ").strip()
+            minutos_1 = input ("Ingrese los minutos de la hora mínima (Solo minutos): ").strip()
             
             hora_min = f"{hora_1}:{minutos_1}"
             
-            hora_2 = input ("Ingrese la hora máxima (Solo la hora): ")
-            minutos_2 = input ("Ingrese los minutos máximos (Solo minutos): ")
+            hora_2 = input ("Ingrese la hora máxima (Solo la hora): ").strip()
+            minutos_2 = input ("Ingrese los minutos máximos (Solo minutos): ").strip()
             
             hora_max = f"{hora_2}:{minutos_2}"
         
@@ -379,7 +379,7 @@ def pedir_distancia_max():
     
     while True: 
          try:
-             distancia_max=float(input("Ingrese la distancia maxima en km que estaría dispuesto a viajar: "))
+             distancia_max=float(input("Ingrese la distancia maxima en km que estaría dispuesto a viajar: ")).strip()
          except ValueError: 
              print("El ingreso debe ser un float. Vuelva a ingresar una distancia máxima")
          else:
@@ -406,7 +406,7 @@ def pedir_ubicacion_partida(df):
     print ("📍 Obtención de la dirección de partida: Va a ingresar la dirección desde donde desee hacer la búsqueda"
           "Este dato será utilizado para calcular las distancias con los eventos y determinar si están dentro del rango solicitado")
     while True: 
-        direccion_usuario= input("Ingrese su dirección completa de partida. Ejemplo de ingreso: Av. Cabildo 2450, Belgrano, Ciudad Autónoma de Buenos Aires, Argentina: ")
+        direccion_usuario= input("Ingrese su dirección completa de partida. Ejemplo de ingreso: Av. Cabildo 2450, Belgrano, Ciudad Autónoma de Buenos Aires, Argentina: ").strip()
         if direccion_usuario.strip()=="":
            print("El ingreso de la dirección no puede estar vacío. Porfavor, vuelva a ingresar su ubicación de partida")
         else: 

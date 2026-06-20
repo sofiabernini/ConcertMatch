@@ -330,7 +330,7 @@ def pedir_franja_horaria ():
            
            "Aclaraciones: Esta búsqueda no contempla toda la duración del concierto. Es decir, va a utilizarse para buscar conciertos que comiencen dentro de la franja horaria ingresada," 
            "pero no considera si el evento termina después del horario indicado como su máximo" 
-           "Pedimos que el rango de búsqueda sea dentro de un mismo día")
+           "El rango de búsqueda debe estar dentro de un mismo día (desde las 00:00 hasta las 23:59)"    )
     
     while True:
         

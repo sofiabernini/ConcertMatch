@@ -57,11 +57,11 @@ def ordenar_preferencias():
     """
     print ("🗒️ En esta sección, deberá ordenar las categorías que se presenten según sus preferencias. El orden deberá ser de mayor a menor nivel de importancia, y ese orden se aplicará a su búsqueda y al nivel de coincidencias")
     texto_categorias = ("1) genero\n"
-                    "2) precio\n"
-                    "3) fecha\n"
-                    "4) horario\n"
-                    "5) distancia\n"
-                    "6) lugar para sentarse\n")
+                        "2) precio\n"
+                        "3) fecha\n"
+                        "4) horario\n"
+                        "5) distancia\n"
+                        "6) lugar para sentarse\n")
     
     categorias = {
     "1": "genero",

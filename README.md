@@ -79,6 +79,21 @@ Esto significa que la distancia mostrada por el programa puede ser menor a la di
 
 
 **Estructura del repositorio:**
+```
+ConcertMatch/
+├── data/
+├── docs/
+├── graficos/
+├── src/
+│   ├── cargar_dataset.py
+│   ├── filtrar_df.py
+│   ├── graficos.py
+│   ├── pedir_preferencias.py
+│   ├── resultados.py
+│   └── validar_df.py
+├── main.py
+├── README.md
+└── requirements.txt
 
 Carpetas (Directorios):
 

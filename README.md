@@ -32,18 +32,16 @@ Matilde Urrestarazu Romero: Programación de pedir_preferencias.py, filtrar_df.p
 
 
 
-
-#Redactar mejor
 **Fuente de Datos:**
 
 El proyecto utiliza un dataset simulado (concertmatch_dataset_prueba.csv) generado con asistencia de Inteligencia Artificial (Gemini). Contiene eventos musicales con información detallada sobre artistas, géneros, precios, fechas, horarios, ubicaciones (direcciones), estadios/predios, disponibilidad de entradas y condiciones del lugar. Además, se incluye información que se mostrará al final o que se filtrará durante la ejecución del programa, como el link que lleva a la ticketera, la fecha en la que se comienzan a vender las entradas para el evento, o la condición de si quedan entradas disponibles. 
 
-Este fue realizado con Inteligencia Artificial (IA) ya que no fue posible acceder a los dataset reales de las ticketeras. De todas formas, el programa está pensado para que se pueda ejecutar si se ingresara un dataset real. Sin embargo, hay algunas consideraciones a tener en cuenta sobre los datos que son válidos para el programa, debido a las funciones y librerías que utilizamos. Por ejemplo, los datos de la columna de Ubicación del dataset deben tener el nombre completo de la calle (no abreviaciones) y alguna especificación de la ciudad o distrito. Esto se debe a que Geopy, la librería que utilizamos para esta validación y para otras funciones, necesita especificidad para hacer correctamente el cálculo de coordenadas de las direcciones. Si no se cargan estos datos correctamente, probablemente se pierdan conciertos en la limpieza de datos, ya que se eliminan las filas que no contengan una ubicación validada por Geopy. O bien, podría perderse alguna de las opciones porque el cálculo de las distancia estaría hecho sobre la dirección de otro distrito o región (puede haber calles repetidas en distintos distritos).
+Este fue realizado con Inteligencia Artificial (IA) ya que no fue posible acceder a los dataset reales de las ticketeras. De todas formas, el programa está pensado para que se pueda ejecutar si se ingresara un dataset real. Sin embargo, hay algunas consideraciones a tener en cuenta sobre los datos que son válidos para el programa, debido a las funciones y librerías que utilizamos. Por ejemplo, los datos de la columna de Ubicación del dataset deben tener el nombre completo de la calle (no abreviaciones) y alguna especificación de la ciudad o distrito (un ejemplo de formato válido sería escribir "Humboldt 450, CABA"). Esto se debe a que Geopy, la librería que utilizamos para esta validación y para otras funciones, necesita especificidad para hacer correctamente el cálculo de coordenadas de las direcciones. Si no se cargaran correctamente estos datos, probablemente se perderán conciertos a la hora de realizar la limpieza de datos, (ya que se eliminan las filas que no contienen una ubicación validada por Geopy;) o bien, podría perderse alguna de las opciones a mostrar debido a que el cálculo de las distancia estaría hecho sobre la dirección de otro distrito o región (puede haber calles repetidas en distintos distritos).
 
-Aclaración: El dataset no llega a los 1000 registros (como se indica en la consigna) porque la IA no fue capaz de realizarlo. Sin embargo, esto ya fue conversado y aprobado por la profesora.
+Aclaración: El dataset no llega a los 1000 registros (como se indica en la consigna) porque la IA no fue capaz de realizarlo. Sin embargo, esto ya fue conversado y aprobado por los profesores.
 
 
-#ver si esto al final va a ser así según si podemos mejorar lo de Geopy
+
 **Instrucciones para ejecutar el programa**
 
 Para poder ejecutar el programa, se deben tener descargadas las librerías mencionadas en el siguiente apartado. También se pueden ver en el archivo requirements.txt
@@ -56,6 +54,9 @@ Luego de la validación el Dataset, aparece el siguiente mensaje de bienvenida, 
 =============================================
 "🎸 BIENVENIDO A CONCERTMATCH 🎸")
 =============================================
+
+Otra aclaración importante a tener en cuenta con respecto a las condiciones necesarias para la correcta ejecución del programa es que la geolocalización requiere conexión a internet para conectarse a OpenStreetMap mediante Geopy.
+
 
 
 **Librerías utilizadas:**
@@ -79,7 +80,6 @@ Esto significa que la distancia mostrada por el programa puede ser menor a la di
 
 
 **Estructura del repositorio:**
-```
 ConcertMatch/
 ├── data/
 ├── docs/
@@ -91,6 +91,7 @@ ConcertMatch/
 │   ├── pedir_preferencias.py
 │   ├── resultados.py
 │   └── validar_df.py
+├── .gitignore
 ├── main.py
 ├── README.md
 └── requirements.txt
@@ -98,8 +99,8 @@ ConcertMatch/
 Carpetas (Directorios):
 
 * **data:** Almacena el dataset en concertmatch_dataset_prueba.csv
-* **docs:** Contiene la documentación y el diseño (diagramas de flujo) del proyecto.
-* **requirements.txt:** En esta carpeta se listan las librerías que se deben instalar para poder ejecutar el programa (pandas, matplotlib.pyplot, datetime, os, geopy, folium, webbrowser
+* **docs:** Contiene los diagramas de flujo de las funciones del proyecto.
+* **requirements.txt:** En esta carpeta se listan las librerías que se deben instalar para poder ejecutar el programa (pandas, matplotlib.pyplot, datetime, os, geopy, folium, webbrowser, time)
 * **src:** Contiene todas las funciones que se van a llamar desde el programa principal (dentro de los archivos: cargar_dataset.py, filtrar_df.py, graficos.py, pedir_preferencias.py, resultados.py, validar_df.py)
 
 Archivos en la raíz:
@@ -139,7 +140,7 @@ Los diagramas de flujo, donde se permite una mejor visualización del orden de e
 
 
 
-**Uso de Inteligencia Artificial:** (incluir prompts)
+**Uso de Inteligencia Artificial:** 
 
 La Inteligencia Artificial fue utilizada como herramienta de apoyo durante el desarrollo, puntualmente para:
 
@@ -147,12 +148,4 @@ La Inteligencia Artificial fue utilizada como herramienta de apoyo durante el de
 
 - Mejoras en el diseño: Por ejemplo, se pidieron diversos emojis tales como: 🎸
 
-
-
-
-
-
-**Aclaraciones finales para la correcta ejecución del programa:**
-
-- La geolocalización requiere conexión a internet para conectarse a OpenStreetMap mediante Geopy.
 

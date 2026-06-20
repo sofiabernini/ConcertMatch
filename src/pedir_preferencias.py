@@ -9,6 +9,7 @@ Created on Tue Jun  9 20:23:30 2026
 import pandas as pd
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
+import datetime
 
 
 def hacer_pregunta_si_no(mensaje):

@@ -56,9 +56,15 @@ def grafico_mapa(df):
         # AGREGAR AL CLUSTER en lugar de directo al mapa
         marcador.add_to(cluster)
       
-    # Guardar y abrir
-    mapa.save("mapa_conciertos.html")
-    print("Mapa generado correctamente: mapa_conciertos.html")
+    # Guardar en carpeta específica y abrir en web browser
+    #Crear carpeta 
+    carpeta_destino = "graficos/"
+    os.makedirs(carpeta_destino, exist_ok=True)
+    
+    ruta_archivo = os.path.join(carpeta_destino, "mapa_conciertos.html")
+
+    mapa.save(ruta_archivo)
+    print(f"Mapa generado correctamente: {ruta_archivo}")
 
     ruta_completa = os.path.abspath("mapa_conciertos.html")
     webbrowser.open(f"file://{ruta_completa}")

@@ -1,9 +1,11 @@
 # ConcertMatch
 
 **Título del proyecto**
+
 🎸 ConcertMatch: Recomendador Inteligente de Conciertos 
 
 **Autoras:**
+
 María Emilia Barbeito, Sofía Belén Bernini, Angelina Marengo, Victoria Mochnacs y Matilde Urrestarazu Romero
 
 
@@ -14,6 +16,7 @@ En el panorama actual del entretenimiento, la oferta de música en vivo es masiv
 ConcertMatch busca resolver este problema mediante la centralización de la información en un sistema interactivo que funciona como un "recomendador" de conciertos personalizado. El programa procesa un Dataset que contiene la información de los eventos musicales disponibles en cartelera, para luego ofrecer recomendaciones precisas según las preferencias del usuario (género musical, presupuesto, disponibilidad horaria y de fechas, distancia máxima a recorrer y necesidades de accesibilidad/asientos). Estas preferencias serán obtenidas tras una serie de preguntas que se le realizarán al comienzo de su interacción con el programa.
 
 Finalmente, el usuario verá sus resultados en tres formatos distintos. El primero será por medio de la consola, donde se imprimirá un listado ordenado y detallado con los mejores conciertos recomendados que se ajustan a los filtros que se fueron aplicando. El segundo formato consistirá en un histograma comparativo, el cual le permitirá analizar visualmente cómo se distribuyen sus opciones recomendadas frente al total de la oferta (enfocándose en su variable de mayor prioridad, ya sea el precio o la distancia). Por último, el programa generará y abrirá automáticamente un mapa interactivo en su navegador web, donde podrá explorar la ubicación geográfica exacta de cada evento sugerido haciendo clic en los marcadores.
+
 
 
 **Adjudicación de tareas:** 
@@ -28,7 +31,7 @@ Angelina Marengo: Programación de las funciones dentro del archivo pedir_prefer
 
 Victoria Mochnacs: Diagrama inicial del programa general. Programación de las funciones dentro de validar_df.py, pedir_preferencias.py.
 
-Matilde Urrestarazu Romero: Programación de pedir_preferencias.py, filtrar_df.py y resultados.py
+Matilde Urrestarazu Romero: Diagramas de flujo de filtrar_resultados. Programación de pedir_preferencias.py, filtrar_df.py, resultados.py y colaboración en el armado de la función ejecutar_programa.
 
 
 
@@ -78,7 +81,6 @@ Esto significa que la distancia mostrada por el programa puede ser menor a la di
 
 
 
-
 **Estructura del repositorio:**
 ConcertMatch/
 ├── data/
@@ -99,7 +101,7 @@ ConcertMatch/
 Carpetas (Directorios):
 
 * **data:** Almacena el dataset en concertmatch_dataset_prueba.csv
-* **docs:** Contiene los diagramas de flujo de las funciones del proyecto.
+* **docs:** Contiene los diagramas de flujo de las funciones del proyecto y el Prompt base (utilizado para dar contexto a la hora de consultar a la Inteligencia Artificial).
 * **requirements.txt:** En esta carpeta se listan las librerías que se deben instalar para poder ejecutar el programa (pandas, matplotlib.pyplot, datetime, os, geopy, folium, webbrowser, time)
 * **src:** Contiene todas las funciones que se van a llamar desde el programa principal (dentro de los archivos: cargar_dataset.py, filtrar_df.py, graficos.py, pedir_preferencias.py, resultados.py, validar_df.py)
 
@@ -142,10 +144,69 @@ Los diagramas de flujo, donde se permite una mejor visualización del orden de e
 
 **Uso de Inteligencia Artificial:** 
 
-La Inteligencia Artificial fue utilizada como herramienta de apoyo durante el desarrollo, puntualmente para:
+La Inteligencia Artificial (IA) fue utilizada como herramienta de apoyo durante el desarrollo, puntualmente para la generación de datos, la prevención de errores y la creación de la estructura básica de determinadas funciones. Todas las respuestas que fueron dadas, luego fueron perfeccionadas y modificadas según fuera necesario. Los nuevos prompts que fuimos generando se basaron en el contexto ya otorgado por el "Prompt base" (que se puede visualizar dentro de la carpeta de "docs" en el repositorio. A continuación, mostraremos algunos de los prompts más importantes junto a breve descripciones de para qué fueron utilizados:
 
-- Generación de Datos: Creación de la estructura y el contenido simulado del dataset de conciertos.
+- Funciones pedir_ubicacion_partida y calcular_distancias: 
+Prompt 1:
+"Estamos haciendo un trabajo aplicado de Programación. Prompt base. Para la categoría “distancia” necesito calcular distancias entre la ubicación del usuario y cada una de las ubicaciones del DataFrame. Por lo tanto, necesito que me recomiendes una librería/API que me permita calcular distancias."
 
-- Mejoras en el diseño: Por ejemplo, se pidieron diversos emojis tales como: 🎸
+Prompt 2:
+"Ahora que me recomendaste usar la librería geopy, necesito que me armes un código que: i) le pida al usuario su dirección ii) permita calcular distancias entre la ubicación del usuario y cada una de las ubicaciones del DataFrame. iii) Luego, guarde las distancias en una lista de distancias  iv) agregue lista_distancias al DataFrame como una columna de “distancias”. 
+Necesito que esto esté dentro de funciones, pueden ser las que consideres necesarias para que no queden funciones con muchas responsabilidades. Además, necesito que me expliques de manera exhaustiva y precisa qué es lo que hace cada bloque de código, porque necesito entender bien qué es lo me permite hacer esta librería."
+
+
+- pedir_generos:
+Prompt: "Necesito que generes una función que pida los géneros que le agradan al usuario. La función debe recibir por parámetro una columna de géneros de un DataFrame, eliminar los géneros repetidos y mostrarle al usuario una tabla con el ID de cada género y el género asociado para que el usuario seleccione uno o más ingresando sus ID hasta que ingrese ‘fin’. Maneja todos los errores que puedan surgir en la interacción con el usuario y finalmente debe devolver una lista con los géneros seleccionados."
+
+
+- Para la función pedir fechas() se usó la Inteligencia Artificial, especialmente para la conversión de los datos ingresados por el usuario a objetos de mediante la libreria datetime y el manejo de los errores relacionados con el ingreso de las fechas. Al igual que en pedir_franja_horaria () donde se la utilizó para resolver dudas concretas sobre el formato y la construcción de las variables hora_min y hora_max.
+
+
+- grafico_mapa: 
+Prompt 1: “Necesito que hagas una función que cree un gráfico de mapa de los eventos que quedaron en df_ordenado utilizando la librería folium. La función debe: Recibir el df_ordenado por parámetro, Verificar que el df_ordenado no esté vacío, Crear un mapa interactivo:
+deben estar los eventos del df_ordenado representados con marcadores en el mapa al tocar cada marcado debe saltar la información del evento”
+
+Luego, simplemente queríamos agregar que, al crear el gráfico del mapa, se abriera una pestaña web automáticamente. Entonces:
+
+Prompt 2: "¿Hay forma de que el html de mapa se muestre en Spyder? ¿o solo se muestra aparte (en un archivo creado automáticamente? ¿cómo puedo hacer para que se visualice de una forma más cómoda para el usuario? La respuesta que nos dio fue la misma que incorporamos al código del programa."
+
+
+- resultados:
+En la función de ordenar_resultados() se utilizó la IA con el siguiente Prompt: Hacer una función que reciba por parámetro un df filtrado y el nombre de una columna y que ordene los conciertos de menor a mayor según esa columna. Finalmente devolver el DataFrame ordenado. 
+
+En la funcion mostrar_info_resultados(df_ordenado) se utilizó la IA especialmente para la línea: for _, fila in df_ordenado.head(5).iterrows(): para evitar generar otro DataFrame que solo contenga los 5 primeros conciertos y poder recorrer directamente el df_ordenado que devolvió la función anterior.
+
+
+- crear_histograma_comparativo: 
+Prompt: "Necesito que hagas una función que cree un histograma comparativo entre: 
+El df original que contiene todos los eventos
+El df_filtrado, que es el df resultado de aplicar todos los filtros
+La idea de esta función es que recibe por parámetro una variable llamada columna_importante, y que en base a esta haga el histograma de la siguiente manera:
+si columna_importante es igual a “Precio final”, entonces el histograma debe mostrar la cantidad de conciertos de ambos df para los distintos rangos de precios. 
+si columna_importante es igual a “distancias”, entonces el histograma debe mostrar la cantidad de conciertos de ambos df para las distintas distancias. 
+Algunas aclaraciones importantes: 
+columna_importante sí o sí es “Precio final” o “distancias”. No puede valer otra cosa, porque existe una función llamada obtener_columna_importante que se fija si “precio” o “distancia” está antes que la otra en categorias_ordenadas y en base a eso devuelve “Precio final” o “distancia” respectivamente. Por lo tanto, no es necesario validar el valor de la variable columna_importante.
+El histograma debe superponer la información de ambos DataFrames para que el usuario pueda visualizar cómo quedaron los conciertos recomendados respecto del conjunto total de conciertos disponibles."
+
+
+- Creación de dataset:
+Al no poder acceder a los datasets reales de las ticketeras, le pedimos a la Inteligencia Artificial que generara uno con el que pudiéramos trabajar. El prompt fue el siguiente:
+“Generá un dataset que contenga las siguiente columnas: Artista/Banda, Género musical, Precio final, Fecha, Horario, Ubicación (dirección), Estadio/Predio, Acceso movilidad reducida (True/False), Lugar para sentarse (True/False), Link ticketera, Quedan entradas (True/False), Lanzamiento venta (con una fecha asignada). 
+El Dataset debe tener la mayor cantidad de filas posibles (idealmente 1000) y debe basarse en información real de eventos que estén a la venta actualmente.”
+
+
+- Manejo de errores en función carga_dataset:
+Dado que no profundizamos en el manejo de datasets durante las clases, quisimos anticipar posibles fallos desconocidos. Por ello, consultamos a la Inteligencia Artificial sobre cómo prevenir errores al cargar y procesar los datos en el programa. El prompt fue el siguiente:
+“Necesito que, como si fueras un programador experto, generes una función llamada carga_dataset que reciba por parámetro una ruta de archivo CSV (llamado ruta_archivo), lo abra y lo convierta en un DataFrame de pandas. Además, agregale toda la prevención de errores necesaria (usando try-except o validaciones) para atajar cualquier problema antes de que ocurra (por ejemplo: que el archivo no exista, que el dataset esté completamente vacío, que no tengamos los permisos para acceder al dataset, etc.). La idea es que el programa sea robusto y no se rompa.”
+
+
+- Funciones de validar_df:
+Al tener que validar las ubicaciones, tuvimos que preguntarle a la IA cómo utilizar Geopy para obtener las coordenadas de la columna “Ubicación”, crear las columnas de longitud y latitud, y asignarles Nan si no se encontraba alguna de las ubicaciones:
+
+Prompt: “Tengo este dataset y quiero validar que las Ubicaciones (columna "Ubicación") existan, usando geopy, dentro de una función que se llama "limpieza_df". Mi idea es verificar que las direcciones existan y, si alguna no existe, convertir ese dato a NaN. Al final de la función de limpieza, simplemente voy a hacer un df = df.dropna(). ¿Qué recomendarías que haga?” (Cargué el mock data)
+
+Este prompt tuvo sus modificaciones y finalmente fue utilizado para la función “limpiar_ubicaciones”
+A su vez, utilice la IA para implementar ciertas validaciones de horario o fechas, y me sugirió incorporar la librería time. Por último, la IA me recomendó hacer la limpieza de valores booleanos con .map.
+
 
 

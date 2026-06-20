@@ -67,7 +67,7 @@ Luego de la validación el Dataset, aparece el siguiente mensaje de bienvenida, 
 * **geopy:** Realiza la geolocalización para convertir la dirección ingresada por el usuario en coordenadas (latitud/longitud) y el cálculo de distancias reales con geodesic.
 * **webbrowser:** Permite abrir un archivo .html en la ventana del navegador
 * **folium**: Permite la creación del mapa interactivo HTML con marcadores agrupados (MarkerCluster).
-* **time**: Se utiliza para castear el formato de horario y fechas.
+* **time**: Se utiliza para castear el formato de horario y fechas. También, para que la geolocalización de la columna "Ubicación" no se sature
 
 
 *Aclaraciones sobre Geopy*

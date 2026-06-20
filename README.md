@@ -31,7 +31,7 @@ Angelina Marengo: Programación de las funciones dentro del archivo pedir_prefer
 
 Victoria Mochnacs: Diagrama inicial del programa general. Programación de las funciones dentro de validar_df.py, pedir_preferencias.py.
 
-Matilde Urrestarazu Romero: Programación de pedir_preferencias.py, filtrar_df.py y resultados.py
+Matilde Urrestarazu Romero: Diagramas de flujo de filtrar_resultados. Programación de pedir_preferencias.py, filtrar_df.py, resultados.py y colaboración en el armado de la función ejecutar_programa.
 
 
 

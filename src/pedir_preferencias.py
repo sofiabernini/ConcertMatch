@@ -46,7 +46,7 @@ def ordenar_preferencias():
         -Que el usuario ingrese un numero, 
         -Que el numero ingresado este entre 1 y 6, 
         -Que ingrese si o si 6 números y que no ingrese numeros repetidos. 
-    Una vez validado, se traducen los numeros a sus categorias correcpondientes y devuelve una lista con las categorias ordenadas.
+    Una vez validado, se traducen los numeros a sus categorias correspondientes y devuelve una lista con las categorias ordenadas.
     
     Returns
     -------
@@ -54,7 +54,7 @@ def ordenar_preferencias():
         lista de preferencias segun el orden de prioridad elegido por el usuario
 
     """
-    print ("🗒️ En esta sección, deberá ordenar las categorías que se presenten según sus preferencias. El orden deberá ser de mayor a menor nivel de importancia.)
+    print ("🗒️ En esta sección, deberá ordenar las categorías que se presenten según sus preferencias. El orden deberá ser de mayor a menor nivel de importancia.")
     texto_categorias = ("1) genero\n"
                         "2) precio\n"
                         "3) fecha\n"
@@ -102,8 +102,7 @@ def ordenar_preferencias():
         valor = categorias[numero]
         categorias_ordenadas.append(valor)
     
-    return categorias_ordenadas # devuleve una lista ["direccion", "horario"," fecha", "cuenta con asientos","genero", "precio"] (según el orden que haya ingresado el usuario)
-
+    return categorias_ordenadas 
 
 def pedir_preferencias(df, categorias_ordenadas):
     """
@@ -172,9 +171,9 @@ def pedir_generos(columna_generos):
     #crea un nuevo DataFrame con una columna ID (que sería el id del género), y con otra columna de los generos sin repetir.
     
 
-    print("Esto son los géneros disponibles.")
+    print("Estos son los géneros disponibles.")
     print(tabla_generos)
-    #Se muestra la tabla/DataFrame de los géneros sin repetir con al columna de id, entonces cada id se corresponde a cada género.
+    #Se muestra la tabla/DataFrame de los géneros sin repetir con la columna de id, entonces cada id corresponde a cada género.
 
     generos_seleccionados = []
     #Es la lista en donde se van a guardar los géneros que elige el usuario.
@@ -188,13 +187,12 @@ def pedir_generos(columna_generos):
         #volviendo a pedirle que ingrese un género   (numero) o "fin"
 
         if opcion.lower() == "fin":
-#si el ingreso del usuario en minúscula es igual a fin, entonces:
             if len(generos_seleccionados) == 0: #se fija si la lista de generos_seleccionados tiene elementos o no: 
                 print("Debe seleccionar al menos un género.")    #si no tiene, se reinicia el ciclo while. 
               
             else:
                 break
-    #Si sí tiene, entonces se corta el ciclo while (con el break)
+    #Si tiene, entonces se corta el ciclo while (con el break)
         else: #si la opción no es fin:
             try:
                 opcion = int(opcion)
@@ -372,7 +370,9 @@ def pedir_distancia_max():
    
     Returns
     distancia_max: float
-    devuelve al distancia máxima que está dispuesto a recorrer el usuario 
+    devuelve la distancia máxima que está dispuesto a recorrer el usuario 
+    
+    No hay raises, la función maneja los errores internamente
     """
     print ("🗺️ Definición de distancia máxima que esté dispuesto a recorrer.")
     
